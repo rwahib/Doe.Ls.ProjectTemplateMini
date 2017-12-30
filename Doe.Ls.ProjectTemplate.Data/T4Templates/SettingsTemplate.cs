@@ -24,7 +24,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates
     
     #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
-    public partial class SettingsTemplate : BaseTemplate
+    public partial class SettingsTemplate : MVCTemplate.BaseTemplate
     {
 #line hidden
         /// <summary>

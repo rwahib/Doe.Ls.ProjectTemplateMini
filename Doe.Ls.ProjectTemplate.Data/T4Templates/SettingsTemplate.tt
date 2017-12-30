@@ -1,4 +1,4 @@
-﻿<#@ template language="C#"inherits="BaseTemplate" #> 
+﻿<#@ template language="C#"inherits="MVCTemplate.BaseTemplate" #> 
 <#@ assembly name="System.Core" #>
 <#@ assembly name="System.Xml.Linq" #>
 <#@ assembly name="System.Configuration" #>

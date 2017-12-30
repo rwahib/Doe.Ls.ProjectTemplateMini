@@ -1,0 +1,104 @@
+@model CapabilityLevel
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData); 
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+    
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+        
+}
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(model=>model.CapabilityLevelId)
+                   
+<div class="form-group @GetFormGroupClass("LevelName")">
+    <label for="LevelName" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.LevelName) <span class="mandatory">*</span></label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="text" name="LevelName" id="LevelName" class="form-control" placeholder="e.g. LevelName" value="@Model.LevelName"  @ReadOnly("LevelName")  required data-fv-notempty-message='The Level name is required'    />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("DisplayOrder")">
+    <label for="DisplayOrder" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.DisplayOrder) <span class="mandatory">*</span></label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="number" name="DisplayOrder" id="DisplayOrder" class="form-control" placeholder="Please enter display order" value="@Model.DisplayOrder"  @ReadOnly("DisplayOrder")  required data-fv-notempty-message='The Display order is required'    data-fv-integer-message='The Display order is not an integer'/>
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("LevelOrder")">
+    <label for="LevelOrder" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.LevelOrder) <span class="mandatory">*</span></label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="number" name="LevelOrder" id="LevelOrder" class="form-control" placeholder="Please enter the level order" value="@Model.LevelOrder"  @ReadOnly("LevelOrder")  required data-fv-notempty-message='The Level order is required'    data-fv-integer-message='The Level order is not an integer'/>
+                  
+                        </div>
+    </div>
+</div>                       
+
+
+@functions
+{
+    bool IsKey(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) 
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+        
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+            {
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                break;
+            }
+        }
+        return string.Empty;        
+    }    
+}

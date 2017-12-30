@@ -1,0 +1,68 @@
+﻿@model RolePositionDescription
+@{
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);
+   
+    ViewBagWrapper.InfoBag.SetTitle("Link Position", ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    Layout = null;
+}
+
+<div class="modal-header">
+    <h5 class="modal-title" id="tempModalLabel">@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&#215;</span>
+    </button>
+</div>
+<div class="error-popup">
+    <ul class="list-group">
+        @foreach (var error in errors)
+        {
+            <li class="list-group-item ">
+                <label class="validation-error">@string.Format("{0} has error:", error.PropertyName.Wordify())</label>
+                <label class="validation-error">@string.Format("{0}", error.ErrorMessage)</label>
+            </li>
+        }
+    </ul>
+</div>
+<div class="success-popup">
+    <ul class="list-group">
+        <li class="list-group-item ">
+            <label class="text-success" id="lbl-success"></label>
+        </li>
+    </ul>
+</div>
+
+<div id="formTab">
+    <form class="" role="form" action="@Url.Action("AttachPositions")" @*"~/Grade/Create"*@ method="POST" id="form-grade-create" data-fv-feedbackicons-validating="glyphicon glyphicon-refresh">
+        @Html.AntiForgeryToken()
+    @Html.HiddenFor(model=>model.RolePositionDescId)
+        <div class="modal-body">
+            <div class="row">
+                @*<span class=" label-warning none" id="mismatchPD">
+                Please note that the selected Position description title and position title is different!
+            </span>*@
+                <label for="PositionId" class="col-form-label col-lg-3">Position</label>
+
+                <div class="col-lg-7">
+                    <div class="input-group ">
+                        
+                        <input type="hidden" required class="form-control select2pickerAjax" id="PositionId"
+                               name="PositionId" data-ajax='@ProjectTemplateSettings.Site.AppUrl/Position/LoadPositions' 
+                               placeholder="Please enter Position number" value="" data-ref-elmid="PositionId">
+
+                        <span class="input-group-addon"> </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+    </form>
+</div>

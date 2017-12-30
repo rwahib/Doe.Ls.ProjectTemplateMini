@@ -1,0 +1,99 @@
+@using Doe.Ls.EntityBase.MVCExtensions
+@model AppEntityType
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData); 
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+    
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+        
+}
+@Html.AntiForgeryToken()
+                         <div class="form-group @GetFormGroupClass("EntityTypeId")">
+  <label for="EntityTypeId" class="col-lg-4">@Html.DisplayNameFor(model => model.EntityTypeId) <span class="mandatory">*</span></label>
+  <input type="number" name="EntityTypeId" id="EntityTypeId" class="form-control col-lg-8" placeholder="e.g. Entity type id" value="@Model.EntityTypeId"@ReadOnly("EntityTypeId")  required data-fv-notempty-message='The Entity type id is required'    data-fv-integer-message='The Entity type id is not an integer' /> 
+</div>
+                         <div class="form-group @GetFormGroupClass("EntityApiName")">
+  <label for="EntityApiName" class="col-lg-4">@Html.DisplayNameFor(model => model.EntityApiName) <span class="mandatory">*</span></label>
+  <input type="text" name="EntityApiName" id="EntityApiName" class="form-control col-lg-8" placeholder="e.g. Entity api name" value="@Model.EntityApiName"@ReadOnly("EntityApiName")  required data-fv-notempty-message='The Entity api name is required'     /> 
+</div>
+                         <div class="form-group @GetFormGroupClass("EntityTitle")">
+  <label for="EntityTitle" class="col-lg-4">@Html.DisplayNameFor(model => model.EntityTitle) <span class="mandatory">*</span></label>
+  <input type="text" name="EntityTitle" id="EntityTitle" class="form-control col-lg-8" placeholder="e.g. Entity title" value="@Model.EntityTitle"@ReadOnly("EntityTitle")  required data-fv-notempty-message='The Entity title is required'     /> 
+</div>
+                                    
+
+                          <div class="form-group @GetFormGroupClass("SysAdminDashboard")">
+  <label for="SysAdminDashboard" class="col-lg-4">@Html.DisplayNameFor(model => model.SysAdminDashboard) <span class="mandatory">*</span></label>
+  <input type="checkbox" name="SysAdminDashboard" id="SysAdminDashboard" class="form-control col-lg-8" placeholder="e.g. Sys admin dashboard" value="@Model.SysAdminDashboard"@ReadOnly("SysAdminDashboard")  required data-fv-notempty-message='The Sys admin dashboard is required'     /> 
+</div>
+                         <div class="form-group @GetFormGroupClass("PowerUserDashboard")">
+  <label for="PowerUserDashboard" class="col-lg-4">@Html.DisplayNameFor(model => model.PowerUserDashboard) <span class="mandatory">*</span></label>
+  <input type="checkbox" name="PowerUserDashboard" id="PowerUserDashboard" class="form-control col-lg-8" placeholder="e.g. Power user dashboard" value="@Model.PowerUserDashboard"@ReadOnly("PowerUserDashboard")  required data-fv-notempty-message='The Power user dashboard is required'     /> 
+</div>
+                         <div class="form-group @GetFormGroupClass("HighPriority")">
+  <label for="HighPriority" class="col-lg-4">@Html.DisplayNameFor(model => model.HighPriority) <span class="mandatory">*</span></label>
+  <input type="checkbox" name="HighPriority" id="HighPriority" class="form-control col-lg-8" placeholder="e.g. High priority" value="@Model.HighPriority"@ReadOnly("HighPriority")  required data-fv-notempty-message='The High priority is required'     /> 
+</div>
+ 
+  
+@functions
+{
+    bool IsKey(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) 
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+        
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+            {
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                break;
+            }
+        }
+        return string.Empty;        
+    }    
+}
+
+
+
+

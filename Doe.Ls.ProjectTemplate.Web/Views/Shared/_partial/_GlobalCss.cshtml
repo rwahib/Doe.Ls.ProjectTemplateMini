@@ -1,0 +1,45 @@
+﻿
+@using AppCacheHelper = Doe.Ls.ProjectTemplate.Core.BL.UI.AppCacheHelper
+<link href="@GetUrlWithToken("favicon.ico")" rel="shortcut icon" type="image/x-icon" />
+
+
+<link href="@GetUrlWithToken("Scripts/Framework/bootstrap-4/css/bootstrap.min.css")" rel="stylesheet" />
+
+
+@* StyleSheets for the Plugins *@
+
+<link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/bsFormValidation/css/formValidation.min.css")" />
+
+<link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/bootstrapDatatable/DataTables-1.10.11/css/jquery.dataTables.min.css")" />
+<link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/bootstrapDatatable/Responsive-2.0.2/css/responsive.dataTables.min.css")" />
+<link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/bootstrapDatatable/Responsive-2.0.2/css/responsive.bootstrap.min.css")" />
+
+<link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/bootstrapDatepicker/datepicker.css")" />
+
+<link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/bootstrapSelect2/select2.css")" />
+<link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/bootstrapSelect2/select2-bootstrap.css")" />
+
+<link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/bootstrap-multiselect/css/bootstrap-multiselect.css")" />
+
+<link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/bootstrap-multiselect/css/prettify.css")" />
+
+@*<link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/bootstrap-timepicker/bootstrap-responsive.css")" />*@
+<link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/bootstrap-timepicker/bootstrap-timepicker.min.css")" />
+
+
+
+
+@functions
+{
+
+
+    private string GetUrlWithToken(string url, bool absolute = false)
+    {
+        if (!absolute)
+        {
+            url = ProjectTemplateSettings.Site.AppUrl + url;
+        }
+
+        return string.Format("{0}?token={1}", url, AppCacheHelper.Token);
+    }
+}

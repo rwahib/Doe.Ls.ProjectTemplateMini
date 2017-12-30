@@ -1,0 +1,27 @@
+@model EmployeeType
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Employee type Detail",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    Layout = null;
+}
+ 
+<div class="modal-header">
+    <h5 class="modal-title" id="tempModalLabel">@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&#215;</span>
+    </button>
+</div>
+
+
+<div id="formTab">
+    <form class="" role="form" id="form-detail-employeeType" data-fv-feedbackicons-validating="glyphicon glyphicon-refresh">
+        <div class="modal-body">
+            @Html.Partial("_partial/_details")
+        </div>
+    
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+    </form>
+</div>

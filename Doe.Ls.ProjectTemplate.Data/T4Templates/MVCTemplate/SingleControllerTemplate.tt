@@ -1,0 +1,546 @@
+﻿<#@ template language="C#"inherits="BaseTemplate" #>  
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="Doe.Ls.EntityBase.MVCExtensions" #>
+<#@ import namespace="System.Data.Entity.Core.Metadata.Edm" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#@ parameter name="AppNamespace" type="System.String"#>
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+
+<#@ parameter name="EntityType" type="System.Data.Entity.Core.Metadata.Edm.EntityType"#>
+
+<#    
+
+    var helper=new EdmMetadataHelper(EntityContext);
+    var repName = T4Helper.CleanClassName(EntityType.Name) + "Repository";
+    var cleanName = T4Helper.CleanClassName(EntityType.Name);    
+#>
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.Entity;
+using System.Data.Entity.Validation;
+using System.Linq;
+using System.Web;
+using System.Web.Http;
+using System.Web.Mvc;
+using Doe.Ls.EntityBase.Models;
+using Doe.Ls.EntityBase.Helper;
+using Doe.Ls.EntityBase.Logging;
+using <#=AppNamespace#>.Core.BL;
+using <#=AppNamespace#>.Core.BL.EntityRepositories;
+using <#=AppNamespace#>.Core.BL.UI;
+using <#=AppNamespace#>.Core.BL.Models.Light;
+using <#=AppNamespace#>.Data;
+using <#=AppNamespace#>.Web.Controllers.Domain;
+
+namespace <#=AppNamespace#>.Web.Controllers
+{
+<#    if(T4Helper.MetadataOperations.HasAnyRichText(EntityType))
+    {PushIndent(" "); #>[ValidateInput(false)]<#    }#>    
+    <#    if(T4Helper.MetadataOperations.IsSecure(EntityType))
+    {PushIndent(" "); #>[System.Web.Mvc.Authorize(Roles="<#=    T4Helper.MetadataOperations.AccessRoles(EntityType)#>")]<#    }#>    
+    public partial class <#=cleanName#>Controller : AppControllerBase
+    {
+     private <#=cleanName#>Repository _repository=null;
+     public <#=cleanName#>Repository Repository
+         {
+         get
+         {
+
+             return _repository=_repository ?? ServiceRepository.<#=cleanName#>Repository();
+
+             }
+ 
+         }
+                
+
+        public ActionResult Index()
+        {
+            var <#=T4Helper.GetLocalVariableName(EntityType)#>s = Repository.List();
+            return View(<#=T4Helper.GetLocalVariableName(EntityType)#>s.ToList());
+        }
+
+        //
+        // GET: /<#=cleanName#>/Details/5
+        public ActionResult Details(<#=GetKeyType()#> <#=GetKeyName()#> <#=GetDefaultValue()#>)
+        {
+            ViewBagWrapper.FormOperations.SetFormType(FormType.Details, ViewData);
+            var <#=T4Helper.GetLocalVariableName(EntityType)#> = Repository.GetEntityByKey(<#=GetKeyName()#>);
+            if (<#=T4Helper.GetLocalVariableName(EntityType)#> == null)
+            {
+                throw new HttpException("<#=T4Helper.GetLocalVariableName(EntityType)#> not found");
+            }
+             if (Request.IsAjaxRequest()) {
+                  return View("Details-modal", <#=T4Helper.GetLocalVariableName(EntityType)#>);
+              } else {
+            return View(<#=T4Helper.GetLocalVariableName(EntityType)#>);
+              }
+
+            
+        }
+
+         public ActionResult ListJson([FromUri] JQueryDataTableParamModel arg) 
+         {
+            InitialiseArgument(arg);
+            var dataTableResult = new DataTableResult();
+         
+            try
+            {
+                var <#=T4Helper.GetLocalVariableName(EntityType)#>s = Repository.List();
+                IQueryable<<#=EntityType.Name#>> displayed<#=EntityType.Name#>s;
+            
+                if (!string.IsNullOrWhiteSpace(arg.sSearch))
+                {
+                    var searchArgs = new SearchArg { Search = arg.sSearch };
+                    displayed<#=EntityType.Name#>s = Repository.Filter<#=EntityType.Name#>s(<#=T4Helper.GetLocalVariableName(EntityType)#>s, searchArgs);
+                }
+                else
+                {
+                    displayed<#=EntityType.Name#>s = CustomOrderBy.CustomSort(<#=T4Helper.GetLocalVariableName(EntityType)#>s, arg);
+                }
+
+                var totalRecord =  displayed<#=EntityType.Name#>s.Count();
+                var totalDisplayRecord =  displayed<#=EntityType.Name#>s.Count();
+
+                if (arg.iDisplayLength == -1)
+                    arg.iDisplayLength = totalRecord;
+
+                displayed<#=EntityType.Name#>s =  displayed<#=EntityType.Name#>s.Skip(arg.iDisplayStart).Take(arg.iDisplayLength);
+
+                var result = displayed<#=EntityType.Name#>s.AsEnumerable().ToArray().Select(ent => ent.To(new <#=EntityType.Name.CleanEntityName()#>Light()));
+
+                dataTableResult.sEcho = arg.sEcho;
+                dataTableResult.iTotalRecords = totalRecord;
+                dataTableResult.iTotalDisplayRecords = totalDisplayRecord;
+                dataTableResult.aaData = result;
+                dataTableResult.Status= Status.Success;
+                dataTableResult.Message = "Success";               
+            } 
+            catch (Exception exception) 
+            {
+                LogException(exception);
+
+                dataTableResult.Status = Status.Error;
+                dataTableResult.Message = "Errors";
+                dataTableResult.AddError(new DbValidationError("DB error",
+                    "Oops! something wrong happened " + exception.Message));
+            }
+
+            return Json(dataTableResult, JsonRequestBehavior.AllowGet);
+        }
+
+         // GET: /<#=cleanName#>/Details/5
+        public ActionResult DetailsJson(<#=GetKeyType()#> <#=GetKeyName()#> <#=GetDefaultValue()#>)
+        {
+            var ajaxResult = new Result();
+            
+            try {
+                var <#=T4Helper.GetLocalVariableName(EntityType)#>Light = Repository.GetEntityByKey(<#=GetKeyName()#>).To(new <#=cleanName#>Light());
+                
+
+                ajaxResult.Status = Status.Success;
+                ajaxResult.Message = "Success";
+                ajaxResult.Data = <#=T4Helper.GetLocalVariableName(EntityType)#>Light;
+
+                return Json(ajaxResult, JsonRequestBehavior.AllowGet);
+            } catch (Exception exception) {
+                LogException(exception);
+                ajaxResult.Status = Status.Error;
+                ajaxResult.Message = "Errors";
+                ajaxResult.AddError(new DbValidationError("DB error",
+                    "Oops! something wrong happened " + exception.Message));
+                return Json(ajaxResult, JsonRequestBehavior.AllowGet);
+            }
+            
+        }
+
+
+
+        // GET: /<#=cleanName#>/Delete/5
+        public ActionResult Delete(<#=GetKeyType()#> <#=GetKeyName()#> <#=GetDefaultValue()#>)
+        {
+            ViewBagWrapper.FormOperations.SetFormType(FormType.Delete, ViewData);
+
+            var <#=T4Helper.GetLocalVariableName(EntityType)#> = Repository.GetEntityByKey(<#=GetKeyName()#>);
+            if (<#=T4Helper.GetLocalVariableName(EntityType)#> == null)
+            {
+                throw new HttpException("<#=T4Helper.GetLocalVariableName(EntityType)#> not found");
+            }
+             if (Request.IsAjaxRequest()) {
+                  return View("Delete-modal", <#=T4Helper.GetLocalVariableName(EntityType)#>);
+              } else {
+            return View(<#=T4Helper.GetLocalVariableName(EntityType)#>);
+              }
+
+            
+        }
+        //
+        // GET: /<#=cleanName#>/Create
+        public ActionResult Create()
+        {
+            ViewBagWrapper.FormOperations.SetNullModel(true,ViewData);
+            ViewBagWrapper.FormOperations.SetFormType(FormType.Create, ViewData);
+            CreateLookups();
+            if (Request.IsAjaxRequest()) {
+                return View("Create-modal", new <#=EntityType.Name#>());
+            } else {
+            return View(new <#=EntityType.Name#>());
+            }
+        }
+
+        //
+        // POST: /<#=cleanName#>/Create
+
+        [System.Web.Mvc.HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(<#=EntityType.Name#> <#=T4Helper.GetLocalVariableName(EntityType)#>)
+        {
+            <#= ModelStateCode(FormType.Create)#>
+            
+            ViewBagWrapper.FormOperations.SetFormType(FormType.Create, ViewData);
+            var ajaxResult = new Result();
+            var errors = Repository.GetValidationErrors(ModelState).ToList();
+            if (ModelState.IsValid) {
+                try {
+                    Repository.Insert(<#=T4Helper.GetLocalVariableName(EntityType)#>);
+                } catch (Exception exception) {
+                    LogException(exception);
+                    errors.AddRange(Repository.GetBackendValidationErrors());
+                    errors.Add(new DbValidationError("DB error",  "Oops! something wrong happened "+exception.Message));
+
+                    if ((Request.IsAjaxRequest())) {
+                        ajaxResult.Status = Status.Error;
+                        ajaxResult.Message = "Errors";
+                        ajaxResult.AddErrors(errors);
+                        return Json(ajaxResult);
+                    } else {
+                        
+                        ViewBagWrapper.ErrorBag.SetErrors(errors, ViewData);
+                    }
+                   
+                }
+                CreateLookups();
+                if (Request.IsAjaxRequest()) {
+                    ajaxResult.Status = Status.Success;
+                    ajaxResult.Message = "Success";
+                    return Json(ajaxResult);
+                } 
+                return RedirectToAction("Index");               
+             
+  }
+            else
+            {
+                if (Request.IsAjaxRequest())
+                {
+                    ajaxResult.Status = Status.Error;
+                    ajaxResult.Message = "Errors";
+                    ajaxResult.AddErrors(errors);
+                    return Json(ajaxResult);
+                }
+                else
+                {
+                    ViewBagWrapper.ErrorBag.SetErrors(Repository.GetValidationErrors(ModelState), ViewData);
+                    CreateLookups();
+                    return View(<#=T4Helper.GetLocalVariableName(EntityType)#>);
+                }
+                
+            }
+            
+        }
+
+              
+        //
+        // GET: /<#=cleanName#>/Edit/5
+        public ActionResult Edit(<#=GetKeyType()#>  <#=GetKeyName()#> <#=GetDefaultValue()#>)
+        {
+            ViewBagWrapper.FormOperations.SetFormType(FormType.Edit, ViewData);
+            var <#=T4Helper.GetLocalVariableName(EntityType)#> = Repository.GetEntityByKey(<#=GetKeyName()#>);
+            if (<#=T4Helper.GetLocalVariableName(EntityType)#> == null)
+            {
+                throw new HttpException("<#=T4Helper.GetLocalVariableName(EntityType)#> not found");
+            }
+            CreateLookups();
+            
+              if (Request.IsAjaxRequest()) {
+                  return View("Edit-modal", <#=T4Helper.GetLocalVariableName(EntityType)#>);
+              } else {
+                  return View(<#=T4Helper.GetLocalVariableName(EntityType)#>);
+              }
+        }
+
+        //
+        // POST: /<#=cleanName#>/Edit/5
+        [System.Web.Mvc.HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(<#=EntityType.Name#> <#=T4Helper.GetLocalVariableName(EntityType)#>)
+        {
+            <#=ModelStateCode(FormType.Edit)#>
+            ViewBagWrapper.FormOperations.SetFormType(FormType.Edit, ViewData);
+            var ajaxResult = new Result();
+            var errors = Repository.GetValidationErrors(ModelState).ToList();
+            
+            if (ModelState.IsValid)
+            {
+                var old<#=cleanName#> = Repository.GetEntityByEntityKey(<#=T4Helper.GetLocalVariableName(EntityType)#>);
+                
+                Repository.SetPropertyValuesFrom(ref old<#=cleanName#>,<#=T4Helper.GetLocalVariableName(EntityType)#>);
+
+                try
+                {
+                    Repository.Update(old<#=cleanName#>);     
+                } 
+                catch (Exception exception) 
+                {
+                    LogException(exception);
+                    errors.AddRange(Repository.GetBackendValidationErrors());
+                    errors.Add(new DbValidationError("DB error",  "Oops! something wrong happened "+exception.Message));
+
+                    if ((Request.IsAjaxRequest())) 
+                    {
+                        ajaxResult.Status = Status.Error;
+                        ajaxResult.Message = "Errors";
+                        ajaxResult.AddErrors(errors);
+                        return Json(ajaxResult);
+                    } 
+                    else 
+                    {                        
+                        ViewBagWrapper.ErrorBag.SetErrors(errors, ViewData);
+                    }
+                   
+                }
+
+                CreateLookups();
+
+                if (Request.IsAjaxRequest()) 
+                {
+                    ajaxResult.Status = Status.Success;
+                    ajaxResult.Message = "Success";
+
+                    return Json(ajaxResult);
+                } 
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                if (Request.IsAjaxRequest())
+                {
+                    ajaxResult.Status = Status.Error;
+                    ajaxResult.Message = "Errors";
+                    ajaxResult.AddErrors(errors);
+                    return Json(ajaxResult);
+                }
+                else
+                {
+                    ViewBagWrapper.ErrorBag.SetErrors(Repository.GetValidationErrors(ModelState), ViewData);
+                    CreateLookups();
+                    return View(<#=T4Helper.GetLocalVariableName(EntityType)#>);
+                }                
+            }          
+        }
+
+        //
+        // POST: /<#=cleanName#>/Delete/5
+
+        [System.Web.Mvc.HttpPost, System.Web.Mvc.ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(<#=EntityType.Name#> <#=T4Helper.GetLocalVariableName(EntityType)#>)
+        {
+            ViewBagWrapper.FormOperations.SetFormType(FormType.Delete, ViewData);
+            var ajaxResult = new Result();            
+            var old<#=cleanName#> = Repository.GetEntityByEntityKey(<#=T4Helper.GetLocalVariableName(EntityType)#>);
+            try
+            {
+                Repository.Delete(old<#=cleanName#>);     
+            }
+            catch (Exception exception)
+            {
+                LogException(exception);
+            
+                var errors = Repository.GetBackendValidationErrors().ToList();
+                errors.Add(new DbValidationError("DB error",  "Oops! something wrong happened "+exception.Message));
+
+                if ((Request.IsAjaxRequest())) 
+                {
+                    ajaxResult.Status = Status.Error;
+                    ajaxResult.Message = "Errors";
+                    ajaxResult.AddErrors(errors);
+                    
+                    return Json(ajaxResult);
+                }
+                else
+                {
+                    ViewBagWrapper.ErrorBag.SetErrors(errors, ViewData);
+                }
+                   
+            }
+
+            CreateLookups();
+        
+            if (Request.IsAjaxRequest()) 
+            {
+                ajaxResult.Status = Status.Success;
+                ajaxResult.Message = "Success";
+            
+                return Json(ajaxResult);
+            } 
+        
+            return RedirectToAction("Index");
+        }
+        
+        private void CreateLookups() 
+        {        
+        
+        var enity = T4Helper.GetEntityType("<#=this.EntityType.Name#>", this.ServiceRepository.GetUnitOfWork().DbContext);
+        ViewBagWrapper.EntityInfo.SetEntityType(enity,ViewData);        
+  <#    var lookups=new List<string>();
+    var suffix="";
+    
+   #>
+            
+<#    foreach (var mp in T4Helper.ListPropertiesWithFkInfo(EntityType))
+    {
+        if(!mp.FK)continue;
+        var parentItemName=T4Helper.GetLocalVariableName(mp.PareEntityType);
+        if(lookups.Contains(parentItemName)){suffix=string.Format("{0}",lookups.IndexOf(parentItemName));}else{
+            lookups.Add(parentItemName);
+        }
+        var localVariableName= T4Helper.GetLocalVariableName(mp.PareEntityType)+"Items"+suffix;
+
+#>
+        var <#=    localVariableName#>=ServiceRepository.<#=    T4Helper.CleanClassName(mp.PareEntityType.Name)#>Repository()
+                    .List().ToArray()
+                    .Select(pe => new SelectListItemExtension { Value = pe.<#=    mp.FkProperty.Name#>.ToString(), Text =<#=    GetLookupText(mp.PareEntityType,"pe")#>})
+                    .ToArray();
+        
+        ViewBagWrapper.ListBag.SetList("<#=    localVariableName#>",<#=    T4Helper.GetLocalVariableName(mp.PareEntityType)#>Items,ViewData);
+                
+
+  <#    } #>
+        }
+
+               
+        
+        protected override void Dispose(bool disposing)
+        {
+
+            base.Dispose(disposing);
+        }
+    }
+}<#+    string GetKeyType()
+    {
+        if (T4Helper.PropertyOperations.IsKeyString(this.EntityType))
+        {
+            return "string";
+        }
+        return "int";
+    } #>
+
+<#+    string GetKeyName()
+    {
+        return T4Helper.PropertyOperations.GetKeyLocalVariableName(EntityType);
+
+    } #>
+
+
+<#+    string GetDefaultValue()
+    {
+        if (T4Helper.PropertyOperations.IsKeyString(this.EntityType))
+        {
+            return "= \"\"";
+        }
+        return "= 0";
+    } #>
+
+<#+    string ModelStateCode(FormType formType)
+    {
+        var sb = new StringBuilder();
+
+        foreach (var property in this.EntityType.Properties)
+        {
+        if (T4Helper.PropertyOperations.IsBoolean(property, EntityType))
+            {
+                sb.Append(ReplaceOnFieldWithBooleanPropertyStateCode(property));
+            }
+            
+            var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(property, EntityType);
+            if (computedAttribute == null) continue;
+
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate)sb.Append(RemovePropertyFromStateCode(property));
+        
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) sb.Append(RemovePropertyFromStateCode(property));
+
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) sb.Append(RemovePropertyFromStateCode(property));
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) sb.Append(RemovePropertyFromStateCode(property));
+
+            switch (formType)
+            {
+                case FormType.Create:
+                {
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) sb.Append(RemovePropertyFromStateCode(property));
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) sb.Append(RemovePropertyFromStateCode(property));
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) sb.Append(RemovePropertyFromStateCode(property));
+                
+                    break;
+                }
+            }
+            
+        }
+        
+        return sb.ToString();
+    } #>
+
+
+
+<#+    string RemovePropertyFromStateCode(EdmProperty property)
+{
+return String.Format("this.ModelState.Remove(\"{0}\"); \n\r",property.Name);
+
+} #>
+
+
+
+<#+    string ReplaceOnFieldWithBooleanPropertyStateCode(EdmProperty property)
+{
+  var localVar = T4Helper.GetLocalVariableName(this.EntityType);
+    var sb = new StringBuilder();
+        sb.Append(String.Format("this.ModelState.Remove(\"{0}\"); \n\r",property.Name));
+        sb.Append(String.Format("{0}.{1} = Request[\"{1}\"].IsOn();",localVar,property.Name));
+    return sb.ToString();
+
+
+} #>
+
+
+<#+    string GetLookupText(System.Data.Entity.Core.Metadata.Edm.EntityType  entityType,string parameter)
+    {
+    if (entityType.Name=="DocumentType")
+    {
+        
+    }
+        var att = T4Helper.PropertyOperations.GetDispayPropertyAttribute(entityType);
+        var propertyName = T4Helper.PropertyOperations.GetDispayPropertyName(entityType);
+    
+
+    if (att == null || !att.Computed)
+    {
+    var prop = T4Helper.GetProperty(propertyName, entityType);
+
+        if (prop == null)
+        {
+            throw new InvalidOperationException(String.Format("property {0} is not {1} members please Fix the metadata attributes for {1}",propertyName,entityType));
+        }
+        if (T4Helper.PropertyOperations.IsRichText(prop,entityType))
+        {
+            return parameter + "." + propertyName+".StripHtml()";
+        }    
+        return parameter + "." + propertyName;
+
+    }
+
+        return att.Formula.Replace("{0}", parameter);
+    
+    } #>

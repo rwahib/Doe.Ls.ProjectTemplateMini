@@ -1,0 +1,18 @@
+@model RelationshipScope 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Relationship scope Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);	
+}
+ 
+@Html.HiddenFor(model => model.ScopeId)
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.ScopeId)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.ScopeId)</p></div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.ScopeTitle)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.ScopeTitle)</p></div>
+        </div>

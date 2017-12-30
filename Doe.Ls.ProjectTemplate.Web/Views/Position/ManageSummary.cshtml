@@ -1,0 +1,26 @@
+﻿
+@{
+    var descriptionType = ViewBagWrapper.PositionBag.GetDescriptionTypeBag(ViewData);
+
+
+}
+
+@if (descriptionType != null && descriptionType != 0)
+{
+    if (descriptionType == Enums.DescriptionType.Position)
+    {
+        @Html.Partial("_partial/_positionDescSummary")
+    }
+    else if (descriptionType == Enums.DescriptionType.Role)
+    {
+        @Html.Partial("_partial/_roleDescSummary")
+    }
+}
+else if(descriptionType == Enums.DescriptionType.None)
+{
+    //Display
+    <p>This position currently has no related position description nor role description.</p>
+}
+
+
+

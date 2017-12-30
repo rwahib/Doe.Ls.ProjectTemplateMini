@@ -1,0 +1,35 @@
+@model HierarchyLevel 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Hierarchy level Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);	
+}
+            @Html.HiddenFor(model => model.HierarchyId)
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.HierarchyId)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.HierarchyId)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.HierarchyName)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.HierarchyName)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.HierarchyDescription)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.HierarchyDescription)
+                        </p>
+       </div>
+</div>
+  
+
+
+    
+
+
+

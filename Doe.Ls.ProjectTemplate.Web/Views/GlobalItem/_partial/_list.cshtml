@@ -1,0 +1,98 @@
+@model IEnumerable<GlobalItem>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Global item list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive @*ajaxDataTable*@" @*data-service="globalItemService" data-url="@HttpHelper.GetActionUrl("ListJson","GlobalItem")"*@>
+                @*<caption>Global item list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.ItemCode)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.ItemName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.ItemDescription)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.ItemContent)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastupdatedBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastupdatedDate)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.ItemCode)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.ItemName)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.ItemDescription)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.ItemContent)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>                       
+                            <td>
+   
+                                @item.CreatedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LastupdatedBy)
+                            </td>                       
+                            <td>
+   
+                                @item.LastupdatedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { itemCode = item.ItemCode })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { itemCode = item.ItemCode })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { itemCode = item.ItemCode })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

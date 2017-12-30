@@ -1,0 +1,31 @@
+@model RoleDescription
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+
+
+}
+@if(Model != null && Model.RoleDescriptionId > 0 && task.GetPositionPrivilege().CanCreate && !Model.IsDeleted())
+    {
+    <div class="col-lg">
+        <a href="@Url.Action("Create", "Position", new {rolePositionDescId = Model.RoleDescriptionId})" class="btn btn-primary">Create new position</a>
+
+    </div>
+    <div class="spacer-small"></div>
+    }
+<div id="formTab" class="card.card-body">
+    <form class="" role="form" method="GET" id="form-roleDescription-details">
+        @Html.AntiForgeryToken()
+
+        <div class="panel-group" id="accordion">
+            @Html.Partial("_partial/_basicDetailsSummary")
+            <div class="spacer-small"></div>
+            @Html.Partial("_partial/_details")
+
+        </div>
+
+    </form>
+</div>
+
+@section ManageSummary
+{ active }

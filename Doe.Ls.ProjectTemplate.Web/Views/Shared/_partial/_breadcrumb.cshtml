@@ -1,0 +1,13 @@
+﻿@model Breadcrumb
+@{
+    string serverLink = null;
+    if (Model != null)
+    {
+        serverLink = ProjectTemplateSettings.Site.AppUrl + Model.ServerLink.Replace("~", "");
+    }
+}
+
+    @if(Model != null)
+    {
+        @Html.Raw(string.Format("<span class=\"glyphicon glyphicon-share-alt returnList\"></span><a href=\"{0}\">{1}</a>", serverLink, Model.Display))
+    }

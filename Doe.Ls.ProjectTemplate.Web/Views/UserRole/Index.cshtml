@@ -1,0 +1,38 @@
+@model IEnumerable<UserRoleModel>
+
+@{
+    var roleId=ViewBagWrapper.GetGeneralObject<int>("RoleId",ViewData);
+    var role = (Enums.UserRole) roleId;
+    var roleName = role.GetDescription();
+    ViewBagWrapper.InfoBag.SetTitle(roleName + " user list", ViewData);
+
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var priv = task.GetUserRolePrivilege(role);
+    }
+
+@*
+@section SysUserRoleActive
+{
+active 
+}
+*@
+<div class="wrapper" id="wrapper-SysUserRole">
+   
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+
+    <p>
+       @if (priv.CanCreate)
+       {
+           <a href="@Url.Action("Create", new {roleId})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">
+               Grant @roleName access
+           </a>
+       }
+    </p>
+
+    @Html.Partial("_partial/_list")
+
+</div>

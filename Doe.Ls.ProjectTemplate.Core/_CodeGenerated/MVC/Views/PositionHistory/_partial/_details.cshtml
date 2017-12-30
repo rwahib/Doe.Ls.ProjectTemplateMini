@@ -1,0 +1,70 @@
+@model PositionHistory 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Position history Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);	
+}
+            @Html.HiddenFor(model => model.PositionHistoryId)
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.PositionHistoryId)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.PositionHistoryId)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Position)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Position.PositionTitle)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Action)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Action)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.StatusFrom)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.StatusFrom)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.StatusTo)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.StatusTo)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.AdditionalInfo)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.AdditionalInfo)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.CreatedDate)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.CreatedDate)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.CreatedBy)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.CreatedBy)
+                        </p>
+       </div>
+</div>
+  
+
+
+    
+
+
+

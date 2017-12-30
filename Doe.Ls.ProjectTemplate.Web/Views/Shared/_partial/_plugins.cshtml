@@ -1,0 +1,62 @@
+﻿
+
+@model dynamic
+
+@{
+    var isTestSite = ProjectTemplateSettings.Site.IsTestSite;
+
+
+}
+
+<script type="text/javascript">
+    var require = {
+        baseUrl: "/Scripts/",
+        waitSeconds: 15,
+        urlArgs: "token=@GetToken()",
+        deps: ['@(ProjectTemplateSettings.Site.AppUrl + "Scripts/app.js")']
+    };
+</script>
+
+<script src="@(ProjectTemplateSettings.Site.AppUrl + "Scripts/Framework/require.js")"></script>
+
+<script type="text/javascript">
+    window.appUrl = '@ProjectTemplateSettings.Site.AppUrl';
+    // TODO REMOVE ( window.token = '00';) before  RELEASE
+    //window.token = '@GetToken()';
+    window.token = '00';
+</script>
+
+
+@if (ProjectTemplateSettings.Site.UseGoogleAnalytic)
+{
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i["GoogleAnalyticsObject"] = r;
+            i[r] = i[r] ||
+                function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
+
+        ga("create", "@ProjectTemplateSettings.Site.GoogleAnalyticKey", "auto");
+        ga("send", "pageview");
+    </script>
+}
+
+@functions
+{
+    /// <summary>
+    /// TODO REMOVE (return string.Empty;) before  RELEASE
+    /// </summary>
+    /// <returns></returns>
+    private string GetToken()
+    {
+        return string.Empty;
+        //return AppCacheHelper.Token;
+    }
+}

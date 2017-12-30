@@ -1,0 +1,75 @@
+﻿@model Position
+@{
+
+}
+
+
+@if (Model.PositionInformation != null)
+{
+    <!--Positon more info-->
+    <div class="card card.bg-primary.text-white descriptionPanel" id="pnlPositionOtherInfo">
+        <div class="card-header accordion-toggle" data-toggle="collapse"  data-target="#PositionOtherInfo">
+            <h4 class="accordion-title">
+                <a href="#PositionOtherInfo" class="collapsed" data-toggle="collapse">Position more info<i class="indicator glyphicon glyphicon-chevron-right  float-right"></i></a>
+            </h4>
+        </div>
+        <div id="PositionOtherInfo" class="card-body collapse">
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">Position status</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@(Model.PositionInformation.PositionStatusValue != null? Model.PositionInformation.PositionStatusValue.PosStatusTitle:"")</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">Occupation type</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@(Model.PositionInformation.OccupationType != null? Model.PositionInformation.OccupationType.OccupationTypeNameWithCode():"")</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-form-label  text-right col-lg-3">Position type</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@(Model.PositionInformation.PositionType != null? Model.PositionInformation.PositionType.PositionTypeWithCode():"")</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-form-label  text-right col-lg-3">Employee type</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@(Model.PositionInformation.EmployeeType!=null? Model.PositionInformation.EmployeeType.EmployeeTypeNameWithCode():"")</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-form-label  text-right col-lg-3">Position FTE</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.PositionInformation.PositionFTE</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">Position end date</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.PositionInformation.PositionEndDate.ToEasyDateFormat()</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">@Html.DisplayNameFor(model => model.PositionInformation.OlderPositionNumber1)</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.PositionInformation.OlderPositionNumber1</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">@Html.DisplayNameFor(model => model.PositionInformation.OlderPositionNumber2)</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.PositionInformation.OlderPositionNumber2</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">@Html.DisplayNameFor(model => model.PositionInformation.OlderPositionNumber3)</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.PositionInformation.OlderPositionNumber3</p>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+}

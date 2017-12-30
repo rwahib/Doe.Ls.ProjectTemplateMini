@@ -1,0 +1,59 @@
+
+@model Position
+@{
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);
+    var costCentreDetailItems = ViewBagWrapper.ListBag.GetList("CostCentreDetailItems",ViewData);
+    var locationItems = ViewBagWrapper.ListBag.GetList("LocationItems",ViewData);
+    var positionItems = ViewBagWrapper.ListBag.GetList("PositionItems",ViewData);
+    var positionLevelItems = ViewBagWrapper.ListBag.GetList("PositionLevelItems",ViewData);
+    var rolePositionDescriptionItems = ViewBagWrapper.ListBag.GetList("RolePositionDescriptionItems",ViewData);
+    var statusValueItems = ViewBagWrapper.ListBag.GetList("StatusValueItems",ViewData);
+    var unitItems = ViewBagWrapper.ListBag.GetList("UnitItems",ViewData);
+    var positionInformationItems = ViewBagWrapper.ListBag.GetList("PositionInformationItems",ViewData);
+ 
+    ViewBagWrapper.InfoBag.SetTitle("Edit Position",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    Layout = null;
+}
+
+<div class="modal-header">
+    <h5 class="modal-title" id="tempModalLabel">@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">x</span>
+    </button>
+</div>
+
+<div class="error-popup">
+    <ul class="list-group">
+        @foreach (var error in errors)
+        {
+            <li class="list-group-item ">
+                <label class="validation-error">@string.Format("{0} has error:", error.PropertyName.Wordify())</label>
+                <label class="validation-error">@string.Format("{0}", error.ErrorMessage)</label>            
+            </li>
+        }
+    </ul>
+</div>
+
+<div class="success-popup">
+    <ul class="list-group">
+        <li class="list-group-item ">
+            <label class="text-success" id="lbl-success"></label>
+        </li>
+    </ul>
+</div>
+
+<div id="formTab">
+    <form class="" role="form" action="@Url.Action("Edit")" @*"~/Position/Edit"*@   method="POST" id="form-position-edit" data-fv-feedbackicons-validating="glyphicon glyphicon-refresh">
+    
+        <div class="modal-body">
+            @Html.Partial("_partial/_update")         
+        </div>
+    
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+    </form>
+</div>

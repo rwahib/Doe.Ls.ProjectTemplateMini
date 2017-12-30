@@ -1,0 +1,94 @@
+ 
+
+
+
+@model IEnumerable<GeneralLog>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("General log List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="generalLogService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>General log list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.LogId)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Action)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Context)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreationDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Username)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.SysRole)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Note)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LogId)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Action)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Context)
+                            </td>                       
+                            <td>
+   
+                                @item.CreationDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Username)
+                            </td>                       
+                            <td>
+    
+                                @Html.Raw(item.SysRole.RoleApiName.StripHtml().Minimise(50))
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Note)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.LogId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.LogId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.LogId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

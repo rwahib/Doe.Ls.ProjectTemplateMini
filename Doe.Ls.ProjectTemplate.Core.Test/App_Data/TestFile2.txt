@@ -1,0 +1,234 @@
+<html>
+<head>
+    <link href="PDFGenerator.css" rel="stylesheet" />
+</head>
+<body>
+
+    <table class="RDHeaderTable">
+        <tr>
+            <td><h1>Role Description</h1><h2>Finance Officer</h2></td>
+            <td align="right"><img src="C:\Projects\Application-shares\position-description\Assets\PdfTemplates\dec-pdf.png" width="170" height="54" /></td>
+        </tr>
+
+    </table>
+
+    <table class="RoleDescTable">
+        <tr>
+            <th>Agency</th>
+            <td>Department of Education</td>
+        </tr>
+        <tr>
+            <th>Division/Branch/Unit</th>
+            <td>Educational Services Division  /Learning & Business Systems/Schools Finance</td>
+        </tr>
+
+        <tr>
+            <th>Location</th>
+            <td>Oxford St</td>
+        </tr>
+        <tr>
+            <th>Classification/Grade/Band</th>
+            <td>Clerk Grade 3/4</td>
+        </tr>
+        
+
+        <tr>
+            <th>ANZSCO Code</th>
+            <td>TBC</td>
+        </tr>
+        <tr>
+            <th>Role Number</th>
+            <td>192470</td>
+        </tr>
+        <tr>
+            <th>PCAT Code</th>
+            <td>TBC</td>
+        </tr>
+        <tr>
+            <th>Date of Approval</th>
+            <td>11-Jul-2017</td>
+        </tr>
+        <tr>
+            <th>Agency Website</th>
+            <td>www.dec.nsw.gov.au</td>
+        </tr>
+    </table>
+
+    <div class="section">
+        <h4>Department of Education</h4>
+        The NSW Department of Education serves the community by leading the provision of world-class education. The department protects young children by regulating preschool and long day care providers. Once children move into school, we provide them with a world-class primary and secondary education. We also work to advance the wellbeing of Aboriginal people.
+    </div>
+
+    <div class="section">
+        <h4>Educational Services Division  </h4>
+        <p class="Default">Educational Services Division leads and directs the effective provision of educational, corporate and business services that add value to teaching and learning across more than 2200 public schools in NSW. The Division is responsible for coordinating the development and delivery of quality and responsive policies, processes, services, technologies, or business systems that contribute to maximising achievement for every student in a NSW public school.</p>
+<p class="Default">The overarching goal of the Educational Services Division is the strategic, future-focussed planning and quality assurance of service delivery to achieve equity of access and outcomes for every student regardless of where he or she lives or attends school.&nbsp;</p>
+    </div>
+
+    <div class="section">
+        
+    </div>
+
+    
+
+    <div class="section">
+        <h4>Primary purpose of the role</h4>
+        Assisting with the financial and administrative operations including personnel, salaries, asset management, corporate credit cards, accounts receivable, accounts payable and purchasing for multiple directorates.
+    </div>
+
+    <div class="section" id="keyAccountability">
+        <h4>Key accountabilities</h4>
+        <ul>
+<li>Assisting with month-end and financial year-end procedures and reporting</li>
+<li>Assisting with the management of Public Schools NSW portfolio directorates&rsquo; finance, administration and customer services.</li>
+<li>Assisting with the preparation of management reports.</li>
+<li>Ensuring compliance to the Public Finance &amp; Audit Act, Treasurer&rsquo;s Directions and Administration Policies.</li>
+<li>Prepare monthly reconciliations</li>
+<li>Providing customer service and responding to enquiries on financial, administration and other matters.</li>
+</ul>
+    </div>
+
+    <div class="section" id="keyChallenge">
+        <h4>Key challenges</h4>
+        <p>&nbsp;</p>
+<ul>
+<li>
+<div style="color: #000000; font-style: normal; font-weight: normal; margin-top: 0cm; margin-bottom: 0pt; mso-add-space: auto; mso-list: l0 level1 lfo1;"><span style="font-family: 'Arial',sans-serif;">To meet conflicting work priorities within agreed timeframes. The challenge is to produce accurate work at a consistently high level.</span></div>
+</li>
+<li>
+<div style="color: #000000; font-family: 'Georgia',serif; font-size: 11pt; font-style: normal; font-weight: normal; margin-top: 0cm; margin-bottom: 0pt; mso-add-space: auto; mso-list: l0 level1 lfo1;"><span style="font-family: 'Arial',sans-serif;">In many instances the role is the first point of contact with internal and/or external customers. Further, a professional &lsquo;can do&rsquo; approach to customer service needs to be displayed with all customers to ensure a high level of satisfaction with prompt, accurate and helpful information.</span></div>
+</li>
+<li>
+<div style="color: #000000; font-family: 'Georgia',serif; font-size: 11pt; font-style: normal; font-weight: normal; margin-top: 0cm; margin-bottom: 6pt; mso-add-space: auto; mso-list: l0 level1 lfo1;"><span style="font-family: 'Arial',sans-serif;">The role is multi-skilled to meet business needs. The challenge is to be flexible in the scope and range of activities as required by the directorate.</span></div>
+</li>
+</ul>
+<p>&nbsp;</p>
+    </div>
+
+    <div class="section" id="keyRelationships">
+        <h4>Key relationships</h4>
+    </div>
+    <table class="KeyRl">
+        <tr class="heading">
+            <td width="25%">Who</td>
+            <td width="75%">Why (i.e. purposes of the relationship)</td>
+        </tr>
+        
+        <tr class="row subheading"><td colspan="2">Internal</td></tr><tr class="body"><td valign="top">Supervisor</td><td valign="top">To receive guidance in negotiating priorities and in handling non-routine or difficult enquiries and/or sensitive matters and receives performance feedback.</td></tr>
+        <tr class="row subheading"><td colspan="2">External</td></tr><tr class="body"><td valign="top">Customers</td><td valign="top">To support effective working relationships to foster collaboration across the Department of Education and external agencies.
+To respond to a range of customer enquiries determining the appropriate person to direct them to or the appropriate response.</td></tr>
+
+    </table>
+
+    <h4>Role dimensions</h4>
+    
+
+    <div class="section">
+        <h4 class="greyfont">Decision making</h4>
+        <p>This role acts independently in performing its core work functions in accordance with relevant policies, procedures and guidelines. In matters that are sensitive or complex the role consults with the supervisor or manager as required</p>
+    </div>
+
+    <div class="section">
+        <h4 class="greyfont">Reporting line</h4>
+        This role reports to: <br/>
+        192450 Human Resources Coordinator CL9/10
+    </div>
+
+    <div class="section" id="directReports">
+        <h4 class="greyfont">Direct reports</h4>
+        
+        Nil
+    </div>
+    <div class="section">
+        <h4 class="greyfont">Budget/Expenditure</h4>
+        The role has a financial delegation of up to: $
+        5000<br />
+    </div>
+
+    <div class="section" id="essentialReq">
+        <h4>Essential requirements</h4>
+        <p>Hold a valid clearance to work with Children (Working with Children Check)</p>
+    </div>
+    <div class="section">
+        <h4>Capabilities for the role</h4>
+        The NSW Public Sector Capability Framework applies to all NSW public sector employees. The Capability Framework is available at <a href="https://www.psc.nsw.gov.au/workforce-management/capability-framework/nsw-public-sector-capability-framework">www.psc.nsw.gov.au/capabilityframework</a>
+    </div>
+
+    <div class="section">
+        <h4 class="greyfont">Capabilities summary</h4>
+        Below is the full list of capabilities and the level required for this role. The capabilities in bold are the focus capabilities for this role. Refer to the next section for further information about the focus capabilities.
+    </div>
+    <table class="FrameWork">
+        <tr class="heading">
+            <td colspan="3">NSW Public Sector Capability Framework</td>
+        </tr>
+        <tr class="subheading">
+            <td>Capability Group</td>
+            <td>Capability Name</td>
+            <td>Level (refer to Capability Framework)</td>
+        </tr>
+        <tr class="body"><td rowspan="4"><img src="C:\Projects\Application-shares\position-description\Assets\PdfTemplates\icon-personal-attr.png" width="90" height="90" alt="Personal Attributes" /></td><td>Display Resilience and Courage</td><td>Foundational</td></tr><tr class="body"><td>Act with Integrity</td><td>Foundational</td></tr><tr class="body"><td>Value Diversity</td><td>Foundational</td></tr><tr class="body"><td class="bold">Manage Self</td><td class="bold">Intermediate</td></tr><tr class="body"><td rowspan="4"><img src="C:\Projects\Application-shares\position-description\Assets\PdfTemplates\icon-relationships.png" width="90" height="90" alt="Relationships" /></td><td>Work Collaboratively</td><td>Foundational</td></tr><tr class="body"><td>Influence and Negotiate</td><td>Foundational</td></tr><tr class="body"><td class="bold">Communicate Effectively</td><td class="bold">Intermediate</td></tr><tr class="body"><td class="bold">Commit to Customer Service</td><td class="bold">Intermediate</td></tr><tr class="body"><td rowspan="4"><img src="C:\Projects\Application-shares\position-description\Assets\PdfTemplates\icon-results.png" width="90" height="90" alt="Results" /></td><td>Deliver Results</td><td>Intermediate</td></tr><tr class="body"><td>Plan and Prioritise</td><td>Foundational</td></tr><tr class="body"><td>Demonstrate Accountability</td><td>Foundational</td></tr><tr class="body"><td class="bold">Think and Solve Problems</td><td class="bold">Intermediate</td></tr><tr class="body"><td rowspan="4"><img src="C:\Projects\Application-shares\position-description\Assets\PdfTemplates\icon-business-enablers.png" width="90" height="90" alt="Business Enablers" /></td><td>Procurement and Contract Management</td><td>Foundational</td></tr><tr class="body"><td>Project Management</td><td>Foundational</td></tr><tr class="body"><td class="bold">Finance</td><td class="bold">Intermediate</td></tr><tr class="body"><td class="bold">Technology</td><td class="bold">Intermediate</td></tr>
+    </table>
+
+    <div class="section">
+        <h4 class="greyfont">Focus capabilities for the role</h4>
+        The focus capabilities for the role are the capabilities in which occupants must demonstrate immediate competence. The behavioural indicators provide examples of the types of behaviours that would be expected at that level and should be reviewed in conjunction with the role’s key accountabilities.
+    </div>
+
+
+    <table class="FocusTable">
+        <tr class="heading">
+            <td colspan="3">Focus capabilities</td>
+        </tr>
+		  
+        <tr class="subheading"><td colspan="3"><span>Capability Group: <em>Personal Attributes</em></span></td></tr><tr class="subheading"><td width="26%">Capability Set</td><td width="24%">Level</td><td width="50%">Behavioural indicators</td></tr><tr class="body"><td>Manage Self</td><td class="level">Intermediate</td><td class="indicator"><ul>
+ <li>Adapt existing skills to new situations </li>
+ <li>Show commitment to achieving work goals </li>
+ <li>Show awareness of own strengths and areas for growth and develop and apply new skills </li>
+ <li>Seek feedback from colleagues and stakeholders </li>
+ <li>Maintain own motivation when tasks become difficult</li>
+</ul></td></tr><tr class="subheading"><td colspan="3"><span>Capability Group: <em>Relationships</em></span></td></tr><tr class="subheading"><td width="26%">Capability Set</td><td width="24%">Level</td><td width="50%">Behavioural indicators</td></tr><tr class="body"><td>Communicate Effectively</td><td class="level">Intermediate</td><td class="indicator"><ul>
+ <li>Focus on key points and speak in ‘Plain English’ </li>
+ <li>Clearly explain and present ideas and arguments </li>
+ <li>Listen to others when they are speaking and ask appropriate, respectful questions </li>
+ <li>Monitor own and others’ non-verbal cues and adapt where necessary </li>
+ <li>Prepare written material that is well structured and easy to follow by the intended audience </li>
+ <li>Communicate routine technical information clearly</li>
+</ul></td></tr><tr class="body"><td>Commit to Customer Service</td><td class="level">Intermediate</td><td class="indicator"><ul>
+ <li>Support a culture of quality customer service in the organisation </li>
+ <li>Demonstrate a thorough knowledge of the services provided and relay to customers </li>
+ <li>Identify and respond quickly to customer needs </li>
+ <li>Consider customer service requirements and develop solutions to meet needs </li>
+ <li>Resolve complex customer issues and needs </li>
+ <li>Co-operate across work areas to improve outcomes for customers</li>
+</ul></td></tr><tr class="subheading"><td colspan="3"><span>Capability Group: <em>Results</em></span></td></tr><tr class="subheading"><td width="26%">Capability Set</td><td width="24%">Level</td><td width="50%">Behavioural indicators</td></tr><tr class="body"><td>Think and Solve Problems</td><td class="level">Intermediate</td><td class="indicator"><ul>
+ <li>Research and analyse information and make recommendations based on relevant evidence </li>
+ <li>Identify issues that may hinder completion of tasks and find appropriate solutions </li>
+ <li>Be willing to seek out input from others and share own ideas to achieve best outcomes </li>
+ <li>Identify ways to improve systems or processes which are used by the team/unit</li>
+</ul></td></tr><tr class="subheading"><td colspan="3"><span>Capability Group: <em>Business Enablers</em></span></td></tr><tr class="subheading"><td width="26%">Capability Set</td><td width="24%">Level</td><td width="50%">Behavioural indicators</td></tr><tr class="body"><td>Finance</td><td class="level">Intermediate</td><td class="indicator"><ul>
+ <li>Understand basic financial terminology, policies and processes, including the difference between recurrent and capital spending </li>
+ <li>Take account of financial and budget implications, including value for money in planning decisions </li>
+ <li>Present basic financial information to a target audience in an appropriate format </li>
+ <li>Understand financial audit, reporting and compliance obligations and the actions needed to satisfy them </li>
+ <li>Display an awareness of financial risk and exposure and solutions to address these</li>
+</ul></td></tr><tr class="body"><td>Technology</td><td class="level">Intermediate</td><td class="indicator"><ul>
+ <li>Apply computer applications that enable performance of more complex tasks </li>
+ <li>Apply practical skills in the use of relevant technology </li>
+ <li>Make effective use of records, information and knowledge management functions and systems </li>
+ <li>Understand and comply with information and communications security and acceptable use policies </li>
+ <li>Support the implementation of systems improvement initiatives and the introduction and roll-out of new technologies</li>
+</ul></td></tr>
+
+    </table>
+
+
+
+    <table class="RDFooter" border="0">
+        <tr>
+            <td>DOC15/657368</td>
+            <td align="right">Updated: 11/07/2017</td>
+        </tr>
+    </table>
+</body>
+</html>

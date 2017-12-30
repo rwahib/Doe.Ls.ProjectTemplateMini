@@ -1,0 +1,28 @@
+@model WfAction 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Wf action Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);	
+}
+ 
+@Html.HiddenFor(model => model.WfActionId)
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.WfActionId)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.WfActionId)</p></div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.WfActionName)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.WfActionName)</p></div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.WfActionStatus)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.WfActionStatus)</p></div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.WfActionDescription)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.WfActionDescription)</p></div>
+        </div>

@@ -1,0 +1,125 @@
+@model RoleDescription
+@{
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    
+    var RoleDescForPosition = ViewBagWrapper.GetGeneralObject<RolePositionDescriptionLight>("RoleDescForPosition", ViewData);
+}
+@Html.HiddenFor(model => model.RoleDescriptionId)
+
+<!--DoE intro-->
+<div class="card card.bg-primary.text-white" id="pnlAgencyOverview">
+    <div class="card-header accordion-toggle" data-toggle="collapse"  data-target="#AgencyOverview">
+        <h4 class="accordion-title">
+            <a href="#" class="collapsed" data-toggle="collapse">Agency overview<i class="indicator glyphicon glyphicon-chevron-right  float-right"></i></a>
+        </h4>
+
+    </div>
+
+    <div id="AgencyOverview" class="card-body collapse">
+        <div class="col-lg-12 displayfont">@if (!string.IsNullOrEmpty(Model.Agency))
+                               {<strong>@Html.Raw(Model.Agency)</strong><br/>}
+            @Html.Raw(Model.AgencyOverview)
+        </div>
+    </div>
+</div>
+
+
+@if (RoleDescForPosition != null && RoleDescForPosition.IsRoleDescForPosition)
+{
+    if (RoleDescForPosition.GradeCode != CommonHelper.GetPSSE3Code() &&
+        !string.IsNullOrEmpty(RoleDescForPosition.DirectorateOverview))
+    {
+        <!--Division overview-->
+        <div class="card card.bg-primary.text-white" id="pnlDirectorateOverview">
+            <div class="card-header accordion-toggle" data-toggle="collapse"  data-target="#DirectorateOverview">
+                <h4 class="accordion-title">
+                    <a href="#" class="collapsed" data-toggle="collapse">Directorate overview<i class="indicator glyphicon glyphicon-chevron-right  float-right"></i></a>
+                </h4>
+            </div>
+
+            <div id="DirectorateOverview" class="card-body collapse">
+                <div class="col-lg-12 displayfont">
+
+                    @RoleDescForPosition.DirectorateOverview
+
+                </div>
+            </div>
+        </div>
+    }
+}
+
+<!--Primary purpose of role -->
+<div class="card card.bg-primary.text-white" id="pnlPrimaryPurposeRole">
+    <div class="card-header accordion-toggle" data-toggle="collapse"  data-target="#PrimaryPurposeRole">
+        <h4 class="accordion-title">
+            <a href="#" class="collapsed" data-toggle="collapse">Primary purpose of the role<i class="indicator glyphicon glyphicon-chevron-right  float-right"></i></a>
+        </h4>
+    </div>
+
+    <div id="PrimaryPurposeRole" class="card-body collapse">
+        <div class="col-lg-12 displayfont">
+            @Html.Raw(Model.RolePrimaryPurpose)
+        </div>
+    </div>
+</div>
+
+
+<!--Key accountabilities-->
+<div class="card card.bg-primary.text-white" id="pnlKeyAccountability">
+    <div class="card-header accordion-toggle" data-toggle="collapse"  data-target="#KeyAccountability">
+        <h4 class="accordion-title">
+            <a href="#" class="collapsed" data-toggle="collapse">Key accountabilities<i class="indicator glyphicon glyphicon-chevron-right  float-right"></i></a>
+        </h4>
+    </div>
+
+    <div id="KeyAccountability" class="card-body collapse">
+        <div class="col-lg-12 displayfont">
+            @Html.Raw(Model.KeyAccountabilities)
+        </div>
+    </div>
+</div>
+
+
+<!--Key challenges-->
+<div class="card card.bg-primary.text-white" id="pnlKeyChallenges">
+    <div class="card-header accordion-toggle" data-toggle="collapse"  data-target="#KeyChallenges">
+        <h4 class="accordion-title">
+            <a href="#" class="collapsed" data-toggle="collapse">Key challenges<i class="indicator glyphicon glyphicon-chevron-right  float-right"></i></a>
+        </h4>
+    </div>
+
+    <div id="KeyChallenges" class="card-body collapse">
+        <div class="col-lg-12 displayfont">
+            @Html.Raw(Model.KeyChallenges)
+        </div>
+    </div> 
+</div>
+
+
+<!--Key relationships-->
+@Html.Partial("~/Views/RoleDescription/_partial/_keyRelationshipSummary.cshtml", Model)
+
+<!--Role dimensions-->
+@Html.Partial("~/Views/RoleDescription/_partial/_roleDimensionsSummary.cshtml", Model)
+
+<!--Essential requirements-->
+<div class="card card.bg-primary.text-white" id="pnlEssentialRequirements">
+    <div class="card-header accordion-toggle" data-toggle="collapse"  data-target="#EssentialRequirements">
+        <h4 class="accordion-title">
+            <a href="#" class="collapsed" data-toggle="collapse">Essential requirements<i class="indicator glyphicon glyphicon-chevron-right  float-right"></i></a>
+        </h4>
+    </div>
+
+    <div id="EssentialRequirements" class="card-body collapse">
+        <div class="col-lg-12 displayfont">
+            @Html.Raw(Model.EssentialRequirements)
+        </div>
+    </div>
+</div>
+
+
+<!--Capabilities for the role -->
+@Html.Partial("~/Views/RoleDescription/_partial/_capabilitiesSummary.cshtml", Model)
+
+

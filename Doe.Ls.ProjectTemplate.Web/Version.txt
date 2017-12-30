@@ -1,0 +1,12 @@
+﻿Latest build version: 0.0.1.0
+
+Full assembly: Doe.Ls.ProjectTemplate.Web, Version=0.0.1.0, Culture=neutral, PublicKeyToken=null
+
+Company name: DoE-NSW
+
+Product name: Doe.Ls.ProjectTemplate.Web
+
+Release Notes: 
+
+Feature lists:
+9359- Adding full web application to template

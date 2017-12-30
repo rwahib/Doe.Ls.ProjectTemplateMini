@@ -1,0 +1,35 @@
+﻿@model HandleErrorInfo
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Error", ViewData);
+    var errorMessage = "";
+    var fullErrorMessage = "";
+    if (Model != null)
+    {
+        errorMessage = Model.Exception.Message;
+
+        if (Model != null && Model.Exception.InnerException != null)
+        {
+            fullErrorMessage = Model.Exception.InnerException.Message;
+        }
+    }
+
+}
+<h2>Sorry there is an error while processing this request.</h2>
+<h3 class="error">@errorMessage </h3>
+
+<p>
+    If you wish to contact the administrator, please use this email address: <br/>
+    <a href="mailto:@ProjectTemplateSettings.Notification.GetContactEmailAddresses()?subject=@ProjectTemplateSettings.Notification.Subject">
+        @ProjectTemplateSettings.Notification.GetDisplayContactEmailAddresses()
+    </a>
+</p>
+
+
+
+@if (!string.IsNullOrWhiteSpace(fullErrorMessage))
+{
+    <h4>Error details:</h4>
+    <div class="error"> @Html.Raw(fullErrorMessage)</div>
+}
+
+

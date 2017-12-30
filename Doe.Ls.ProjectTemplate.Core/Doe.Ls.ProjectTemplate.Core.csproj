@@ -1,0 +1,665 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C17193E-0C57-423C-B10E-D85007B4A189}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Doe.Ls.ProjectTemplate.Core</RootNamespace>
+    <AssemblyName>Doe.Ls.ProjectTemplate.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Prod|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Uat|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PreProd|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Dev|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Localhost|AnyCPU'">
+    <OutputPath>bin\Localhost\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Doe.Ls.EquellaBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\Doe.Ls.EquellaBase.dll</HintPath>
+    </Reference>
+    <Reference Include="Doe.Ls.TrimBase">
+      <HintPath>lib\Doe.Ls.TrimBase.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HP.HPTRIM.ServiceAPI.Client, Version=9.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\HP.HPTRIM.ServiceAPI.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="HP.HPTRIM.ServiceAPI.Model, Version=9.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>lib\HP.HPTRIM.ServiceAPI.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.10\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.10\lib\itextsharp.xmlworker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Client, Version=4.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Doe.Ls.TrimBase\lib\ServiceStack.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Common">
+      <HintPath>..\Doe.Ls.TrimBase\lib\ServiceStack.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Interfaces, Version=4.0.0.0, Culture=neutral, PublicKeyToken=e06fbc6124f57c43, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Doe.Ls.TrimBase\lib\ServiceStack.Interfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.5.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Doe.Ls.TrimBase\lib\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.1.2.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.5.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.2.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.0.10.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BL\DomainServices\DoeLsUserIdentityService.cs" />
+    <Compile Include="BL\DomainServices\EmailService.cs" />
+    <Compile Include="BL\DomainServices\FileService\FileSystemService.cs" />
+    <Compile Include="BL\DomainServices\FileService\FileServiceBase.cs" />
+    <Compile Include="BL\DomainServices\FileService\HttpFileResolver.cs" />
+    <Compile Include="BL\DomainServices\FileService\HttpFileService.cs" />
+    <Compile Include="BL\DomainServices\FileService\IFileResolver.cs" />
+    <Compile Include="BL\DomainServices\FileService\IFileService.cs" />
+    <Compile Include="BL\DomainServices\ILoginService.cs" />
+    <Compile Include="BL\DomainServices\Logging\DoeLsLoggerService.cs" />
+    <Compile Include="BL\DomainServices\LoginService.cs" />
+    <Compile Include="BL\DomainServices\PdfService\IPdfService.cs" />
+    <Compile Include="BL\DomainServices\PdfService\PdfResult.cs" />
+    <Compile Include="BL\DomainServices\PdfService\PdfXsltTransformer.cs" />
+    <Compile Include="BL\DomainServices\PdfService\PdfService.cs" />
+    <Compile Include="BL\DomainServices\TrimTaskManager.cs" />
+    <Compile Include="BL\EntityRepositories\AppEntityTypeRepository.cs" />
+    <Compile Include="BL\EntityRepositories\AppObjectInfoRepository.cs" />
+    <Compile Include="BL\EntityRepositories\BusinessUnitRepository.cs" />
+    <Compile Include="BL\EntityRepositories\CapabilityBehaviourIndicatorRepository.cs" />
+    <Compile Include="BL\EntityRepositories\CapabilityGroupRepository.cs" />
+    <Compile Include="BL\EntityRepositories\CapabilityLevelRepository.cs" />
+    <Compile Include="BL\EntityRepositories\CapabilityNameRepository.cs" />
+    <Compile Include="BL\EntityRepositories\CostCentreDetailRepository.cs" />
+    <Compile Include="BL\EntityRepositories\DirectorateRepository.cs" />
+    <Compile Include="BL\EntityRepositories\EmployeePositionRepository.cs" />
+    <Compile Include="BL\EntityRepositories\EmployeeRepository.cs" />
+    <Compile Include="BL\EntityRepositories\EmployeeTypeRepository.cs" />
+    <Compile Include="BL\EntityRepositories\ExecutiveRepository.cs" />
+    <Compile Include="BL\EntityRepositories\FocusRepository.cs" />
+    <Compile Include="BL\EntityRepositories\FunctionalAreaRepository.cs" />
+    <Compile Include="BL\EntityRepositories\GeneralLogRepository.cs" />
+    <Compile Include="BL\EntityRepositories\GradeRepository.cs" />
+    <Compile Include="BL\EntityRepositories\GlobalItemRepository.cs" />
+    <Compile Include="BL\EntityRepositories\HierarchyLevelRepository.cs" />
+    <Compile Include="BL\EntityRepositories\KeyRelationshipRepository.cs" />
+    <Compile Include="BL\EntityRepositories\LocationRepository.cs" />
+    <Compile Include="BL\EntityRepositories\LookupFocusGradeCriteriaRepository.cs" />
+    <Compile Include="BL\EntityRepositories\OccupationTypeRepository.cs" />
+    <Compile Include="BL\EntityRepositories\OrgLevelRepository.cs" />
+    <Compile Include="BL\EntityRepositories\PositionDescriptionRepository.cs" />
+    <Compile Include="BL\EntityRepositories\PositionFocusCriteriaRepository.cs" />
+    <Compile Include="BL\EntityRepositories\PositionHistoryRepository.cs" />
+    <Compile Include="BL\EntityRepositories\PositionInformationRepository.cs" />
+    <Compile Include="BL\EntityRepositories\PositionLevelRepository.cs" />
+    <Compile Include="BL\EntityRepositories\PositionNoteRepository.cs" />
+    <Compile Include="BL\EntityRepositories\PositionRepository.cs" />
+    <Compile Include="BL\EntityRepositories\PositionStatusValueRepository.cs" />
+    <Compile Include="BL\EntityRepositories\PositionTypeRepository.cs" />
+    <Compile Include="BL\Models\OnlineRecordStatus.cs" />
+    <Compile Include="BL\Models\RecordInfoModel.cs" />
+    <Compile Include="BL\EntityRepositories\RelationshipScopeRepository.cs" />
+    <Compile Include="BL\EntityRepositories\RoleCapabilityRepository.cs" />
+    <Compile Include="BL\EntityRepositories\RoleDescCapabilityMatrixRepository.cs" />
+    <Compile Include="BL\EntityRepositories\RoleDescriptionRepository.cs" />
+    <Compile Include="BL\EntityRepositories\RolePositionDescriptionHistoryRepository.cs" />
+    <Compile Include="BL\EntityRepositories\RolePositionDescriptionRepository.cs" />
+    <Compile Include="BL\EntityRepositories\SelectionCriteriaRepository.cs" />
+    <Compile Include="BL\EntityRepositories\StatusValueRepository.cs" />
+    <Compile Include="BL\EntityRepositories\SysMessageRepository.cs" />
+    <Compile Include="BL\EntityRepositories\SysMsgCategoryRepository.cs" />
+    <Compile Include="BL\EntityRepositories\SysRoleRepository.cs" />
+    <Compile Include="BL\EntityRepositories\SysUserRepository.cs" />
+    <Compile Include="BL\EntityRepositories\SysUserRoleRepository.cs" />
+    <Compile Include="BL\EntityRepositories\TeamTypeRepository.cs" />
+    <Compile Include="BL\EntityRepositories\TrimRecordRepository.cs" />
+    <Compile Include="BL\EntityRepositories\UnitRepository.cs" />
+    <Compile Include="BL\EntityRepositories\WfActionRepository.cs" />
+    <Compile Include="BL\HttpRepositoryFactory.cs" />
+    <Compile Include="BL\Models\Breadcrumb.cs" />
+    <Compile Include="BL\Models\DefaultOrganisationalModel.cs" />
+    <Compile Include="BL\Models\Enums.cs" />
+    <Compile Include="BL\Models\EnumsFromDatabase\HierarchyLevel.cs">
+      <DependentUpon>HierarchyLevel.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="BL\Models\EnumsFromDatabase\Grade.cs">
+      <DependentUpon>Grade.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="BL\Models\EnumsFromDatabase\TeamType.cs">
+      <DependentUpon>TeamType.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="BL\Models\EnumsFromDatabase\PositionLevel.cs">
+      <DependentUpon>PositionLevel.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="BL\Models\EnumsFromDatabase\AppEntityType.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppEntityType.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BL\Models\EnumsFromDatabase\StatusValue.cs">
+      <DependentUpon>StatusValue.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="BL\Models\EnumsFromDatabase\OrgLevel.cs">
+      <DependentUpon>OrgLevel.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="BL\Models\EnumsFromDatabase\GlobalItem.cs">
+      <DependentUpon>GlobalItem.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="BL\Models\EnumsFromDatabase\UserRole.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserRole.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BL\Models\Extensions\PositionExtension.cs" />
+    <Compile Include="BL\Models\Extensions\RoleDescriptionExtensions.cs" />
+    <Compile Include="BL\Models\Extensions\GeneralOrgExtension.cs" />
+    <Compile Include="BL\Models\Extensions\RoleOrgLevelExtension.cs" />
+    <Compile Include="BL\Models\Extensions\RoleExtension.cs" />
+    <Compile Include="BL\Models\Extensions\StatusValueExtension.cs" />
+    <Compile Include="BL\Models\Extensions\WorkflowObjectExtensions.cs" />
+    <Compile Include="BL\Models\JQueryDataTableParam\BussinessUnitFunctionalAreaArgument.cs" />
+    <Compile Include="BL\Models\JQueryDataTableParam\BasicArgument.cs" />
+    <Compile Include="BL\Models\JQueryDataTableParam\DirectorateArgument.cs" />
+    <Compile Include="BL\Models\JQueryDataTableParam\GeneralLogArgument.cs" />
+    <Compile Include="BL\Models\JQueryDataTableParam\JQueryDataTableRolePositionDesc.cs" />
+    <Compile Include="BL\Models\Light\PositionHistoryLight.cs" />
+    <Compile Include="BL\Models\Light\RolePositionDescriptionHistoryLight.cs" />
+    <Compile Include="BL\Models\Light\SysMessageLight.cs" />
+    <Compile Include="BL\Models\Light\SysMsgCategoryLight.cs" />
+    <Compile Include="BL\Models\Light\UserInfoExtensionLight.cs" />
+    <Compile Include="BL\Models\Light\WfActionLight.cs" />
+    <Compile Include="BL\Models\Light\WfObjectTypeLight.cs" />
+    <Compile Include="BL\Models\Light\WfTaskLight.cs" />
+    <Compile Include="BL\Models\MessageCategory.cs" />
+    <Compile Include="BL\DomainServices\MessageFactory.cs" />
+    <Compile Include="BL\DomainServices\MessageService.cs" />
+    <Compile Include="BL\Models\Msg.cs" />
+    <Compile Include="BL\Models\PositionListType.cs" />
+    <Compile Include="BL\Models\RoleCapabilityModel.cs" />
+    <Compile Include="BL\Models\Extensions\UserInfoExtension.cs" />
+    <Compile Include="BL\Models\JQueryDataTableParam\JQueryDataTableCapabiltyBehaviourInd.cs" />
+    <Compile Include="BL\Models\JQueryDataTableParam\JQueryDataTableCapabiltyName.cs" />
+    <Compile Include="BL\Models\JQueryDataTableParam\JQueryDataTableFocusCriteria.cs" />
+    <Compile Include="BL\Models\JQueryDataTableParam\JQueryDatatableParamPositionExtension.cs" />
+    <Compile Include="BL\Models\JQueryDataTableParam\JQueryDataTableSysUser.cs" />
+    <Compile Include="BL\Models\Light\AppEntityTypeLight.cs" />
+    <Compile Include="BL\Models\Light\AppMessageLight.cs" />
+    <Compile Include="BL\Models\Light\AppObjectInfoLight.cs" />
+    <Compile Include="BL\Models\Light\BusinessUnitLight.cs" />
+    <Compile Include="BL\Models\Light\CapabilityBehaviourIndicatorLight.cs" />
+    <Compile Include="BL\Models\Light\CapabilityGroupLight.cs" />
+    <Compile Include="BL\Models\Light\CapabilityLevelLight.cs" />
+    <Compile Include="BL\Models\Light\CapabilityNameLight.cs" />
+    <Compile Include="BL\Models\Light\CostCentreDetailLight.cs" />
+    <Compile Include="BL\Models\Light\DirectorateLight.cs" />
+    <Compile Include="BL\Models\Light\EmployeeLight.cs" />
+    <Compile Include="BL\Models\Light\EmployeePositionLight.cs" />
+    <Compile Include="BL\Models\Light\EmployeeTypeLight.cs" />
+    <Compile Include="BL\Models\Light\ExecutiveLight.cs" />
+    <Compile Include="BL\Models\Light\FocusLight.cs" />
+    <Compile Include="BL\Models\Light\FunctionalAreaLight.cs" />
+    <Compile Include="BL\Models\Light\GeneralLogLight.cs" />
+    <Compile Include="BL\Models\Light\GlobalItemLight.cs" />
+    <Compile Include="BL\Models\Light\GradeLight.cs" />
+    <Compile Include="BL\Models\Light\HierarchyLevelLight.cs" />
+    <Compile Include="BL\Models\Light\KeyRelationshipLight.cs" />
+    <Compile Include="BL\Models\Light\LocationLight.cs" />
+    <Compile Include="BL\Models\Light\LookupFocusGradeCriteriaLight.cs" />
+    <Compile Include="BL\Models\Light\OccupationTypeLight.cs" />
+    <Compile Include="BL\Models\Light\OrgLevelLight.cs" />
+    <Compile Include="BL\Models\Light\PositionDescriptionLight.cs" />
+    <Compile Include="BL\Models\Light\PositionFocusCriteriaLight.cs" />
+    <Compile Include="BL\Models\Light\PositionInformationLight.cs" />
+    <Compile Include="BL\Models\Light\PositionLevelLight.cs" />
+    <Compile Include="BL\Models\Light\PositionLight.cs" />
+    <Compile Include="BL\Models\Light\PositionNoteLight.cs" />
+    <Compile Include="BL\Models\Light\PositionStatusValueLight.cs" />
+    <Compile Include="BL\Models\Light\PositionTypeLight.cs" />
+    <Compile Include="BL\Models\Light\RelationshipScopeLight.cs" />
+    <Compile Include="BL\Models\Light\RoleCapabilityLight.cs" />
+    <Compile Include="BL\Models\Light\RoleDescCapabilityMatrixLight.cs" />
+    <Compile Include="BL\Models\Light\RoleDescriptionLight.cs" />
+    <Compile Include="BL\Models\Light\RolePositionDescriptionLight.cs" />
+    <Compile Include="BL\Models\Light\SelectionCriteriaLight.cs" />
+    <Compile Include="BL\Models\Light\StatusValueLight.cs" />
+    <Compile Include="BL\Models\Light\SysRoleLight.cs" />
+    <Compile Include="BL\Models\Light\SysUserLight.cs" />
+    <Compile Include="BL\Models\Light\SysUserRoleLight.cs" />
+    <Compile Include="BL\Models\Light\TeamTypeLight.cs" />
+    <Compile Include="BL\Models\Light\UnitLight.cs" />
+    <Compile Include="BL\Models\PageModel.cs" />
+    <Compile Include="BL\Models\PositionChartFilterParams.cs" />
+    <Compile Include="BL\Models\PositionChartModel.cs" />
+    <Compile Include="BL\Models\RolePosPropertyStateModel.cs" />
+    <Compile Include="BL\Models\RolePosDescriptionArg.cs" />
+    <Compile Include="BL\Models\RPDPositionsModel.cs" />
+    <Compile Include="BL\Models\UserRoleModel.cs" />
+    <Compile Include="BL\Models\Web\AccountModels.cs" />
+    <Compile Include="BL\Models\CloneActionModel.cs" />
+    <Compile Include="BL\Models\WorkflowActionModel.cs" />
+    <Compile Include="BL\RepositoryExtension.cs" />
+    <Compile Include="BL\RepositoryFactory.cs" />
+    <Compile Include="BL\RepositoryFactoryApplicationBase.cs" />
+    <Compile Include="BL\ServiceRepository.cs" />
+    <Compile Include="BL\ServiceRepository_partial.cs" />
+    <Compile Include="BL\UI\AppCacheHelper.cs" />
+    <Compile Include="BL\UI\Caching\AppCacheHelper.cs" />
+    <Compile Include="BL\UI\CommonHelper.cs" />
+    <Compile Include="BL\UI\CustomAttributes\HasApprovalRoleAttribute.cs" />
+    <Compile Include="BL\UI\CustomAttributes\HasAdminOrPowerRoleAttribute.cs" />
+    <Compile Include="BL\UI\CustomAttributes\HasAnyAdminRoleAttribute.cs" />
+    <Compile Include="BL\UI\CustomAttributes\HasDoeRoleAttribute.cs" />
+    <Compile Include="BL\UI\CustomAttributes\HasSysAdminRoleAttribute.cs" />
+    <Compile Include="BL\UI\CustomAttributes\PositionEstablishmentRoleAttribute.cs" />
+    <Compile Include="BL\UI\Dashboards\Dashboard.cs" />
+    <Compile Include="BL\UI\Dashboards\DashboardItem.cs" />
+    <Compile Include="BL\UI\Dashboards\DashboardSection.cs" />
+    <Compile Include="BL\UI\MessageHelper.cs" />
+    <Compile Include="BL\UI\RolePositionDescTasks\IPositionRdPdTasks.cs" />
+    <Compile Include="BL\UI\RolePositionDescTasks\PositionRdPdTasksBase.cs" />
+    <Compile Include="BL\UI\RolePositionDescTasks\PositionTasks.cs" />
+    <Compile Include="BL\UI\RolePositionDescTasks\PosRdPdFactory.cs" />
+    <Compile Include="BL\UI\UiStatus.cs" />
+    <Compile Include="BL\UI\RolePositionDescTasks\PositionDescTasks.cs" />
+    <Compile Include="BL\UI\RolePositionDescTasks\RoleDescTasks.cs" />
+    <Compile Include="BL\UI\RolePositionDescTasks\RolePositiondescTask.cs" />
+    <Compile Include="BL\UI\UserTasks\AdministratorUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\BusinessUnitAuthorUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\BusinessUnitDataEntryUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\DirectorateDataEntryUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\DirectorateEndorserUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\DivisionApproverUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\DivisionEditorUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\HrUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\DoEUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\GuestUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\IUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\PowerUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\SystemAdministratorUserTask.cs" />
+    <Compile Include="BL\UI\UserTasks\UiPropertyItem.cs" />
+    <Compile Include="BL\UI\UserTasks\UserTaskBase.cs" />
+    <Compile Include="BL\UI\UserTasks\UserTaskFactory.cs" />
+    <Compile Include="BL\UI\ViewBagWrapper.cs" />
+    <Compile Include="BL\UI\ViewDataWrapper.cs" />
+    <Compile Include="BL\UnitOfWork.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="BL\Workflow\IWorkflowEngine.cs" />
+    <Compile Include="BL\Workflow\WorkflowAction-partial.cs" />
+    <Compile Include="BL\Workflow\WorkflowActionType.cs">
+      <DependentUpon>WorkflowActionType.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="BL\Workflow\WorkflowEngineBase.cs" />
+    <Compile Include="BL\Workflow\WorkflowEngineFactory.cs" />
+    <Compile Include="BL\Workflow\WorkflowEnginePosition.cs" />
+    <Compile Include="BL\Workflow\WorkflowEnginePositionDescription.cs" />
+    <Compile Include="BL\Workflow\WorkflowEngineRoleDescription.cs" />
+    <Compile Include="ProjectTemplateProvider.cs" />
+    <Compile Include="Exceptions\AccessDeniedException.cs" />
+    <Compile Include="DoeClients\LoggerServiceProxy.cs" />
+    <Compile Include="DoeClients\PortalProxy.cs" />
+    <Compile Include="DoeClients\UserInfoProxy.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Settings\ProjectTemplateSettings.cs" />
+    <Compile Include="Web References\PartnerAppWs\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\VleWsLoggerService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Compile Include="Web References\VleWsUserInformation\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://applogger.lsvle.pre.det.nsw.edu.au/webservices/CilLoggerService.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\VleWsLoggerService\</RelPath>
+      <UpdateFromURL>http://applogger.lsvle.pre.det.nsw.edu.au/webservices/CilLoggerService.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Doe_Ls_SampleProject_Core_VleWsLoggerService_CilLoggerService</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="http://vle-webservices.lsvle.pre.det.nsw.edu.au/UserInformation.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\VleWsUserInformation\</RelPath>
+      <UpdateFromURL>http://vle-webservices.lsvle.pre.det.nsw.edu.au/UserInformation.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Doe_Ls_SampleProject_Core_VleWsUserInformation_UserInformation</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://ssoaddons.det.nsw.edu.au/paservice/services/PartnerApp%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\PartnerAppWs\</RelPath>
+      <UpdateFromURL>https://ssoaddons.det.nsw.edu.au/paservice/services/PartnerApp%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>Doe_Ls_SchoolSportsUnit_Core_PartnerAppWs_PartnerAppService</CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BL\DomainServices\FileService\FileResolver.cd" />
+    <None Include="BL\DomainServices\FileService\FileService.cd" />
+    <None Include="BL\DomainServices\PdfService\PdfServices.cd" />
+    <None Include="BL\Models\JQueryDataTableParam\Arg.cd" />
+    <None Include="BL\Models\Models.cd" />
+    <None Include="BL\UI\CustomAttributes\CustomAttributes.cd" />
+    <None Include="BL\UI\RolePositionDescTasks\RdPdTasks.cd" />
+    <None Include="BL\UI\UserTasks\Tasks.cd" />
+    <None Include="BL\Workflow\WFDiagram.cd" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\PartnerAppWs\PartnerApp.wsdl" />
+    <None Include="Web References\PartnerAppWs\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\VleWsLoggerService\CilLoggerService.wsdl" />
+    <None Include="Web References\VleWsLoggerService\LogItem1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VleWsLoggerService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\VleWsUserInformation\DECUser1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VleWsUserInformation\LightUser1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VleWsUserInformation\Location1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VleWsUserInformation\PortalUser1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VleWsUserInformation\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\VleWsUserInformation\User1.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\VleWsUserInformation\UserInformation.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\VleWsUserInformation\UserInformation.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\VleWsLoggerService\CilLoggerService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Doe.Ls.EntityBase\Doe.Ls.EntityBase.csproj">
+      <Project>{50e9c1df-8335-40c1-afa6-c63f2fcc7614}</Project>
+      <Name>Doe.Ls.EntityBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Doe.Ls.ProjectTemplate.Data\Doe.Ls.ProjectTemplate.Data.csproj">
+      <Project>{abb2b7a5-219a-4258-8096-f7beb4c4c0b1}</Project>
+      <Name>Doe.Ls.PosEstablishment.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="BL\DomainServices\PdfService\Template\dec-pdf.png" />
+    <Content Include="BL\DomainServices\PdfService\Template\icon-business-enablers.png" />
+    <Content Include="BL\DomainServices\PdfService\Template\icon-occupation-specific.png" />
+    <Content Include="BL\DomainServices\PdfService\Template\icon-people-management.png" />
+    <Content Include="BL\DomainServices\PdfService\Template\icon-personal-attr.png" />
+    <Content Include="BL\DomainServices\PdfService\Template\icon-relationships.png" />
+    <Content Include="BL\DomainServices\PdfService\Template\icon-results.png" />
+    <Content Include="BL\DomainServices\PdfService\Template\PDFGenerator.css" />
+    <Content Include="BL\DomainServices\PdfService\Template\PD_only_Template.html" />
+    <Content Include="BL\DomainServices\PdfService\Template\PPD_Template.xslt" />
+    <Content Include="BL\DomainServices\PdfService\Template\RD_only_Template.html" />
+    <Content Include="BL\DomainServices\PdfService\Template\RD_Template.html" />
+    <Content Include="BL\DomainServices\PdfService\Template\PD_Template.html" />
+    <Content Include="BL\Models\EnumsFromDatabase\HierarchyLevel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>HierarchyLevel.cs</LastGenOutput>
+    </Content>
+    <Content Include="BL\Models\EnumsFromDatabase\Grade.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Grade.cs</LastGenOutput>
+    </Content>
+    <Content Include="BL\Models\EnumsFromDatabase\TeamType.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>TeamType.cs</LastGenOutput>
+    </Content>
+    <Content Include="BL\Models\EnumsFromDatabase\PositionLevel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>PositionLevel.cs</LastGenOutput>
+    </Content>
+    <Content Include="BL\Models\EnumsFromDatabase\AppEntityType.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AppEntityType.cs</LastGenOutput>
+    </Content>
+    <Content Include="BL\Models\EnumsFromDatabase\StatusValue.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>StatusValue.cs</LastGenOutput>
+    </Content>
+    <Content Include="BL\Models\EnumsFromDatabase\OrgLevel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>OrgLevel.cs</LastGenOutput>
+    </Content>
+    <Content Include="BL\Models\EnumsFromDatabase\GlobalItem.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>GlobalItem.cs</LastGenOutput>
+    </Content>
+    <Content Include="BL\Models\EnumsFromDatabase\UserRole.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UserRole.cs</LastGenOutput>
+    </Content>
+    <Content Include="BL\Workflow\WorkflowActionType.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>WorkflowActionType.cs</LastGenOutput>
+    </Content>
+    <Content Include="lib\Doe.Ls.EntityBase.dll" />
+    <Content Include="lib\Doe.Ls.EquellaBase.dll" />
+    <Content Include="lib\HP.HPTRIM.ServiceAPI.Client.dll" />
+    <Content Include="lib\HP.HPTRIM.ServiceAPI.Model.dll" />
+    <Content Include="lib\HP.HPTRIM.ServiceModel.xml" />
+    <Content Include="lib\ServiceStack.Client.dll" />
+    <Content Include="lib\ServiceStack.Common.dll" />
+    <Content Include="lib\ServiceStack.Interfaces.dll" />
+    <Content Include="lib\ServiceStack.Text.dll" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

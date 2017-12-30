@@ -1,0 +1,104 @@
+@using Doe.Ls.EntityBase.MVCExtensions
+@model CostCentreDetail
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData); 
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+    
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+        var positionItems = ViewBagWrapper.ListBag.GetList("positionItems",ViewData);
+    
+}
+@Html.AntiForgeryToken()
+                                    
+
+                          <div class="form-group @GetFormGroupClass("CostCentre")">
+  <label for="CostCentre" class="col-lg-4">@Html.DisplayNameFor(model => model.CostCentre) </label>
+  <input type="text" name="CostCentre" id="CostCentre" class="form-control col-lg-8" placeholder="e.g. Cost centre" value="@Model.CostCentre"@ReadOnly("CostCentre")       /> 
+</div>
+                         <div class="form-group @GetFormGroupClass("Fund")">
+  <label for="Fund" class="col-lg-4">@Html.DisplayNameFor(model => model.Fund) </label>
+  <input type="text" name="Fund" id="Fund" class="form-control col-lg-8" placeholder="e.g. Fund" value="@Model.Fund"@ReadOnly("Fund")       /> 
+</div>
+                         <div class="form-group @GetFormGroupClass("PayrollWBS")">
+  <label for="PayrollWBS" class="col-lg-4">@Html.DisplayNameFor(model => model.PayrollWBS) </label>
+  <input type="text" name="PayrollWBS" id="PayrollWBS" class="form-control col-lg-8" placeholder="e.g. Payroll w b s" value="@Model.PayrollWBS"@ReadOnly("PayrollWBS")       /> 
+</div>
+                         <div class="form-group @GetFormGroupClass("RCCJDEPayrollCode")">
+  <label for="RCCJDEPayrollCode" class="col-lg-4">@Html.DisplayNameFor(model => model.RCCJDEPayrollCode) </label>
+  <input type="text" name="RCCJDEPayrollCode" id="RCCJDEPayrollCode" class="form-control col-lg-8" placeholder="e.g. R c c j d e payroll code" value="@Model.RCCJDEPayrollCode"@ReadOnly("RCCJDEPayrollCode")       /> 
+</div>
+                         <div class="form-group @GetFormGroupClass("GLAccount")">
+  <label for="GLAccount" class="col-lg-4">@Html.DisplayNameFor(model => model.GLAccount) </label>
+  <input type="text" name="GLAccount" id="GLAccount" class="form-control col-lg-8" placeholder="e.g. G l account" value="@Model.GLAccount"@ReadOnly("GLAccount")       /> 
+</div>
+                         <div class="form-group @GetFormGroupClass("LastUpdatedDate")">
+  <label for="LastUpdatedDate" class="col-lg-4">@Html.DisplayNameFor(model => model.LastUpdatedDate) <span class="mandatory">*</span></label>
+  <input type="date" name="LastUpdatedDate" id="LastUpdatedDate" class="form-control col-lg-8" placeholder="e.g. Last updated date" value="@Model.LastUpdatedDate"@ReadOnly("LastUpdatedDate")  required data-fv-notempty-message='The Last updated date is required'  data-fv-date-format="DD/MM/YYYY"   /> 
+</div>
+                         <div class="form-group @GetFormGroupClass("LastUpdatedBy")">
+  <label for="LastUpdatedBy" class="col-lg-4">@Html.DisplayNameFor(model => model.LastUpdatedBy) <span class="mandatory">*</span></label>
+  <input type="text" name="LastUpdatedBy" id="LastUpdatedBy" class="form-control col-lg-8" placeholder="e.g. Last updated by" value="@Model.LastUpdatedBy"@ReadOnly("LastUpdatedBy")  required data-fv-notempty-message='The Last updated by is required'     /> 
+</div>
+ 
+  
+@functions
+{
+    bool IsKey(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) 
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+        
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+            {
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                break;
+            }
+        }
+        return string.Empty;        
+    }    
+}
+
+
+
+

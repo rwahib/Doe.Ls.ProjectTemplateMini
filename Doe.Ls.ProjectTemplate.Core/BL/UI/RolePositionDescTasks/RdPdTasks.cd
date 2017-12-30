@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.RolePositionDescTasks.PositionDescTasks">
+    <Position X="4.5" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>BL\UI\RolePositionDescTasks\PositionDescTasks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.RolePositionDescTasks.RoleDescTasks">
+    <Position X="7.5" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>BL\UI\RolePositionDescTasks\RoleDescTasks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object">
+    <Position X="9.5" Y="0.75" Width="2.25" />
+    <TypeIdentifier />
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.RolePositionDescTasks.RolePositionDescTask">
+    <Position X="13.5" Y="4" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAgAAAEAAAAAAQAAAEAAAAACAAAAAgAAAA=</HashCode>
+      <FileName>BL\UI\RolePositionDescTasks\RolePositiondescTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.RolePositionDescTasks.PositionRdPdTasksBase">
+    <Position X="7.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAgBAAAAAAAAAAAAAAAIAAAAAQA=</HashCode>
+      <FileName>BL\UI\RolePositionDescTasks\PositionRdPdTasksBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.RolePositionDescTasks.PositionTasks">
+    <Position X="10.5" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>BL\UI\RolePositionDescTasks\PositionTasks.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Doe.Ls.PosEstablishment.Core.BL.UI.RolePositionDescTasks.IPositionRdPdTasks">
+    <Position X="16.5" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAQA=</HashCode>
+      <FileName>BL\UI\RolePositionDescTasks\IPositionRdPdTasks.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

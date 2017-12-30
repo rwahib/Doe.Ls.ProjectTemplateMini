@@ -1,0 +1,218 @@
+﻿@model Position
+
+@{
+    var RolePositionDesc = ViewBagWrapper.GetGeneralObject<RolePositionDescription>("RolePositionDesc", ViewData);
+    
+
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+
+}
+
+<div class="card card.bg-primary.text-white descriptionPanel" id="pnlRoleInfo">
+    <div class="card-header accordion-toggle" data-toggle="collapse"  data-target="#RoleInfo">
+        <h4 class="accordion-title">
+            <a href="#">Position overview<i class="indicator glyphicon glyphicon-chevron-down  float-right"></i></a>
+        </h4>
+    </div>
+    <div id="RoleInfo" class="card-body in">
+        <div class="form-group">
+            <label class="col-form-label  text-right col-lg-3">@Html.DisplayNameFor(model => model.PositionTitle)</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@Model.PositionTitle</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label  text-right col-lg-3">@Html.DisplayNameFor(model => model.RolePositionDescription.RoleDescription.Cluster)</label>
+            <div class="col-lg-9">
+                @if(RolePositionDesc.RoleDescription != null)
+                    {<p class="form-control-plaintext">@RolePositionDesc.RoleDescription.Cluster</p>}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">Division / Branch</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@Model.Unit.BusinessUnit.Directorate.Executive.ExecutiveTitle</p>
+            </div>
+        </div>
+
+        @if(Model.RolePositionDescription.Grade.GradeType == Enums.GradeType.PSSE.ToString())
+            {
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">@Html.DisplayNameFor(model => model.RolePositionDescription.RoleDescription.SeniorExecutiveWorkLevelStandards)</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.RolePositionDescription.RoleDescription.SeniorExecutiveWorkLevelStandards</p>
+                </div>
+            </div>
+            }
+
+
+        @if(Model.RolePositionDescription.GradeCode != CommonHelper.GetPSSE3Code())
+            {
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">@Html.DisplayNameFor(model => model.Unit.BusinessUnit.Directorate)</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.Unit.BusinessUnit.Directorate.DirectorateName</p>
+                </div>
+            </div>
+            }
+        @if(Model.RolePositionDescription.GradeCode != CommonHelper.GetPSSE3Code() &&
+         Model.RolePositionDescription.GradeCode != CommonHelper.GetPSSE2Code())
+            {
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">@Html.DisplayNameFor(model => model.Unit.BusinessUnit)</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.Unit.BusinessUnit.BUnitName</p>
+                </div>
+            </div>
+            }
+            @if(Model.RolePositionDescription.GradeCode != CommonHelper.GetPSSE3Code() &&
+             Model.RolePositionDescription.GradeCode != CommonHelper.GetPSSE2Code() &&
+             Model.RolePositionDescription.GradeCode != CommonHelper.GetPSSE1Code() &&
+             Model.RolePositionDescription.GradeCode.Replace(" ", "") != CommonHelper.GetPSSE1DGCode())
+            {
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">@Html.DisplayNameFor(model => model.Unit)</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.Unit.UnitName</p>
+                </div>
+            </div>
+            }
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">@Html.DisplayNameFor(model => model.Location)</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@Model.Location.Name</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">Classification / Grade / Band</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@RolePositionDesc.Grade.GradeWithCode()</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label text-right">Reports to</label>
+
+            <div class="col-lg-9">
+                @if (Model.ReportToPositionId != -1)
+                {
+                    <p class="form-control-plaintext">
+
+                        @string.Format("({0})-{1}", Model.ParentPosition.PositionNumber, Model.ParentPosition.PositionTitle)
+                        @if (user.HasAdminOrPowerRole() && Model.ReportToPositionId != -1 && Model.StatusId != (int)Enums.StatusValue.Deleted)
+                        {
+                            <a class="btn btn-primary edit" href="@Url.Action("Edit", new {id = Model.ReportToPositionId})"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                        }
+
+                    </p>
+                }
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-form-label  text-right col-lg-3">DOC Number</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@RolePositionDesc.DocNumber</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">Kind of employment</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">
+                    @if(Model.PositionInformation != null)
+                    {
+                    @Model.PositionInformation.PositionType.PositionTypeWithCode()
+                    }
+                else
+                    {<text></text>
+                    }
+            </p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-lg-3 col-form-label  text-right">Role number</label>
+        <div class="col-lg-9">
+            <p class="form-control-plaintext">@Model.PositionNumber</p>
+        </div>
+    </div>
+
+    @if(RolePositionDesc.RoleDescription != null)
+        {
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">ANZSCO code</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@RolePositionDesc.RoleDescription.ANZSCOCode</p>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">PCAT code</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@RolePositionDesc.RoleDescription.PCATCode</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">Date of approval</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@RolePositionDesc.DateOfApproval.ToEasyDateFormat()</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">Agency website</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@RolePositionDesc.RoleDescription.AgencyWebsite</p>
+            </div>
+        </div>
+
+        }
+</div>
+</div>
+
+<div class="card card.bg-primary.text-white descriptionPanel" id="divOverView">
+    <div class="card-header accordion-toggle" data-toggle="collapse" data-target="#divOverViewId">
+        <h4 class="accordion-title">
+            <a href="#divOverViewId" class="collapsed" data-toggle="collapse">
+                Division overview
+                <i class="indicator glyphicon glyphicon-chevron-right  float-right"></i>
+            </a>
+        </h4>
+    </div>
+    <div id="divOverViewId" class="card-body collapse">
+        <div class="form-group">
+            <div class="col-lg-12 displayfont">
+               @Html.Raw(Model.DivisionOverview)
+            </div>
+        </div>
+        
+
+</div>
+</div>
+
+@if (@Model.PositionInformation != null && !String.IsNullOrWhiteSpace(Model.PositionInformation.OtherOverview))
+{
+    <div class="card card.bg-primary.text-white descriptionPanel" id="OtherOverviewId">
+        <div class="card-header accordion-toggle" data-toggle="collapse" data-target="#OtherOverview">
+            <h4 class="accordion-title">
+                <a href="#OtherOverview" class="collapsed" data-toggle="collapse">
+                    Additional overview
+                    <i class="indicator glyphicon glyphicon-chevron-right  float-right"></i>
+                </a>
+               </h4>
+        </div>
+        <div id="OtherOverview" class="card-body collapse">
+            <div class="form-group">
+                <div class="col-lg-12 displayfont">
+                    @Html.Raw(Model.PositionInformation.OtherOverview)
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+}

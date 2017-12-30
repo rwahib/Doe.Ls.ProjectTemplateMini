@@ -1,0 +1,42 @@
+﻿@model PositionDescription
+@{
+    var positions = ViewBagWrapper.GetGeneralObject<IEnumerable<Position>>("linkedPositions", ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var accessType = task.GetPositionPrivilege();
+
+}
+@Html.HiddenFor(model => model.PositionDescriptionId)
+
+@if (accessType.CanEdit || task.GetPositionPrivilege().FullControl || task.GetPositionPrivilege().CanCreate)
+{
+    <a href="@Url.Action("Create", "Position", new {rolePositionDescId = Model.PositionDescriptionId})" class="btn btn-primary">
+        Create new position
+    </a>
+}
+<div class="spacer-small"></div>
+<div class="table-responsive">
+    <table @*data-order ="[]"*@ id="roleDescPositionsTable" class="table table-striped table-sm dt-responsive">
+        <thead>
+        <tr>
+            <th>Position number</th>
+            <th>Position title</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        @* For ajax dataTable empty the tbody *@
+
+        @foreach (var p in positions)
+        {
+            <tr>
+                <td><a href="@Url.Action("ManageSummary", "Position", new {id = p.PositionId})">@p.PositionNumber</a></td>
+                <td><a href="@Url.Action("ManageSummary", "Position", new {id = p.PositionId})">@p.PositionTitle</a></td>
+                <td><a href="@Url.Action("ManageSummary", "Position", new {id = p.PositionId})">@p.StatusValue.StatusName</a></td>
+
+            </tr>
+        }
+
+        </tbody>
+    </table>
+</div>
+

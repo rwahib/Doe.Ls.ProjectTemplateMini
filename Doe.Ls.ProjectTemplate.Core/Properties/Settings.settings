@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Doe.Ls.SchoolSportsUnit.Core.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="Doe_Ls_SampleProject_Core_VleWsUserInformation_UserInformation" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://vle-webservices.lsvle.pre.det.nsw.edu.au/UserInformation.asmx</Value>
+    </Setting>
+    <Setting Name="Doe_Ls_SampleProject_Core_VleWsLoggerService_CilLoggerService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://applogger.lsvle.pre.det.nsw.edu.au/webservices/CilLoggerService.asmx</Value>
+    </Setting>
+    <Setting Name="Doe_Ls_SchoolSportsUnit_Core_PartnerAppWs_PartnerAppService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://ssoaddons.det.nsw.edu.au/paservice/services/PartnerApp</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

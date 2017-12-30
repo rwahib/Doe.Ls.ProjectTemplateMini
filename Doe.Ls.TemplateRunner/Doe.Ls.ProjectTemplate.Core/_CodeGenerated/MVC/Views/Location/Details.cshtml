@@ -1,0 +1,33 @@
+
+
+
+
+ 
+
+@model Location
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Detail Location",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+<div class="page-header">
+    <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+</div>
+
+<div id="formTab" class="card.card-body">
+    <form class="" role="form" method="POST" id="form-location-details">
+        @Html.AntiForgeryToken()
+        <p>
+            <a href="@Url.Action("Edit", new { id  = Model.LocationId })" class="btn btn-primary">Edit</a>
+            <a href="@Url.Action("Index")" class="btn btn-primary">Location List <span class="glyphicon glyphicon-th-list"></span></a>
+        </p>
+    
+        @Html.Partial("_partial/_details")
+        <p>
+            <a href="@Url.Action("Edit", new { id  = Model.LocationId })" class="btn btn-primary">Edit</a>
+            <a href="@Url.Action("Index")" class="btn btn-primary">Location List <span class="glyphicon glyphicon-th-list"></span></a>
+        </p>
+    </form>
+</div>
+

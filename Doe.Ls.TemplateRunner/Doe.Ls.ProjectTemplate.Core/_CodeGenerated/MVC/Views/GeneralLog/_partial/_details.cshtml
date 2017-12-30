@@ -1,0 +1,44 @@
+@model GeneralLog 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("General log Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);	
+}
+ 
+@Html.HiddenFor(model => model.LogId)
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.LogId)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.LogId)</p></div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Action)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.Action)</p></div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Context)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.Context)</p></div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.CreationDate)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.CreationDate)</p></div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Username)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.Username)</p></div>
+        </div>
+<div class="form-group">
+    	    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.SysRole)</span>
+   
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.SysRole.RoleApiName)</p>
+    </div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Note)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.Note)</p></div>
+        </div>

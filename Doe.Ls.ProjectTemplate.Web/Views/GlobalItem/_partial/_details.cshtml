@@ -1,0 +1,117 @@
+
+
+@model GlobalItem
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Global item Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+ 
+@Html.HiddenFor(model => model.ItemCode)
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.ItemCode)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.ItemCode)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.ItemName)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.ItemName)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.ItemDescription)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.ItemDescription)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.ItemContent)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.Raw(Model.ItemContent)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.CreatedBy)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.CreatedBy)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.CreatedDate)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.CreatedDate)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.LastupdatedBy)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.LastupdatedBy)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.LastupdatedDate)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.LastupdatedDate)</p>
+    </div>
+            </div>
+    
+    
+
+

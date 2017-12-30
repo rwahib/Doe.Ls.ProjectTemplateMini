@@ -1,0 +1,45 @@
+
+
+@model PositionFocusCriteria
+
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Create Position focus criteria",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);
+
+    ViewBagWrapper.FormOperations.SetFormType(FormType.Create, ViewData);
+    ViewBagWrapper.FormOperations.SetRequestType(RequestType.Direct, ViewData);
+    Layout = "~/Views/PositionDescription/Layout/PositionDescLayout.cshtml";
+}
+
+<div class="page-header">
+    <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+</div>
+<div class="error">
+    <ul class="list-group">
+    @if (errors != null) 
+    {
+        foreach (var error in errors)
+        {
+            <li class="list-group-item ">
+                <label class="validation-error">@string.Format("{0} has error:", error.PropertyName.Wordify())</label>
+                <label class="validation-error">@string.Format("{0}", error.ErrorMessage)</label>
+            </li>
+        }
+    }
+    </ul>
+</div>
+
+<div id="formTab" class="card.card-body">
+    <form class="" role="form" method="POST" id="form-positionFocusCriteria-create">
+    
+        @Html.Partial("_partial/_update")
+    
+        <p>
+            <button type="submit" class="btn btn-primary">Save</button> 
+            &nbsp;|&nbsp; 
+            <a href="@Url.Action("Index")" class="btn btn-primary">Cancel <span class="glyphicon glyphicon-th-list"></span></a>
+        </p>
+    </form>
+</div>

@@ -1,0 +1,31 @@
+
+
+@model IEnumerable<PositionStatusValue>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Position status value list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+@*
+@section PositionStatusValueActive
+{
+active 
+}
+*@
+
+<div class="wrapper" id="wrapper-PositionStatusValue">
+
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+
+    <p>
+        <a href="@Url.Action("Create",new {ajax=true})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">
+            Create new Position status value
+        </a>
+    </p>
+
+    @Html.Partial("_partial/_list")
+
+</div>

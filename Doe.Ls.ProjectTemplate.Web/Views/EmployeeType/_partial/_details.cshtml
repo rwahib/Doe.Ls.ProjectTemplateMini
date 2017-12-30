@@ -1,0 +1,52 @@
+
+
+@model EmployeeType
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Employee type Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+ 
+@Html.HiddenFor(model => model.EmployeeTypeCode)
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.EmployeeTypeCode)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.EmployeeTypeCode)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.EmployeeTypeName)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.EmployeeTypeName)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.EmployeeTypeDescription)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.EmployeeTypeDescription)</p>
+    </div>
+            </div>
+    
+    
+
+

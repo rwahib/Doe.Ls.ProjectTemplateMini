@@ -1,0 +1,57 @@
+﻿@{
+    var matrix = ViewBagWrapper.GetGeneralObject<RoleDescCapabilityMatrix>("matrix", ViewData);
+}
+<!--Guideline-->
+
+    <h3>Capability comparison guide</h3>
+    <div class="row-fluid vdivide heading matrix ">
+        <div class="col-lg-1">Grade / Band</div>
+        <div class="col-lg-2">Foundational</div>
+        <div class="col-lg-2">Intermediate</div>
+        <div class="col-lg-1">Adept</div>
+        <div class="col-lg-2">Advanced</div>
+        <div class="col-lg-2">Highly advanced</div>
+        <div class="col-lg-2">Focus capabilities</div>
+    </div>
+
+    @if (matrix != null)
+    {
+        <div class="row-fluid vdivide body matrix">
+            <div class="col-lg-1">@matrix.GradeCode</div>
+            <div class="col-lg-2">@GetGuide(matrix.Foundational_Min, matrix.Foundational_Max)</div>
+            <div class="col-lg-2">@GetGuide(matrix.Intermediate_Min, matrix.Intermediate_Max)</div>
+            <div class="col-lg-1">@GetGuide(matrix.Adept_Min, matrix.Adept_Max)</div>
+            <div class="col-lg-2">@GetGuide(matrix.Advanced_Min, matrix.Advanced_Max)</div>
+            <div class="col-lg-2">@GetGuide(matrix.HighlyAdvanced_Min, matrix.HighlyAdvanced_Max)</div>
+            <div class="col-lg-2">@GetGuide(matrix.FocusCapabilities_Min, matrix.FocusCapabilities_Max)</div>
+        </div>
+
+        <div class="row-fluid">
+            <div class="col-lg-12">@matrix.Notes</div>
+        </div>
+    }
+    else
+    {
+        <div class="row-fluid vdivide body matrix">
+            <div class="col-lg-1">N/A</div>
+            <div class="col-lg-2">N/A</div>
+            <div class="col-lg-2">N/A</div>
+            <div class="col-lg-1">N/A</div>
+            <div class="col-lg-2">N/A</div>
+            <div class="col-lg-2">N/A</div>
+            <div class="col-lg-2">N/A</div>
+        </div>
+    }
+
+
+    @functions {
+        string GetGuide(int minValue, int? maxValue)
+        {
+            var guide = minValue.ToString();
+
+            if (!string.IsNullOrEmpty(maxValue.ToString()) && minValue != maxValue)
+                guide = guide + " - " + maxValue.ToString();
+
+            return guide;
+        }
+    }

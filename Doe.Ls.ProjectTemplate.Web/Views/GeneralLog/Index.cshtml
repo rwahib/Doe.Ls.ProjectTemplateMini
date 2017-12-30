@@ -1,0 +1,82 @@
+@model IEnumerable<GeneralLog>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("General log list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var actionListItems = ViewBagWrapper.ListBag.GetList("actionListItems", ViewData);
+}
+
+@*
+@section GeneralLogActive
+{
+active
+}
+*@
+
+<div class="wrapper" id="wrapper-GeneralLog">
+
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+    <div class="row ">
+        <div class="col-lg-12">
+            <div class="">
+
+
+                <div class="card-filter" id="show-hide-filter-0">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                <a href="#collapse-filter-0" class="collapsed" data-toggle="collapse">Filter by date range</a>
+                            </h4>
+                        </div>
+                        <div id="collapse-filter-0" class="panel-collapse collapse">
+                            <div class="card-body">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="fromDate" class="col-form-label col-lg-4" tabindex="0">From date</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" data-date="date" name="fromDate" id="fromDate" class="form-control" placeholder="like 01/01/2010" value="" data-fv-date-format="DD/MM/YYYY"
+                                                    />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="toDate" class="col-form-label col-lg-4" tabindex="0">To date</label>
+                                        <div class="col-lg-8">
+                                            <input type="text" data-date="date" name="toDate" id="toDate" class="form-control" placeholder="like 01/02/2010" value="" data-fv-date-format="DD/MM/YYYY"
+                                                   />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="logAction" class="col-form-label col-lg-4" tabindex="0">Action</label>
+                                        <div class="col-lg-8">
+                                            @Html.DropDownList("logAction", actionListItems, "All Actions", new { id = "logAction", @class = "form-control select2picker", data_placeholder = "Select action ...", data_allow_Clear = "true" })  
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                                                           
+                                        <div class="float-right">
+                                            <p>
+                                                <button type="button" id="reset" class="btn btn-primary">
+                                                    Reset
+                                                </button>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    @Html.Partial("_partial/_list")
+
+</div>

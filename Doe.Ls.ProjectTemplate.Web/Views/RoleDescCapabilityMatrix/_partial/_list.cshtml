@@ -1,0 +1,112 @@
+
+@model IEnumerable<RoleDescCapabilityMatrix>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Role desc capability matrix list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive @*ajaxDataTable*@" @*data-service="roleDescCapabilityMatrixService" data-url="@HttpHelper.GetActionUrl("ListJson","RoleDescCapabilityMatrix")"*@>
+                @*<caption>Role desc capability matrix list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.GradeCode)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Foundational_Min)
+                        </th>
+                                 
+                    
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Intermediate_Min)
+                        </th>
+                                 
+                    
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Adept_Min)
+                        </th>
+                                 
+                    
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Advanced_Min)
+                        </th>
+                                 
+                        
+                     <th>
+                            @Html.DisplayNameFor(model => model.HighlyAdvanced_Min)
+                        </th>
+                    
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.FocusCapabilities_Min)
+                        </th>
+                                 
+                    
+                     <th>
+                            @Html.DisplayNameFor(model => model.Notes)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.GradeCode)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Foundational_Min)-@Html.DisplayFor(modelItem => item.Foundational_Max)
+                            </td>                       
+                                                  
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Intermediate_Min)-@Html.DisplayFor(modelItem => item.Intermediate_Max)
+                            </td>                       
+                                               
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Adept_Min)-@Html.DisplayFor(modelItem => item.Adept_Max)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Advanced_Min)-@Html.DisplayFor(modelItem => item.Advanced_Max)
+                            </td>                       
+                                               
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.HighlyAdvanced_Min)-@Html.DisplayFor(modelItem => item.HighlyAdvanced_Max)
+                            </td>                       
+                                                   
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.FocusCapabilities_Min)-@Html.DisplayFor(modelItem => item.FocusCapabilities_Max)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Notes)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { gradeCode = item.GradeCode })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { gradeCode = item.GradeCode })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    @*<a href="@Url.Action("Delete", new { gradeCode = item.GradeCode })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>*@
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

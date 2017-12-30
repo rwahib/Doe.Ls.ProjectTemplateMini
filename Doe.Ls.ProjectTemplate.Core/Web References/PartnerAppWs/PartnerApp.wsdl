@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:intf="http://impl.pa.det.nsw.edu.au" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://impl.pa.det.nsw.edu.au" targetNamespace="http://impl.pa.det.nsw.edu.au" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types />
+  <wsdl:message name="decryptRequest">
+    <wsdl:part name="encryptedData" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="encryptRequest">
+    <wsdl:part name="clearData" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="encryptResponse">
+    <wsdl:part name="encryptReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:message name="decryptResponse">
+    <wsdl:part name="decryptReturn" type="xsd:string" />
+  </wsdl:message>
+  <wsdl:portType name="PartnerApp">
+    <wsdl:operation name="decrypt" parameterOrder="encryptedData">
+      <wsdl:input name="decryptRequest" message="impl:decryptRequest" />
+      <wsdl:output name="decryptResponse" message="impl:decryptResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="encrypt" parameterOrder="clearData">
+      <wsdl:input name="encryptRequest" message="impl:encryptRequest" />
+      <wsdl:output name="encryptResponse" message="impl:encryptResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PartnerAppSoapBinding" type="impl:PartnerApp">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="decrypt">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="decryptRequest">
+        <wsdlsoap:body use="encoded" namespace="http://impl.pa.det.nsw.edu.au" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="decryptResponse">
+        <wsdlsoap:body use="encoded" namespace="http://impl.pa.det.nsw.edu.au" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="encrypt">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="encryptRequest">
+        <wsdlsoap:body use="encoded" namespace="http://impl.pa.det.nsw.edu.au" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output name="encryptResponse">
+        <wsdlsoap:body use="encoded" namespace="http://impl.pa.det.nsw.edu.au" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PartnerAppService">
+    <wsdl:port name="PartnerApp" binding="impl:PartnerAppSoapBinding">
+      <wsdlsoap:address location="http://ssoaddons.det.nsw.edu.au/paservice/services/PartnerApp" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

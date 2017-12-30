@@ -1,0 +1,34 @@
+﻿@model Doe.Ls.ProjectTemplate.Core.BL.Models.Extensions.UserInfoExtension
+@{
+
+    ViewBagWrapper.InfoBag.SetTitle("Log in", ViewData);
+    List<Enums.UserRole> roleList = GetOrderedRoleList();
+}
+
+<section data-type="accordion">
+
+    @foreach(Enums.UserRole role in GetOrderedRoleList())
+        {
+        if(ViewBagWrapper.SampleUserBag.GetSampleUserByRole(role, ViewData) != null)
+            {
+            <section data-type="panel" data-heading="@role.ToString().Wordify()">
+                @foreach(var userName in ViewBagWrapper.SampleUserBag.GetSampleUserByRole(role, ViewData))
+                    {
+                    <p>@userName</p>
+                    }
+            </section>
+            }
+
+        }
+</section>
+
+@functions {
+    private List<Enums.UserRole> GetOrderedRoleList()
+        {
+        var roles = new List<Enums.UserRole> {Enums.UserRole.DoEUser,Enums.UserRole.HRDataEntry,Enums.UserRole.BusinessUnitDataEntry, Enums.UserRole.BusinessUnitAuthor ,
+          Enums.UserRole.DirectorateDataEntry,  Enums.UserRole.DirectorateEndorser ,
+Enums.UserRole.DivisionEditor, Enums.UserRole.DivisionApprover , Enums.UserRole.PowerUser,Enums.UserRole.Administrator , Enums.UserRole.SystemAdministrator };
+        return roles;
+        }
+
+}

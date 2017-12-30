@@ -1,0 +1,25 @@
+@model Doe.Ls.ProjectTemplate.Web.ViewModels.OrgLevel.OrgLevelDetailsViewModel
+@{
+      
+}
+
+<div class="page-header">
+    <h2>@Model.ViewTitle</h2>
+</div>
+
+<div id="formTab" class="card.card-body">
+    <form class="" role="form" method="POST" id="form-orgLevel-details">
+        @Html.AntiForgeryToken()
+        <p>
+            <a href="@Url.Action("Edit", new { id  = Model.OrgLevel.OrgLevelId })" class="btn btn-primary">Edit</a>
+            <a href="@Url.Action("Index")" class="btn btn-primary">OrgLevel List <span class="glyphicon glyphicon-th-list"></span></a>
+        </p>
+    
+        @Html.Partial("_partial/_details")
+        <p>
+            <a href="@Url.Action("Edit", new { id  = Model.OrgLevel.OrgLevelId })" class="btn btn-primary">Edit</a>
+            <a href="@Url.Action("Index")" class="btn btn-primary">OrgLevel List <span class="glyphicon glyphicon-th-list"></span></a>
+        </p>
+    </form>
+</div>
+

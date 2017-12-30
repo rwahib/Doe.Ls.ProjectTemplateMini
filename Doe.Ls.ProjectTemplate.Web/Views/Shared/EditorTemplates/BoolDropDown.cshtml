@@ -1,0 +1,27 @@
+﻿@model System.Boolean?
+
+@{
+    var fieldName = ViewData.TemplateInfo.HtmlFieldPrefix;
+    var isReadOnlyOrDisabled = (ViewData["readOnly"] != null && (bool) ViewData["readOnly"]) ||
+        (ViewData["disabled"] != null && (bool)ViewData["disabled"]);
+    var disabled = isReadOnlyOrDisabled? "disabled" : string.Empty;
+    var hiddenValue = Model.HasValue? (Model.Value? "true" : "false") : "false";
+    var classes = ViewData["classes"];
+    var trueselected = hiddenValue == "true"? "selected" : string.Empty;
+    var falseselected = hiddenValue == "false" ? "selected" : string.Empty; ;
+    var selectFieldName = isReadOnlyOrDisabled ? fieldName + "Disabled" : fieldName;
+}
+
+<select id="@selectFieldName" name="@selectFieldName" class="@classes" @disabled>
+    <option @trueselected>True</option>
+    <option @falseselected>False</option>
+</select>
+
+@{
+    if (isReadOnlyOrDisabled)
+    {
+        <input type="hidden" id="@fieldName" name="@fieldName" value="@hiddenValue"/>
+    }
+}
+
+

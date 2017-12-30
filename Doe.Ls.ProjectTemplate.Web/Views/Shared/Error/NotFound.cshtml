@@ -1,0 +1,51 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html lang="en-au">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Page not found (Error code: 404)</title>
+    <link href="~/Content/ErrorStyle.css" rel="stylesheet"/>
+    @if (ProjectTemplateSettings.Site.UseGoogleAnalytic)
+    {
+        <script>
+        (function (i, s, o, g, r, a, m) {
+            i["GoogleAnalyticsObject"] = r;
+            i[r] = i[r] ||
+                function () {
+                    (i[r].q = i[r].q || []).push(arguments);
+                }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
+
+        ga("create", "@ProjectTemplateSettings.Site.GoogleAnalyticKey", "auto");
+        ga("send", "pageview");
+        </script>
+    }
+</head>
+<body>
+    <div class="message">
+        <div class="error">
+            <h1 class="title">Oops!</h1>
+            <p class="copy">
+                Sorry, we can't find the page you are looking for. <br />
+                <br />
+                <strong>Error code: 404 </strong>
+                <div class="spacer-small"></div>
+                Here's a link maybe helpful: <a id="homeUrl" class="homeUrl" href="@ProjectTemplateSettings.Site.AppUrl">Home </a>
+            </p>
+        </div>
+        <div class="graphic">
+            <img src="@Url.Content("~/Images/404.png")" alt="404 image" />
+        </div>
+    </div>
+</body>
+</html>

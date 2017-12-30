@@ -1,0 +1,151 @@
+
+
+
+@using Doe.Ls.EntityBase.MVCExtensions
+@model AppObjectInfo
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData); 
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+    
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+        
+}
+
+@Html.AntiForgeryToken()
+
+<div class="form-group @GetFormGroupClass("ObjectName")">
+    <label for="ObjectName" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.ObjectName) <span class="mandatory">*</span></label>
+    
+<div class="col-lg-10">
+    <div class="form-group">
+                  
+                <input type="text" name="ObjectName" id="ObjectName" class="form-control" placeholder="e.g. ObjectName" value="@Model.ObjectName"  @ReadOnly("ObjectName")  required data-fv-notempty-message='The Object name is required'    />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("CounterValue")">
+    <label for="CounterValue" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.CounterValue) </label>
+    
+<div class="col-lg-10">
+    <div class="form-group">
+                  
+                <input type="number" name="CounterValue" id="CounterValue" class="form-control" placeholder="e.g. CounterValue" value="@Model.CounterValue"  @ReadOnly("CounterValue")      data-fv-integer-message='The Counter value is not an integer'/>
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("AggregatedValueA")">
+    <label for="AggregatedValueA" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.AggregatedValueA) </label>
+    
+<div class="col-lg-10">
+    <div class="form-group">
+                  
+                <input type="text" name="AggregatedValueA" id="AggregatedValueA" class="form-control" placeholder="e.g. AggregatedValueA" value="@Model.AggregatedValueA"  @ReadOnly("AggregatedValueA")      />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("AggregatedValueB")">
+    <label for="AggregatedValueB" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.AggregatedValueB) </label>
+    
+<div class="col-lg-10">
+    <div class="form-group">
+                  
+                <input type="text" name="AggregatedValueB" id="AggregatedValueB" class="form-control" placeholder="e.g. AggregatedValueB" value="@Model.AggregatedValueB"  @ReadOnly("AggregatedValueB")      />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("Metadata")">
+    <label for="Metadata" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Metadata) </label>
+    
+<div class="col-lg-10">
+    <div class="form-group">
+                  
+                <input type="text" name="Metadata" id="Metadata" class="form-control" placeholder="e.g. Metadata" value="@Model.Metadata"  @ReadOnly("Metadata")      />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("LastModifiedDate")">
+    <label for="LastModifiedDate" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.LastModifiedDate) <span class="mandatory">*</span></label>
+    
+<div class="col-lg-10">
+    <div class="form-group">
+                  
+                <input type="date" name="LastModifiedDate" id="LastModifiedDate" class="form-control" placeholder="e.g. LastModifiedDate" value="@Model.LastModifiedDate"  @ReadOnly("LastModifiedDate")  required data-fv-notempty-message='The Last modified date is required'  data-fv-date-format="DD/MM/YYYY"  />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("lastModifiedUser")">
+    <label for="lastModifiedUser" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.lastModifiedUser) </label>
+    
+<div class="col-lg-10">
+    <div class="form-group">
+                  
+                <input type="text" name="lastModifiedUser" id="lastModifiedUser" class="form-control" placeholder="e.g. lastModifiedUser" value="@Model.lastModifiedUser"  @ReadOnly("lastModifiedUser")      />
+                  
+                        </div>
+    </div>
+</div>                       
+
+
+@functions
+{
+    bool IsKey(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) 
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+        
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+            {
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                break;
+            }
+        }
+        return string.Empty;        
+    }    
+}

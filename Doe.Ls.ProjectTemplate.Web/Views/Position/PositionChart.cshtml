@@ -1,0 +1,166 @@
+@model Position
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Organisational chart", ViewData);
+
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var unitItems = ViewBagWrapper.ListBag.GetList("unitItems", ViewData);
+    var businessUnitItems = ViewBagWrapper.ListBag.GetList("businessUnitItems", ViewData);
+    var directorateItems = ViewBagWrapper.ListBag.GetList("directorateItems", ViewData);
+    var divisionItems = ViewBagWrapper.ListBag.GetList("divisionItems", ViewData);
+    Layout = "~/Views/Shared/_Layout-chart.cshtml";
+    var canEditPosition = task.GetWorkflowObjectPrivilege(WorkflowObjectType.Position).CanEdit;
+    var NoOfLevels = ViewBagWrapper.VariableBag.GetIntVariable("NoOfLevels", ViewData);
+}
+<style>
+    .basicOrgStyle {
+        height: 750px !important;
+        width: 95% !important;
+    }
+
+    #basicdiagram > .orgdiagram {
+        width: 100% !important;
+    }
+
+    .chartrow {
+        margin-left: 40px !important;
+        margin-right: 15px !important;
+    }
+
+    .bp-description {
+        top: 30px !important;
+        height: 60px !important;
+    }
+
+    .bp-title-frame {
+        height: 20px !important;
+    }
+
+
+    .bp-title {
+        height: 20px !important;
+        text-align: center !important;
+    }
+
+    #bwnldBtnDiv {
+        padding-top: 10px !important;
+    }
+
+    .orgdiagram ul li:before {
+        content: "" !important;
+        position: absolute;
+        left: 0;
+    }
+</style>
+<input type="hidden" id="canEdit" value="@canEditPosition.ToString()">
+<div id="formTab" class="card.card-body">
+
+    <form id="chart-form" name="chart-form" data-tracking-enabled="false" action="@Url.Action("GetPositions", "Position")">
+        <input type="hidden" name="NoOfLevels" id="NoOfLevels" value="@NoOfLevels" />
+
+      @*  <div class="row ">
+            <div class="col-lg-12">
+                <div class="">
+
+                    <div class="card-filter" id="show-hide-filter-0">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">
+                                    <a href="#collapse-filter-0" class="collapsed" data-toggle="collapse">Filter by division and directorate</a>
+                                </h4>
+                            </div>
+                            <div id="collapse-filter-0" class="panel-collapse collapse">
+                                <div class="card-body">
+
+                                    <div class="row form-group">
+                                        <label class="col-form-label col-lg-4" tabindex="0">Division</label>
+                                        <div class="col-lg-8">
+                                            @Html.DropDownList("filterDivisionCode", divisionItems, "All divisions", new { id = "filterDivisionCode", @class = "form-control select2picker", data_placeholder = "Select division ...", data_allow_Clear = "true" })
+                                        </div>
+
+                                    </div>
+                                    <div class="row form-group">
+                                        <label class="col-form-label col-lg-4" tabindex="0">Directorate</label>
+                                        <div class="col-lg-8">
+                                            @Html.DropDownList("filterDirectorateId", directorateItems, "All directorates", new { id = "filterDirectorateId", @class = "form-control select2picker", data_placeholder = "Select division ...", data_allow_Clear = "true" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+
+
+
+        <div id="advanced-filter" class="card ">
+        <div class="card-header">
+            <h4 class="card-title">
+                <a href="#filter" class="collapsed" data-toggle="collapse"
+                   aria-expanded="true">Filter chart by division, directorate, business unit and team</a>
+            </h4>
+            </div>
+
+            <div id="filter" class="panel-collapse in">
+                <div class="card-body">
+                    <fieldset>
+                        <div class="row form-group">
+                            <label for="ChartDivisionCode" class="col-form-label col-lg-4"><small>1. </small>Division</label>
+                            <div class="col-lg-8">
+                                @Html.DropDownList("ChartDivisionCode", divisionItems, "Please select division", new { id = "ChartDivisionCode", @class = "form-control  select2picker" })
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <label for="ChartDirectorateId" class="col-form-label col-lg-4"><small>2. </small>Directorate</label>
+                            <div class="col-lg-8">
+                                @Html.DropDownList("ChartDirectorateId", directorateItems, "Please select directorate", new { id = "ChartDirectorateId", @class = "form-control  select2picker" })
+                            </div>
+                        </div>
+                     
+                    <div class="row form-group">
+                        <label for="ChartBusinessUnitId" class="col-form-label col-lg-4"><small>3. </small>Business Unit</label>
+                        <div class="col-lg-8">
+                            @Html.DropDownList("ChartBusinessUnitId", businessUnitItems, "Please select business unit", new {id = "ChartBusinessUnitId", @class = "form-control  select2picker"})
+                        </div>
+                    </div>
+                        <div class="row form-group">
+                        <label for="ChartUnitId" class="col-form-label col-lg-4"><small>4. </small>Team</label>
+                        <div class="col-lg-8">
+                            @Html.DropDownList("ChartUnitId", unitItems, "Please select team", new {id = "ChartUnitId", @class = "form-control  select2picker"})
+                        </div>
+                </div>
+                        <hr>
+                    </fieldset>
+                    </div>
+            </div>
+
+            <div id="msgPanel">
+                <div class="col-lg-12">
+                    <span id="msg" class="errorText"></span>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+
+<div class="row">
+    @Html.Partial("_partial/_positionChart")
+</div>
+
+
+
+
+
+
+
+
+
+
+

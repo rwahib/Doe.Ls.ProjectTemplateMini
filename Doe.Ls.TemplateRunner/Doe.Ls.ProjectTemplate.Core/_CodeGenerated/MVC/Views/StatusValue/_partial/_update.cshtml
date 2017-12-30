@@ -1,0 +1,83 @@
+@using Doe.Ls.EntityBase.MVCExtensions
+@model StatusValue
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData); 
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+    
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+        
+}
+@Html.AntiForgeryToken()
+                         <div class="form-group @GetFormGroupClass("StatusId")">
+  <label for="StatusId" class="col-lg-4">@Html.DisplayNameFor(model => model.StatusId) <span class="mandatory">*</span></label>
+  <input type="number" name="StatusId" id="StatusId" class="form-control col-lg-8" placeholder="e.g. Status id" value="@Model.StatusId"@ReadOnly("StatusId")  required data-fv-notempty-message='The Status id is required'    data-fv-integer-message='The Status id is not an integer' /> 
+</div>
+                         <div class="form-group @GetFormGroupClass("StatusName")">
+  <label for="StatusName" class="col-lg-4">@Html.DisplayNameFor(model => model.StatusName) </label>
+  <input type="text" name="StatusName" id="StatusName" class="form-control col-lg-8" placeholder="e.g. Status name" value="@Model.StatusName"@ReadOnly("StatusName")       /> 
+</div>
+                                    
+
+  
+  
+@functions
+{
+    bool IsKey(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) 
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+        
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+            {
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                break;
+            }
+        }
+        return string.Empty;        
+    }    
+}
+
+
+
+

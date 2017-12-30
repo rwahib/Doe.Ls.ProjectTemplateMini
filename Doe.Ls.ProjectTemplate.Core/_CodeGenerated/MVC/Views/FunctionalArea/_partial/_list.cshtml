@@ -1,0 +1,118 @@
+ 
+
+
+
+@model IEnumerable<FunctionalArea>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Functional area List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="functionalAreaService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>Functional area list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.FuncationalAreaId)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.AreanName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.AreaDescription)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.Directorate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.AreaCustomClass)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.StatusValue)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedBy)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.FuncationalAreaId)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.AreanName)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.AreaDescription)
+                            </td>                       
+                            <td>
+    
+                                @Html.Raw(item.Directorate.DirectorateName.StripHtml().Minimise(50))
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.AreaCustomClass)
+                            </td>                       
+                            <td>
+    
+                                @Html.Raw(item.StatusValue.StatusName.StripHtml().Minimise(50))
+                            <td>
+   
+                                @item.CreatedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>                       
+                            <td>
+   
+                                @item.LastModifiedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LastModifiedBy)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.FuncationalAreaId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.FuncationalAreaId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.FuncationalAreaId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

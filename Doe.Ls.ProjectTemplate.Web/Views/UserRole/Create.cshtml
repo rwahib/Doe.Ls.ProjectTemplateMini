@@ -1,0 +1,55 @@
+@model UserRoleModel
+
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);
+
+    ViewBagWrapper.FormOperations.SetFormType(FormType.Create, ViewData);
+    ViewBagWrapper.FormOperations.SetRequestType(RequestType.Direct, ViewData);
+
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+
+    ViewBagWrapper.InfoBag.SetTitle("Create new " + Model.UserRole.GetDescription() + " user", ViewData);
+
+
+}
+
+<div class="page-header">
+    <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+</div>
+<div class="error">
+    <ul class="list-group">
+        @if(errors != null)
+            {
+            foreach(var error in errors)
+                {
+                <li class="list-group-item ">
+                    <label class="validation-error">@string.Format("{0} has error:", error.PropertyName.Wordify())</label>
+                    <label class="validation-error">@string.Format("{0}", error.ErrorMessage)</label>
+                </li>
+                }
+            }
+    </ul>
+</div>
+
+<div id="formTab">
+    <form class="" role="form" action="@Url.Action("Create")" method="POST" id="form-sysUserRole-create" data-fv-feedbackicons-validating="glyphicon glyphicon-refresh">
+
+        <div class="modal-body">
+
+            @Html.Partial("_partial/_update")
+
+
+        </div>
+
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Add</button>
+            &nbsp;|&nbsp;
+
+            <a href="@Url.Content(UserRoleController.GetListActionName(Model.RoleId))" class="btn btn-primary">Cancel <span class="glyphicon glyphicon-th-list"></span></a>
+            
+
+        </div>
+    </form>
+</div>

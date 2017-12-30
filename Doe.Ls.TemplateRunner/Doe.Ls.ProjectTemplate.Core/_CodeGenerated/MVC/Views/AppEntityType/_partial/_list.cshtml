@@ -1,0 +1,94 @@
+ 
+
+
+
+@model IEnumerable<AppEntityType>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("App entity type List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="appEntityTypeService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>App entity type list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.EntityTypeId)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.EntityApiName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.EntityTitle)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.EntityDescription)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.SysAdminDashboard)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.PowerUserDashboard)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.HighPriority)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.EntityTypeId)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.EntityApiName)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.EntityTitle)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.EntityDescription)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.SysAdminDashboard)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.PowerUserDashboard)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.HighPriority)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.EntityTypeId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.EntityTypeId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.EntityTypeId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

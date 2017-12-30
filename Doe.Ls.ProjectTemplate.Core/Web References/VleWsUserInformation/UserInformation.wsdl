@@ -1,0 +1,1448 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.cli.edu.au/tli/ptrs/webservices/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://www.cli.edu.au/tli/ptrs/webservices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">A service provided by Jay Raffe</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.cli.edu.au/tli/ptrs/webservices/">
+      <s:element name="GetUser">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserResult" type="tns:User" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="User">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="MemberOf" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="InformationSource" type="tns:InfoSource" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="InfoSource">
+        <s:restriction base="s:string">
+          <s:enumeration value="IN_AD" />
+          <s:enumeration value="IN_CACHE_AD_DOWN" />
+          <s:enumeration value="IN_CACHE_NOT_AD" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="GetUserByPortalID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserByPortalIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserByPortalIDResult" type="tns:PortalUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="PortalUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SurName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="LocationCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Roles" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Information" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NetUserId" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDECNSWUserByPortalID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDECNSWUserByPortalIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDECNSWUserByPortalIDResult" type="tns:DECUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="DECUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="DECUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="NetworkLogin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GivenName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Surname" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PhoneNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsTeacher" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsSchoolBased" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsStudent" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="StaffId" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="SchoolId" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="SchoolName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeptId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DepatName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="IsPrincipal" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="SimpleDisplayName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SimpleDECUserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Roles" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="Path" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Groups" type="tns:ArrayOfString" />
+          <s:element minOccurs="0" maxOccurs="1" name="MemberOf" type="tns:ArrayOfString" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDECNSWUserByEmailID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDECNSWUserByEmailIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDECNSWUserByEmailIDResult" type="tns:DECUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserRoles">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userPortalId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetUserRolesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetUserRolesResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPortalLogin">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="adUserName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="fullPath" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPortalLoginResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetPortalLoginResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsByUserID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userID" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="isPortalID" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetOrganisationsByUserIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetOrganisationsByUserIDResult" type="tns:ArrayOfLocation" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Location" nillable="true" type="tns:Location" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="Location">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Id" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomProperty1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomProperty2" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetAllOrganisations">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllOrganisationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllOrganisationsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchString" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numToGet" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindUsersResult" type="tns:ArrayOfLightUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLightUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LightUser" nillable="true" type="tns:LightUser" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="LightUser">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Email" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DisplayName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="FindUsersInDomainByLoginName">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchString" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numToGet" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="searchByloginName" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindUsersInDomainByLoginNameResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindUsersInDomainByLoginNameResult" type="tns:ArrayOfLightUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindUsersInDomain">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="searchString" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="numToGet" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="domain" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="FindUsersInDomainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="FindUsersInDomainResult" type="tns:ArrayOfLightUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsInGroup">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsInGroupResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsInGroupResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsQualifiedUserInQualifiedGroupRecursively">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="qualifiedUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="qualifiedRoleName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsQualifiedUserInQualifiedGroupRecursivelyResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsQualifiedUserInQualifiedGroupRecursivelyResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="groupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetGroupUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetGroupUsersResult" type="tns:ArrayOfLightUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQualifiedGroupUsers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="qualifiedGroupName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetQualifiedGroupUsersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetQualifiedGroupUsersResult" type="tns:ArrayOfLightUser" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetAllDomains">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetAllDomainsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetAllDomainsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="User" nillable="true" type="tns:User" />
+      <s:element name="PortalUser" nillable="true" type="tns:PortalUser" />
+      <s:element name="DECUser" nillable="true" type="tns:DECUser" />
+      <s:element name="ArrayOfString" nillable="true" type="tns:ArrayOfString" />
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="ArrayOfLocation" nillable="true" type="tns:ArrayOfLocation" />
+      <s:element name="ArrayOfLightUser" nillable="true" type="tns:ArrayOfLightUser" />
+      <s:element name="boolean" type="s:boolean" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetUserSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="GetUserSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByPortalIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserByPortalID" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByPortalIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserByPortalIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDECNSWUserByPortalIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDECNSWUserByPortalID" />
+  </wsdl:message>
+  <wsdl:message name="GetDECNSWUserByPortalIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDECNSWUserByPortalIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDECNSWUserByEmailIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDECNSWUserByEmailID" />
+  </wsdl:message>
+  <wsdl:message name="GetDECNSWUserByEmailIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDECNSWUserByEmailIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRolesSoapIn">
+    <wsdl:part name="parameters" element="tns:GetUserRoles" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRolesSoapOut">
+    <wsdl:part name="parameters" element="tns:GetUserRolesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetPortalLoginSoapIn">
+    <wsdl:part name="parameters" element="tns:GetPortalLogin" />
+  </wsdl:message>
+  <wsdl:message name="GetPortalLoginSoapOut">
+    <wsdl:part name="parameters" element="tns:GetPortalLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByUserIDSoapIn">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsByUserID" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByUserIDSoapOut">
+    <wsdl:part name="parameters" element="tns:GetOrganisationsByUserIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOrganisationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllOrganisations" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOrganisationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllOrganisationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:FindUsers" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:FindUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersInDomainByLoginNameSoapIn">
+    <wsdl:part name="parameters" element="tns:FindUsersInDomainByLoginName" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersInDomainByLoginNameSoapOut">
+    <wsdl:part name="parameters" element="tns:FindUsersInDomainByLoginNameResponse" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersInDomainSoapIn">
+    <wsdl:part name="parameters" element="tns:FindUsersInDomain" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersInDomainSoapOut">
+    <wsdl:part name="parameters" element="tns:FindUsersInDomainResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsInGroupSoapIn">
+    <wsdl:part name="parameters" element="tns:IsInGroup" />
+  </wsdl:message>
+  <wsdl:message name="IsInGroupSoapOut">
+    <wsdl:part name="parameters" element="tns:IsInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsQualifiedUserInQualifiedGroupRecursivelySoapIn">
+    <wsdl:part name="parameters" element="tns:IsQualifiedUserInQualifiedGroupRecursively" />
+  </wsdl:message>
+  <wsdl:message name="IsQualifiedUserInQualifiedGroupRecursivelySoapOut">
+    <wsdl:part name="parameters" element="tns:IsQualifiedUserInQualifiedGroupRecursivelyResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetGroupUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetGroupUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetQualifiedGroupUsersSoapIn">
+    <wsdl:part name="parameters" element="tns:GetQualifiedGroupUsers" />
+  </wsdl:message>
+  <wsdl:message name="GetQualifiedGroupUsersSoapOut">
+    <wsdl:part name="parameters" element="tns:GetQualifiedGroupUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllDomainsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetAllDomains" />
+  </wsdl:message>
+  <wsdl:message name="GetAllDomainsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetAllDomainsResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetUserHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserHttpGetOut">
+    <wsdl:part name="Body" element="tns:User" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByPortalIDHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByPortalIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:PortalUser" />
+  </wsdl:message>
+  <wsdl:message name="GetDECNSWUserByPortalIDHttpGetIn">
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDECNSWUserByPortalIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:DECUser" />
+  </wsdl:message>
+  <wsdl:message name="GetDECNSWUserByEmailIDHttpGetIn">
+    <wsdl:part name="email" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDECNSWUserByEmailIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:DECUser" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRolesHttpGetIn">
+    <wsdl:part name="userPortalId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRolesHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetPortalLoginHttpGetIn">
+    <wsdl:part name="adUserName" type="s:string" />
+    <wsdl:part name="fullPath" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPortalLoginHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByUserIDHttpGetIn">
+    <wsdl:part name="userID" type="s:string" />
+    <wsdl:part name="isPortalID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByUserIDHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLocation" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOrganisationsHttpGetIn" />
+  <wsdl:message name="GetAllOrganisationsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersHttpGetIn">
+    <wsdl:part name="searchString" type="s:string" />
+    <wsdl:part name="numToGet" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLightUser" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersInDomainByLoginNameHttpGetIn">
+    <wsdl:part name="searchString" type="s:string" />
+    <wsdl:part name="numToGet" type="s:string" />
+    <wsdl:part name="domain" type="s:string" />
+    <wsdl:part name="searchByloginName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersInDomainByLoginNameHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLightUser" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersInDomainHttpGetIn">
+    <wsdl:part name="searchString" type="s:string" />
+    <wsdl:part name="numToGet" type="s:string" />
+    <wsdl:part name="domain" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersInDomainHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLightUser" />
+  </wsdl:message>
+  <wsdl:message name="IsInGroupHttpGetIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="groupName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsInGroupHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="IsQualifiedUserInQualifiedGroupRecursivelyHttpGetIn">
+    <wsdl:part name="qualifiedUserName" type="s:string" />
+    <wsdl:part name="qualifiedRoleName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsQualifiedUserInQualifiedGroupRecursivelyHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupUsersHttpGetIn">
+    <wsdl:part name="groupName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupUsersHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLightUser" />
+  </wsdl:message>
+  <wsdl:message name="GetQualifiedGroupUsersHttpGetIn">
+    <wsdl:part name="qualifiedGroupName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetQualifiedGroupUsersHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLightUser" />
+  </wsdl:message>
+  <wsdl:message name="GetAllDomainsHttpGetIn" />
+  <wsdl:message name="GetAllDomainsHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetUserHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserHttpPostOut">
+    <wsdl:part name="Body" element="tns:User" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByPortalIDHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserByPortalIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:PortalUser" />
+  </wsdl:message>
+  <wsdl:message name="GetDECNSWUserByPortalIDHttpPostIn">
+    <wsdl:part name="username" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDECNSWUserByPortalIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:DECUser" />
+  </wsdl:message>
+  <wsdl:message name="GetDECNSWUserByEmailIDHttpPostIn">
+    <wsdl:part name="email" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDECNSWUserByEmailIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:DECUser" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRolesHttpPostIn">
+    <wsdl:part name="userPortalId" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetUserRolesHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetPortalLoginHttpPostIn">
+    <wsdl:part name="adUserName" type="s:string" />
+    <wsdl:part name="fullPath" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetPortalLoginHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByUserIDHttpPostIn">
+    <wsdl:part name="userID" type="s:string" />
+    <wsdl:part name="isPortalID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetOrganisationsByUserIDHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLocation" />
+  </wsdl:message>
+  <wsdl:message name="GetAllOrganisationsHttpPostIn" />
+  <wsdl:message name="GetAllOrganisationsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersHttpPostIn">
+    <wsdl:part name="searchString" type="s:string" />
+    <wsdl:part name="numToGet" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLightUser" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersInDomainByLoginNameHttpPostIn">
+    <wsdl:part name="searchString" type="s:string" />
+    <wsdl:part name="numToGet" type="s:string" />
+    <wsdl:part name="domain" type="s:string" />
+    <wsdl:part name="searchByloginName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersInDomainByLoginNameHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLightUser" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersInDomainHttpPostIn">
+    <wsdl:part name="searchString" type="s:string" />
+    <wsdl:part name="numToGet" type="s:string" />
+    <wsdl:part name="domain" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="FindUsersInDomainHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLightUser" />
+  </wsdl:message>
+  <wsdl:message name="IsInGroupHttpPostIn">
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="groupName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsInGroupHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="IsQualifiedUserInQualifiedGroupRecursivelyHttpPostIn">
+    <wsdl:part name="qualifiedUserName" type="s:string" />
+    <wsdl:part name="qualifiedRoleName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsQualifiedUserInQualifiedGroupRecursivelyHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupUsersHttpPostIn">
+    <wsdl:part name="groupName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetGroupUsersHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLightUser" />
+  </wsdl:message>
+  <wsdl:message name="GetQualifiedGroupUsersHttpPostIn">
+    <wsdl:part name="qualifiedGroupName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetQualifiedGroupUsersHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfLightUser" />
+  </wsdl:message>
+  <wsdl:message name="GetAllDomainsHttpPostIn" />
+  <wsdl:message name="GetAllDomainsHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:portType name="UserInformationSoap">
+    <wsdl:operation name="GetUser">
+      <wsdl:input message="tns:GetUserSoapIn" />
+      <wsdl:output message="tns:GetUserSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByPortalID">
+      <wsdl:input message="tns:GetUserByPortalIDSoapIn" />
+      <wsdl:output message="tns:GetUserByPortalIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByPortalID">
+      <wsdl:input message="tns:GetDECNSWUserByPortalIDSoapIn" />
+      <wsdl:output message="tns:GetDECNSWUserByPortalIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByEmailID">
+      <wsdl:input message="tns:GetDECNSWUserByEmailIDSoapIn" />
+      <wsdl:output message="tns:GetDECNSWUserByEmailIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of user role</wsdl:documentation>
+      <wsdl:input message="tns:GetUserRolesSoapIn" />
+      <wsdl:output message="tns:GetUserRolesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">for portal login</wsdl:documentation>
+      <wsdl:input message="tns:GetPortalLoginSoapIn" />
+      <wsdl:output message="tns:GetPortalLoginSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByUserID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Organisation Name By portalID.Organisation Name is customized for LRR .</wsdl:documentation>
+      <wsdl:input message="tns:GetOrganisationsByUserIDSoapIn" />
+      <wsdl:output message="tns:GetOrganisationsByUserIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get All registered Organisation</wsdl:documentation>
+      <wsdl:input message="tns:GetAllOrganisationsSoapIn" />
+      <wsdl:output message="tns:GetAllOrganisationsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsers">
+      <wsdl:input message="tns:FindUsersSoapIn" />
+      <wsdl:output message="tns:FindUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomainByLoginName">
+      <wsdl:input message="tns:FindUsersInDomainByLoginNameSoapIn" />
+      <wsdl:output message="tns:FindUsersInDomainByLoginNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomain">
+      <wsdl:input message="tns:FindUsersInDomainSoapIn" />
+      <wsdl:output message="tns:FindUsersInDomainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsInGroup">
+      <wsdl:input message="tns:IsInGroupSoapIn" />
+      <wsdl:output message="tns:IsInGroupSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsQualifiedUserInQualifiedGroupRecursively">
+      <wsdl:input message="tns:IsQualifiedUserInQualifiedGroupRecursivelySoapIn" />
+      <wsdl:output message="tns:IsQualifiedUserInQualifiedGroupRecursivelySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUsers">
+      <wsdl:input message="tns:GetGroupUsersSoapIn" />
+      <wsdl:output message="tns:GetGroupUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQualifiedGroupUsers">
+      <wsdl:input message="tns:GetQualifiedGroupUsersSoapIn" />
+      <wsdl:output message="tns:GetQualifiedGroupUsersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDomains">
+      <wsdl:input message="tns:GetAllDomainsSoapIn" />
+      <wsdl:output message="tns:GetAllDomainsSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UserInformationHttpGet">
+    <wsdl:operation name="GetUser">
+      <wsdl:input message="tns:GetUserHttpGetIn" />
+      <wsdl:output message="tns:GetUserHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByPortalID">
+      <wsdl:input message="tns:GetUserByPortalIDHttpGetIn" />
+      <wsdl:output message="tns:GetUserByPortalIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByPortalID">
+      <wsdl:input message="tns:GetDECNSWUserByPortalIDHttpGetIn" />
+      <wsdl:output message="tns:GetDECNSWUserByPortalIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByEmailID">
+      <wsdl:input message="tns:GetDECNSWUserByEmailIDHttpGetIn" />
+      <wsdl:output message="tns:GetDECNSWUserByEmailIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of user role</wsdl:documentation>
+      <wsdl:input message="tns:GetUserRolesHttpGetIn" />
+      <wsdl:output message="tns:GetUserRolesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">for portal login</wsdl:documentation>
+      <wsdl:input message="tns:GetPortalLoginHttpGetIn" />
+      <wsdl:output message="tns:GetPortalLoginHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByUserID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Organisation Name By portalID.Organisation Name is customized for LRR .</wsdl:documentation>
+      <wsdl:input message="tns:GetOrganisationsByUserIDHttpGetIn" />
+      <wsdl:output message="tns:GetOrganisationsByUserIDHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get All registered Organisation</wsdl:documentation>
+      <wsdl:input message="tns:GetAllOrganisationsHttpGetIn" />
+      <wsdl:output message="tns:GetAllOrganisationsHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsers">
+      <wsdl:input message="tns:FindUsersHttpGetIn" />
+      <wsdl:output message="tns:FindUsersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomainByLoginName">
+      <wsdl:input message="tns:FindUsersInDomainByLoginNameHttpGetIn" />
+      <wsdl:output message="tns:FindUsersInDomainByLoginNameHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomain">
+      <wsdl:input message="tns:FindUsersInDomainHttpGetIn" />
+      <wsdl:output message="tns:FindUsersInDomainHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsInGroup">
+      <wsdl:input message="tns:IsInGroupHttpGetIn" />
+      <wsdl:output message="tns:IsInGroupHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsQualifiedUserInQualifiedGroupRecursively">
+      <wsdl:input message="tns:IsQualifiedUserInQualifiedGroupRecursivelyHttpGetIn" />
+      <wsdl:output message="tns:IsQualifiedUserInQualifiedGroupRecursivelyHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUsers">
+      <wsdl:input message="tns:GetGroupUsersHttpGetIn" />
+      <wsdl:output message="tns:GetGroupUsersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQualifiedGroupUsers">
+      <wsdl:input message="tns:GetQualifiedGroupUsersHttpGetIn" />
+      <wsdl:output message="tns:GetQualifiedGroupUsersHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDomains">
+      <wsdl:input message="tns:GetAllDomainsHttpGetIn" />
+      <wsdl:output message="tns:GetAllDomainsHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="UserInformationHttpPost">
+    <wsdl:operation name="GetUser">
+      <wsdl:input message="tns:GetUserHttpPostIn" />
+      <wsdl:output message="tns:GetUserHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByPortalID">
+      <wsdl:input message="tns:GetUserByPortalIDHttpPostIn" />
+      <wsdl:output message="tns:GetUserByPortalIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByPortalID">
+      <wsdl:input message="tns:GetDECNSWUserByPortalIDHttpPostIn" />
+      <wsdl:output message="tns:GetDECNSWUserByPortalIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByEmailID">
+      <wsdl:input message="tns:GetDECNSWUserByEmailIDHttpPostIn" />
+      <wsdl:output message="tns:GetDECNSWUserByEmailIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Returns a list of user role</wsdl:documentation>
+      <wsdl:input message="tns:GetUserRolesHttpPostIn" />
+      <wsdl:output message="tns:GetUserRolesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalLogin">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">for portal login</wsdl:documentation>
+      <wsdl:input message="tns:GetPortalLoginHttpPostIn" />
+      <wsdl:output message="tns:GetPortalLoginHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByUserID">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get Organisation Name By portalID.Organisation Name is customized for LRR .</wsdl:documentation>
+      <wsdl:input message="tns:GetOrganisationsByUserIDHttpPostIn" />
+      <wsdl:output message="tns:GetOrganisationsByUserIDHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisations">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get All registered Organisation</wsdl:documentation>
+      <wsdl:input message="tns:GetAllOrganisationsHttpPostIn" />
+      <wsdl:output message="tns:GetAllOrganisationsHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsers">
+      <wsdl:input message="tns:FindUsersHttpPostIn" />
+      <wsdl:output message="tns:FindUsersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomainByLoginName">
+      <wsdl:input message="tns:FindUsersInDomainByLoginNameHttpPostIn" />
+      <wsdl:output message="tns:FindUsersInDomainByLoginNameHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomain">
+      <wsdl:input message="tns:FindUsersInDomainHttpPostIn" />
+      <wsdl:output message="tns:FindUsersInDomainHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsInGroup">
+      <wsdl:input message="tns:IsInGroupHttpPostIn" />
+      <wsdl:output message="tns:IsInGroupHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsQualifiedUserInQualifiedGroupRecursively">
+      <wsdl:input message="tns:IsQualifiedUserInQualifiedGroupRecursivelyHttpPostIn" />
+      <wsdl:output message="tns:IsQualifiedUserInQualifiedGroupRecursivelyHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUsers">
+      <wsdl:input message="tns:GetGroupUsersHttpPostIn" />
+      <wsdl:output message="tns:GetGroupUsersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetQualifiedGroupUsers">
+      <wsdl:input message="tns:GetQualifiedGroupUsersHttpPostIn" />
+      <wsdl:output message="tns:GetQualifiedGroupUsersHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDomains">
+      <wsdl:input message="tns:GetAllDomainsHttpPostIn" />
+      <wsdl:output message="tns:GetAllDomainsHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UserInformationSoap" type="tns:UserInformationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByPortalID">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetUserByPortalID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByPortalID">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetDECNSWUserByPortalID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByEmailID">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetDECNSWUserByEmailID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetUserRoles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalLogin">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetPortalLogin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByUserID">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetOrganisationsByUserID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisations">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetAllOrganisations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsers">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/FindUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomainByLoginName">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/FindUsersInDomainByLoginName" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomain">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/FindUsersInDomain" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInGroup">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/IsInGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsQualifiedUserInQualifiedGroupRecursively">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/IsQualifiedUserInQualifiedGroupRecursively" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUsers">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetGroupUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQualifiedGroupUsers">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetQualifiedGroupUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDomains">
+      <soap:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetAllDomains" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserInformationSoap12" type="tns:UserInformationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetUser">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetUser" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByPortalID">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetUserByPortalID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByPortalID">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetDECNSWUserByPortalID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByEmailID">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetDECNSWUserByEmailID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetUserRoles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalLogin">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetPortalLogin" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByUserID">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetOrganisationsByUserID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisations">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetAllOrganisations" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsers">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/FindUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomainByLoginName">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/FindUsersInDomainByLoginName" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomain">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/FindUsersInDomain" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInGroup">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/IsInGroup" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsQualifiedUserInQualifiedGroupRecursively">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/IsQualifiedUserInQualifiedGroupRecursively" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUsers">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetGroupUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQualifiedGroupUsers">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetQualifiedGroupUsers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDomains">
+      <soap12:operation soapAction="http://www.cli.edu.au/tli/ptrs/webservices/GetAllDomains" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserInformationHttpGet" type="tns:UserInformationHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="GetUser">
+      <http:operation location="/GetUser" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByPortalID">
+      <http:operation location="/GetUserByPortalID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByPortalID">
+      <http:operation location="/GetDECNSWUserByPortalID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByEmailID">
+      <http:operation location="/GetDECNSWUserByEmailID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <http:operation location="/GetUserRoles" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalLogin">
+      <http:operation location="/GetPortalLogin" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByUserID">
+      <http:operation location="/GetOrganisationsByUserID" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisations">
+      <http:operation location="/GetAllOrganisations" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsers">
+      <http:operation location="/FindUsers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomainByLoginName">
+      <http:operation location="/FindUsersInDomainByLoginName" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomain">
+      <http:operation location="/FindUsersInDomain" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInGroup">
+      <http:operation location="/IsInGroup" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsQualifiedUserInQualifiedGroupRecursively">
+      <http:operation location="/IsQualifiedUserInQualifiedGroupRecursively" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUsers">
+      <http:operation location="/GetGroupUsers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQualifiedGroupUsers">
+      <http:operation location="/GetQualifiedGroupUsers" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDomains">
+      <http:operation location="/GetAllDomains" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="UserInformationHttpPost" type="tns:UserInformationHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="GetUser">
+      <http:operation location="/GetUser" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserByPortalID">
+      <http:operation location="/GetUserByPortalID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByPortalID">
+      <http:operation location="/GetDECNSWUserByPortalID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDECNSWUserByEmailID">
+      <http:operation location="/GetDECNSWUserByEmailID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserRoles">
+      <http:operation location="/GetUserRoles" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPortalLogin">
+      <http:operation location="/GetPortalLogin" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetOrganisationsByUserID">
+      <http:operation location="/GetOrganisationsByUserID" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllOrganisations">
+      <http:operation location="/GetAllOrganisations" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsers">
+      <http:operation location="/FindUsers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomainByLoginName">
+      <http:operation location="/FindUsersInDomainByLoginName" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FindUsersInDomain">
+      <http:operation location="/FindUsersInDomain" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsInGroup">
+      <http:operation location="/IsInGroup" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsQualifiedUserInQualifiedGroupRecursively">
+      <http:operation location="/IsQualifiedUserInQualifiedGroupRecursively" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupUsers">
+      <http:operation location="/GetGroupUsers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetQualifiedGroupUsers">
+      <http:operation location="/GetQualifiedGroupUsers" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllDomains">
+      <http:operation location="/GetAllDomains" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="UserInformation">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">A service provided by Jay Raffe</wsdl:documentation>
+    <wsdl:port name="UserInformationSoap" binding="tns:UserInformationSoap">
+      <soap:address location="http://vle-webservices.lsvle.pre.det.nsw.edu.au/UserInformation.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserInformationSoap12" binding="tns:UserInformationSoap12">
+      <soap12:address location="http://vle-webservices.lsvle.pre.det.nsw.edu.au/UserInformation.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserInformationHttpGet" binding="tns:UserInformationHttpGet">
+      <http:address location="http://vle-webservices.lsvle.pre.det.nsw.edu.au/UserInformation.asmx" />
+    </wsdl:port>
+    <wsdl:port name="UserInformationHttpPost" binding="tns:UserInformationHttpPost">
+      <http:address location="http://vle-webservices.lsvle.pre.det.nsw.edu.au/UserInformation.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

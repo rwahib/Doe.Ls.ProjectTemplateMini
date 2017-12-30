@@ -1,0 +1,33 @@
+
+
+
+
+ 
+
+@model Grade
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Detail Grade",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+<div class="page-header">
+    <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+</div>
+
+<div id="formTab" class="card.card-body">
+    <form class="" role="form" method="POST" id="form-grade-details">
+        @Html.AntiForgeryToken()
+        <p>
+            <a href="@Url.Action("Edit", new { gradeCode  = Model.GradeCode })" class="btn btn-primary">Edit</a>
+            <a href="@Url.Action("Index")" class="btn btn-primary">Grade List <span class="glyphicon glyphicon-th-list"></span></a>
+        </p>
+    
+        @Html.Partial("_partial/_details")
+        <p>
+            <a href="@Url.Action("Edit", new { gradeCode  = Model.GradeCode })" class="btn btn-primary">Edit</a>
+            <a href="@Url.Action("Index")" class="btn btn-primary">Grade List <span class="glyphicon glyphicon-th-list"></span></a>
+        </p>
+    </form>
+</div>
+

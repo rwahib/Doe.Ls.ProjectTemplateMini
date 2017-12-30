@@ -1,0 +1,143 @@
+  
+@using Doe.Ls.EntityBase.MVCExtensions
+@model PositionHistory
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData); 
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+    
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+        var positionItems = ViewBagWrapper.ListBag.GetList("positionItems",ViewData);
+    
+}
+@Html.AntiForgeryToken()
+      
+
+@Html.HiddenFor(model => model.PositionHistoryId)
+@if(formType==FormType.Edit)  {
+    <div class="form-group @GetFormGroupClass("PositionHistoryId")">
+        <label class="col-lg-4 ">@Html.DisplayNameFor(model => model.PositionHistoryId) </label>
+        <div class="col-lg-8">            <p class="form-control-plaintext">@Html.DisplayFor(model => model.PositionHistoryId)</p>        </div>
+    </div>
+}                       
+      
+
+
+
+
+
+ <div class="form-group @GetFormGroupClass("PositionId")">
+  <label for="PositionId" class="col-lg-4">@Html.DisplayNameFor(model => model.Position) <span class="mandatory">*</span></label>
+  @Html.DropDownList("PositionId", positionItems , "Select Position ...", new {id="PositionId", @class = "form-control col-lg-8 select2picker", Required="Required" })      
+</div>
+      
+
+
+
+ <div class="form-group @GetFormGroupClass("Action")">
+  <label for="Action" class="col-lg-4">@Html.DisplayNameFor(model => model.Action) <span class="mandatory">*</span></label>
+  <input type="text" name="Action" id="Action" class="form-control col-lg-8" placeholder="e.g. Action" value="@Model.Action"@ReadOnly("Action")  required data-fv-notempty-message='The Action is required'     /> 
+</div>
+      
+
+
+
+ <div class="form-group @GetFormGroupClass("StatusFrom")">
+  <label for="StatusFrom" class="col-lg-4">@Html.DisplayNameFor(model => model.StatusFrom) <span class="mandatory">*</span></label>
+  <input type="text" name="StatusFrom" id="StatusFrom" class="form-control col-lg-8" placeholder="e.g. Status from" value="@Model.StatusFrom"@ReadOnly("StatusFrom")  required data-fv-notempty-message='The Status from is required'     /> 
+</div>
+      
+
+
+
+ <div class="form-group @GetFormGroupClass("StatusTo")">
+  <label for="StatusTo" class="col-lg-4">@Html.DisplayNameFor(model => model.StatusTo) <span class="mandatory">*</span></label>
+  <input type="text" name="StatusTo" id="StatusTo" class="form-control col-lg-8" placeholder="e.g. Status to" value="@Model.StatusTo"@ReadOnly("StatusTo")  required data-fv-notempty-message='The Status to is required'     /> 
+</div>
+      
+
+
+
+
+ <div class="form-group @GetFormGroupClass("AdditionalInfo")">
+  <label for="AdditionalInfo" class="col-lg-4">@Html.DisplayNameFor(model => model.AdditionalInfo) </label>
+  <textarea name="AdditionalInfo" id="AdditionalInfo" class="form-control col-lg-8 " placeholder="e.g. Additional info"     >@Model.AdditionalInfo</textarea>
+</div>
+      
+
+
+
+ <div class="form-group @GetFormGroupClass("CreatedDate")">
+  <label for="CreatedDate" class="col-lg-4">@Html.DisplayNameFor(model => model.CreatedDate) <span class="mandatory">*</span></label>
+  <input type="date" name="CreatedDate" id="CreatedDate" class="form-control col-lg-8" placeholder="e.g. Created date" value="@Model.CreatedDate"@ReadOnly("CreatedDate")  required data-fv-notempty-message='The Created date is required'  data-fv-date-format="DD/MM/YYYY"   /> 
+</div>
+      
+
+
+
+ <div class="form-group @GetFormGroupClass("CreatedBy")">
+  <label for="CreatedBy" class="col-lg-4">@Html.DisplayNameFor(model => model.CreatedBy) <span class="mandatory">*</span></label>
+  <input type="text" name="CreatedBy" id="CreatedBy" class="form-control col-lg-8" placeholder="e.g. Created by" value="@Model.CreatedBy"@ReadOnly("CreatedBy")  required data-fv-notempty-message='The Created by is required'     /> 
+</div>
+ 
+  
+@functions
+{
+    bool IsKey(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) 
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+        
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+            {
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                break;
+            }
+        }
+        return string.Empty;        
+    }    
+}
+
+
+
+

@@ -1,0 +1,172 @@
+﻿@using Doe.Ls.ProjectTemplate.Core.BL.Workflow
+@using Doe.Ls.TrimBase
+@model RolePositionDescription
+
+@functions {
+    private string GetGlyph(OnlineRecordStatus onlineRecordStatus) {
+        switch(onlineRecordStatus) {
+            case OnlineRecordStatus.NoMatchingRecord:
+
+            case OnlineRecordStatus.NotPublished:
+                return "glyphicon-remove";
+            case OnlineRecordStatus.UpToDate:
+                return "glyphicon-ok";
+
+            case OnlineRecordStatus.OutOfSync:
+                return "glyphicon-repeat";
+
+            }
+        return "glyphicon-remove";
+        }
+
+}
+@{
+
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var workflowEngine = ViewBagWrapper.WorkflowBag.GetWorkflowEngine(ViewData);
+    var privilege = workflowEngine.GetWorkflowObjectPrivilege();
+    var recordInfo = ViewBagWrapper.GetGeneralObject<RecordInfoModel>("TrimRecordInfo", ViewData);
+    var docRevision = string.Format("{0} revision {1}", recordInfo.RecordNumber, recordInfo.Revision);
+
+}
+
+@Html.HiddenFor(model => model.RolePositionDescId)
+
+<div id="formTab" class="card.card-body">
+    <form class="" role="form" method="post" id="Trim">
+        <div class="tab-pane active" id="trim-form">
+            @Html.Hidden("id", Model.RolePositionDescId)
+            @if(recordInfo.TrimRecordStatus != TrimRecordStatus.RecordNotExists) {
+                <div class="form-group">
+                    <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => recordInfo.RecordNumber)</label>
+
+                    <div class="col-lg-4">
+                        <p class="form-control-plaintext ">@Html.Link(@TrimSettings.GetRecordUrl(recordInfo.Uri), docRevision, "record-link-doc", new { title = "record link" })</p>
+                    </div>
+
+
+                    <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => recordInfo.Uri)</label>
+
+                    <div class="col-lg-4">
+                        <p class="form-control-plaintext ">@Html.Link(@TrimSettings.GetRecordUrl(recordInfo.Uri), recordInfo.Uri.ToString(), "record-link-uri", new { title = "record link" })</p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+                    <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => recordInfo.Title)</label>
+
+                    <div class="col-lg-4">
+                        <p class="form-control-plaintext ">@Html.DisplayFor(model => recordInfo.Title)</p>
+                    </div>
+
+
+                    <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => recordInfo.FileName)</label>
+
+                    <div class="col-lg-4">
+
+                        <p class="form-control-plaintext ">
+                            @Html.Link(@TrimSettings.GetDocumentUrl(recordInfo.Uri), @recordInfo.FileName, "file-name-link",
+                                new { title = "attachment link" })
+                        </p>
+                    </div>
+                </div>
+
+                }
+
+            <div class="form-group">
+                <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => recordInfo.TrimRecordStatus)</label>
+
+                <div class="col-lg-4">
+                    <p class="form-control-plaintext ">@recordInfo.TrimRecordStatus.ToString().Wordify()</p>
+                </div>
+
+                @if(recordInfo.TrimRecordStatus != TrimRecordStatus.RecordNotExists) {
+                    <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => recordInfo.MimeType)</label>
+
+                    <div class="col-lg-4">
+                        <p class="form-control-plaintext ">@recordInfo.MimeType</p>
+                    </div>
+                    }
+            </div>
+
+
+
+
+
+            <div class="form-group">
+                <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => recordInfo.OnlineRecordStatus)</label>
+
+                <div class="col-lg-4">
+                    <p class="form-control-plaintext ">@recordInfo.OnlineRecordStatus.ToString().Wordify()<span class="glyphicon @GetGlyph(recordInfo.OnlineRecordStatus)" style="padding-left: 1em" aria-hidden="true"></span></p>
+
+                </div>
+                <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => recordInfo.StatusMessage)</label>
+
+                <div class="col-lg-4">
+                    <p class="form-control-plaintext ">@recordInfo.StatusMessage</p>
+                </div>
+            </div>
+
+
+            @if(recordInfo.TrimRecordStatus != TrimRecordStatus.RecordNotExists) {
+                <div class="form-group">
+                    <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => recordInfo.DateLastUpdated)</label>
+
+                    <div class="col-lg-4">
+                        <p class="form-control-plaintext ">@recordInfo.DateLastUpdated</p>
+                    </div>
+
+                    <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => recordInfo.LastUpdatedUser)</label>
+
+                    <div class="col-lg-4">
+                        <p class="form-control-plaintext ">@recordInfo.LastUpdatedUser</p>
+                    </div>
+
+                </div>
+                }
+            <div class="form-group">
+                <label class="col-lg-2 col-form-label">Powered By</label>
+
+                <div class="col-lg-10">
+                    <p class="form-control-plaintext ">@Html.Link(@TrimSettings.TrimUrl, @TrimSettings.TrimUrl) </p>
+
+                </div>
+            </div>
+            @if(Model.StatusValue.IsLive()) {
+                <br />
+                <br />
+
+
+                <div class="form-group">
+                    <label class="col-lg-12 ">Sync to HP RM?</label>
+                    <div class="col-lg-12">
+                        @if (recordInfo.OnlineRecordStatus == OnlineRecordStatus.UpToDate)
+                        {
+                            <button type="submit" class="btn btn-primary btn-md">Force sync</button>
+                           
+                            }
+                        else {
+                            <button type="submit" class="btn btn-primary btn-md">Re sync</button>
+                            }
+                        &nbsp;
+                        &nbsp;
+                        <a href="@Url.Action("ManageSummary", new {id = Model.RolePositionDescId})" class="position_summary btn btn-primary btn-md">Cancel</a>
+
+                    </div>
+
+                </div>
+                }
+            <br />
+            <br />
+
+            <br />
+        </div>
+
+
+
+    </form>
+</div>

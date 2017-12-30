@@ -1,0 +1,36 @@
+<html>
+<head>
+    <link href="PDFGenerator.css" rel="stylesheet" />
+</head>
+<body>
+
+<div class="section" id="keyRelationships">
+<h4>Key relationships</h4>
+</div>
+<table class="KeyRl">
+   
+   <tr class="body">
+   <td valign="top">Director Strategic Coordination and other senior officers "test" within SO&P</td>
+   <td valign="top">Provide detailed advice and reports in relation to priorities in strategic coordination across SOP</td>
+   </tr>
+   <tr class="body">
+   <td valign="top">SO&P officers</td>
+   <td valign="top">Deliver high quality customer focused services and provide guidance in resolving technical and/or complex matters.</td>
+   </tr>
+   
+	
+   
+</table>
+
+<div class="section">
+    <h4>Educational Services Division - 123</h4>
+    <p class="Default">Educational Services Division leads and directs the effective provision of educational, corporate and business services that add value to teaching and learning across more than 2200 public schools in NSW. The Division is responsible for coordinating the development and delivery of quality and responsive policies, processes, services, technologies, or business systems that contribute to maximising achievement for every student in a NSW public school.</p>
+<p class="Default">The overarching goal of the Educational Services Division is the strategic, future-focussed planning and quality assurance of service delivery to achieve equity of access and outcomes for every student regardless of where he or she lives or attends school.&nbsp;&amp; & &amp;&amp;</p>
+</div>
+
+
+
+
+
+</body>
+</html>

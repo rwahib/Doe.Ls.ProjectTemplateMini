@@ -1,0 +1,19 @@
+﻿@model System.Boolean?
+
+@if (Model.HasValue)
+{
+
+    if (Model.Value)
+    {
+        <span class="display" tabindex="0" aria-label="True">True</span>
+    }
+
+    else
+    {
+        <span class="display" tabindex="0" aria-label="False">False</span>
+    }
+}
+else
+{
+    <span class="display" tabindex="0" aria-label="@Enums.Cnt.NotProvided">@Enums.Cnt.NotProvided</span>
+}

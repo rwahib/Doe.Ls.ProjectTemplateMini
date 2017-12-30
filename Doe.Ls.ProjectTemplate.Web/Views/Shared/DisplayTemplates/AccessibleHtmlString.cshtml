@@ -1,0 +1,16 @@
+﻿@model String
+@* we may use
+    
+    var displayText = Model.Trim().Replace("<p>", "<div>").Replace("</p>", "</div>");
+
+*@
+@if(!string.IsNullOrWhiteSpace(Model))
+    {
+    var displayText = Model.Trim().Replace("<p>", "").Replace("</p>", "<br/>");
+
+    @Html.Raw(displayText)
+    }
+else
+    {
+    <span class="display" tabindex="0" aria-label="@Enums.Cnt.NotProvided">@Enums.Cnt.NotProvided</span>
+    }

@@ -1,0 +1,31 @@
+
+
+@model IEnumerable<OrgLevel>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Org level list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+@*
+@section OrgLevelActive
+{
+active 
+}
+*@
+
+<div class="wrapper" id="wrapper-OrgLevel">
+
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+
+    <p>
+        <a href="@Url.Action("Create",new {ajax=true})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">
+            Create new Org level
+        </a>
+    </p>
+
+    @Html.Partial("_partial/_list")
+
+</div>

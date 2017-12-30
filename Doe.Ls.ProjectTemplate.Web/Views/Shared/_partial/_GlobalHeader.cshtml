@@ -1,0 +1,76 @@
+﻿@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var isTestSite = ProjectTemplateSettings.Site.IsTestSite;
+    ViewBagWrapper.SetGeneralObject("PageName", "Index", ViewData);
+    bool utilityCollapsed = ViewBagWrapper.LayoutBag.IsCollapsed(Session);
+    var collapseValue = utilityCollapsed ? "collapse" : "";
+}
+<div class="">
+    <a href="" title="Skip to content" class="gef-skiplink" id="top">Skip to content</a>
+</div>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <a href="https://education.nsw.gov.au/" title="NSW Department of Education"><abbr title="NSW Department of Education" aria-hidden="true">NSW DoE</abbr></a>
+            </div>
+
+            <div class="col-6 text-right">
+                <ul class="nav navbar-nav">
+
+                    @if (!this.User.Identity.IsAuthenticated || user.CurrentRoleEnum == Enums.UserRole.Guest )
+                    {
+                @*<li><a href="@Url.Action("DoeSignIn", "Account", new { cache_id = AppCacheHelper.Token })">Log in</a></li>*@
+                    }
+                    else
+                    {
+                        <li>
+                            <a href="#utility" data-toggle="collapse"><span class="fa fa-user"></span>Welcome @user.DisplayName <span class="caret"></span></a>
+                        </li>
+                    }
+
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container gef-utility">
+        <div class="row">
+            <div id="utility" class="@collapseValue">
+                <ul class="nav navbar-nav navbar-right">
+
+                    @if(this.User.Identity.IsAuthenticated && (!user.IsGuest))
+                    {
+                        <li>@Html.ActionLink("Dashboard", "Dashboard", "User", new { cache_id = AppCacheHelper.Token }, new { data_name = "Dashboard" })</li>
+
+                        <li>@Html.ActionLink("Organisational chart", "InitiateChartLoading", "Position", new {cache_id = AppCacheHelper.Token }, new { data_name = "Chart" })</li>
+                    }
+                    <li><a href="@Url.Action("Index", "UserGuide", new {cache_id = AppCacheHelper.Token})" data-name="admin-user-guide">User guide</a></li>
+
+                    @if (this.User.Identity.IsAuthenticated && (!user.IsGuest))
+                    {
+                        <li><a href="@Url.Action("MyProfile", "User", new {cache_id = AppCacheHelper.Token})" class="pop-up" data-target="#vlePluginModal" data-toggle="modal">My profile</a></li>
+                        if (!ProjectTemplateSettings.Portal.IsRealPortal)
+                        {
+                            <li><a href="@Url.Action("SignOff", "Account", new {cache_id = AppCacheHelper.Token})">Log out</a></li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1>
+                    <a href="@ProjectTemplateSettings.Site.AppUrl" title='Project template'>
+                        Project template
+                    </a>
+                </h1>
+            </div>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,94 @@
+ 
+
+
+
+@model IEnumerable<GlobalSetting>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Global setting List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="globalSettingService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>Global setting list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.SettingsKey)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.PropertyCode)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.PropertyBooleanValue)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.PropertyValue)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.EntityContextCode)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.EntityContextValue)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Tag)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.SettingsKey)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.PropertyCode)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.PropertyBooleanValue)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.PropertyValue)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.EntityContextCode)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.EntityContextValue)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Tag)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.SettingsKey })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.SettingsKey })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.SettingsKey })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

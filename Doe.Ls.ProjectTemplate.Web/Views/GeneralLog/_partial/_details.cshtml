@@ -1,0 +1,104 @@
+
+
+@model GeneralLog
+@{
+    ViewBagWrapper.InfoBag.SetTitle("General log Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+ 
+@Html.HiddenFor(model => model.LogId)
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.LogId)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.LogId)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.Action)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Action)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.Context)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Context)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.CreationDate)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.CreationDate)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.Username)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Username)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.RoleId)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.RoleId)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.Note)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Note)</p>
+    </div>
+            </div>
+    
+    
+
+

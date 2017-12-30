@@ -1,0 +1,11 @@
+﻿@model double?
+
+@if (Model.HasValue)
+{
+    <span class="display" tabindex="0">@Model</span>
+    }
+else
+    {
+    <span class="display" tabindex="0">[Not Provided]</span>
+    }
+    

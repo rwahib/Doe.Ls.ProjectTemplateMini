@@ -1,0 +1,104 @@
+
+
+@model AppEntityType
+@{
+    ViewBagWrapper.InfoBag.SetTitle("App entity type Details", ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+
+@Html.HiddenFor(model => model.EntityTypeId)
+
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">
+        @Html.DisplayNameFor(model => model.EntityTypeId)
+    </span>
+
+    <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.EntityTypeId)</p>
+    </div>
+</div>
+
+
+
+
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">
+        @Html.DisplayNameFor(model => model.EntityApiName)
+    </span>
+
+    <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.EntityApiName)</p>
+    </div>
+</div>
+
+
+
+
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">
+        @Html.DisplayNameFor(model => model.EntityTitle)
+    </span>
+
+    <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.EntityTitle)</p>
+    </div>
+</div>
+
+
+
+
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">
+        @Html.DisplayNameFor(model => model.EntityDescription)
+    </span>
+
+    <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.EntityDescription)</p>
+    </div>
+</div>
+
+
+
+
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">
+        @Html.DisplayNameFor(model => model.SysAdminDashboard)
+    </span>
+
+    <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.SysAdminDashboard)</p>
+    </div>
+</div>
+
+
+
+
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">
+        @Html.DisplayNameFor(model => model.PowerUserDashboard)
+    </span>
+
+    <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.PowerUserDashboard)</p>
+    </div>
+</div>
+
+
+
+
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">
+        @Html.DisplayNameFor(model => model.HighPriority)
+    </span>
+
+    <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.HighPriority)</p>
+    </div>
+</div>
+
+
+
+

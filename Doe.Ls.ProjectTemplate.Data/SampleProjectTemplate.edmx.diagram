@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c54a442408cd43c5b634a3619a00f59b" Name="Diagram1">
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.AppEntityType" Width="1.5" PointX="5.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.AppObjectInfo" Width="1.5" PointX="7.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.BusinessUnit" Width="1.5" PointX="3" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.CapabilityBehaviourIndicator" Width="1.5" PointX="18.75" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.CapabilityGroup" Width="1.5" PointX="8.25" PointY="46.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.CapabilityLevel" Width="1.5" PointX="10.5" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.CapabilityName" Width="1.5" PointX="10.5" PointY="46.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.CostCentreDetail" Width="1.5" PointX="15.75" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.Directorate" Width="1.5" PointX="5.25" PointY="32.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.Employee" Width="1.5" PointX="16.5" PointY="19.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.EmployeePosition" Width="1.5" PointX="18.75" PointY="27.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.EmployeeType" Width="1.5" PointX="13.5" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.Executive" Width="1.5" PointX="3" PointY="36.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.Focus" Width="1.5" PointX="3" PointY="45.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.FunctionalArea" Width="1.5" PointX="7.5" PointY="29.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.GeneralLog" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.GlobalItem" Width="1.5" PointX="5.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.GlobalSetting" Width="1.5" PointX="7.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.Grade" Width="1.5" PointX="3" PointY="41.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.HierarchyLevel" Width="1.5" PointX="0.75" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.KeyRelationship" Width="1.5" PointX="15.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.Location" Width="1.5" PointX="7.5" PointY="40.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.LookupFocusGradeCriteria" Width="1.5" PointX="5.25" PointY="41.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.OccupationType" Width="1.5" PointX="13.5" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.OrgLevel" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.PositionDescription" Width="1.5" PointX="10.5" PointY="29" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.PositionFocusCriteria" Width="1.5" PointX="12.75" PointY="38.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.PositionHistory" Width="1.5" PointX="15.75" PointY="39.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.PositionInformation" Width="1.5" PointX="15.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.PositionLevel" Width="1.5" PointX="11.25" PointY="26.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.PositionNote" Width="1.5" PointX="18" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.PositionStatusValue" Width="1.5" PointX="13.5" PointY="42" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.PositionType" Width="1.5" PointX="13.5" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.RelationshipScope" Width="1.5" PointX="13.5" PointY="44.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.RoleCapability" Width="1.5" PointX="12.75" PointY="33.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.RoleDescCapabilityMatrix" Width="1.5" PointX="5.25" PointY="61.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.RoleDescription" Width="1.5" PointX="10.5" PointY="31.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.RolePositionDescription" Width="1.5" PointX="8.25" PointY="34.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.RolePositionDescriptionHistory" Width="1.5" PointX="10.5" PointY="39.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.ScriptHistory" Width="1.5" PointX="9.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.SelectionCriteria" Width="1.5" PointX="3" PointY="48.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.StatusValue" Width="1.5" PointX="0.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.SysMessage" Width="1.5" PointX="8" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.SysMsgCategory" Width="1.5" PointX="5.75" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.SysRole" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.SysUser" Width="1.5" PointX="0.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.SysUserRole" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.TeamType" Width="1.5" PointX="3" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.TrimRecord" Width="1.5" PointX="10.5" PointY="43" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.Unit" Width="1.5" PointX="5.25" PointY="26.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.WfAction" Width="1.5" PointX="9.75" PointY="8.875" IsExpanded="true" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_BusinessUnit_Directorate" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_BusinessUnit_HierarchyLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_BusinessUnit_StatusValue" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Unit_BusinessUnit" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_CapabilityBehaviourIndicator_CapabilityLevel1" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_CapabilityBehaviourIndicator_CapabilityName1" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_CapabilityName_CapabilityGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_RoleCapability_CapabilityLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_RoleCapability_CapabilityName" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Directorate_Executive" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Directorate_StatusValue" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_FunctionalArea_Directorate" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Location_Directorate" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_EmployeePosition_Employee" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_PositionInformation_EmployeeType1" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Executive_StatusValue" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_LkupTRIMFocusGradeSelectionCriteria_Focus" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_FunctionalArea_StatusValue" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Unit_FunctionalArea" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_GeneralLog_SysRole" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Grade_StatusValue" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_LkupTRIMFocusGradeSelectionCriteria_Grade" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_RoleDescCapabilityMatrix_Grade" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_RolePositionDescription_Grade" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Unit_HierarchyLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_KeyRelationship_RelationshipScope" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_KeyRelationship_RoleDescription" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_LkupTRIMFocusGradeSelectionCriteria_SelectionCriteria" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_PositionFocusCriteria_LkupTRIMFocusGradeSelectionCriteria" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_PositionInformation_OccupationType" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_SysUserRole_OrgLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_PositionDescription_RolePositionDescription" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_PositionFocusCriteria_PositionDescription" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_PositionInformation_PositionStatusValue" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_PositionInformation_PositionType" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_PositionNote_PositionInformation" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_RoleCapability_RoleDescription" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_RoleDescription_RolePositionDescription" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_RolePositionDescription_StatusValue" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_RolePositionDescriptionHistory_RolePositionDescription" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_TrimRecord_RolePositionDescription" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Unit_StatusValue" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_SysMessage_SysMsgCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_SysUserRole_SysRole" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_SysUserRole_SysUser" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Unit_TeamType" ManuallyRouted="false" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Unit_Unit" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="SampleProjectTemplateModel.Position" Width="1.5" PointX="13.5" PointY="25.875" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_CostCentreDetail_Position" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_EmployeePosition_Position" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Position_Location" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Position_Position" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Position_PositionLevel" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Position_RolePositionDescription" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Position_StatusValue" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_Position_Unit" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_PositionHistory_Position" />
+        <AssociationConnector Association="SampleProjectTemplateModel.FK_PositionInformation_Position" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

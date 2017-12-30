@@ -1,0 +1,96 @@
+@model CloneActionModel
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);
+    Layout = null;
+
+}
+
+<div class="modal-header">
+    <h5 class="modal-title" id="tempModalLabel">Clone a position description</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&#215;</span>
+    </button>
+</div>
+
+<div class="error-popup">
+   <ul class="list-group">
+        @if (errors != null)
+        {
+            foreach (var error in errors)
+            {
+                <li class="list-group-item ">
+                    <label class="validation-error">@string.Format("{0}", error.ErrorMessage)</label>
+                </li>
+            }
+        }
+    </ul>
+</div>
+<div class="success-popup">
+    <ul class="list-group">
+        <li class="list-group-item ">
+            <label class="text-success" id="lbl-success"></label>
+        </li>
+    </ul>
+</div>
+
+<div id="formTab wrapper">
+    <form class="" role="form" action="@Url.Action("ApplyCloneAction", "PositionDescription")" method="POST" 
+          id="form-clonePositionDesc-confirm" data-fv-feedbackicons-validating="glyphicon glyphicon-refresh">
+        
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.SourceRolePositionDescId) 
+        <div class="modal-body">
+            <!--display source details-->
+            <div class="form-group">
+                <div class="col-lg-12 infoBox">
+                    <label class="col-form-label">Source position description:</label>
+                    <p class="form-control-plaintext">
+                        <b>Doc#</b>: @Model.SourcePositionDesc.RolePositionDescription.DocNumber
+                        <br>
+                        <b>Title</b>: @Model.SourcePositionDesc.RolePositionDescription.Title
+                        <br>
+                        <b>Grade</b>: @Model.SourcePositionDesc.RolePositionDescription.Grade.GradeTitle (@Model.SourcePositionDesc.RolePositionDescription.GradeCode)
+                        </p>
+                    <div class="spacer-small"></div>
+                </div>
+
+            </div>
+            <!-- cloning -->
+            <p>Please enter a new document number:</p>
+            <div class="form-group">
+                <label for="DocNumberPart1" class="col-form-label col-lg-4">New DOC Number<span class="mandatory">*</span> :</label>
+                <div class="col-lg-8">
+                    <div class="input-group">
+                        <label for="DocNumberPart1" style="font-weight: normal;">DOC</label>
+                        <input type="number" name="DocNumberPart1" allowclear="true" id="DocNumberPart1" class="docNum1cls" placeholder="e.g. 17" required
+                               data-fv-regexp="true" pattern="^([0-9]{1,2})$"
+                               data-fv-regexp-message="Document number part 1 should be less than or equal 2 digits" data-fv-notempty-message='The Document number part 1 is required' value="@GetDefaultDocPart1()" />
+                        
+                        <label>/</label>
+                       
+                        <input type="number" name="DocNumberPart2" id="DocNumberPart2" class="docNum2cls" placeholder="e.g. 12345" required
+                               data-fv-regexp="true" pattern="^([0-9]{1,8})$"
+                               data-fv-regexp-message="Document number part 2 should be less than or equal 8 digits" data-fv-notempty-message='The Document number part 2 is required' value="" />
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="modal-footer">
+            <button type="submit" id="btn-submit" class="btn btn-primary">Clone</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+    </form>
+</div>
+
+@functions
+{
+    private int GetDefaultDocPart1()
+    {
+        return int.Parse(DateTime.Now.Year.ToString().Substring(2, 2));
+    }
+   
+}

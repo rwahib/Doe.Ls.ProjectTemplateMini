@@ -1,0 +1,205 @@
+﻿@model PositionDescription
+@{
+    var gradeItems = ViewBagWrapper.ListBag.GetList("gradesItems", ViewData);
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+
+    var modelState= task.GetRolePosModelState(Model.PositionDescriptionId);
+
+    var workflowEngine = ViewBagWrapper.WorkflowBag.GetWorkflowEngine(ViewData);
+
+    var disable = workflowEngine.GetWorkflowObjectPrivilege().CanEdit ? "": "disabled";
+
+    var docNum = Model != null ? Model.RolePositionDescription.DocNumber : null;
+
+    var docNumPart1 = (DateTime.Now.Year % 100).ToString();
+    var docNumPart2 = "";
+    if (docNum != null)
+        {
+        char[] separatingChars = { '/' };
+        var arr = docNum.Split(separatingChars, StringSplitOptions.RemoveEmptyEntries);
+        docNumPart1 = arr[0].Substring(3);
+        docNumPart2 = arr[1];
+        }
+}
+@if(Model != null && Model.PositionDescriptionId>0&& task.GetPositionPrivilege().CanCreate && !Model.IsDeleted() )
+    {
+        <div class="col-lg">
+            <p>
+                <a href="@Url.Action("Create", "Position", new {rolePositionDescId = Model.PositionDescriptionId})" class="btn btn-primary">
+                    Create new position
+                </a>
+            </p>
+        </div>
+
+    }
+<div id="formTab" class="card.card-body">
+    <form class="" data-tracking-enabled="true" method="POST" id="form-positionDescription-manageOverview">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.PositionDescriptionId)
+    @Html.Hidden("FormType", formType)
+
+        <div class="form-group ">
+            <div class="col-lg-8 col-lg-offset-4">
+                <span>Fields marked with an asterisk (*) are compulsory</span>
+            </div>
+        </div>
+
+        <div class="form-group ">
+
+            <label for="Title" class="col-form-label col-lg-4">@Html.DisplayNameFor(model => model.RolePositionDescription.Title) <span class="mandatory">*</span></label>
+            <div class="col-lg-8">
+                @if(modelState.TitleEnabled)
+                    {
+                    <input type="text" name="RolePositionDescription.Title" @disable id="RolePositionDescription.Title" class="form-control" placeholder="Role title"
+                           value="@Model.RolePositionDescription.Title" required
+                           data-fv-notempty-message='The Role title is required' />
+                    }
+                else
+                    {
+                    @Html.HiddenFor(model => model.RolePositionDescription.Title)
+                    <input type="text" name="Title" @disable id="Title" class="form-control" value="@Model.RolePositionDescription.Title" disabled="disabled" />
+                    }
+            </div>
+        </div>
+
+
+        <div class="form-group ">
+            <label for="DocNumberPart1" class="col-form-label col-lg-4">@Html.DisplayNameFor(model => model.RolePositionDescription.DocNumber) <span class="mandatory">*</span></label>
+            <div class="col-lg-8">
+                <div class="input-group">
+                    @if(modelState.DocumentNumberEnabled)
+                        {
+                        if(string.IsNullOrEmpty(disable))
+                            {
+                            <label>DOC</label>
+
+                            <input type="number" name="DocNumberPart1" id="DocNumberPart1"  class="docNum1cls" placeholder="e.g. 17" required
+                                    data-fv-regexp="true" pattern="^([0-9]{1,2})$"
+                                    data-fv-regexp-message="Document number part1 should be less than or equal 2 digits" value="@docNumPart1" />
+                                <label>/</label>
+                                <input type="number" name="DocNumberPart2" id="DocNumberPart2" class="docNum2cls" placeholder="e.g. 12345" required
+                                   data-fv-regexp="true" pattern="^([0-9]{1,8})$"
+                                  data-fv-regexp-message="Document number part2 should be less than or equal 8 digits"   data-fv-notempty-message='The DOC number part 2 is required' value="@docNumPart2" />
+                            }
+                        }
+                    else
+                        {
+                        @Html.HiddenFor(model => model.RolePositionDescription.DocNumber)
+                        <input type="text" name="DocNumber" disabled="disabled" id="DocNumber" class="form-control" value="@Model.RolePositionDescription.DocNumber" />
+                        }
+                </div>
+            </div>
+        </div>
+    
+
+        <div class="form-group">
+            <label for="GradeCode" class="col-form-label col-lg-4">@Html.DisplayNameFor(model => model.RolePositionDescription.Grade) <span class="mandatory">*</span></label>
+
+            <div class="col-lg-8">
+
+                @if(modelState.GradeEnabled)
+                    {
+                    @Html.DropDownList("RolePositionDescription.GradeCode", gradeItems, "Select a Grade ...", new { id = "RolePositionDescription.GradeCode", @class = "form-control select2picker", Required = "Required" })
+                    }
+                else
+                    {
+                    <input type="text" class="form-control" id="GradeCode" disabled="disabled" name="RolePositionDescription.GradeCode" value="@Model.RolePositionDescription.GradeCode" />
+                    @Html.HiddenFor(model => model.RolePositionDescription.GradeCode)
+                    }
+
+            </div>
+        </div>
+        <div class="spacer"></div>
+        <div class="form-group">
+            <label for="BriefRoleStatement" class="col-form-label col-lg-4">@Html.DisplayNameFor(model => model.BriefRoleStatement)</label>
+
+            <div class="col-lg-8">
+                <div class="input-group">
+                    
+                    <textarea name="BriefRoleStatement" id="BriefRoleStatement" class=" form-control tinymce-simple"
+                              required data-fv-notempty-message='The Brief role statement is required'
+                              placeholder="This role is">@Model.BriefRoleStatement</textarea>
+                    
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label for="StatementOfDuties" class="col-form-label col-lg-4">@Html.DisplayNameFor(model => model.StatementOfDuties)<br><span class="small-fonts">Minimum of 6 and maximum of 8 bullet points allowed</span></label>
+
+            <div class="col-lg-8">
+                <div class="input-group">
+                    
+                    <textarea name="StatementOfDuties" id="StatementOfDuties" class="tinymceListOnly form-control tinymce-simple"
+                              required data-fv-notempty-message='The Statement of Duties are required'
+                              placeholder="e.g. Working closely with unit staff">@Model.StatementOfDuties</textarea>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-offset-2">
+            <p>
+                <button type="submit" class="btn btn-primary">Save & Next</button>
+            </p>
+        </div>
+
+    </form>
+</div>
+@functions{
+    bool IsKey(string propertyName)
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+    string ReadOnly(string propertyName)
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>
+    (prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName)
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>
+            (prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+                {
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                    break;
+                }
+        }
+        return string.Empty;
+    }
+
+        }

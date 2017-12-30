@@ -1,0 +1,10 @@
+﻿@model System.String
+
+@if (!string.IsNullOrWhiteSpace(Model))
+{
+    <a href="mailto:@Model">@Model</a>
+}
+else
+{
+    <span class="display" tabindex="0" aria-label="@Enums.Cnt.NotProvided">@Enums.Cnt.NotProvided</span>
+}

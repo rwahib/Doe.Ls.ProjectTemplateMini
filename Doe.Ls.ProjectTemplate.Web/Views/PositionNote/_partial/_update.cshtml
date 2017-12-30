@@ -1,0 +1,36 @@
+@model PositionNote
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+
+
+}
+
+@Html.AntiForgeryToken()
+@Html.HiddenFor(model => model.PositionId)
+@Html.HiddenFor(model => model.PositionNoteId)
+
+
+<div class="form-group">
+    <label for="Notes" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Notes) <span class="mandatory">*</span></label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="Notes" id="Notes" class="form-control " placeholder="Please enter notes"
+                      required data-fv-notempty-message='The Notes is required'>@Model.Notes</textarea>
+                
+            </div>
+        </div>
+    </div>
+
+    @functions
+{
+       
+        
+       
+    }

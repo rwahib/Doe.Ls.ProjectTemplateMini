@@ -1,0 +1,22 @@
+﻿@using Doe.Ls.EntityBase
+@{
+    var returnUrl = ViewBagWrapper.VariableBag.GetStringVariable(Cnt.SessionReturnUrl, ViewData);
+    ViewBagWrapper.InfoBag.SetTitle("Please select an option to Log in", ViewData);
+}
+
+<div class="page-header">
+    <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+</div>
+
+
+<div class="row">
+    <p class="col-lg-4 ">
+        <a class="" href="@Url.Action("DoeLogin", new {returnUrl})">DoE users portal Log in</a>
+    </p>
+</div>
+
+<div class="row">
+    <p class="col-lg-4 ">
+        <a class="" href="@Url.Action("NonDoeLogin", new {returnUrl})">Non DoE users Log in</a>
+    </p>
+</div>

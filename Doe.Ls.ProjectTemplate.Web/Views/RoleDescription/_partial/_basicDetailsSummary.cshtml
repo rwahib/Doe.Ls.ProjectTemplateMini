@@ -1,0 +1,113 @@
+﻿
+@model RoleDescription
+
+@{
+    var isPositionRoleDesc = ViewBagWrapper.VariableBag.GetBoolVariable("IsPositionRoleDesc", ViewData);
+
+    var chevron = "glyphicon-chevron-down";
+    var collapse = "in";
+    if (isPositionRoleDesc) {
+        chevron = "glyphicon-chevron-right";
+        collapse = "collapse";
+    }
+
+    var gradePSSE = Enum.GetName(typeof(Enums.GradeType), 2);
+}
+
+<!-- Summary of role desc -->
+<div class="card card.bg-primary.text-white" id="pnlRoleInfo">
+    <div class="card-header accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#RoleInfo">
+        <h4 class="accordion-title">
+            <a href="#RoleInfo" class="collapsed" data-toggle="collapse">Role description<i class="indicator glyphicon @chevron  float-right"></i></a>
+        </h4>
+    </div>
+    <div id="RoleInfo" class="card-body @collapse">
+        <div class="form-group">
+            <label class="col-form-label  text-right col-lg-3">Cluster</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@Model.Cluster</p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-form-label  text-right col-lg-3">Title</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">
+                    @if (Model.RolePositionDescription != null)
+                    {
+                        @Model.RolePositionDescription.Title
+                    }
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">Classification / Grade / Band</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">
+                    @if (Model.RolePositionDescription != null)
+                    {
+                        @Model.RolePositionDescription.Grade.GradeWithCode()
+                    }
+
+                </p>
+            </div>
+        </div>
+        @if (Model.RolePositionDescription!= null
+             && Model.RolePositionDescription.Grade.GradeType == gradePSSE)
+        {
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">Senior Executive Work Level Standards</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.SeniorExecutiveWorkLevelStandards</p>
+                </div>
+            </div>
+        }
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">DOC number</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">
+                    @if (Model.RolePositionDescription != null)
+                    {
+                       @Model.RolePositionDescription.DocNumber
+                    }
+                    
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">ANZSCO code</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@Model.ANZSCOCode</p>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">PCAT code</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@Model.PCATCode </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">Date of approval</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">
+                    @if (Model.RolePositionDescription != null)
+                    {
+                        @Model.RolePositionDescription.DateOfApproval.ToEasyDateFormat()
+                    }
+                   
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-lg-3 col-form-label  text-right">Agency website</label>
+            <div class="col-lg-9">
+                <p class="form-control-plaintext">@Model.AgencyWebsite</p>
+            </div>
+        </div>
+    </div>
+
+</div>

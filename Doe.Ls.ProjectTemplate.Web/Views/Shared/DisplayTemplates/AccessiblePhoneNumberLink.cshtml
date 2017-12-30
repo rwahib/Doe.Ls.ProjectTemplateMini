@@ -1,0 +1,13 @@
+﻿@model System.String
+
+@if (!string.IsNullOrWhiteSpace(Model))
+{
+    var chars = Model.ToArray();
+    var spacedString = String.Join(" ", chars);
+    <a href="tel:@Model.Replace(" ","")" aria-label="@spacedString">@Model</a>
+}
+else
+{
+    <span class="display" tabindex="0" aria-label="@Enums.Cnt.NotProvided">@Enums.Cnt.NotProvided</span>
+}
+

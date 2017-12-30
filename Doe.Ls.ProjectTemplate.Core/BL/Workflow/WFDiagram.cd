@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.Workflow.WorkflowAction">
+    <Position X="14.25" Y="2.5" Width="3" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>CAgACIAAAAAAAAAEgAQAkAAEAAEAAJABAAAEAQAAgrA=</HashCode>
+      <FileName>BL\Workflow\WorkflowAction-partial.cs</FileName>
+      <NewMemberFileName>BL\Workflow\WorkflowAction.cs</NewMemberFileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.Workflow.WorkflowEngineBase">
+    <Position X="6.75" Y="2.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAQABAAQAAAAAAIAAQAAEAAEAAAAAAAEAAAAAAAQA=</HashCode>
+      <FileName>BL\Workflow\WorkflowEngineBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.Workflow.WorkflowEngineFactory" Collapsed="true">
+    <Position X="18.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>BL\Workflow\WorkflowEngineFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.Workflow.WorkflowEnginePosition">
+    <Position X="6.5" Y="6.5" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAQAAAAAEAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BL\Workflow\WorkflowEnginePosition.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.Workflow.WorkflowEnginePositionDescription">
+    <Position X="10" Y="6.5" Width="3.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAABAAAAAAAAAAAAQAAAAAEAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>BL\Workflow\WorkflowEnginePositionDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.Workflow.WorkflowEngineRoleDescription">
+    <Position X="2.5" Y="6.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAABAABAAAAAAAAAAAAQAAAAAEAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>BL\Workflow\WorkflowEngineRoleDescription.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.Object" Collapsed="true">
+    <Position X="9.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier />
+  </Class>
+  <Interface Name="Doe.Ls.PosEstablishment.Core.BL.Workflow.IWorkflowEngine" Collapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQABAAQAAAAAAAAAQAAAAAEAAAAAAAEAAAAAAAQA=</HashCode>
+      <FileName>BL\Workflow\IWorkflowEngine.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

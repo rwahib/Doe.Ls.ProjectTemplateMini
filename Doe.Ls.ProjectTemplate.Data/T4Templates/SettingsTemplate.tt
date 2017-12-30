@@ -1,0 +1,106 @@
+﻿<#@ template language="C#"inherits="BaseTemplate" #> 
+<#@ assembly name="System.Core" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ assembly name="System.Configuration" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Threading" #>
+<#@ import namespace="System.Configuration" #>
+<#@ parameter name="ConfigFile" type="System.String"#>
+<#@ parameter name="AppNamespace" type="System.String"#>
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+using System.Collections.Specialized;
+using System.Configuration;
+
+namespace <#=AppNamespace#>.Core.Settings  
+{ 
+    public class PositionEstablishmentSettings  
+    {
+<#  XmlParser parser=XmlParser.Parse(XDocument.Load(this.ConfigFile)); #>
+<#  string[] classesToSkip= {"appSettings","system.web", "system.webServer"}; #>
+<#  foreach(var parserClass in parser.XmlParserClassList){
+        if(classesToSkip.Contains(parserClass.ClassName)) continue; 
+        GenerateClassCode(parserClass);
+} #>
+
+    }/*End Class GlobalSettings*/
+}/*End namespace*/
+<#+private string CleanPropertyName(string name)
+{
+    if(string.IsNullOrWhiteSpace(name))return "NULL";
+    var cleanName=name.Replace(" ",string.Empty);
+	var parts=cleanName.Split('.','_',':','-');
+	var cleanBuilder=new StringBuilder();
+			
+		foreach(var part in parts){
+		var pascalCase=string.Empty;
+		    if (part.Length == 1)
+		    {
+		        pascalCase=part.ToUpper();
+				
+		    }
+				else{pascalCase=part[0].ToString().ToUpper()+part.Substring(1,part.Length-2)+part.Last().ToString().ToLower();}
+			
+			cleanBuilder.Append(pascalCase);	
+		}
+	
+	return cleanBuilder.ToString();
+	
+	
+	}	
+ #>
+
+
+
+<#+private void GenerateClassCode(XmlParserClass classParser){
+        PushIndent("\t");
+#>   
+    public static class <#=CleanPropertyName(classParser.ClassName)#> 
+    {
+<#+
+if(classParser.XmlParserClassList!=null){
+            foreach(XmlParserClass cp in classParser.XmlParserClassList){
+if(string.IsNullOrWhiteSpace(cp.ClassName))continue;
+ GenerateClassCode(cp);
+}}
+
+
+if(classParser.XmlParserItemList!=null){
+            foreach(var item in classParser.XmlParserItemList){
+
+    if(string.IsNullOrWhiteSpace(item.PropertyName)||string.IsNullOrWhiteSpace(item.PropertyExpression))continue;
+#>
+<#+	if(item.PropertyName.ToLower().StartsWith("is") || item.PropertyName.ToLower().StartsWith("use") || item.PropertyName.ToLower() == "debugautoauthentication"){
+#>
+		public static bool <#=CleanPropertyName(item.PropertyName) #>
+        {
+			get { return <#=item.PropertyExpression#>.ToBoolean(); }
+        }
+<#+
+}
+	else if(item.PropertyName.ToLower() == "appurl"){
+#>
+		public static string <#=CleanPropertyName(item.PropertyName) #>
+        {
+            get { return  EntityBase.Http.HttpHelper.GetAppUrl();     }
+        }
+<#+
+}else{
+#>
+
+        public static string <#=CleanPropertyName(item.PropertyName) #>
+        {
+            get { return  <#=item.PropertyExpression#>;     }
+        }
+<#+
+}
+}}
+        PopIndent();
+#>
+        }
+<#+
+} #>
+

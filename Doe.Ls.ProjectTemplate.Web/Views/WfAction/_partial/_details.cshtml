@@ -1,0 +1,65 @@
+
+
+@model WfAction 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Workflow action Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+ 
+@Html.HiddenFor(model => model.WfActionId)
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.WfActionId)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.WfActionId)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.WfActionName)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.WfActionName)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.WfActionStatus)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.WfActionStatus)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.WfActionDescription)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.Raw(Model.WfActionDescription)</p>
+    </div>
+            </div>
+    
+    
+
+

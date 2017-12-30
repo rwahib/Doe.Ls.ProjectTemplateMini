@@ -1,0 +1,94 @@
+@model SysUserRole 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Sys user role Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);	
+}
+            @Html.HiddenFor(model => model.UserId)
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.SysUser)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.SysUser.FirstName)
+                        </p>
+       </div>
+</div>
+            @Html.HiddenFor(model => model.RoleId)
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.SysRole)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.SysRole.RoleApiName)
+                        </p>
+       </div>
+</div>
+            @Html.HiddenFor(model => model.StructureId)
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.StructureId)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.StructureId)
+                        </p>
+       </div>
+</div>
+            @Html.HiddenFor(model => model.OrgLevelId)
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.OrgLevel)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.OrgLevel.OrgLevelName)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.ActiveFrom)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.ActiveFrom)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.ActiveTo)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.ActiveTo)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Note)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Note)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.CreatedDate)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.CreatedDate)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.CreatedBy)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.CreatedBy)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.LastModifiedDate)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.LastModifiedDate)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.LastModifiedBy)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.LastModifiedBy)
+                        </p>
+       </div>
+</div>
+  
+
+
+    
+
+
+

@@ -1,0 +1,51 @@
+﻿<#@ template language="C#"inherits="MVCTemplate.BaseTemplate" #> 
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="Doe.Ls.EntityBase.MVCExtensions" #>
+<#@ import namespace="System.Data.Entity.Core.Metadata.Edm" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+ 
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+
+<#    
+    var helper=new EdmMetadataHelper(EntityContext);
+#>
+
+/// <reference path="_references.js" />
+
+define(['interactive', 'helper'], function (interactive, helper) {
+
+    return {
+        initialise: function(){
+            interactive.initialise();
+          
+            var frmId = interactive.getFormId();
+            var wrapperId = interactive.getWrapperId();
+
+            if (!helper.hasValue(frmId)) {
+                frmId = '';
+            }
+
+            if(!helper.hasValue(wrapperId)){
+                wrapperId = '';
+            }
+
+<#    foreach(var entityType in helper.GetEntityList())#>
+<#    { #>
+<#        if(entityType.Name.ToLower().Contains("sysdia"))continue; #>
+                if (wrapperId.indexOf('wrapper-<#=T4Helper.CleanClassName(entityType.Name)#>') > -1 || frmId.indexOf('form-<#= T4Helper.GetLocalVariableName(entityType)#>') > -1){
+                    require(['<#=            T4Helper.GetLocalVariableName(entityType)#>Service'], function(service){
+                        service.initialise();
+                    });
+                }
+
+<#    }#>                
+
+            $('#loading-div').hide();
+            $('#main-container').show();
+            $('footer').show();
+        }
+    }
+});

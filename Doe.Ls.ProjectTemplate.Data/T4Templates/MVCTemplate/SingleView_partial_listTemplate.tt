@@ -1,0 +1,98 @@
+﻿<#@ template language="C#"inherits="BaseTemplate" #> 
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.Entity.Core.Metadata.Edm" #>
+ 
+<#@ parameter name="AppNamespace" type="System.String"#>
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+
+<# T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); #>
+
+<#@ parameter name="EntityType" type="System.Data.Entity.Core.Metadata.Edm.EntityType"#>
+<#    
+ 
+    var helper=new EdmMetadataHelper(EntityContext);
+    
+#>
+
+@model IEnumerable<<#=        EntityType.Name#>>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("<#=        T4Helper.Wordify(T4Helper.CleanClassName(EntityType.Name))#> List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="<#= T4Helper.GetLocalVariableName(EntityType) #>Service" data-url="@Url.Action("ListJson")"*@>
+                @*<caption><#=        T4Helper.Wordify(T4Helper.CleanClassName(EntityType.Name))#> list</caption>*@
+                <thead>
+                    <tr>
+<#    foreach (var property in T4Helper.ListPropertiesWithFkInfo(EntityType))#>
+<#    { #>
+          <# if(property.FK){#>              
+                        <th>
+                            @Html.DisplayNameFor(model => model.<#=property.PareEntityType.Name#>)
+                        </th>
+          <#    } else{#>
+           <th>
+                            @Html.DisplayNameFor(model => model.<#=property.Property.Name#>)
+                        </th>
+          <#    }#>
+                       
+<#    } #>
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+<#    foreach (var property in T4Helper.ListPropertiesWithFkInfo(EntityType))#>
+<#    {
+    if (property == null)
+    {
+        continue;
+    } #>
+                            <td>
+   <# if(property.FK){#> 
+                                @Html.Raw(item.<#=property.PareEntityType.Name#>.<#=T4Helper.MetadataOperations.GetDispayPropertyName(property.PareEntityType)#>.StripHtml().Minimise(50))
+<# continue;
+           }#>
+
+<#if(T4Helper.PropertyOperations.IsRichText(property.Property, EntityType))#>
+<#        {#>
+                                @Html.Raw(item.<#=property.Property.Name#>.StripHtml().Minimise(50))
+<#        }#>
+<#        else if(T4Helper.PropertyOperations.IsDate(property.Property)||T4Helper.PropertyOperations.IsDateTime(property.Property)) #>
+<#        {#>
+                                @item.<#=                property.Property.Name#>.ToEasyDateTimeFormat()
+<#        }#>
+<#        else #>
+<#        {#>
+                                @Html.DisplayFor(modelItem => item.<#=property.Property.Name#>)
+<#        }#>
+                            </td>                       
+<#    } #>
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { <#=        GetKeyName()#> = item.<#=        T4Helper.GetSingleKeyProperty(EntityType).Name#> })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { <#=        GetKeyName()#> = item.<#=        T4Helper.GetSingleKeyProperty(EntityType).Name#> })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { <#=        GetKeyName()#> = item.<#=        T4Helper.GetSingleKeyProperty(EntityType).Name#> })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+<#+    string GetKeyName()
+    {
+        return T4Helper.PropertyOperations.GetKeyLocalVariableName(EntityType);
+    }
+#>

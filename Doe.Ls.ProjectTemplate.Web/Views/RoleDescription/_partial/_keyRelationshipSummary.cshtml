@@ -1,0 +1,84 @@
+﻿@using System.Text
+
+@{
+    var hasMinisteria = false;
+    var hasInternal = false;
+    var hasExternal = false;
+    foreach (var key in Model.KeyRelationships)
+    {
+        if (key.ScopeId == (int) Enums.ScopeType.Internal)
+        {
+            hasInternal = true;
+        }
+        else if (key.ScopeId == (int) Enums.ScopeType.External)
+        {
+            hasExternal = true;
+        }
+        else if (key.ScopeId == (int) Enums.ScopeType.Ministerial)
+        {
+            hasMinisteria = true;
+        }
+    }
+}
+
+<div class="card card.bg-primary.text-white" id="pnlKeyRelationships">
+    <div class="card-header accordion-toggle" data-toggle="collapse" data-target="#KeyRelationships">
+        <h4 class="accordion-title">
+            <a href="#" class="collapsed" data-toggle="collapse">Key relationships<i class="indicator glyphicon glyphicon-chevron-right  float-right"></i></a>
+        </h4>
+    </div>
+
+    <div id="KeyRelationships" class="card-body collapse">
+
+        <div class="col-lg-12 roleDescription" id="KeyRlTable">
+            <div class="row heading">
+                <div class="col-lg-4">Who</div>
+                <div class="col-lg-8">Why</div>
+            </div>
+            @if (hasMinisteria)
+            {
+                @Html.Raw(displayDetails((int)Enums.ScopeType.Ministerial));
+               }
+            @if (hasInternal)
+            {
+                @Html.Raw(displayDetails((int)Enums.ScopeType.Internal))
+            }
+
+            @if (hasExternal)
+            {
+                @Html.Raw(displayDetails((int)Enums.ScopeType.External));
+               
+            }
+
+        </div>
+    </div>
+</div>
+
+@functions
+{
+    private string displayDetails(int selectedTypeId)
+    {
+        var name = Enum.GetName(typeof(Enums.ScopeType), selectedTypeId);
+
+        StringBuilder sb = new StringBuilder();
+        sb.Append("<div class=\"row\">");
+        sb.Append("<div class=\"col-lg-12 fillGrey\">"+ name + "</div>");
+        sb.Append("</div>");
+        foreach (var key in Model.KeyRelationships)
+        {
+            if (key.ScopeId == selectedTypeId)
+            {
+                sb.Append("<div class=\"row body\">");
+                sb.Append("<div class=\"col-lg-4\">");
+                sb.Append("<div class=\"sr-only\">Who</div>"+ Html.Raw(key.Who) + "</div>");
+                sb.Append("<div class=\"col-lg-8 whyContent\">");
+                sb.Append("<div class=\"sr-only\">Why</div>"+ Html.Raw(key.Why) + "</div>");
+                sb.Append("</div>");
+
+            }
+        }
+        return sb.ToString();
+    }
+
+
+}

@@ -1,0 +1,96 @@
+@using Doe.Ls.ProjectTemplate.Core.BL.Workflow
+@model PositionDescription
+@{
+
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var workflowEngine = ViewBagWrapper.WorkflowBag.GetWorkflowEngine(ViewData);
+    var privilege = workflowEngine.GetWorkflowObjectPrivilege();
+        
+}
+
+@Html.HiddenFor(model => model.PositionDescriptionId)
+@if(Model != null && task.GetPositionPrivilege().CanCreate && !Model.IsDeleted())
+    {
+        <div class="col-lg">
+            <p>
+                <a href="@Url.Action("Create", "Position", new {rolePositionDescId = Model.PositionDescriptionId})" class="btn btn-primary">
+                    Create new position
+                </a>
+            </p>
+        </div>
+
+    }
+
+<div id="formTab" class="card.card-body">
+    <form class="" role="form" method="GET" id="form-positionDescription-summary">
+        <div class="tab-pane active" id="summary">
+            <div class="form-group">
+                <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => model.RolePositionDescription.Title)</label>
+
+                <div class="col-lg-10">
+                    <p class="form-control-plaintext ">@Html.DisplayFor(model => model.RolePositionDescription.Title)</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => model.RolePositionDescription.DocNumber)</label>
+
+                <div class="col-lg-10">
+                    <p class="form-control-plaintext ">@Html.DisplayFor(model => model.RolePositionDescription.DocNumber)</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => model.RolePositionDescription.Grade)</label>
+
+                <div class="col-lg-10">
+                    <p class="form-control-plaintext ">@Html.DisplayFor(model => model.RolePositionDescription.Grade.GradeTitle)</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => model.BriefRoleStatement)</label>
+
+                <div class="col-lg-10">
+                    <p class="form-control-plaintext ">@Model.BriefRoleStatement</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-lg-2 col-form-label">@Html.DisplayNameFor(model => model.StatementOfDuties)</label>
+
+                <div class="col-lg-10 " id="StatementOfDuties">
+                   @Html.Raw(Model.StatementOfDuties)
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-2 col-form-label">Selection criteria</label>
+
+                <div class="col-lg-10 topSpace" id="SelectionCriteria">
+                    <ul>
+                        @{
+                            var focusSelectionCriteria = Model.PositionFocusCriterias
+                                .OrderBy(c => c.LookupFocusGradeCriteria.Focus.OrderList);
+                        }
+
+                        @foreach (var item in focusSelectionCriteria)
+                        {
+                           <li>
+                                @if(!string.IsNullOrEmpty(item.LookupCustomContent))
+                                {
+                                    @Html.Raw(item.LookupCustomContent)
+                                }
+                                else
+                                {
+                                    @Html.Raw(item.LookupFocusGradeCriteria.SelectionCriteria.Criteria)
+                                }
+                            </li>
+                        }
+                        
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

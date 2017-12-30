@@ -1,0 +1,163 @@
+﻿<html>
+<head>
+    <link href="PDFGenerator.css" rel="stylesheet" />
+</head>
+<body>
+
+<table class="RDHeaderTable">
+    <tr>
+        <td>
+            <h1>Role Description <span style="font-size: 12px;">(without position)</span></h1><h2>[PosTitle]</h2></td>
+        <td align="right"><img src="[Logo]" width="170" height="54" /></td>
+      </tr>
+
+</table>
+
+<table class="RoleDescTable">
+    <tr>
+        <th>Agency</th>
+        <td>[Agency]</td>
+    </tr>
+    
+    <tr>
+        <th>Classification / Grade / Band</th>
+        <td>[GradeCode]</td>
+    </tr>
+       
+    <tr>
+        <th>ANZSCO Code</th>
+        <td>[ANZSCO]</td>
+    </tr>
+    <tr>
+        <th>PCAT Code</th>
+        <td>[PCAT]</td>
+    </tr>
+    <tr>
+        <th>Date of Approval</th>
+        <td>[DateApproved]</td>
+    </tr>
+    <tr>
+        <th>Agency Website</th>
+        <td>[AgencyWebsite]</td>
+    </tr>
+</table>
+
+<div class="section">
+    <h4>Department of Education</h4>
+    [AgencyOverview]
+</div>
+
+<div class="section">
+    <h4>Division Overview</h4>
+    [DivisionOverview]
+</div>
+    
+<div class="section">
+    <h4>Primary purpose of the Role</h4>
+    [PrimaryPurposse]
+</div>
+
+<div class="section">
+    <h4>Key accountabilities</h4>
+    [KeyAccountabilities]
+</div>
+
+<div class="section">
+    <h4>Key challenges</h4>
+    [KeyChallenges]
+</div>
+
+<div class="section">
+<h4>Key relationships</h4>
+</div>
+<table class="KeyRl">
+    <tr class="heading">
+        <td>Who</td>
+        <td>Why (i.e. purposes of the relationship)</td>
+    </tr>
+    <tr class="subheading">
+        <td colspan="2">Internal</td>
+    </tr>
+    [InternalBody]
+
+   <tr class="row subheading">
+        <td colspan="2">External</td>
+    </tr>
+    [ExternalBody]
+</table>
+
+<h4>Role dimensions</h4>
+<div class="section">
+    <h4>Reporting line</h4>
+    [ReportLineContent]
+    [ReportingLine]
+</div>
+
+<div class="section">
+    <h4>Direct reports</h4>
+    [DirectReportContent]
+    [DirectReports]
+</div>
+<div class="section">
+    <h4>Budget/Expenditure</h4>
+    [BudgetExp]
+    <br/>
+    [BudgetExpValue]
+ </div>
+
+<div class="section">
+    <h4>Essential requirements</h4>
+    [EssentialReqs]
+</div>
+<div class="section">
+    <h4>Capabilities for the Role</h4>
+    [CapIntro]
+</div>
+
+<div class="section">
+    <h4>Capabilities summary</h4>
+    [CapSummary]
+</div>
+<table class="FrameWork">
+    <tr class="heading">
+        <td colspan="3">NSW Public Sector Capability Framework</td>
+    </tr>
+    <tr class="subheading">
+        <td>Capability Group</td>
+        <td>Capability Name</td>
+        <td>Level (refer to Capability Framework)</td>
+    </tr>
+    [CapFrameTable]
+</table>
+
+<div class="section">
+    <h4>Focus capabilities for the Role</h4>
+    [FocusCapabilities]
+</div>
+
+
+<table class="FocusTable">
+    <tr class="heading">
+        <td colspan="3" align="center">NSW Public Sector Capability Framework</td>
+    </tr>
+    <tr class="subheading">
+        <td width="24%">Capability Group and Name</td>
+        <td width="16%">Level</td>
+        <td width="60%">BEHAVIOURAL INDICATORS</td>
+    </tr>
+   [FocusIndicators]
+    
+
+</table>
+
+
+
+
+<table class="RDFooter" border="0">
+    <tr>
+        <td>[DOCNumber]</td>
+        <td align="right">Updated: [lastUpdated]</td>
+    </tr>
+</table>
+</body>
+</html>

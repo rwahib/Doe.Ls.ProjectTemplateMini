@@ -1,0 +1,63 @@
+﻿<#@ template language="C#"inherits="BaseTemplate" #> 
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="System.Data.Entity.Core.Metadata.Edm" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ parameter name="AppNamespace" type="System.String"#>
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+<#@ parameter name="EntityType" type="System.Data.Entity.Core.Metadata.Edm.EntityType"#>
+<# T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); #>
+<#    var helper=new EdmMetadataHelper(EntityContext);#>
+@model <#=        EntityType.Name#> 
+@{
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);
+<#    foreach (EntityType lookupEntity in T4Helper.GetLookupEntities(EntityType))#>
+<#    {#>
+    var <#=            T4Helper.GetLocalVariableName(lookupEntity)#>Items = ViewBagWrapper.ListBag.GetList("<#=            T4Helper.CleanClassName(lookupEntity.Name)#>Items",ViewData);
+<#    } #>
+    ViewBagWrapper.InfoBag.SetTitle("Create New <#=        T4Helper.Wordify(T4Helper.CleanClassName(EntityType.Name))#>",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    Layout = null;
+}
+
+<div class="modal-header">
+    <h5 class="modal-title" id="tempModalLabel">@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&#215;</span>
+    </button>
+</div>
+
+<div class="error-popup">
+    <ul class="list-group">
+        @foreach (var error in errors)
+        {
+            <li class="list-group-item ">
+                <label class="validation-error">@string.Format("{0} has error:", error.PropertyName.Wordify())</label>
+                <label class="validation-error">@string.Format("{0}", error.ErrorMessage)</label>            
+            </li>
+        }
+    </ul>
+</div>
+<div class="success-popup">
+    <ul class="list-group">
+        <li class="list-group-item ">
+            <label class="text-success" id="lbl-success"></label>
+        </li>
+    </ul>
+</div>
+
+<div id="formTab">
+    <form class="" role="form" action="@Url.Action("Create")" @*<#= T4Helper.GetFormAction(EntityType,FormType.Create)#>*@   method="POST" id=<#=        T4Helper.GetFormId(EntityType,FormType.Create)#> data-fv-feedbackicons-validating="glyphicon glyphicon-refresh">
+        <div class="modal-body">
+            @Html.Partial("_partial/_update")         
+        </div>
+        
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Add</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+    </form>
+</div>

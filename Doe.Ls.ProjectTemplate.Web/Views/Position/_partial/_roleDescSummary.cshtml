@@ -1,0 +1,66 @@
+﻿@using Doe.Ls.ProjectTemplate.Core.BL.Workflow
+@model Position
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var workflowEngine = ViewBagWrapper.WorkflowBag.GetWorkflowEngine(ViewData);
+    var privilege = workflowEngine.GetWorkflowObjectPrivilege(new PrivilegeOptions { GetDownloadPrivilege = true });
+    var rolePositionDesc = Model.RolePositionDescription;//ViewBagWrapper.GetGeneralObject<RolePositionDescription>("RolePositionDesc", ViewData);
+    var showPDF = privilege.CanDownload;
+    var showHint = !privilege.CanDownload;
+
+}
+ 
+@if (rolePositionDesc.RolePositionDescId > 0)
+{
+    if (showPDF)
+    {
+        <a href="@Url.Action("RoleDescPDF", new {id = Model.PositionId})"
+           class="float-right btn btn-primary pull-up-more" >Download role description</a>
+        <div class="spacer-small"></div>
+    }
+    else if (showHint)
+    {
+        <div class="row-fluid">
+            <span class="float-right btn btn-primary pull-up-more" disabled target="_blank">Download role description</span>
+            <span class="float-right font-black alert alert-warning no-padding">(PDF viewing / printing is not yet available)</span>
+        
+        </div>
+        }
+
+            <div id="formTab" class="card.card-body">
+                <form class="" role="form" method="GET" id="form-position-roleDescription">
+                    @Html.AntiForgeryToken()
+
+                    <div class="panel-group" id="accordion">
+                        @Html.Partial("_partial/_positionRoleDescBasicSummary")
+                        <div class="spacer-small"></div>
+                        @if (rolePositionDesc.RoleDescription != null)
+                        {
+                            @Html.Partial("~/Views/RoleDescription/_partial/_details.cshtml", rolePositionDesc.RoleDescription)
+                        }
+
+                        <!--Cost centre-->
+                        @if (Model.CostCentreDetail != null)
+                        {
+                            @Html.Partial("_partial/_costCentreInfo", Model)
+                        }
+                        <!--Position more info-->
+                        @if (Model.PositionInformation != null)
+                        {
+
+                            @Html.Partial("_partial/_positionMoreInfo", Model)
+
+                        }
+                        @if(Model.Positions != null && Model.Positions.Count > 0)
+                            {
+
+                            @Html.Partial("_partial/_directReports", Model)
+                            }
+
+                        <div class="spacer-small"></div>
+                    </div>
+
+                </form>
+            </div>
+            }

@@ -1,0 +1,102 @@
+ 
+
+
+
+@model IEnumerable<CapabilityLevel>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Capability level list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive @*ajaxDataTable*@" @*data-service="capabilityLevelService" data-url="@HttpHelper.GetActionUrl("ListJson","CapabilityLevel")"*@>
+                @*<caption>Capability level list</caption>*@
+                <thead>
+                    <tr>
+                    @* <th>
+                            @Html.DisplayNameFor(model => model.CapabilityLevelId)
+                        </th>*@
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LevelName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.DisplayOrder)
+                        </th>
+                                 
+                    @* <th>
+                            @Html.DisplayNameFor(model => model.LevelOrder)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.DateCreated)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastUpdated)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedBy)
+                        </th>*@
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            @*<td>
+   
+                                @Html.DisplayFor(modelItem => item.CapabilityLevelId)
+                            </td> *@                      
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LevelName)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.DisplayOrder)
+                            </td>                       
+                            @*<td>
+   
+                                @Html.DisplayFor(modelItem => item.LevelOrder)
+                            </td>                       
+                            <td>
+   
+                                @item.DateCreated.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @item.LastUpdated.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LastModifiedBy)
+                            </td>  *@                     
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.CapabilityLevelId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.CapabilityLevelId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.CapabilityLevelId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

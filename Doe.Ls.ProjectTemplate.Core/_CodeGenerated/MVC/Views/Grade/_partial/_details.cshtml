@@ -1,0 +1,70 @@
+@model Grade 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Grade Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);	
+}
+            @Html.HiddenFor(model => model.GradeCode)
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.GradeCode)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.GradeCode)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.GradeTitle)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.GradeTitle)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Award)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Award)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.AwardMaxRates)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.AwardMaxRates)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.TeachingBased)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.TeachingBased)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.GradeType)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.GradeType)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.StatusValue)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.StatusValue.StatusName)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Message)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Message)
+                        </p>
+       </div>
+</div>
+  
+
+
+    
+
+
+

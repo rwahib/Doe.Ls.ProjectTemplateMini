@@ -1,0 +1,42 @@
+﻿@{
+    ViewBagWrapper.InfoBag.SetTitle("Json api list", ViewData);
+}
+<div class="row">
+    <h2>Json Api list</h2>
+
+    <table class="gef-table">
+        <thead>
+            <tr>
+                <th>API name (link)</th>
+                <th>parameters</th>
+                <th>Notes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <a href="@Url.Action("GetUserInfoFromADByEmail",new {email="grant.focas@det.nsw.edu.au"})" class="list-group-item ">
+                        GetUserInfoFromADByEmail
+                    </a>
+                </td>
+                <td>email</td>
+                <td>Works with DoE emails, you may use shortcut userid@@</td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <a href="@Url.Action("GetCurrentUser")" class="list-group-item ">GetCurrentUser</a>
+                </td>
+                <td>none</td>
+                <td>Good for all Ajax session checkes</td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+    <div class="clearfix">
+        <p>&nbsp;</p>
+    </div>
+</div>

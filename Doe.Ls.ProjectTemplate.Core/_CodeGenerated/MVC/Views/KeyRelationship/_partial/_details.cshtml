@@ -1,0 +1,77 @@
+@model KeyRelationship 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Key relationship Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);	
+}
+            @Html.HiddenFor(model => model.KeyRelationshipId)
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.KeyRelationshipId)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.KeyRelationshipId)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.RoleDescription)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.RoleDescription.OldPDFileName)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.RelationshipScope)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.RelationshipScope.ScopeTitle)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.OrderNumber)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.OrderNumber)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Who)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Who)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Why)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Why)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.DateCreated)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.DateCreated)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.ModifiedUserName)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.ModifiedUserName)
+                        </p>
+       </div>
+</div>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.LastUpdated)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.LastUpdated)
+                        </p>
+       </div>
+</div>
+  
+
+
+    
+
+
+

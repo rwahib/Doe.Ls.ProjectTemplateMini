@@ -1,0 +1,77 @@
+@model IEnumerable<Executive>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Division list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive @*ajaxDataTable*@" @*data-service="executiveService" data-url="@HttpHelper.GetActionUrl("ListJson","Executive")"*@>
+                @*<caption>Division List</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            Division Code
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.ExecutiveTitle)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.ExecutiveDescription)
+                        </th>
+                        
+                        <th>
+                            Status
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ExecutiveCod)
+                            </td>                       
+                            <td>
+                                @Html.DisplayFor(modelItem => item.ExecutiveTitle)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.ExecutiveDescription)
+                            </td>                       
+                                             
+                           <td>
+                               @Html.Raw(item.StatusValue.StatusName.StripHtml().Minimise(50))
+                           </td>  
+                                     
+                                                
+                            <td>
+                                <div class="btn-group-vertical">
+                                    @{ var userPriv = task.GetExecutivePrivilege(item.ExecutiveCod); }
+                                    
+                                    @if (userPriv.CanEdit)
+                                    {
+                                        <a href="@Url.Action("Edit", new {executiveCod = item.ExecutiveCod})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    }
+                                    @if (userPriv.CanRead)
+                                    {
+                                        <a href="@Url.Action("Details", new {executiveCod = item.ExecutiveCod})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    }
+                                    @if (userPriv.CanDelete)
+                                    {
+                                        <a href="@Url.Action("Delete", new {executiveCod = item.ExecutiveCod})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

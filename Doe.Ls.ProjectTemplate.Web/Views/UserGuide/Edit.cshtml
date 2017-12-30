@@ -1,0 +1,52 @@
+﻿@model PageModel
+
+@{
+    ViewBag.Title = Model.Title;
+
+}
+
+<div class="row">
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+
+    
+</div>
+<div class="row">
+    <div id="formTab" >
+        <form id="form-editor" class="" role="form" method="POST">
+            <p>
+                <button type="submit" class="btn btn-primary">Save</button>
+                <a href="@Url.Action("Display", new {page = @Model.Name})" class="btn btn-primary">View page</a>
+                
+            </p>
+
+            @Html.HiddenFor(m => m.Name)
+            @Html.HiddenFor(m => m.Title)
+
+            <div class="">
+                <div class="">
+                    <div class="">
+                        @*<div id="loading" class="text-center text-primary bg-info ">Loading ............</div>*@
+
+                        <textarea class="tinymce-rich" name="Content" id="Content">@Html.Raw(Model.Content)</textarea>
+
+
+                    </div>
+                </div>
+            </div>
+            <p>
+                <button type="submit" class="btn btn-primary">Save</button>
+                |
+                <a href="@Url.Action("Display",new {page=@Model.Name})" class="btn btn-primary">Cancel &nbsp;<span class="glyphicon glyphicon-th-list"></span></a>
+            </p>
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+

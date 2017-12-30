@@ -1,0 +1,26 @@
+
+
+@model IEnumerable<CapabilityGroup>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Capability group list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+@*
+@section CapabilityGroupActive
+{
+active
+}
+*@
+
+<div class="wrapper" id="wrapper-CapabilityGroup">
+
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+
+  
+    @Html.Partial("_partial/_list")
+
+</div>

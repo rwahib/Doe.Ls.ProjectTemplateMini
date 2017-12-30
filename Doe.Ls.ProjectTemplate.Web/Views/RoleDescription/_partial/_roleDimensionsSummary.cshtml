@@ -1,0 +1,73 @@
+﻿@model RoleDescription
+@{
+
+    var roleDescForPosition = ViewBagWrapper.GetGeneralObject<RolePositionDescriptionLight>("RoleDescForPosition", ViewData);
+}
+
+
+<div class="card card.bg-primary.text-white" id="pnlRoleDimensions">
+    <div class="card-header accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#RoleDimensions">
+        <h4 class="accordion-title">
+            <a href="#" class="collapsed" data-toggle="collapse">Role dimensions
+                <i class="indicator glyphicon glyphicon-chevron-right  float-right"></i> 
+            </a>
+        </h4>
+    </div>
+
+    <div id="RoleDimensions" class="card-body collapse">
+        
+        <div class="col-lg-12 displayfont">
+            <h5 aria-label="Decision making">Decision making</h5>
+            @Html.Raw(Model.DecisionMaking)
+        </div>
+
+        @if (roleDescForPosition != null && roleDescForPosition.IsRoleDescForPosition)
+        {
+            <div class="col-lg-12 displayfont">
+                <h5 aria-label="Reporting line">Reporting line</h5>
+                <p class="form-control-plaintext">
+                    @if (roleDescForPosition.ReportingLineDisplay != Enums.DirectReportDefault.Nil.ToString())
+                    {
+                        <text> This role reports to: <br/></text>
+                        @roleDescForPosition.ReportingLineDisplay
+                    }
+                </p>
+            </div>
+
+            <div class="col-lg-12 displayfont">
+                <h5 aria-label="Direct reports">Direct reports</h5>
+               
+                    @if (roleDescForPosition.IsRoleDescForPosition)
+                    {
+                        if (roleDescForPosition.DirectReportsDisplay != Enums.DirectReportDefault.Nil.ToString())
+                        {
+                            <p aria-label="The role has the following direct reports:">The role has the following direct reports:</p>
+                        }
+                        <Label>@Html.Raw(roleDescForPosition.DirectReportsDisplay)</Label>
+                    }
+               
+            </div>
+        }
+        <div class="col-lg-12 displayfont">
+            <h5 aria-label="Budget Expenditure">Budget / Expenditure</h5>
+            <p class="form-control-plaintext">
+                @if (!string.IsNullOrEmpty(Model.BudgetExpenditureValue))
+                {
+                    <text>The role has a financial delegation of up to: $</text>
+                    <label>@Html.Raw(Model.BudgetExpenditureValue)</label>
+
+                }
+                else
+                {
+                    <text>Nil</text>
+                }
+
+                @if (!string.IsNullOrEmpty(Model.BudgetExtraNotes))
+                {
+                    <br/>
+                    <p>@Html.Raw(Model.BudgetExtraNotes)</p>
+                }
+            </p>
+        </div>
+    </div>
+</div>

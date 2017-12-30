@@ -1,0 +1,32 @@
+@model IEnumerable<PositionDescription>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Position description list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    
+}
+
+@*
+@section PositionDescriptionActive
+{
+active
+}
+*@
+
+<div class="wrapper" id="wrapper-PositionDescription">
+
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+    @if (task!=null&&task.GetPositionDescriptionPrivilege().CanCreate)
+    {
+        <p>
+            <a href="@Url.Action("Create")" class="btn btn-primary">
+                Create new position description
+            </a>
+        </p>
+    }
+
+    @Html.Partial("_partial/_list")
+
+</div>

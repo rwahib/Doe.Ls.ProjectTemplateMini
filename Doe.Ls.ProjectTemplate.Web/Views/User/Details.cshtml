@@ -1,0 +1,21 @@
+@model UserInfoExtension
+@{
+    ViewBagWrapper.InfoBag.SetTitle("User details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+<div class="page-header">
+    <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+</div>
+
+<div id="formTab" class="card.card-body">
+    <form class="" role="form" method="POST" id="form-sysUser-details">
+        @Html.AntiForgeryToken()
+        
+    
+        @Html.Partial("_partial/_details")
+        
+    </form>
+</div>
+

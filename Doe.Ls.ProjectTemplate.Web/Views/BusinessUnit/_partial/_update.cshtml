@@ -1,0 +1,123 @@
+@model BusinessUnit
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+
+    var divisionItems = ViewBagWrapper.ListBag.GetList("divisionItems", ViewData);
+    var directorateItems = ViewBagWrapper.ListBag.GetList("directorateItems", ViewData);
+    var hierarchyLevelItems = ViewBagWrapper.ListBag.GetList("hierarchyLevelItems", ViewData);
+    var statusValueItems = ViewBagWrapper.ListBag.GetList("statusValueItems", ViewData);
+
+}
+
+@Html.AntiForgeryToken()
+
+@if (formType == FormType.Edit) {
+    @Html.Hidden("ExecutiveCod", Model.Directorate.ExecutiveCod)
+
+}
+
+
+<div class="form-group @GetFormGroupClass("BUnitId")">
+    <label for="BUnitId" class="col-lg-4">@Html.DisplayNameFor(model => model.BUnitId) <span class="mandatory">*</span></label>
+    <input type="number" name="BUnitId" id="BUnitId" class="form-control col-lg-8" placeholder="e.g. B unit id" value="@Model.BUnitId" @ReadOnly("BUnitId") required data-fv-notempty-message='The B unit id is required' data-fv-integer-message='The B unit id is not an integer' />
+
+</div>
+
+<div class="form-group @GetFormGroupClass("BUnitName")">
+    <label for="BUnitName" class="col-lg-4">@Html.DisplayNameFor(model => model.BUnitName) <span class="mandatory">*</span></label>
+
+    <input type="text" name="BUnitName" id="BUnitName" class="form-control col-lg-8" placeholder="e.g. B unit name" value="@Model.BUnitName" @ReadOnly("BUnitName") required data-fv-notempty-message='The B unit name is required' />
+
+</div>
+
+<div class="form-group @GetFormGroupClass("BUnitDescription")">
+    <label for="BUnitDescription" class="col-lg-4">@Html.DisplayNameFor(model => model.BUnitDescription) </label>
+    <textarea name="BUnitDescription" id="BUnitDescription" class="form-control col-lg-8 " placeholder="e.g. B unit description">@Model.BUnitDescription</textarea>
+</div>
+
+
+<div class="form-group">
+    <label for="DivisionCode" class=" col-lg-4">@Html.DisplayNameFor(model => model.Directorate.Executive) <span class="mandatory">*</span></label>
+
+    @Html.DropDownList("DivisionCode", divisionItems, "Select a Division ...", new { id = "DivisionCode", @class = "form-control col-lg-8 select2picker", Required = "Required" })
+
+</div>
+
+<div class="form-group @GetFormGroupClass("DirectorateId")">
+    <label for="DirectorateId" class=" col-lg-4">@Html.DisplayNameFor(model => model.Directorate) <span class="mandatory">*</span></label>
+    @Html.DropDownList("DirectorateId", directorateItems, "Select a Directorate ...", new { id = "DirectorateId", @class = "form-control col-lg-8 select2picker", Required = "Required", min = 1, data_fv_greaterthan_value = "1", data_fv_greaterthan_message = "Select valid directorate" })
+</div>
+
+<div class="form-group @GetFormGroupClass("HierarchyId")">
+    <label for="HierarchyId" class=" col-lg-4">@Html.DisplayNameFor(model => model.HierarchyLevel) <span class="mandatory">*</span></label>
+
+
+    @Html.DropDownList("HierarchyId", hierarchyLevelItems, "Select a Hierarchy level ...", new { id = "HierarchyId", @class = "form-control col-lg-8 select2picker", Required = "Required" })
+
+</div>
+
+
+
+<div class="form-group @GetFormGroupClass("StatusId")">
+    <label for="StatusId" class=" col-lg-4">@Html.DisplayNameFor(model => model.StatusValue) <span class="mandatory">*</span></label>
+
+    @Html.DropDownList("StatusId", statusValueItems, "Select Status value ...", new { id = "StatusId", @class = "form-control col-lg-8 select2picker", Required = "Required" })
+
+</div>
+
+
+@functions
+{
+    bool IsKey(string propertyName) {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType) {
+            case FormType.Create: {
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                    break;
+                }
+        }
+        return string.Empty;
+    }
+}

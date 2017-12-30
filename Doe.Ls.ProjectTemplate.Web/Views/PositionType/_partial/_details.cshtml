@@ -1,0 +1,52 @@
+
+
+@model PositionType
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Position type Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+ 
+@Html.HiddenFor(model => model.PositionTypeCode)
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.PositionTypeCode)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.PositionTypeCode)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.PositionTypeName)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.PositionTypeName)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.PositionTypeDescription)
+    </label>
+        
+        <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.PositionTypeDescription)</p>
+    </div>
+            </div>
+    
+    
+
+

@@ -1,0 +1,11 @@
+﻿@model System.String
+
+@if (!string.IsNullOrWhiteSpace(Model))
+{
+    <span class="display" tabindex="0" aria-label="@Model">@Model</span>
+    }
+else
+    {
+    <span class="display" tabindex="0" aria-label="@Enums.Cnt.NotProvided">@Enums.Cnt.NotProvided</span>
+    }
+    

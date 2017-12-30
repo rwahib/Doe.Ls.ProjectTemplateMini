@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.UserTaskBase">
+    <Position X="21" Y="1" Width="3" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>KlBBEICAABCoEgAEAgFyAoxrAAABAUEAADAoQQJCAQY=</HashCode>
+      <FileName>BL\UI\UserTasks\UserTaskBase.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.SystemAdministratorUserTask">
+    <Position X="7.5" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BL\UI\UserTasks\SystemAdministratorUserTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.AdministratorUserTask">
+    <Position X="4" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BL\UI\UserTasks\AdministratorUserTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.BusinessUnitAuthorUserTask">
+    <Position X="18" Y="11.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BL\UI\UserTasks\BusinessUnitAuthorUserTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.BusinessUnitDataEntryUserTask">
+    <Position X="28" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>BL\UI\UserTasks\BusinessUnitDataEntryUserTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.DirectorateDataEntryUserTask">
+    <Position X="35" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>BL\UI\UserTasks\DirectorateDataEntryUserTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.DirectorateEndorserUserTask">
+    <Position X="11" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BL\UI\UserTasks\DirectorateEndorserUserTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.DivisionApproverUserTask">
+    <Position X="21" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BL\UI\UserTasks\DivisionApproverUserTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.DivisionEditorUserTask">
+    <Position X="31.5" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>BL\UI\UserTasks\DivisionEditorUserTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.DoEUserTask">
+    <Position X="38.5" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAADAAAAAAAAA=</HashCode>
+      <FileName>BL\UI\UserTasks\DoEUserTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.GuestUserTask">
+    <Position X="14.5" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAgAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>BL\UI\UserTasks\GuestUserTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.PowerUserTask">
+    <Position X="24.5" Y="11.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>BL\UI\UserTasks\PowerUserTask.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Doe.Ls.PosEstablishment.Core.BL.UI.UserTasks.IUserTask" Collapsed="true">
+    <Position X="42.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>KlABEICAABCoEgAEAgESAoxoAAABAEEAADAIQQJCAQY=</HashCode>
+      <FileName>BL\UI\UserTasks\IUserTask.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

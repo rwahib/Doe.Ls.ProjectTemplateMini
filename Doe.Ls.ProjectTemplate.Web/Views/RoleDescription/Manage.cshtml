@@ -1,0 +1,161 @@
+﻿@model RoleDescription
+@{
+    ViewBag.Title = "Manage";
+
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);
+    var wizardStep = ViewBagWrapper.RoleDescBag.GetRoleDescWizardBag(ViewData);
+    var pageName = wizardStep.ToString().Wordify();
+    Layout = "~/Views/RoleDescription/Layout/RoleDescLayout.cshtml";
+    var roleDescriptionTitle = "Role description";
+
+    if (Model != null && Model.RoleDescriptionId != 0)
+    {
+        roleDescriptionTitle = Model.RolePositionDescription.Title;
+    }
+
+    var title = (Model == null || Model.RolePositionDescription == null) ? pageName : pageName + " for " + Model.RolePositionDescription.DocNumber + "-" + Model.RolePositionDescription.Title + "-" + Model.RolePositionDescription.GradeCode;
+    ViewBagWrapper.InfoBag.SetTitle(title, ViewData);
+
+    var missingRd = ViewBagWrapper.VariableBag.GetBoolVariable("MissingRoleDesc", ViewData);
+
+    var roleDescriptionPrivilege = Enums.Privilege.AccessDeniedPrivilege;
+
+    var workflowEngine = ViewBagWrapper.WorkflowBag.GetWorkflowEngine(ViewData);
+    if (Model != null && Model.RolePositionDescription != null && (Model.RolePositionDescription.RolePositionDescId >= -1))
+    {
+        if (workflowEngine != null)
+        {
+            roleDescriptionPrivilege = workflowEngine.GetWorkflowObjectPrivilege();
+        }
+    }
+    else
+    {
+        roleDescriptionPrivilege = task.GetWorkflowObjectPrivilege(WorkflowObjectType.RoleDescription);
+    }
+}
+
+
+@Html.Hidden("WizardStep", wizardStep)
+
+
+    <div class="error">
+        <ul class="list-group no-bullet-points">
+            @if (errors != null)
+            {
+                foreach (var error in errors)
+                {
+                    <li class="list-group-item ">
+                        <label class="validation-error">@Html.Raw(error.ErrorMessage)</label>
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+  @switch (wizardStep)
+  {
+      case Enums.RoleDescWizardStep.BasicDetails:
+          @Html.Partial("_partial/_basicDetails")
+          if (Model != null && Model.RoleDescriptionId > 0)
+          {
+            @section BasicDetails {active}
+
+          }
+          break;
+      case Enums.RoleDescWizardStep.KeyAccountbilities:
+            if (!missingRd)
+            {
+                @Html.Partial("_partial/_keyAccountabilities")
+@section KeyAccountabilities{active}
+          }
+          break;
+      case Enums.RoleDescWizardStep.Budget:
+            if (!missingRd)
+            {
+                @Html.Partial("_partial/_budget")
+@section Budget{active}
+          }
+          break;
+      case Enums.RoleDescWizardStep.EssentialRequirements:
+            if (!missingRd)
+            {
+                @Html.Partial("_partial/_essentialRequirement")
+@section EssentialRequirements{active}
+          }
+          break;
+      case Enums.RoleDescWizardStep.CapabilityFramework:
+            if (!missingRd)
+            {
+                @Html.Partial("_partial/_roleCapabilities")
+@section CapabilityFramework{active}
+          }
+          break;
+
+      case Enums.RoleDescWizardStep.UpdateCapabilityFramework:
+            if (!missingRd)
+            {
+                @Html.Partial("_partial/_updateCapabilities")
+@section CapabilityFramework{active}
+            }
+            break;
+      case Enums.RoleDescWizardStep.Summary:
+            if (!missingRd)
+            {
+                @Html.Partial("Details")
+                @section SummaryActive{}
+          }
+          break;
+
+      case Enums.RoleDescWizardStep.LinkedPositions:
+            if (!missingRd)
+            {
+                @Html.Partial("_partial/_linkedPositions")
+                if (roleDescriptionPrivilege.CanPerformActions)
+                {
+@section LinkedPositionsActive{ active}
+              }
+              else
+              {
+                @section LinkedPositionsActive{}
+            }
+
+        }
+        break;
+
+    case Enums.RoleDescWizardStep.Actions:
+        if (!missingRd)
+        {
+                @Html.Partial("_partial/_manageActions")
+@section ActionsActive{ active}
+          }
+         
+              break;
+        case Enums.RoleDescWizardStep.KeyRelationships:
+              if (!missingRd)
+              {
+                  @Html.Partial("_partial/_keyRelationships")
+@section KeyRelationships{ active}
+          }
+          break;
+
+      case Enums.RoleDescWizardStep.History:
+              if (!missingRd)
+              {
+                  @Html.Partial("_partial/_history")
+@section History{}
+              }
+          break;
+      case Enums.RoleDescWizardStep.Trim:
+
+
+        @Html.Partial("_partial/_Trim", @Model.RolePositionDescription)
+          if(Model.RoleDescriptionId > 0 || roleDescriptionPrivilege.CanPerformActions) {
+            @section Trim{active}
+            }
+
+        break;
+
+    }
+

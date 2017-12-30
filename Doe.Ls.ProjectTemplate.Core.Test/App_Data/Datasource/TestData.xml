@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestData>
+  <TimeOffTest_ApplyTimeOffTest>
+    <UserID>1</UserID>
+    <StartDate>2012-09-10</StartDate>
+    <EndDate>2012-09-13</EndDate>
+    <ExpectException>true</ExpectException>
+  </TimeOffTest_ApplyTimeOffTest>
+  <TimeOffTest_ApplyTimeOffTest>
+    <UserID>1</UserID>
+    <StartDate>2012-11-13</StartDate>
+    <EndDate>2012-11-10</EndDate>
+    <ExpectException>true</ExpectException>
+  </TimeOffTest_ApplyTimeOffTest>
+  <TimeOffTest_ApplyTimeOffTest>
+    <UserID>1</UserID>
+    <StartDate>2012-11-12</StartDate>
+    <EndDate>2012-11-13</EndDate>
+    <ExpectException>true</ExpectException>
+  </TimeOffTest_ApplyTimeOffTest>
+  <TimeOffTest_ApplyTimeOffTest>
+    <UserID>1</UserID>
+    <StartDate>2012-11-15</StartDate>
+    <EndDate>2012-11-20</EndDate>
+    <ExpectException>true</ExpectException>
+  </TimeOffTest_ApplyTimeOffTest>
+</TestData>

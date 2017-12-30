@@ -1,0 +1,49 @@
+@model IEnumerable<UserInfoExtension>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Sys user list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive ajaxDataTable" data-service="UserService" data-url="@HttpHelper.GetActionUrl("ListJson","User")">                
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.UserName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.FirstName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.SurName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Email)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Phone)
+                        </th>
+                                
+                    
+                     <th>
+                            @Html.DisplayNameFor(model => model.CurrentRole)
+                        </th>
+                                 
+                     <th>
+                         @Html.DisplayNameFor(model => model.Roles)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>                   
+                </tbody>
+            </table>
+        </div>
+

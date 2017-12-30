@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Doe.Ls.EntityBase.Helper.CryptoUtil" Collapsed="true">
+    <Position X="0.75" Y="1.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Doe.Ls.EntityBase.Helper.CryptoUtil.ServiceProviderEnum" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helper\CryptoUtil.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQBABABAAAAAAAQQCAAAAAAAgAAAAAAAQAAAAAAAAAQ=</HashCode>
+      <FileName>Helper\CryptoUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.EntityBase.Helper.Hash" Collapsed="true">
+    <Position X="2.5" Y="2.25" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Doe.Ls.EntityBase.Helper.Hash.ServiceProviderEnum" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helper\CryptoUtil.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AQBAAABAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\CryptoUtil.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.EntityBase.Helper.CustomOrderBy" Collapsed="true">
+    <Position X="4.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Helper\CustomOrderBy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.EntityBase.Helper.EdmMetadataHelper" Collapsed="true">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAQAAAAAAAAAACAAAAAAAAAAAQA=</HashCode>
+      <FileName>Helper\EdmMetadataHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.EntityBase.Helper.PropMeta" Collapsed="true">
+    <Position X="4.25" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAIQAQAAAAA=</HashCode>
+      <FileName>Helper\PropMeta.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.EntityBase.Helper.SecurityHelper" Collapsed="true">
+    <Position X="6" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\SecurityHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.EntityBase.Helper.T4Helper" Collapsed="true">
+    <Position X="2.5" Y="3.25" Width="1.5" />
+    <NestedTypes>
+      <Class Name="Doe.Ls.EntityBase.Helper.T4Helper.PropertyOperations" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helper\T4Helper.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="Doe.Ls.EntityBase.Helper.T4Helper.MetadataOperations" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helper\T4Helper.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+      <Class Name="Doe.Ls.EntityBase.Helper.T4Helper.Extension" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Helper\T4Helper.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>EAAIAAQAAACAAAAAAMwAAAYEADKEGEAAQAwAAAAAAgA=</HashCode>
+      <FileName>Helper\T4Helper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.EntityBase.Helper.TimeTableHelper" Collapsed="true">
+    <Position X="4.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\TimeTableHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.EntityBase.Helper.XmlParser" Collapsed="true">
+    <Position X="6" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAIAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\XmlParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.EntityBase.Helper.XmlParserClass" Collapsed="true">
+    <Position X="0.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAKAAAAEAACAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Helper\XmlParserClass.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.EntityBase.Helper.XmlParserItem" Collapsed="true">
+    <Position X="2.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAIEAAAAQAAAAAACAAAAAAgCAABAAAA=</HashCode>
+      <FileName>Helper\XmlParserItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.CustomConverter" Collapsed="true">
+    <Position X="2.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CABQAAAAEIgAAAAACiAAABAAAgEIAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Helper\CustomConverter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.EnumExtension" Collapsed="true">
+    <Position X="0.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAAAAAAAAAIAAAAAAAAAAAAAAACAAAAAIAAAA=</HashCode>
+      <FileName>Helper\EnumExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="System.StringExtension" Collapsed="true">
+    <Position X="0.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAIACAAggAgACAAAQACQIAGACCAACAAAAAAAQ=</HashCode>
+      <FileName>Helper\StringExtension.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Doe.Ls.EntityBase.Helper.FormType" Collapsed="true">
+    <Position X="0.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAABAAAAAAAAAAAAAAEAAEACAAAAAAAgAAA=</HashCode>
+      <FileName>Helper\FormType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Doe.Ls.EntityBase.Helper.PropertyType" Collapsed="true">
+    <Position X="2.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAQAAAAAAAAAACAAAAEAQAE=</HashCode>
+      <FileName>Helper\PropertyType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Doe.Ls.EntityBase.Helper.RequestType" Collapsed="true">
+    <Position X="4.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Helper\RequestType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

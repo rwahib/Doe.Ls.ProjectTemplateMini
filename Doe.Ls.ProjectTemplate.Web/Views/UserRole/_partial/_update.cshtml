@@ -1,0 +1,108 @@
+@model UserRoleModel
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+    var propList = task.GetPropertySettings(Model.UserRole, formType).ToList();
+
+}
+@Html.HiddenFor(model => model.UserId)
+@Html.HiddenFor(model => model.RoleId)
+@Html.HiddenFor(model => model.OrgLevelId)
+@{ var structIdProp = UiPropertyItem.GetProperty(propList, UserRoleModel.StructureIdProp); }
+@if (structIdProp.IsHidden() || structIdProp.PropertyAttributes.Contains("disabled"))
+{
+    @Html.HiddenFor(model => model.StructureId)
+}
+
+
+@{ var emailProp = UiPropertyItem.GetProperty(propList, UserRoleModel.EmailProp);
+}
+<div class="form-group @emailProp.ContainerClasses">
+    <label for="Email" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Email) <span class="mandatory">*</span></label>
+
+    <div class="col-lg-10">
+        <input type="email" name="Email" id="Email" class="form-control" placeholder="e.g. first.last@CostCentreDetail.nsw.edu.au" value="@Model.Email"
+               required data-fv-notempty-message='The Email is required' @emailProp.PropertyAttributes />
+    </div>
+</div>
+
+@{ var roleNameProp = UiPropertyItem.GetProperty(propList, UserRoleModel.RoleNameProp); }
+
+<div class="form-group @roleNameProp.ContainerClasses">
+    <label class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.RoleName) <span class="mandatory"></span></label>
+
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.RoleName)</p>
+    </div>
+</div>
+
+@{ var structureIdProp = UiPropertyItem.GetProperty(propList, UserRoleModel.StructureIdProp); }
+
+@if (structureIdProp.IsVisible())
+{
+    <div class="form-group">
+        <label for="StructureId" class="col-form-label col-lg-2">@Html.DisplayName(Model.OrgLevelName.Wordify()) <span class="mandatory">*</span></label>
+
+        <div class="col-lg-10">
+            @if (structIdProp.PropertyAttributes.Contains("disabled"))
+            {
+
+                <p class="form-control-plaintext">@structIdProp.PropertyValueList.SingleOrDefault(item => item.Value == Model.StructureId)</p>
+            }
+            else
+            {
+                @Html.DropDownList("StructureId", structureIdProp.PropertyValueList, "Select a " + Model.OrgLevelName + " ...", new { id = "StructureId", @class = "form-control select2picker", Required = "Required", data_fv_greaterthan_message = "Select valid " + Model.OrgLevelName })
+            }
+        </div>
+    </div>
+}
+
+@{ var activeFromProp = UiPropertyItem.GetProperty(propList, UserRoleModel.ActiveFromProp);
+}
+<div class="form-group @activeFromProp.ContainerClasses">
+    <label for="ActiveFrom" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.ActiveFrom) <span class="mandatory">*</span></label>
+
+    <div class="col-lg-10">
+        <input type="text" data-date="date" name="ActiveFrom" id="ActiveFrom" class="form-control"
+               placeholder="Please click to select a date" value="@Model.ActiveFrom.ToEasyDateFormat()"
+               required data-fv-notempty-message='The Active from is required' 
+               data-fv-date-format="DD/MM/YYYY"
+               data-startdate="@DateTime.Now.ToEasyDateFormat()" 
+               onkeydown="return false;" />
+
+    </div>
+</div>
+
+@{ var activeToProp = UiPropertyItem.GetProperty(propList, UserRoleModel.ActiveToProp);
+}
+<div class="form-group @activeToProp.ContainerClasses">
+    <label for="ActiveTo" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.ActiveTo)</label>
+
+    <div class="col-lg-10">
+
+        <input type="text" data-date="date" name="ActiveTo" id="ActiveTo"
+               class="form-control" placeholder="(Optional) Please click to select a date" 
+               value="@Model.ActiveTo.ToEasyDateFormat()" 
+               data-fv-date-format="DD/MM/YYYY"
+               data-startdate="@DateTime.Now.ToEasyDateFormat()"/>
+
+    </div>
+</div>
+
+@{ var noteProp = UiPropertyItem.GetProperty(propList, UserRoleModel.NoteProp);
+}
+<div class="form-group @noteProp.ContainerClasses">
+    <label for="Note" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Note)</label>
+
+    <div class="col-lg-10">
+
+        <textarea name="Note" id="Note" class="form-control " placeholder="e.g. Note">@Model.Note</textarea>
+
+    </div>
+</div>
+
+

@@ -1,0 +1,24 @@
+@model PositionDescription 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Position description Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);	
+}
+ 
+@Html.HiddenFor(model => model.PositionDescriptionId)
+<div class="form-group">
+    	    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.RolePositionDescription)</span>
+   
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.RolePositionDescription.Title)</p>
+    </div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.BriefRoleStatement)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.BriefRoleStatement)</p></div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.StatementOfDuties)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.StatementOfDuties)</p></div>
+        </div>

@@ -1,0 +1,24 @@
+@model IEnumerable<UserInfoExtension>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("User list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+@*
+@section SysUserActive
+{
+active
+}
+*@
+
+<div class="wrapper" id="wrapper-SysUser">
+
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+    
+
+    @Html.Partial("_partial/_list")
+
+</div>

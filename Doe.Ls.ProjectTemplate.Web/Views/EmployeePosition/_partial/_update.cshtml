@@ -1,0 +1,185 @@
+@model EmployeePosition
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData); 
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+    
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+        var employeeItems = ViewBagWrapper.ListBag.GetList("employeeItems",ViewData);
+    var positionItems = ViewBagWrapper.ListBag.GetList("positionItems",ViewData);
+    
+}
+
+@Html.AntiForgeryToken()
+
+<div class="form-group @GetFormGroupClass("EmployeeId")">
+        <label for="EmployeeId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Employee) <span class="mandatory">*</span></label>
+
+<div class="col-lg-10">
+        @Html.DropDownList("EmployeeId", employeeItems , "Select Employee ...", new {id="EmployeeId", @class = "form-control select2picker", Required="Required" })      
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("PositionId")">
+        <label for="PositionId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Position) <span class="mandatory">*</span></label>
+
+<div class="col-lg-10">
+        @Html.DropDownList("PositionId", positionItems , "Select Position ...", new {id="PositionId", @class = "form-control select2picker", Required="Required" })      
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("StatusId")">
+    <label for="StatusId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.StatusId) <span class="mandatory">*</span></label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="number" name="StatusId" id="StatusId" class="form-control" placeholder="e.g. StatusId" value="@Model.StatusId"  @ReadOnly("StatusId")  required data-fv-notempty-message='The Status id is required'    data-fv-integer-message='The Status id is not an integer'/>
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("DisplayInOrgChart")">
+    <label for="DisplayInOrgChart" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.DisplayInOrgChart) <span class="mandatory">*</span></label>
+    
+<div class="col-lg-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="DisplayInOrgChart" id="DisplayInOrgChart" checked="@Model.DisplayInOrgChart" @ReadOnly("DisplayInOrgChart")/>
+            </label>
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("Reason")">
+    <label for="Reason" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Reason) </label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="text" name="Reason" id="Reason" class="form-control" placeholder="e.g. Reason" value="@Model.Reason"  @ReadOnly("Reason")      />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("FromDate")">
+    <label for="FromDate" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.FromDate) </label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="date" name="FromDate" id="FromDate" class="form-control" placeholder="e.g. FromDate" value="@Model.FromDate"  @ReadOnly("FromDate")    data-fv-date-format="DD/MM/YYYY"  />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("ToDate")">
+    <label for="ToDate" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.ToDate) </label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="date" name="ToDate" id="ToDate" class="form-control" placeholder="e.g. ToDate" value="@Model.ToDate"  @ReadOnly("ToDate")    data-fv-date-format="DD/MM/YYYY"  />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("LastModifiedBy")">
+    <label for="LastModifiedBy" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.LastModifiedBy) </label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="text" name="LastModifiedBy" id="LastModifiedBy" class="form-control" placeholder="e.g. LastModifiedBy" value="@Model.LastModifiedBy"  @ReadOnly("LastModifiedBy")      />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("CreatedDate")">
+    <label for="CreatedDate" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.CreatedDate) </label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="date" name="CreatedDate" id="CreatedDate" class="form-control" placeholder="e.g. CreatedDate" value="@Model.CreatedDate"  @ReadOnly("CreatedDate")    data-fv-date-format="DD/MM/YYYY"  />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("LastModifiedDate")">
+    <label for="LastModifiedDate" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.LastModifiedDate) </label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="date" name="LastModifiedDate" id="LastModifiedDate" class="form-control" placeholder="e.g. LastModifiedDate" value="@Model.LastModifiedDate"  @ReadOnly("LastModifiedDate")    data-fv-date-format="DD/MM/YYYY"  />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("CreatedBy")">
+    <label for="CreatedBy" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.CreatedBy) </label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="text" name="CreatedBy" id="CreatedBy" class="form-control" placeholder="e.g. CreatedBy" value="@Model.CreatedBy"  @ReadOnly("CreatedBy")      />
+                  
+                        </div>
+    </div>
+</div>                       
+
+
+@functions
+{
+    bool IsKey(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) 
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+        
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+            {
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                break;
+            }
+        }
+        return string.Empty;        
+    }    
+}

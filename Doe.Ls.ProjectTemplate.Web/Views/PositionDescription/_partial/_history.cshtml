@@ -1,0 +1,40 @@
+﻿@model PositionDescription
+@{
+    var historyList = ViewBagWrapper.GetGeneralObject<IEnumerable<RolePositionDescriptionHistory>>("historyList", ViewData);
+ }
+<div class="spacer-small"></div>
+@if (historyList != null && historyList.Any())
+{
+    <div class="table-responsive">
+        <table data-order='[]' id="positionsDescHistoryTable" class="table table-striped table-sm dt-responsive">
+            <thead>
+            <tr>
+                <th>Action</th>
+                <th>Status from</th>
+                <th>Status to</th>
+                <th>Additional info</th>
+                <th>Date created</th>
+                <th>Created by</th>
+            </tr>
+            </thead>
+            <tbody>
+            @* For ajax dataTable empty the tbody *@
+
+            @foreach (var i in historyList)
+            {
+            <tr>
+                <td>@i.Action</td>
+                <td>@i.StatusFrom</td>
+                <td>@i.StatusTo</td>
+                <td>@i.AdditionalInfo</td>
+                <td>@i.CreatedDate</td>
+                <td>@i.CreatedBy</td>
+            </tr>
+            }
+
+            </tbody>
+        </table>
+    </div>
+}
+
+

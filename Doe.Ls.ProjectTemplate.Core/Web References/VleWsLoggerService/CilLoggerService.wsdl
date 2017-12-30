@@ -1,0 +1,659 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://ws.cli.det.nsw.edu.au/ns/WebServices/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://ws.cli.det.nsw.edu.au/ns/WebServices/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://ws.cli.det.nsw.edu.au/ns/WebServices/">
+      <s:element name="RegisterDBLogItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="logItem" type="tns:LogItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LogItem">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="LogType" type="tns:LogType" />
+          <s:element minOccurs="1" maxOccurs="1" name="LogID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Category" type="tns:LogCategory" />
+          <s:element minOccurs="1" maxOccurs="1" name="Severity" type="tns:LogSeverity" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomCategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FriendlyMessage" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CreatedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:LogStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="Title" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:simpleType name="LogType">
+        <s:restriction base="s:string">
+          <s:enumeration value="Event" />
+          <s:enumeration value="Error" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="LogCategory">
+        <s:restriction base="s:string">
+          <s:enumeration value="Database" />
+          <s:enumeration value="DataLayer" />
+          <s:enumeration value="BusinessLayer" />
+          <s:enumeration value="UI" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="LogSeverity">
+        <s:restriction base="s:string">
+          <s:enumeration value="Low" />
+          <s:enumeration value="Medium" />
+          <s:enumeration value="High" />
+        </s:restriction>
+      </s:simpleType>
+      <s:simpleType name="LogStatus">
+        <s:restriction base="s:string">
+          <s:enumeration value="NA" />
+          <s:enumeration value="Success" />
+          <s:enumeration value="Fail" />
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="RegisterDBLogItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterDBLogItemResult" type="tns:LogItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterDBLogItemValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="applicationID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="category" type="tns:LogCategory" />
+            <s:element minOccurs="1" maxOccurs="1" name="severity" type="tns:LogSeverity" />
+            <s:element minOccurs="1" maxOccurs="1" name="logType" type="tns:LogType" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="friendlyMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fullDescription" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="createdDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="tns:LogStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterDBLogItemValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterDBLogItemValuesResult" type="tns:LogItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterDBLogItemValuesWithCustomCategory">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="applicationID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="category" type="tns:LogCategory" />
+            <s:element minOccurs="1" maxOccurs="1" name="severity" type="tns:LogSeverity" />
+            <s:element minOccurs="1" maxOccurs="1" name="logType" type="tns:LogType" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="customCategory" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="friendlyMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fullDescription" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="createdDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="tns:LogStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterDBLogItemValuesWithCustomCategoryResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterDBLogItemValuesWithCustomCategoryResult" type="tns:LogItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterEMailLogItem">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="logItem" type="tns:LogItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterEMailLogItemResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterEMailLogItemResult" type="tns:LogItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterEMailLogValues">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="applicationID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="category" type="tns:LogCategory" />
+            <s:element minOccurs="1" maxOccurs="1" name="severity" type="tns:LogSeverity" />
+            <s:element minOccurs="1" maxOccurs="1" name="logType" type="tns:LogType" />
+            <s:element minOccurs="0" maxOccurs="1" name="machineName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="userName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="source" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="message" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="friendlyMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fullDescription" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="createdDate" type="s:dateTime" />
+            <s:element minOccurs="1" maxOccurs="1" name="status" type="tns:LogStatus" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RegisterEMailLogValuesResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RegisterEMailLogValuesResult" type="tns:LogItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDBLogItemList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="arg" type="tns:LogSearchArgument" />
+            <s:element minOccurs="1" maxOccurs="1" name="startRecord" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxRecords" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="LogSearchArgument">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ApplicationID" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Severity" nillable="true" type="tns:LogSeverity" />
+          <s:element minOccurs="1" maxOccurs="1" name="LogType" nillable="true" type="tns:LogType" />
+          <s:element minOccurs="1" maxOccurs="1" name="Category" nillable="true" type="tns:LogCategory" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="tns:LogStatus" />
+          <s:element minOccurs="0" maxOccurs="1" name="MachineName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Source" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Keyword" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomCategory" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="FullDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="StartCreatedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="EndCreatedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDBLogItemListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDBLogItemListResult" type="tns:ArrayOfLogItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfLogItem">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="LogItem" nillable="true" type="tns:LogItem" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetDBLogByLogId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="logID" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDBLogByLogIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetDBLogByLogIdResult" type="tns:LogItem" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogItem" nillable="true" type="tns:LogItem" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="RegisterDBLogItemSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterDBLogItem" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterDBLogItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterDBLogItemValues" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterDBLogItemValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemValuesWithCustomCategorySoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterDBLogItemValuesWithCustomCategory" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemValuesWithCustomCategorySoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterDBLogItemValuesWithCustomCategoryResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterEMailLogItemSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterEMailLogItem" />
+  </wsdl:message>
+  <wsdl:message name="RegisterEMailLogItemSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterEMailLogItemResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterEMailLogValuesSoapIn">
+    <wsdl:part name="parameters" element="tns:RegisterEMailLogValues" />
+  </wsdl:message>
+  <wsdl:message name="RegisterEMailLogValuesSoapOut">
+    <wsdl:part name="parameters" element="tns:RegisterEMailLogValuesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDBLogItemListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDBLogItemList" />
+  </wsdl:message>
+  <wsdl:message name="GetDBLogItemListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDBLogItemListResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetDBLogByLogIdSoapIn">
+    <wsdl:part name="parameters" element="tns:GetDBLogByLogId" />
+  </wsdl:message>
+  <wsdl:message name="GetDBLogByLogIdSoapOut">
+    <wsdl:part name="parameters" element="tns:GetDBLogByLogIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemValuesHttpGetIn">
+    <wsdl:part name="applicationID" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="severity" type="s:string" />
+    <wsdl:part name="logType" type="s:string" />
+    <wsdl:part name="machineName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="friendlyMessage" type="s:string" />
+    <wsdl:part name="fullDescription" type="s:string" />
+    <wsdl:part name="createdDate" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:LogItem" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemValuesWithCustomCategoryHttpGetIn">
+    <wsdl:part name="applicationID" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="severity" type="s:string" />
+    <wsdl:part name="logType" type="s:string" />
+    <wsdl:part name="machineName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="customCategory" type="s:string" />
+    <wsdl:part name="friendlyMessage" type="s:string" />
+    <wsdl:part name="fullDescription" type="s:string" />
+    <wsdl:part name="createdDate" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemValuesWithCustomCategoryHttpGetOut">
+    <wsdl:part name="Body" element="tns:LogItem" />
+  </wsdl:message>
+  <wsdl:message name="RegisterEMailLogValuesHttpGetIn">
+    <wsdl:part name="applicationID" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="severity" type="s:string" />
+    <wsdl:part name="logType" type="s:string" />
+    <wsdl:part name="machineName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="friendlyMessage" type="s:string" />
+    <wsdl:part name="fullDescription" type="s:string" />
+    <wsdl:part name="createdDate" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterEMailLogValuesHttpGetOut">
+    <wsdl:part name="Body" element="tns:LogItem" />
+  </wsdl:message>
+  <wsdl:message name="GetDBLogByLogIdHttpGetIn">
+    <wsdl:part name="logID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDBLogByLogIdHttpGetOut">
+    <wsdl:part name="Body" element="tns:LogItem" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemValuesHttpPostIn">
+    <wsdl:part name="applicationID" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="severity" type="s:string" />
+    <wsdl:part name="logType" type="s:string" />
+    <wsdl:part name="machineName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="friendlyMessage" type="s:string" />
+    <wsdl:part name="fullDescription" type="s:string" />
+    <wsdl:part name="createdDate" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:LogItem" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemValuesWithCustomCategoryHttpPostIn">
+    <wsdl:part name="applicationID" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="severity" type="s:string" />
+    <wsdl:part name="logType" type="s:string" />
+    <wsdl:part name="machineName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="customCategory" type="s:string" />
+    <wsdl:part name="friendlyMessage" type="s:string" />
+    <wsdl:part name="fullDescription" type="s:string" />
+    <wsdl:part name="createdDate" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterDBLogItemValuesWithCustomCategoryHttpPostOut">
+    <wsdl:part name="Body" element="tns:LogItem" />
+  </wsdl:message>
+  <wsdl:message name="RegisterEMailLogValuesHttpPostIn">
+    <wsdl:part name="applicationID" type="s:string" />
+    <wsdl:part name="category" type="s:string" />
+    <wsdl:part name="severity" type="s:string" />
+    <wsdl:part name="logType" type="s:string" />
+    <wsdl:part name="machineName" type="s:string" />
+    <wsdl:part name="userName" type="s:string" />
+    <wsdl:part name="source" type="s:string" />
+    <wsdl:part name="message" type="s:string" />
+    <wsdl:part name="friendlyMessage" type="s:string" />
+    <wsdl:part name="fullDescription" type="s:string" />
+    <wsdl:part name="createdDate" type="s:string" />
+    <wsdl:part name="status" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="RegisterEMailLogValuesHttpPostOut">
+    <wsdl:part name="Body" element="tns:LogItem" />
+  </wsdl:message>
+  <wsdl:message name="GetDBLogByLogIdHttpPostIn">
+    <wsdl:part name="logID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDBLogByLogIdHttpPostOut">
+    <wsdl:part name="Body" element="tns:LogItem" />
+  </wsdl:message>
+  <wsdl:portType name="CilLoggerServiceSoap">
+    <wsdl:operation name="RegisterDBLogItem">
+      <wsdl:input message="tns:RegisterDBLogItemSoapIn" />
+      <wsdl:output message="tns:RegisterDBLogItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDBLogItemValues">
+      <wsdl:input message="tns:RegisterDBLogItemValuesSoapIn" />
+      <wsdl:output message="tns:RegisterDBLogItemValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDBLogItemValuesWithCustomCategory">
+      <wsdl:input message="tns:RegisterDBLogItemValuesWithCustomCategorySoapIn" />
+      <wsdl:output message="tns:RegisterDBLogItemValuesWithCustomCategorySoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterEMailLogItem">
+      <wsdl:input message="tns:RegisterEMailLogItemSoapIn" />
+      <wsdl:output message="tns:RegisterEMailLogItemSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterEMailLogValues">
+      <wsdl:input message="tns:RegisterEMailLogValuesSoapIn" />
+      <wsdl:output message="tns:RegisterEMailLogValuesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDBLogItemList">
+      <wsdl:input message="tns:GetDBLogItemListSoapIn" />
+      <wsdl:output message="tns:GetDBLogItemListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDBLogByLogId">
+      <wsdl:input message="tns:GetDBLogByLogIdSoapIn" />
+      <wsdl:output message="tns:GetDBLogByLogIdSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CilLoggerServiceHttpGet">
+    <wsdl:operation name="RegisterDBLogItemValues">
+      <wsdl:input message="tns:RegisterDBLogItemValuesHttpGetIn" />
+      <wsdl:output message="tns:RegisterDBLogItemValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDBLogItemValuesWithCustomCategory">
+      <wsdl:input message="tns:RegisterDBLogItemValuesWithCustomCategoryHttpGetIn" />
+      <wsdl:output message="tns:RegisterDBLogItemValuesWithCustomCategoryHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterEMailLogValues">
+      <wsdl:input message="tns:RegisterEMailLogValuesHttpGetIn" />
+      <wsdl:output message="tns:RegisterEMailLogValuesHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDBLogByLogId">
+      <wsdl:input message="tns:GetDBLogByLogIdHttpGetIn" />
+      <wsdl:output message="tns:GetDBLogByLogIdHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="CilLoggerServiceHttpPost">
+    <wsdl:operation name="RegisterDBLogItemValues">
+      <wsdl:input message="tns:RegisterDBLogItemValuesHttpPostIn" />
+      <wsdl:output message="tns:RegisterDBLogItemValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDBLogItemValuesWithCustomCategory">
+      <wsdl:input message="tns:RegisterDBLogItemValuesWithCustomCategoryHttpPostIn" />
+      <wsdl:output message="tns:RegisterDBLogItemValuesWithCustomCategoryHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RegisterEMailLogValues">
+      <wsdl:input message="tns:RegisterEMailLogValuesHttpPostIn" />
+      <wsdl:output message="tns:RegisterEMailLogValuesHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDBLogByLogId">
+      <wsdl:input message="tns:GetDBLogByLogIdHttpPostIn" />
+      <wsdl:output message="tns:GetDBLogByLogIdHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CilLoggerServiceSoap" type="tns:CilLoggerServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterDBLogItem">
+      <soap:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/RegisterDBLogItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDBLogItemValues">
+      <soap:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/RegisterDBLogItemValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDBLogItemValuesWithCustomCategory">
+      <soap:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/RegisterDBLogItemValuesWithCustomCategory" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterEMailLogItem">
+      <soap:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/RegisterEMailLogItem" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterEMailLogValues">
+      <soap:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/RegisterEMailLogValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDBLogItemList">
+      <soap:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/GetDBLogItemList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDBLogByLogId">
+      <soap:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/GetDBLogByLogId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CilLoggerServiceSoap12" type="tns:CilLoggerServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="RegisterDBLogItem">
+      <soap12:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/RegisterDBLogItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDBLogItemValues">
+      <soap12:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/RegisterDBLogItemValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDBLogItemValuesWithCustomCategory">
+      <soap12:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/RegisterDBLogItemValuesWithCustomCategory" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterEMailLogItem">
+      <soap12:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/RegisterEMailLogItem" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterEMailLogValues">
+      <soap12:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/RegisterEMailLogValues" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDBLogItemList">
+      <soap12:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/GetDBLogItemList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDBLogByLogId">
+      <soap12:operation soapAction="http://ws.cli.det.nsw.edu.au/ns/WebServices/GetDBLogByLogId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CilLoggerServiceHttpGet" type="tns:CilLoggerServiceHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="RegisterDBLogItemValues">
+      <http:operation location="/RegisterDBLogItemValues" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDBLogItemValuesWithCustomCategory">
+      <http:operation location="/RegisterDBLogItemValuesWithCustomCategory" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterEMailLogValues">
+      <http:operation location="/RegisterEMailLogValues" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDBLogByLogId">
+      <http:operation location="/GetDBLogByLogId" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="CilLoggerServiceHttpPost" type="tns:CilLoggerServiceHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="RegisterDBLogItemValues">
+      <http:operation location="/RegisterDBLogItemValues" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterDBLogItemValuesWithCustomCategory">
+      <http:operation location="/RegisterDBLogItemValuesWithCustomCategory" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegisterEMailLogValues">
+      <http:operation location="/RegisterEMailLogValues" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDBLogByLogId">
+      <http:operation location="/GetDBLogByLogId" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CilLoggerService">
+    <wsdl:port name="CilLoggerServiceSoap" binding="tns:CilLoggerServiceSoap">
+      <soap:address location="http://applogger.lsvle.pre.det.nsw.edu.au/webservices/CilLoggerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CilLoggerServiceSoap12" binding="tns:CilLoggerServiceSoap12">
+      <soap12:address location="http://applogger.lsvle.pre.det.nsw.edu.au/webservices/CilLoggerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CilLoggerServiceHttpGet" binding="tns:CilLoggerServiceHttpGet">
+      <http:address location="http://applogger.lsvle.pre.det.nsw.edu.au/webservices/CilLoggerService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="CilLoggerServiceHttpPost" binding="tns:CilLoggerServiceHttpPost">
+      <http:address location="http://applogger.lsvle.pre.det.nsw.edu.au/webservices/CilLoggerService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

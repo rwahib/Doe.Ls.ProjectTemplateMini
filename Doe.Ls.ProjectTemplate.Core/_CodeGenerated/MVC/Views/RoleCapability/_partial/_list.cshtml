@@ -1,0 +1,102 @@
+ 
+
+
+
+@model IEnumerable<RoleCapability>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Role capability List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="roleCapabilityService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>Role capability list</caption>*@
+                <thead>
+                    <tr>
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.RoleDescription)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.CapabilityName)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.CapabilityLevel)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Highlighted)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.DateCreated)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastUpdated)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedBy)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+    
+                                @Html.Raw(item.RoleDescription.OldPDFileName.StripHtml().Minimise(50))
+                            <td>
+    
+                                @Html.Raw(item.CapabilityName.Name.StripHtml().Minimise(50))
+                            <td>
+    
+                                @Html.Raw(item.CapabilityLevel.LevelName.StripHtml().Minimise(50))
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Highlighted)
+                            </td>                       
+                            <td>
+   
+                                @item.DateCreated.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @item.LastUpdated.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LastModifiedBy)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.RoleDescriptionId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.RoleDescriptionId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.RoleDescriptionId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

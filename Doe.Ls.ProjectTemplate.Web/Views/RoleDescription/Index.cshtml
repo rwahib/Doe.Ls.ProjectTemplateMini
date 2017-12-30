@@ -1,0 +1,23 @@
+@model IEnumerable<RoleDescription>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Role description list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+<div class="wrapper" id="wrapper-RoleDescription">
+
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+    @if (task != null && task.GetRoleDescriptionPrivilege().CanCreate) {
+    <p>
+        <a href="@Url.Action("Create",new {ajax=true})" class="btn btn-primary">
+            Create new role description
+        </a>
+    </p>
+}
+    @Html.Partial("_partial/_list")
+
+</div>

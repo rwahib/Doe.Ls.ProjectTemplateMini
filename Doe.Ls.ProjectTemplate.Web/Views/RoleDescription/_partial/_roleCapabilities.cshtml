@@ -1,0 +1,161 @@
+﻿@model Doe.Ls.ProjectTemplate.Data.RoleDescription
+@{
+   
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+   
+
+    var dict = Model.RoleCapabilities.GroupBy(rc => rc.CapabilityName.CapabilityGroup.GroupName).ToDictionary(g => g.Key, g => g.ToList());
+
+    var isManagerChecked = "";
+    if(Model.ManagerRole.HasValue && Model.ManagerRole.Value)
+    {
+        isManagerChecked = "checked";
+    }
+
+}
+<div id="formTab" class="card.card-body">
+    <form class="" data-tracking-enabled="true" role="form" method="GET"
+           id="form-roleDescription-Capabilities">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.RoleDescriptionId)
+        @Html.Hidden("FormType", formType)
+        
+        <a href="@Url.Action("AddUpdateRoleCapabilities", new {id = Model.RoleDescriptionId, ajax = true})" class="btn btn-primary">
+            Add or update capabilities
+        </a>
+        
+        <!--table-->
+        <div class="container-fluid">
+            @{ Html.RenderPartial("~/views/RoleDescription/_partial/_guideMatrix.cshtml"); }
+            <div class="row-fluid">
+                <div class="col-lg-10">
+                    <h3>NSW Public Sector Capability Framework</h3>
+                </div>
+                <div class="col-lg-2 float-right managerRole">
+                    Manager role <input type="checkbox" name="ManagerRole" Id="ManagerRole" value="@Model.ManagerRole" @isManagerChecked disabled />
+                </div>
+            </div>
+            <div class="row-fluid subheading">
+                <div class="col-lg-3">Capability group</div>
+                <div class="col-lg-4">Capability name</div>
+                <div class="col-lg-5">Level</div>
+            </div>
+                  
+            @foreach (var obj in dict)
+            {
+                <div class="row-fluid capabilityFrame" id="CapabilityFrameworkTable">
+                    <!--Group name-->
+                    <div class="col-lg-3 groupImage">
+                       
+                        @{
+                            var img = ProjectTemplateSettings.Site.AppUrl + "Images/" + getImage(obj.Value);
+
+                        }
+                        <img src="@img" width="150" height="150" alt="@obj.Key"/>
+                    </div>
+                    <!--Capability name, levle-->
+
+                    <div class="col-lg-9 capabilityrow">
+                        @{
+                            var bold = "";
+                        }
+                        @foreach (var x in obj.Value)
+                        {
+                            bold = "";
+                            <div class="row capabilityBody">
+                               
+                                @if (x.Highlighted)
+                                {
+                                    bold = "font-bold";
+                                }
+                                <div class="col-lg-6">
+                                    <p class="@bold">@x.CapabilityName</p>
+                                </div>
+                                <div class="col-lg-6">
+                                    <p class="@bold">@x.CapabilityLevel.LevelName</p>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+                    
+                </div>
+            }
+
+            
+        </div>
+        <!--End of capability table-->
+        <div class="col-lg-offset-2">
+            <p>
+                <a href="@Url.Action("ManageActions", "RoleDescription",new {id=Model.RoleDescriptionId})" class="btn btn-primary"> Next</a>
+            </p>
+        </div>    
+      
+
+    </form>
+</div>
+@functions{
+    bool IsKey(string propertyName)
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+    string ReadOnly(string propertyName)
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>
+    (prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName)
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>
+            (prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+                {
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                    break;
+                }
+        }
+        return string.Empty;
+    }
+
+    private string getImage(List<RoleCapability> capabilityNames)
+    {
+        if (capabilityNames.Any())
+            return capabilityNames.FirstOrDefault().CapabilityName.CapabilityGroup.GroupImage;
+
+        return string.Empty;
+    }
+
+}

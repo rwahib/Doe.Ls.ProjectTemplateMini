@@ -1,0 +1,107 @@
+﻿<#@ template language="C#"inherits="MVCTemplate.BaseTemplate" #> 
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="Doe.Ls.EntityBase.MVCExtensions" #>
+<#@ import namespace="System.Data.Entity.Core.Metadata.Edm" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#@ parameter name="EntityType" type="System.Data.Entity.Core.Metadata.Edm.EntityType"#>
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+<#     
+    var helper=new EdmMetadataHelper(EntityContext);
+#>
+/// <reference path="_references.js" />
+
+define(['jquery', 'cnt', 'helper', 'interactive', 'api', 'fValidator'], function ($, cnt, helper, interactive, api) {
+
+    return {
+        initialise: function(){
+            // Uncomment if custom validation is required
+            // interactive.hookPopupButton(
+                // {}                  // custom validation settings
+                // ,function(){        // modal load callback function
+                // }
+                // ,true               // use Ajax Submit Handler
+                // ,function(data){    // success callback function
+                // }
+                // ,function(data){    // error callback function
+                // }
+                // ,'.pop-up'          // element selector
+                // ,true               // auto hide
+            // );
+        },
+
+        dtSettings: {
+            'iDisplayLength': 10,
+            'aoColumns': [
+<#    foreach(var pm in T4Helper.ListPropertiesWithFkInfo(EntityType))#>
+<#    {#>
+<#        if(!pm.FK){ #>
+<#            if(!T4Helper.PropertyOperations.IsDate(pm.Property) && !T4Helper.PropertyOperations.IsDateTime(pm.Property)){#>
+                {'sName':'<#= pm.Property.Name#>','mData':'<#= pm.Property.Name#>'<# if(!T4Helper.PropertyOperations.IsKey(pm.Property,EntityType)){#>, 'defaultContent': '' <#                }#> },
+<#            } #>
+<#            else{#>
+                {
+                    'sName':'<#= pm.Property.Name#>',
+                    'mData': '<#= pm.Property.Name#>',
+                    'mRender': function(value) {
+                        return helper.getDateTimeFromJsonDate(value);
+                    }
+                },
+<#            }#>
+<#        }#>
+<#        else{#>
+                { 'sName':'<#= pm.Property.Name#>','mData':'<#= pm.Property.Name#>', 'defaultContent': ''},
+<#        }#>
+<#    }#>
+                {
+                    'mData': '<#=        EntityType.KeyProperties.First().Name #>',
+                    'mRender': function(code){
+                        return '<div class="btn-group-vertical">' + 
+                                    '<a href="<#=this.EntityType.Name.CleanEntityName()#>/Edit?<#=        GetKeyName() #>=' + code + '" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>' + 
+                                    '<a href="<#=this.EntityType.Name.CleanEntityName()#>/Details?<#=GetKeyName() #>=' + code + '" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Detail</a>' + 
+                                    '<a href="<#=this.EntityType.Name.CleanEntityName()#>/Delete?<#=GetKeyName() #>=' + code + '" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>' + 
+                                '</div>';
+                    },
+                    'bSortable': false
+                }
+            ],
+            'aaSorting': [[0,'asc']],
+            'bFilter': true,
+            // Use this to define the onDrawCallBack for Data Table
+            'fnDrawCallback': function () {
+                hookPopup();
+            },
+            // Use this to set server parameters
+            //'fnServerParams': function (aoData) {
+            //      function to construct Server parameters 
+            //}
+        }
+    }
+
+    function hookPopup(){
+        if($('.pop-up').length>0){
+            interactive.hookPopupButton(
+               // {}                  // custom validation settings
+              //  ,function(){        // modal load callback function
+             //   }
+             //   ,true               // use Ajax Submit Handler
+             //   ,function(data){    // success callback function
+             //   }
+           //     ,function(data){    // error callback function
+           //     }
+           //     ,'.pop-up'          // element selector
+           //     ,true               // auto hide
+            );
+        }
+    }
+
+});
+
+<#+    string GetKeyName()
+    {
+        return T4Helper.PropertyOperations.GetKeyLocalVariableName(EntityType);
+
+    } #>

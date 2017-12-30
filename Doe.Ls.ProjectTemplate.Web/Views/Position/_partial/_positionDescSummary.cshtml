@@ -1,0 +1,196 @@
+﻿@using Doe.Ls.ProjectTemplate.Core.BL.Workflow
+@model Position
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+    var workflowEngine = ViewBagWrapper.WorkflowBag.GetWorkflowEngine(ViewData);
+    var privilege = workflowEngine.GetWorkflowObjectPrivilege(new PrivilegeOptions {GetDownloadPrivilege = true});
+    var rolePositionDesc = Model.RolePositionDescription;
+
+    var showPdf = privilege.CanDownload;
+    var showHint = !privilege.CanDownload;
+
+}
+@if(rolePositionDesc.RolePositionDescId > 0)
+{
+    if (showPdf)
+    {
+        <a href="@Url.Action("PositionDescPDF", new {id = Model.PositionId,cache_id= AppCacheHelper.Token })"
+           class="float-right btn btn-primary pull-up-more">Download position description</a>
+        <div class="spacer-small"></div>
+    }
+    else if (showHint)
+    {
+        <div class="row-fluid">
+            <span class="float-right btn btn-primary pull-up-more" disabled>Download position description</span>
+            <span class="float-right font-black alert alert-warning no-padding">PDF viewing / printing is not yet available</span>
+        </div>
+    }
+
+    <div id="formTab" class="card.card-body">
+
+        <form class="" role="form" method="GET" id="form-position-positionDescription-summary">
+
+            <div class="panel-group" id="accordion">
+
+                <!--Position with Position Description-->
+                <div class="card card.bg-primary.text-white descriptionPanel" id="pnlPositionWithPD">
+                    <div class="card-header accordion-toggle" data-toggle="collapse"  data-target="#PositionWithPD">
+                        <h4 class="accordion-title">
+                            <a href="#" class="collapsed" data-toggle="collapse">Position description<i class="indicator glyphicon glyphicon-chevron-down  float-right"></i></a>
+                        </h4>
+                    </div>
+                    <div id="PositionWithPD" class="card-body in">
+
+                        <div class="form-group">
+                            <label class="col-lg-3 col-form-label text-right">@Html.DisplayNameFor(model => model.Unit.BusinessUnit.Directorate.Executive)</label>
+
+                            <div class="col-lg-9">
+                                <p class="form-control-plaintext ">@Model.Unit.BusinessUnit.Directorate.Executive.ExecutiveTitle</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 col-form-label text-right">@Html.DisplayNameFor(model => model.Unit.BusinessUnit.Directorate)</label>
+
+                            <div class="col-lg-9">
+                                <p class="form-control-plaintext ">@Model.Unit.BusinessUnit.Directorate.DirectorateName</p>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-lg-3 col-form-label text-right">@Html.DisplayNameFor(model => model.Unit.BusinessUnit)</label>
+
+                            <div class="col-lg-9">
+                                <p class="form-control-plaintext ">@Model.Unit.BusinessUnit.BUnitName</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 col-form-label text-right">@Html.DisplayNameFor(model => model.PositionNumber)</label>
+
+                            <div class="col-lg-9">
+                                <p class="form-control-plaintext ">@Model.PositionNumber</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 col-form-label text-right">@Html.DisplayNameFor(model => model.PositionTitle)</label>
+
+                            <div class="col-lg-9">
+                                <p class="form-control-plaintext">@rolePositionDesc.Title</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 col-form-label text-right">@Html.DisplayNameFor(model => model.RolePositionDescription.Grade)</label>
+
+                            <div class="col-lg-9">
+                                <p class="form-control-plaintext">@rolePositionDesc.Grade.GradeTitle</p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 col-form-label text-right">Reports to</label>
+
+                            <div class="col-lg-9">
+                                <p class="form-control-plaintext">@string.Format("({0})-{1}", Model.ParentPosition.PositionNumber, Model.ParentPosition.PositionTitle)
+                                    @if (user.HasAdminOrPowerRole() && Model.ReportToPositionId != -1 && Model.StatusId != (int)Enums.StatusValue.Deleted)
+                                    {
+                                        <a class="btn btn-primary edit" href="@Url.Action("Edit", new {id = Model.ReportToPositionId})"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+                                    }
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-lg-3 col-form-label text-right">@Html.DisplayNameFor(model => model.RolePositionDescription.DocNumber)</label>
+
+                            <div class="col-lg-9">
+                                <p class="form-control-plaintext ">@rolePositionDesc.DocNumber</p>
+                            </div>
+                        </div>
+
+                       
+
+                        @if (rolePositionDesc.PositionDescription != null)
+                        {
+                            <div class="form-group">
+                                <label class="col-lg-3 col-form-label text-right">@Html.DisplayNameFor(model => model.RolePositionDescription.PositionDescription.BriefRoleStatement)</label>
+
+                                <div class="col-lg-9">
+                                    <p class="form-control-plaintext ">@rolePositionDesc.PositionDescription.BriefRoleStatement</p>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-lg-3 col-form-label text-right">@Html.DisplayNameFor(model => model.RolePositionDescription.PositionDescription.StatementOfDuties)</label>
+
+                                <div class="col-lg-9 ">
+                                 @Html.Raw(rolePositionDesc.PositionDescription.StatementOfDuties)
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-lg-3 col-form-label text-right">Selection criteria</label>
+
+                                <div class="col-lg-9 ">
+                                    <ul class="criteriaList">
+                                        @{
+                                            var focusSelectionCriteria = rolePositionDesc.PositionDescription.PositionFocusCriterias
+                                                .OrderBy(c => c.LookupFocusGradeCriteria.Focus.OrderList);
+                                        }
+
+                                        @foreach (var item in focusSelectionCriteria)
+                                        {
+                                            <li>
+                                                @if (!string.IsNullOrEmpty(item.LookupCustomContent))
+                                                {
+                                                    @Html.Raw(item.LookupCustomContent)
+                                                }
+                                                else
+                                                {
+                                                    @Html.Raw(item.LookupFocusGradeCriteria.SelectionCriteria.Criteria)
+                                                }
+                                            </li>
+                                        }
+                                       
+                                    </ul>
+                                </div>
+                            </div>
+
+                                            }
+                    </div>
+                </div>
+
+                               
+                @if (Model.CostCentreDetail != null)
+                {
+                    @Html.Partial("_partial/_costCentreInfo", Model)
+                }
+                <!--Position more info-->
+                @if (Model.PositionInformation != null)
+                {
+
+                    @Html.Partial("_partial/_positionMoreInfo", Model)
+
+                }
+
+                @if(Model.Positions != null && Model.Positions.Count>0)
+                    {
+
+                        @Html.Partial("_partial/_directReports", Model)
+                    }
+
+
+
+
+
+            </div>
+</form>
+    </div>
+}
+
+
+

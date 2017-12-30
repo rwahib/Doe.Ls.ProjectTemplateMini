@@ -1,0 +1,150 @@
+@model Position
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+
+}
+<div id="formTab" class="card.card-body">
+    <form class="" data-tracking-enabled="true" role="form" method="POST"
+          action="@Url.Action("SaveCostCentre")" id="form-position-costCentre">
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.PositionId)
+
+        <div class="form-group">
+      <label for="CostCentre" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.CostCentreDetail.CostCentre)</label>
+            <div class="col-lg-8">
+                <div class="input-group">
+                   
+                    <input type="text" name="CostCentre" id="CostCentre" class="form-control"
+                           data-fv-regexp="true" data-fv-regexp-message="cost center accept 10 digits only"
+                           data-fv-regexp-regexp="^[0-9]{0,10}$"
+                           placeholder="Please enter 10 digits cost centre code" value="@Model.CostCentreDetail.CostCentre"/>
+                   
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="Fund" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.CostCentreDetail.Fund)</label>
+            <div class="col-lg-8">
+                <div class="input-group">
+                   
+                    <input type="text" name="Fund" id="Fund" class="form-control" 
+                           data-fv-regexp="true" data-fv-regexp-message="fund number accept 4 digits only"
+                           data-fv-regexp-regexp="^[0-9]{0,4}$"
+
+                           placeholder="Please enter 4 digits fund number" value="@Model.CostCentreDetail.Fund" />
+                   
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="PayrollWBS" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.CostCentreDetail.PayrollWBS) </label>
+            <div class="col-lg-8">
+                <div class="input-group">
+                   
+                    <input type="text" name="PayrollWBS" id="PayrollWBS" class="form-control" maxlength="20"
+                             data-fv-regexp="true" data-fv-regexp-message="Payroll WBS RDP/99999-99-99 (last four are optional)"                           
+                           data-fv-regexp-regexp="^(RDP\/)[\d|-]+$"
+                           placeholder="Please enter Payroll WBS like RDP/99999-99-99 (last four are optional)" value="@Model.CostCentreDetail.PayrollWBS"/>
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="RCCJDEPayrollCode" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.CostCentreDetail.RCCJDEPayrollCode) </label>
+            <div class="col-lg-8">
+                <div class="input-group">
+                   
+                    <input type="text" name="RCCJDEPayrollCode" id="RCCJDEPayrollCode" class="form-control" 
+                            data-fv-regexp="true" data-fv-regexp-message="RCC JDE Payroll code accept 4 digits only"
+                           data-fv-regexp-regexp="^[0-9]{0,4}$"
+
+                           placeholder="Please enter RCC JDE Payroll 4 digits code" value="@Model.CostCentreDetail.RCCJDEPayrollCode"/>
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="GLAccount" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.CostCentreDetail.GLAccount) </label>
+            <div class="col-lg-8">
+                <div class="input-group">
+                   
+                    <input type="text" name="GLAccount" id="GLAccount" class="form-control" 
+                             data-fv-regexp="true" data-fv-regexp-message="500021 or 500001"
+                           data-fv-regexp-regexp="^(500021|500001)$"
+
+                           placeholder="Please enter GL account number 500021 or 500001" value="@Model.CostCentreDetail.GLAccount" />
+                   
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-offset-2">
+            <p>
+                <button type="submit" class="btn btn-primary">Save & Next</button>
+            </p>
+        </div>
+    </form>
+</div>
+
+@functions
+{
+        bool IsKey(string propertyName)
+        {
+            var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+            return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+        }
+
+        string ReadOnly(string propertyName)
+        {
+            var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+            if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+            var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+
+            var prop = T4Helper.GetProperty(propertyName, entityType);
+            var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+            if (computedAttribute == null) return string.Empty;
+
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+
+            return string.Empty;
+        }
+
+        string GetFormGroupClass(string propertyName)
+        {
+            var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+            var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+            var prop = T4Helper.GetProperty(propertyName, entityType);
+            var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+            if (computedAttribute == null) return string.Empty;
+
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+            switch (formType)
+            {
+                case FormType.Create:
+                    {
+                        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                        break;
+                    }
+            }
+            return string.Empty;
+        }
+}

@@ -1,0 +1,47 @@
+ 
+@model IEnumerable<Directorate>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Directorate list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive ajaxDataTable" data-service="directorateService" data-url="@HttpHelper.GetActionUrl("ListJson","Directorate")">                
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.DisplayNameFor(model => model.DirectorateId)
+                        </th>
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.Executive)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.DirectorateName)
+                        </th>
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.StatusValue)
+                            
+                        </th>
+
+                        <th>@Html.DisplayNameFor(model => model.DirectorateOrder)</th>
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedDate)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedBy)
+                        </th>
+
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                
+            </table>
+        </div>
+

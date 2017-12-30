@@ -1,0 +1,67 @@
+﻿@model IEnumerable<FileInfo>
+
+@{
+    ViewBag.Title = "File list";
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+}
+@if(user.IsSystemAdmin || user.IsAdministrator || user.IsPowerUser)
+    {
+    <div class="wrapper" id="wrapper-user-guide-list">
+
+        <div class="table-responsive">
+        <table class="table table-striped table-sm dt-responsive">
+            <caption>Page list</caption>
+            <thead>
+                <tr>
+                    <th >
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                    <th >
+                        @Html.DisplayNameFor(model => model.LastWriteTime)
+                    </th>
+
+                    <th class="all"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var item in Model)
+                    {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(item.Name, "Display", new { page = Path.GetFileNameWithoutExtension((item.Name)) })
+                            </td>
+
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.LastWriteTime)
+                        </td>
+
+
+                        <td>
+                            <div class="btn-group-vertical">
+                                <a href="@Url.Action("Edit", new { page = Path.GetFileNameWithoutExtension(( item.Name))})" class="btn btn-primary">Edit</a>
+                                <a href="@Url.Action("Delete", new { page = Path.GetFileNameWithoutExtension((item.Name)) })" class="btn btn-primary">Delete</a>
+                                <a href="@Url.Action("Display", new { page = Path.GetFileNameWithoutExtension((item.Name)) })" class="btn btn-primary">Display</a>
+                                
+                            </div>
+
+                        </td>
+                    </tr>
+                    }
+            </tbody>
+        </table>
+        </div>
+        </div>
+
+        }
+        else
+        {
+        <div class="text-danger">Access denied. Please contact your System Administrator</div>
+        }
+
+
+
+
+
+
+

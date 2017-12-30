@@ -1,0 +1,255 @@
+﻿<#@ template language="C#"inherits="MVCTemplate.BaseTemplate" #> 
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="System.Data.Entity.Core.Metadata.Edm" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#@ parameter name="AppNamespace" type="System.String"#>
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+
+<# T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); #>
+
+<#@ parameter name="EntityType" type="System.Data.Entity.Core.Metadata.Edm.EntityType"#>
+<#    var helper=new EdmMetadataHelper(EntityContext);
+    if(this.EntityType.Name=="GeneralLog"){
+    } 
+#>
+@using Doe.Ls.EntityBase.MVCExtensions
+@model <#= EntityType.Name#>
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData); 
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+    
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+    <# var lookups=new List<string>();
+  var suffix="";
+    
+   #>
+<#foreach (var mp in T4Helper.ListPropertiesWithFkInfo(EntityType)){
+if(!mp.FK)continue;
+        var parentItemName=T4Helper.GetLocalVariableName(mp.PareEntityType);
+        if(lookups.Contains(parentItemName)){suffix=string.Format("{0}",lookups.IndexOf(parentItemName));}else{
+        lookups.Add(parentItemName);
+        }
+        var localVariableName= T4Helper.GetLocalVariableName(mp.PareEntityType)+"Items"+suffix;
+#>
+    var <#=localVariableName #> = ViewBagWrapper.ListBag.GetList("<#= localVariableName#>",ViewData);
+<#    } #>    
+}
+
+@Html.AntiForgeryToken()
+
+<#    foreach (var pm in T4Helper.ListPropertiesWithFkInfo(EntityType))    #>
+<#    { #>
+<#        if(T4Helper.PropertyOperations.IsKey(pm.Property,EntityType) && T4Helper.PropertyOperations.IsKeyAutoIncrement(EntityType,EntityContext))#>
+<#        {#> 
+@Html.HiddenFor(model => model.<#= pm.Property.Name#>)
+@if(formType==FormType.Edit)  {
+    <div class="form-group @GetFormGroupClass("<#=pm.Property.Name#>")">
+        <label class="col-lg-4 ">@Html.DisplayNameFor(model => model.<#=pm.Property.Name#>) </label>
+        <div class="col-lg-8">            <p class="form-control-plaintext">@Html.DisplayFor(model => model.<#=pm.Property.Name#>)</p>        </div>
+    </div>                       
+}
+<#            continue;#>
+<#        }/*IsKey*/         #>
+<#        if (!T4Helper.PropertyOperations.IsCheckbox(pm.Property)) {#>
+<div class="form-group @GetFormGroupClass("<#=pm.Property.Name#>")">
+<#if (pm.FK) #>
+<#            { #>
+ <label for="<#=pm.Property.Name#>" class="col-lg-4">@Html.DisplayNameFor(model => model.<#=pm.PareEntityType.Name#>) <#=GetAsteriskForRequiredField(pm.Property)#></label>
+<#            }/*is !FK*/else{ #><label for="<#=pm.Property.Name#>" class="col-lg-4">@Html.DisplayNameFor(model => model.<#=pm.Property.Name#>) <#=GetAsteriskForRequiredField(pm.Property)#></label>
+    <#}/*not FK*/ #>
+<#            if (!pm.FK){ #>
+<#            } else {#>
+<#            } #>
+<#            if (!pm.FK){ #>            
+<#            if (!pm.FK&&T4Helper.IsFormInput(pm.Property,EntityType,EntityContext)){ #>
+ <input type="<#=  GetInputType(pm.Property)#>" name="<#=pm.Property.Name #>" id="<#=pm.Property.Name#>" class="form-control col-lg-8" placeholder="e.g. <#=T4Helper.Wordify(pm.Property.Name)#>" value="@Model.<#=pm.Property.Name#>"@ReadOnly("<#=pm.Property.Name #>")  <#= IsRequired(pm.Property)#> <#=  SetEmail(pm.Property)#> <#=SetDate(pm.Property) #>  <#=SetInteger(pm.Property)#> />
+<#            } #>
+<#            if (!pm.FK&&T4Helper.PropertyOperations.IsTextArea(pm.Property,EntityType,EntityContext))#>
+<#            { #>
+ <textarea name="<#=pm.Property.Name #>" id="<#= pm.Property.Name #>" class="form-control col-lg-8 <#=T4Helper.PropertyOperations.IsRichText(pm.Property,EntityType)?"tinymce":string.Empty#>" placeholder="e.g. <#=T4Helper.Wordify(pm.Property.Name) #>" <#= SetRichText(pm.Property)#>  <#=IsRequired(pm.Property)#>  >@Model.<#=pm.Property.Name#></textarea>
+<#            } #>
+<#            if (!pm.FK)#>
+<#            { #>                       
+<#            } #>
+<#            if (pm.FK) #>
+<#            { #>
+ @Html.DropDownList("<#=pm.Property.Name #>", <#=T4Helper.GetLocalVariableName(pm.PareEntityType)#>Items , "Select <#=pm.PareEntityType.Name.Wordify() #> ...", new {id="<#=pm.Property.Name #>", @class = "form-control col-lg-8 select2picker"<#=GetRequiredPropertyValue(pm.Property)#> })      
+<#            } #>    
+</div>  
+                     
+<#        } #>
+<#        } /*not checkbox*/ #>
+
+ <#        if (T4Helper.PropertyOperations.IsCheckbox(pm.Property))#>
+<#        { #>
+        <div class="form-check">
+            <label class="form-check-label">
+                <input class="form-check-input"  type="checkbox" name="<#=pm.Property.Name#>" id="<#=pm.Property.Name#>" checked="@Model.<#=pm.Property.Name #>" @ReadOnly("<#=pm.Property.Name #>")/>
+            </label>
+        </div>    
+<#        } #>
+
+<#    }/*foreach*/ #>
+
+
+@functions
+{
+    bool IsKey(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) 
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+        
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+            {
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                break;
+            }
+        }
+        return string.Empty;        
+    }    
+}
+<#+
+    void GenerateAddonSpan(EdmProperty property)
+    {
+    if(!T4Helper.PropertyOperations.IsRichText(property,EntityType))
+        {
+            #>          
+        <#+
+        }
+    }
+#>
+
+<#+
+
+    private string  IsRequired(EdmProperty property)
+    {
+        return T4Helper.PropertyOperations.IsRequired(property, EntityType, EntityContext)
+            ? "required data-fv-notempty-message='The " + T4Helper.Wordify(property.Name) + " is required'"
+            : "";
+
+
+    }
+
+#>
+
+<#+
+
+    private string  GetRequiredPropertyValue(EdmProperty property)
+    {
+        return T4Helper.PropertyOperations.IsRequired(property, EntityType, EntityContext)
+            ? ", Required=\"Required\"": "";
+            
+    }
+
+#>
+
+<#+
+	private string GetAsteriskForRequiredField(EdmProperty property)
+	{
+		return T4Helper.PropertyOperations.IsRequired(property, EntityType, EntityContext) ? "<span class=\"mandatory\">*</span>" : "";
+	}
+#>
+
+<#+
+
+    private string  SetRichText(EdmProperty property)
+    {
+        return T4Helper.PropertyOperations.IsRichText(property, EntityType)
+            ? "data-role-rich='rich-text'"
+            : string.Empty;
+
+
+    }
+
+#>
+
+<#+
+
+    private string  SetEmail(EdmProperty property)
+    {
+        return T4Helper.PropertyOperations.IsEmail(property)
+            ? "data-fv-emailaddress-message='The " + T4Helper.Wordify(property.Name) + " is not correct email format'"
+            : "";
+
+
+    }
+
+#>
+
+<#+
+
+    private string  SetDate(EdmProperty property)
+    {
+        return T4Helper.PropertyOperations.IsDate(property) || T4Helper.PropertyOperations.IsDateTime(property)
+            ? "data-fv-date-format=\"DD/MM/YYYY\""
+            : "";
+            }
+
+#>
+
+<#+
+
+    private string GetInputType(EdmProperty property)
+    {
+        return T4Helper.GetInputType(property, EntityType, EntityContext);
+    }
+
+#>
+
+
+
+<#+
+
+    private string SetInteger(EdmProperty property)
+    {
+        return T4Helper.PropertyOperations.IsInteger(property)
+            ? "data-fv-integer-message='The " + T4Helper.Wordify(property.Name) + " is not an integer'"
+            : "";
+    }
+
+#>

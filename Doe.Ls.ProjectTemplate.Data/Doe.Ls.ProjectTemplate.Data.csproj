@@ -1,0 +1,764 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ABB2B7A5-219A-4258-8096-F7BEB4C4C0B1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Doe.Ls.ProjectTemplate.Data</RootNamespace>
+    <AssemblyName>Doe.Ls.ProjectTemplate.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Dev|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Prod|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PreProd|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Uat|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Localhost|AnyCPU'">
+    <OutputPath>bin\Localhost\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Unity.Abstractions, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.1.2.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.5.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.2.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.0.10.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AppEntityType.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AppObjectInfo.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BusinessUnit.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CapabilityBehaviourIndicator.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CapabilityGroup.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CapabilityLevel.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CapabilityName.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CostCentreDetail.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Directorate.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeePosition.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EmployeeType.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Entities\AppEntityType.cs" />
+    <Compile Include="Entities\AppObjectInfo.cs" />
+    <Compile Include="Entities\BusinessUnit.cs" />
+    <Compile Include="Entities\CapabilityBehaviourIndicator.cs" />
+    <Compile Include="Entities\CapabilityGroup.cs" />
+    <Compile Include="Entities\CapabilityLevel.cs" />
+    <Compile Include="Entities\CapabilityName.cs" />
+    <Compile Include="Entities\CostCentreDetail.cs" />
+    <Compile Include="Entities\Directorate.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\EmployeePosition.cs" />
+    <Compile Include="Entities\EmployeeType.cs" />
+    <Compile Include="Entities\Executive.cs" />
+    <Compile Include="Entities\Focus.cs" />
+    <Compile Include="Entities\FunctionalArea.cs" />
+    <Compile Include="Entities\GeneralLog.cs" />
+    <Compile Include="Entities\GlobalItem.cs" />
+    <Compile Include="Entities\Grade.cs" />
+    <Compile Include="Entities\HierarchyLevel.cs" />
+    <Compile Include="Entities\SysMessage.cs" />
+    <Compile Include="Entities\SysMsgCategory.cs" />
+    <Compile Include="Entities\TrimRecord.cs" />
+    <Compile Include="Executive.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="fnSplitString_Result.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Focus.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FunctionalArea.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralLog.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalItem.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSetting.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Grade.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HierarchyLevel.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="KeyRelationship.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Location.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LookupFocusGradeCriteria.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MovePositionNumberToTargetDocNumber_Result.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OccupationType.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OrgLevel.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Position.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionDescription.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionFocusCriteria.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionHistory.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionInformation.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionLevel.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionNote.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionStatusValue.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PositionType.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RelationshipScope.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleCapability.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleDescCapabilityMatrix.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RoleDescription.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RolePositionDescription.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RolePositionDescriptionHistory.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SampleProjectTemplate.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SampleProjectTemplate.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SampleProjectTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SampleProjectTemplate.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SampleProjectTemplate.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="ScriptHistory.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SelectionCriteria.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StatusValue.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysMessage.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysMsgCategory.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysRole.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysUser.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SysUserRole.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\BaseTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BaseTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleView_partial_detailsTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleView_partial_detailsTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\_archived\temp_1_single_view_partial_details.cs">
+      <DependentUpon>temp_1_single_view_partial_details.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="T4Templates\_archived\temp_1_single_view_partial_update.cs">
+      <DependentUpon>temp_1_single_view_partial_update.tt</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Include="TeamType.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TrimRecord.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Unit.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="WfAction.cs">
+      <DependentUpon>SampleProjectTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\IWorkflowObject.cs" />
+    <Compile Include="Entities\KeyRelationship.cs" />
+    <Compile Include="Entities\Location.cs" />
+    <Compile Include="Entities\LookupFocusGradeCriteria.cs" />
+    <Compile Include="Entities\OccupationType.cs" />
+    <Compile Include="Entities\OrgLevel.cs" />
+    <Compile Include="Entities\Position.cs" />
+    <Compile Include="Entities\PositionDescription.cs" />
+    <Compile Include="Entities\PositionFocusCriteria.cs" />
+    <Compile Include="Entities\PositionHistory.cs" />
+    <Compile Include="Entities\PositionInformation.cs" />
+    <Compile Include="Entities\PositionLevel.cs" />
+    <Compile Include="Entities\PositionNote.cs" />
+    <Compile Include="Entities\PositionStatusValue.cs" />
+    <Compile Include="Entities\PositionType.cs" />
+    <Compile Include="Entities\RelationshipScope.cs" />
+    <Compile Include="Entities\RoleCapability.cs" />
+    <Compile Include="Entities\RoleDescCapabilityMatrix.cs" />
+    <Compile Include="Entities\RoleDescription.cs" />
+    <Compile Include="Entities\RolePositionDescription.cs" />
+    <Compile Include="Entities\RolePositionDescriptionHistory.cs" />
+    <Compile Include="Entities\SelectionCriteria.cs" />
+    <Compile Include="Entities\StatusValue.cs" />
+    <Compile Include="Entities\SysRole.cs" />
+    <Compile Include="Entities\SysUser.cs" />
+    <Compile Include="Entities\SysUserRole.cs" />
+    <Compile Include="Entities\TeamType.cs" />
+    <Compile Include="Entities\Unit.cs" />
+    <Compile Include="Entities\WfAction.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="T4Templates\BL\RepositoryFactoryTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RepositoryFactoryTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\BL\ServiceRepositoryTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiceRepositoryTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\BL\SingleLightModelMetadataTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleLightModelMetadataTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\BL\SingleModelMetadataTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleModelMetadataTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\BL\SingleRepositoryTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleRepositoryTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleControllerTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleControllerTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleViewCreateTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleViewCreateTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleViewCreateTemplate_Modal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleViewCreateTemplate_Modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleViewDeleteTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleViewDeleteTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleViewDeleteTemplate_Modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleViewDetailsTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleViewDetailsTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleViewDetailsTemplate_Modal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleViewDetailsTemplate_Modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleViewEditTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleViewEditTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleViewEditTemplate_Modal.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleViewEditTemplate_Modal.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleViewIndexTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleViewIndexTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleView_partial_listTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleView_partial_listTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\MVCTemplate\SingleView_partial_update_Template.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleView_partial_update_Template.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\Scripts\DataTableServiceTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataTableServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\Scripts\MainServiceTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MainServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\Scripts\SingleServiceTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleServiceTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\SettingsTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SettingsTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="T4Templates\TemplateManage.cs" />
+    <Compile Include="T4Templates\TemplateOptions.cs" />
+    <Compile Include="T4Templates\UnitTest\SingleUnitTestTemplate.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SingleUnitTestTemplate.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Workflow\PositionDescription_partial.cs" />
+    <Compile Include="Workflow\Position_partial.cs" />
+    <Compile Include="Workflow\RoleDescription_partial.cs" />
+    <Compile Include="Workflow\WorkflowObjectType.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Documentation\Fibbo.xlsx" />
+    <None Include="Documentation\Technical\Accessibility guidelines for MVC.docx" />
+    <None Include="Documentation\Technical\Creating database guidelines.docx" />
+    <None Include="Documentation\Technical\Creating new MVC Entity guidelines .docx" />
+    <None Include="Documentation\Technical\Entity-metadata.docx" />
+    <None Include="Documentation\Technical\JavaScripts code and plugins guidelines.docx" />
+    <None Include="Documentation\Technical\New project template change suggestions.docx" />
+    <None Include="packages.config" />
+    <None Include="Reports\AllPositions.xlsx" />
+    <EntityDeploy Include="SampleProjectTemplate.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>SampleProjectTemplate.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="SampleProjectTemplate.edmx.diagram">
+      <DependentUpon>SampleProjectTemplate.edmx</DependentUpon>
+    </None>
+    <None Include="SQL-And-Scripts\tfs.ps1" />
+    <None Include="T4Templates\BL\RepositoryFactoryTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>RepositoryFactoryTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\BL\ServiceRepositoryTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>ServiceRepositoryTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\BL\SingleLightModelMetadataTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleLightModelMetadataTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\BL\SingleModelMetadataTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleModelMetadataTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\BL\SingleRepositoryTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleRepositoryTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleControllerTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleControllerTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleViewCreateTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleViewCreateTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleViewCreateTemplate_Modal.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleViewCreateTemplate_Modal.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleViewDeleteTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleViewDeleteTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleViewDeleteTemplate_Modal.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleViewDetailsTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleViewDetailsTemplate_Modal.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleViewDetailsTemplate_Modal.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleViewEditTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleViewEditTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleViewEditTemplate_Modal.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleViewEditTemplate_Modal.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleViewIndexTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleViewIndexTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleView_partial_detailsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleView_partial_detailsTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleView_partial_listTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleView_partial_listTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\MVCTemplate\SingleView_partial_update_Template.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleView_partial_update_Template.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\Scripts\DataTableServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>DataTableServiceTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\Scripts\MainServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>MainServiceTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\Scripts\SingleServiceTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleServiceTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\SettingsTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SettingsTemplate.cs</LastGenOutput>
+    </None>
+    <None Include="T4Templates\UnitTest\SingleUnitTestTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>SingleUnitTestTemplate.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SQL-And-Scripts\RedGedScripts\" />
+    <Folder Include="T4Templates\Email\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documentation\Global-mvc-template changes.txt" />
+    <Content Include="Documentation\Readme.txt" />
+    <Content Include="SampleProjectTemplate.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SampleProjectTemplate.edmx</DependentUpon>
+      <LastGenOutput>SampleProjectTemplate.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="SampleProjectTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>SampleProjectTemplate.edmx</DependentUpon>
+      <LastGenOutput>SampleProjectTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="SQL-And-Scripts\MigrationScripts\000-Create [ScriptHistory] .sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0060-Update sys role table.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0140-Update Capability Indicators -2 .sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0150-Update Capability Indicators -3.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0180-InsertRelationshipsScope.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0170-Update path.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0160-Update grade matrix.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0120 Update Oveview.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0130 0130-Update Capability Indicators.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0110-Update Messages.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0100-Update NA with TBC.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0090-Update Administrator.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0080-Update OrgLevel.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0070-Update Grade  table.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0050-Update organisational table.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0040-Add default value for unit.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0194-InsertSysMessage4.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0193-InsertSysMessage3.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\02130-Add Workflow Actions.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\02140-Add Mesage and action2.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\02120-Add OtherOverView.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\02110-Add Rename action.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\02100-Update Endorse.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0190-InsertSysMessage1.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0192-InsertSysMessage2.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0030-Update rolecapabilities field.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0020-Add HR dataEntry Role.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\02150-Add messages for actions.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\02160-Add Actions.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\02170-STP Bulk Import-BulkDraft.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\02180-Add Move Action.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\02190-Trim Integration.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0999-Sample Script.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\0010-Updating-Active-InActive status.sql" />
+    <Content Include="SQL-And-Scripts\MigrationScripts\Deployment action plan\Action-Plan-0.6.0.15787.txt" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Batch-file-8.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Batch-file-7.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Delete cascate 2sql.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Delete cascate.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\UpdatePositionHierarchy.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Batch-file-6.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Batch-file-5.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Batch-file-4.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Batch-file-3.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Batch-file-2.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Positions dumps.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\SQL_1.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\table and keys query .sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Delete transactional data.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Add empty PD oe RD records.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\UpateAllRolesAndPositions.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Update all position titles.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Batch-file-1.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Importing cost center.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Shrink DB files.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Validation-Trim 2.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Validation-Trim.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\Validation.sql" />
+    <Content Include="SQL-And-Scripts\Saved-Queries\UserTrace.sql" />
+    <Content Include="T4Templates\LoggingTriggers.sql">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoggingTriggers.tt</DependentUpon>
+    </Content>
+    <Content Include="T4Templates\LoggingTriggers.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LoggingTriggers.sql</LastGenOutput>
+    </Content>
+    <Content Include="T4Templates\MVCTemplate\BaseTemplate.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>BaseTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="T4Templates\_archived\temp_1_single_view_partial_details.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>temp_1_single_view_partial_details.cs</LastGenOutput>
+    </Content>
+    <Content Include="T4Templates\_archived\temp_1_single_view_partial_update.tt">
+      <Generator>TextTemplatingFilePreprocessor</Generator>
+      <LastGenOutput>temp_1_single_view_partial_update.cs</LastGenOutput>
+    </Content>
+    <Content Include="XSLTS\Samples\1.xml" />
+    <Content Include="XSLTS\Samples\13.xml" />
+    <Content Include="XSLTS\Samples\19.xml" />
+    <Content Include="XSLTS\Samples\2.xml" />
+    <Content Include="XSLTS\Samples\20.xml" />
+    <Content Include="XSLTS\Samples\21.xml" />
+    <Content Include="XSLTS\Samples\3.xml" />
+    <Content Include="XSLTS\Samples\57.xml" />
+    <Content Include="XSLTS\Samples\58.xml" />
+    <Content Include="XSLTS\Samples\59.xml" />
+    <Content Include="XSLTS\Samples\73.xml" />
+    <Content Include="XSLTS\Samples\75.xml" />
+    <Content Include="XSLTS\Samples\76.xml" />
+    <Content Include="XSLTS\Samples\79.xml" />
+    <Content Include="XSLTS\Samples\80.xml" />
+    <Content Include="XSLTS\Samples\sample1.xml" />
+    <Content Include="XSLTS\Samples\test.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Doe.Ls.EntityBase\Doe.Ls.EntityBase.csproj">
+      <Project>{50e9c1df-8335-40c1-afa6-c63f2fcc7614}</Project>
+      <Name>Doe.Ls.EntityBase</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>REM copy /y "$(SolutionDir)Doe.Ls.ProjectTemplate.Web\Web.config" "$(ProjectDir)App.config"
+</PreBuildEvent>
+  </PropertyGroup>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

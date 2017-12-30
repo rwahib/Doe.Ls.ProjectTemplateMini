@@ -1,0 +1,189 @@
+@model PositionInformation
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+    var positionItems = ViewBagWrapper.ListBag.GetList("positionItems", ViewData);
+    var positionTypeItems = ViewBagWrapper.ListBag.GetList("positionTypeItems", ViewData);
+    var employeeTypeItems = ViewBagWrapper.ListBag.GetList("employeeTypeItems", ViewData);
+
+}
+
+@Html.AntiForgeryToken()
+
+<div class="form-group @GetFormGroupClass("PositionId")">
+    <label for="PositionId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Position) <span class="mandatory">*</span></label>
+
+    <div class="col-lg-10">
+        @Html.DropDownList("PositionId", positionItems, "Select Position ...", new { id = "PositionId", @class = "form-control select2picker", Required = "Required" })
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("OlderPositionNumber3")">
+    <label for="OlderPositionNumber3" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.OlderPositionNumber3) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="OlderPositionNumber3" id="OlderPositionNumber3" class="form-control" 
+                   placeholder="Please enter Older Position number3" value="@Model.OlderPositionNumber3" @ReadOnly("OlderPositionNumber3") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("OlderPositionNumber1")">
+    <label for="OlderPositionNumber1" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.OlderPositionNumber1) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="OlderPositionNumber1" id="OlderPositionNumber1" class="form-control" placeholder="Please enter Older Position number1" value="@Model.OlderPositionNumber1" @ReadOnly("OlderPositionNumber1") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("OlderPositionNumber2")">
+    <label for="OlderPositionNumber2" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.OlderPositionNumber2) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="OlderPositionNumber2" id="OlderPositionNumber2" class="form-control" 
+                   placeholder="Please enter Older Position number2" value="@Model.OlderPositionNumber2" @ReadOnly("OlderPositionNumber2") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("SchNumber")">
+    <label for="SchNumber" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.SchNumber) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="SchNumber" id="SchNumber" class="form-control" placeholder="Please enter a School Number" 
+                   value="@Model.SchNumber" @ReadOnly("SchNumber") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("PositionTypeCode")">
+    <label for="PositionTypeCode" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.PositionType) <span class="mandatory">*</span></label>
+
+    <div class="col-lg-10">
+        @Html.DropDownList("PositionTypeCode", positionTypeItems, "Select Position type ...", new { id = "PositionTypeCode", @class = "form-control select2picker", Required = "Required" })
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("EmployeeTypeCode")">
+    <label for="EmployeeTypeCode" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.EmployeeType) <span class="mandatory">*</span></label>
+
+    <div class="col-lg-10">
+        @Html.DropDownList("EmployeeTypeCode", employeeTypeItems, "Select Employee type ...", new { id = "EmployeeTypeCode", @class = "form-control select2picker", Required = "Required" })
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("PositionNoteId")">
+    <label for="PositionNoteId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.PositionNoteId) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="number" name="PositionNoteId" id="PositionNoteId" class="form-control" 
+                   placeholder="Please enter Position note" value="@Model.PositionNoteId" @ReadOnly("PositionNoteId") data-fv-integer-message='The Position note id is not an integer' />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("TrimLink")">
+    <label for="TrimLink" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.TrimLink) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="TrimLink" id="TrimLink" class="form-control" placeholder="Please enter Trim Link" 
+                   value="@Model.TrimLink" @ReadOnly("TrimLink") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("PositionEndDate")">
+    <label for="PositionEndDate" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.PositionEndDate) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="date" name="PositionEndDate" id="PositionEndDate" class="form-control" placeholder="Please enter Position End Date" 
+                   value="@Model.PositionEndDate" @ReadOnly("PositionEndDate") data-fv-date-format="DD/MM/YYYY" />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("PositionFTE")">
+    <label for="PositionFTE" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.PositionFTE) <span class="mandatory">*</span></label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="PositionFTE" id="PositionFTE" class="form-control" placeholder="Please enter Position FTE" 
+                   value="@Model.PositionFTE" @ReadOnly("PositionFTE") required data-fv-notempty-message='The Position FTE is required' />
+            
+        </div>
+    </div>
+</div>
+
+
+@functions
+{
+    bool IsKey(string propertyName)
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName)
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName)
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+                {
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                    break;
+                }
+        }
+        return string.Empty;
+    }
+}

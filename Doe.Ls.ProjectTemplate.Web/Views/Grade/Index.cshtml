@@ -1,0 +1,75 @@
+
+
+@model IEnumerable<Grade>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Grade list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var privilege = task.GetGradePrivilege();
+    var gradeTypeItems = ViewBagWrapper.ListBag.GetList("gradeTypeItems", ViewData);
+    var statusItems = ViewBagWrapper.ListBag.GetList("statusValueItems", ViewData);
+}
+
+@*
+@section GradeActive
+{
+active
+}
+*@
+
+<div class="wrapper" id="wrapper-Grade">
+
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+
+    <p>
+       @if (privilege.CanCreate)
+       {
+           <a href="@Url.Action("Create")" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">
+               Create new grade
+           </a>
+       }
+    </p>
+    <div class="row ">
+        <div class="col-lg-12">
+            <div class="">
+
+
+                <div class="card-filter" id="show-hide-filter-0">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                <a href="#collapse-filter-0" class="collapsed" data-toggle="collapse">Filter by grade and status</a>
+                            </h4>
+                        </div>
+                        <div id="collapse-filter-0" class="panel-collapse collapse">
+                            <div class="card-body">
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="GradeType" class="col-form-label col-lg-4" tabindex="0">Grade type</label>
+                                        <div class="col-lg-8">
+                                            @Html.DropDownList("GradeType", gradeTypeItems, "All grade types", new { id = "GradeType", @class = "form-control select2picker", data_placeholder = "Select division ...", data_allow_Clear = "true" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label for="StatusCode" class="col-form-label col-lg-4" tabindex="0">Status</label>
+                                        <div class="col-lg-8 ">
+                                            @Html.DropDownList("StatusCode", statusItems, new { id = "FilterStatusCode", @class = "form-control select2picker", Multiple = "multiple", data_placeholder = "All" })
+                                        </div>
+                                        </div>
+                                    </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_partial/_list")
+
+</div>

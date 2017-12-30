@@ -1,0 +1,173 @@
+@model CloneActionModel
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);
+    Layout = null;
+}
+
+<div class="modal-header">
+    <h5 class="modal-title" id="tempModalLabel">You are about to clone a position.</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&#215;</span>
+    </button>
+</div>
+
+
+<div class="error-popup">
+    <ul class="list-group">
+        @if (errors != null && errors.Count() > 0)
+        {
+            <li class="list-group-item ">
+                <label class="text-error" id="lbl-error"></label>
+            </li>
+        }
+    </ul>
+</div>
+<div class="success-popup">
+    <ul class="list-group">
+        <li class="list-group-item ">
+            <label class="text-success" id="lbl-success"></label>
+        </li>
+    </ul>
+</div>
+
+<div id="formTab wrapper">
+    <form class="" role="form" action="@Url.Action("ApplyCloneAction", "Position")" method="POST" 
+          id="form-clonePosition-confirm" data-fv-feedbackicons-validating="glyphicon glyphicon-refresh">
+        
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.SourcePositionId) 
+        <div class="modal-body">
+            <!--display source details-->
+            <div class="form-group">
+                <div class="col-lg-12 infoBox">
+                    <label class="col-form-label">Source position details:</label>
+                    <p class="form-control-plaintext">@string.Format("{0} - {1} - {2} ({3})",
+                                                       Model.SourcePosition.PositionNumber,
+                                                       Model.SourcePosition.PositionTitle,
+                                                       Model.SourcePosition.RolePositionDescription.Grade.GradeTitle,
+                                                       Model.SourcePosition.RolePositionDescription.GradeCode)
+                    </p>
+                    <p class="form-control-plaintext">
+                        <b>Division</b>: @Model.SourcePosition.Unit.BusinessUnit.Directorate.Executive.ExecutiveTitle
+                        <br>
+                        <b>Directorate</b>: @Model.SourcePosition.Unit.BusinessUnit.Directorate.DirectorateName
+                        <br>
+                        <b>Business Unit</b>: @Model.SourcePosition.Unit.BusinessUnit.BUnitName
+                        <br>
+                        <b>Team</b>: @Model.SourcePosition.Unit.UnitName
+
+                    </p>
+                    <p><b>DOC#</b>: @Model.SourcePosition.RolePositionDescription.DocNumber</p>
+                    <div class="spacer-small"></div>
+                </div>
+
+            </div>
+            <!-- cloning selections-->
+            <p>Please complete the following fields to clone a new position:</p>
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label">New position number <span class="mandatory">*</span></label>
+
+                <div class="col-lg-9">
+                    <input type="text" name="NewPositionNumber" id="PositionNumber"
+                           placeholder="Please enter a new position number"
+                           data-fv-notempty-message='Position number is required'
+                           required class="form-control" value="" maxlength="10"/>
+                </div>
+            </div>
+            <p>Please choose a Role / Position description for this new position:</p>
+            <span id="msg" class="errorText"></span>
+            <div class="form-group">
+                <div class="col-lg-12">
+                    <input type="radio" name="select" value="0" id="currentRP" checked> <label for="currentRP" class="col-form-label">Use the same Role/Position description (DOC#) above</label>
+                </div>
+                @*<div class="col-lg-12">
+                    <input type="radio" name="select" value="1" id="existingRP"> <label for="existingRP" class="col-form-label">Use another existing Role/Position description</label>
+                </div>
+                <div class="col-lg-12">
+                    <input type="radio" name="select" value="2" id="newRP"><label for="newRP" class="col-form-label">A new Role / Position description</label>
+                </div>*@
+            </div>
+            <!--existing DOC#-->
+            <div id="existingRD">
+                <div class="form-group ">
+                    <label for="RolePositionDescId" class="col-form-label col-lg-3">DOC Number<span class="mandatory">*</span></label>
+                    <div class="col-lg-9">
+                        <div class="input-group">
+                            <input type="text" required class="form-control select2pickerAjax" data-fv-notempty-message='The DOC number is required' id="RolePositionDescId" name="RolePositionDescId"
+                                   data-ajax='@ProjectTemplateSettings.Site.AppUrl/RolePositionDescription/LoadDocNumbers' placeholder="Select DOCNumber" value="" data-ref-elmid="RolePositionDescId">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--New DOC#, title, grade-->
+            <div id="newRD">
+                <div class="form-group ">
+                    <label for="DocNumberPart1" class="col-form-label col-lg-3">DOC Number<span class="mandatory">*</span></label>
+                    <div class="col-lg-9">
+                        <div class="input-group">
+                            <label>DOC</label>
+
+                            <input type="number" name="DocNumberPart1" allowclear="true" id="DocNumberPart1" min="1" max="99" class="docNum1cls" placeholder="e.g. 17" required
+                                   data-fv-notempty-message='The DOC number part 1 is required' value=""/>
+                            <label>/</label>
+                            <input type="number" name="DocNumberPart2" id="DocNumberPart2" min="1" max="99999999" class="docNum2cls" placeholder="e.g. 12345" required
+                                   data-fv-notempty-message='The DOC number part 2 is required' value=""/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Type" class="col-form-label col-lg-3">Please select</label>
+                    <div class="col-lg-9">
+                        <input type="radio" name="DescType" value="@Enums.DescriptionType.Position"> Position description <input type="radio" name="DescType" value="@Enums.DescriptionType.Role"> Role description
+                    </div>
+                </div>
+                <div class="spacer-small"></div>
+                <div class="spacer-small"></div>
+                <div class="spacer-small"></div>
+                <span class="col-lg-offset-3 alert alert-warning font-black">Note: once saved, the grade is NOT editable</span>
+                <div class="spacer-small"></div>
+                <div class="spacer-small"></div>
+                <div class="form-group">
+                    <label for="GradeCode" class="col-form-label col-lg-3">Grade <span class="mandatory">*</span></label>
+                    <div class="col-lg-9">
+                        <select id="GradeCode" name="GradeCode" required data-fv-notempty-message="Grade is required"></select>
+
+                    </div>
+
+                </div>
+                <div class="spacer-small"></div>
+                <div class="spacer-small"></div>
+                <div class="spacer-small"></div>
+                <span class="col-lg-offset-3 alert alert-warning font-black">Note: once saved, the title is NOT editable</span>
+                <div class="spacer-small"></div>
+                <div class="spacer-small"></div>
+                <div class="form-group">
+                    <label for="Title" class="col-form-label col-lg-3">Title <span class="mandatory">*</span></label>
+                    <div class="col-lg-9">
+                        <input type="text" name="Title" id="Title" data-fv-notempty-message='Title is required' required class="form-control" value=""/>
+                    </div>
+                </div>
+            </div>
+            <!---->
+        </div>
+
+        <div class="modal-footer">
+            <button type="submit" id="btn-submit" class="btn btn-primary">Clone</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+    </form>
+</div>
+
+@functions
+{
+
+    string GetNextStatusClass(bool showing)
+    {
+        return showing?"":"hide";
+    }
+
+
+}

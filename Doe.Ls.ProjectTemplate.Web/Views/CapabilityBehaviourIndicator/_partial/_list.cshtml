@@ -1,0 +1,102 @@
+
+
+
+
+@model IEnumerable<CapabilityBehaviourIndicator>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Capability behaviour indicator list", ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var nameItems = ViewBagWrapper.ListBag.GetList("capabilityNameItems", ViewData);
+    var levelItems = ViewBagWrapper.ListBag.GetList("capabilityLevelItems", ViewData);
+}
+<div class="spacer"></div>
+<div class="row ">
+    <div class="col-lg-12">
+        <div class="">
+            <div class=" dashboard" id="show-hide-filter-0">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">
+                            <a href="#collapse-filter-0" class="collapsed" data-toggle="collapse">Filter by capability name and level</a>
+                        </h4>
+                    </div>
+                    <div id="collapse-filter-0" class="panel-collapse collapse">
+                        <div class="card-body">
+                            <div class="col-lg-6">
+                                <div class="form-group">
+                                    <label for="CapabilityNameSearchParam" class="col-form-label col-lg-4">Capability Name</label>
+                                    <div class="col-lg-8">
+                                        <select id="CapabilityNameSearchParam" name="CapabilityNameSearchParam"
+                                                class="form-control select2picker" allowclear="true" data-placeholder="Please select capability name">
+                                            <option></option>
+                                            @foreach (var item in nameItems)
+                                            {
+                                                <option value="@item.Value">@item.Text</option>
+
+                                            }
+                                        </select>
+
+
+                                        @* @Html.DropDownList("GradeCode", gradeItems, "Please select Grade", new {id = "GradeCode", @class = "form-control select2picker", data_allow_Clear = "true"})*@
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6">
+
+                                <div class="form-group">
+                                    <label for="CapabilityLevelSearchParam" class="col-form-label col-lg-4">Capability Level</label>
+                                    <div class="col-lg-8">
+                                        <select id="CapabilityLevelSearchParam" name="CapabilityLevelSearchParam"
+                                                class="form-control select2picker" allowclear="true" data-placeholder="Please select capability level">
+                                            <option></option>
+                                            @foreach (var item in levelItems)
+                                            {
+                                                <option value="@item.Value">@item.Text</option>
+
+                                            }
+                                        </select>
+
+                                        @*  @Html.DropDownList("FocusId", focusItems, "Please select Focus", new { id = "FocusId", @class = "form-control select2picker",  data_allow_Clear = "true" })*@
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="table-responsive">
+    <table class="table table-striped table-sm dt-responsive ajaxDataTable" data-service="capabilityBehaviourIndicatorService" data-url="@HttpHelper.GetActionUrl("ListJson","CapabilityBehaviourIndicator")">
+        @*<caption>Capability behaviour indicator list</caption>*@
+        <thead>
+            <tr>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CapabilityName)
+                </th>
+
+
+                <th>
+                    @Html.DisplayNameFor(model => model.CapabilityLevel)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.IndicatorContext)
+                </th>
+
+
+                <th class="all"></th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+

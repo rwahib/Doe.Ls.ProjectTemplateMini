@@ -1,0 +1,130 @@
+﻿@model RoleDescription
+@{
+    var dict = Model.RoleCapabilities.GroupBy(rc => rc.CapabilityName.CapabilityGroup.GroupName).ToDictionary(g => g.Key, g => g.ToList());
+
+}
+
+<div class="card card.bg-primary.text-white" id="pnlRoleCapabilities">
+    <div class="card-header accordion-toggle" data-toggle="collapse" data-parent="#accordion" data-target="#RoleCapabilities">
+        <h4 class="accordion-title">
+            <a href="#" class="collapsed" data-toggle="collapse">Capabilities for the role<i class="indicator glyphicon glyphicon-chevron-right  float-right"></i></a>
+        </h4>
+
+    </div>
+
+    <div id="RoleCapabilities" class="card-body collapse">
+        <div class="form-group">
+            <div class="col-lg-12">
+                @Html.Raw(Model.RoleCapabilityItems)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-12">
+                @Html.Raw(Model.CapabilitySummary)
+            </div>
+
+            <div class="col-lg-12">
+                <!--Capabilities table-->
+                <h3>NSW Public Sector Capability Framework</h3>
+                <div class="row-fluid subheading">
+                    <div class="col-lg-3">Capability group</div>
+                    <div class="col-lg-4">Capability name</div>
+                    <div class="col-lg-5">Level</div>
+                </div>
+
+                @foreach (var obj in dict)
+                {
+                    <div class="row-fluid capabilityFrame CapabilityFrameworkTable">
+                        <!--Group name-->
+                        <div class="col-lg-4 groupImage">
+                            <div class="sr-only">Capability group</div>
+                            <img src="@ProjectTemplateSettings.Site.AppUrl/Images/@getImage(obj.Value)"
+                                 width="150" height="150" alt="@obj.Key" />
+                        </div>
+                        <!--Capability name, levle-->
+                        <div class="col-lg-8 capabilityRow">
+                            @{
+                                var bold = "";
+                            }
+                            @foreach (var x in obj.Value.OrderBy(r => r.CapabilityNameId))
+                            {
+                                bold = "";
+                                <div class="row capabilityBody">
+
+                                    @if (x.Highlighted)
+                                    {
+                                        bold = "font-bold";
+                                    }
+                                    <div class="col-lg-7 rowSpace">
+                                        <div class="sr-only">Capability name</div>
+                                        <p class="@bold">@x.CapabilityName</p>
+                                    </div>
+                                    <div class="col-lg-5 rowSpace">
+                                        <div class="sr-only">Capability level</div>
+                                        <p class="@bold">@x.CapabilityLevel.LevelName</p>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
+                    </div>
+                                }
+                <!--End of capability table-->
+            </div>
+        </div><!--End of container-fluid-->
+        <!--Focus capabilities-->
+       
+        <div class="form-group">
+            <div class="col-lg-12">
+                <h3>Focus capabilities</h3>
+                @Html.Raw(Model.FocusCapabilities)
+            </div>
+        </div>
+
+        <!--Capability Focus table-->
+        <div class="form-group" Id="FocusCapabilityTable">
+            <div class="col-lg-12">
+                <div class="row-fluid focusheading">
+                   NSW Public Sector Capability Framework
+                 </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="row-fluid subheading">
+                    <div class="col-lg-3">Group and capability</div>
+                    <div class="col-lg-2">Level</div>
+                    <div class="col-lg-7">Behavioural indicators</div>
+                </div>
+            </div>
+            @foreach (var obj in Model.RoleCapabilities.OrderBy(r => r.CapabilityNameId))
+            {
+                if (obj.Highlighted)
+                {
+                    <div class="row-fluid capabilityFrame focusCapabilityTable">
+                        <div class="col-lg-3 focusCol1"><div class="sr-only">Group and capability</div><strong>@obj.CapabilityName.CapabilityGroup.GroupName</strong>
+                        <span>@Html.Raw(obj.CapabilityName.Name)</span></div>
+                        <div class="col-lg-2 focusCol2"><div class="sr-only">Level</div><span>@obj.CapabilityLevel.LevelName</span></div>
+                        <div class="col-lg-7 focusCol3"><div class="sr-only">Behavioural indicators</div>@Html.Raw(obj.CapabilityName.CapabilityBehaviourIndicators
+                                        .FirstOrDefault(rc => rc.CapabilityLevelId == obj.CapabilityLevelId && rc.CapabilityNameId == obj.CapabilityNameId))</div>
+                    </div>
+                }
+            }
+       </div><!--end of FocusCapabilityTable-->
+    
+    
+              
+  </div> <!--end of capability focus-->
+</div> <!--end of panel-->
+
+        @functions
+{
+
+            private string getImage(List<RoleCapability> capabilityNames)
+            {
+                if (capabilityNames.Any())
+                    return capabilityNames.FirstOrDefault().CapabilityName.CapabilityGroup.GroupImage;
+
+                return string.Empty;
+            }
+
+        }

@@ -1,0 +1,155 @@
+﻿<#@ template language="C#"inherits="MVCTemplate.BaseTemplate" #> 
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Data.Entity.Core.Metadata.Edm" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="Doe.Ls.EntityBase.MVCExtensions" #>
+<#@ parameter name="EntityType" type="System.Data.Entity.Core.Metadata.Edm.EntityType"#>
+<#@ parameter name="AppNamespace" type="System.String"#>
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+
+<# T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); #>
+
+<#  
+    var helper=new EdmMetadataHelper(EntityContext);   
+#>
+using System;
+using System.Collections.Generic;
+using System.Data.Entity;
+using System.Linq;
+using System.Text;
+using Doe.Ls.EntityBase.Exceptions;
+using Doe.Ls.EntityBase.Logging;
+using Doe.Ls.EntityBase.Models;
+using Doe.Ls.EntityBase.RepositoryBase;
+using Doe.Ls.EntityBase.SessionService;
+using <#=        AppNamespace#>.Data;
+
+namespace <#=        AppNamespace#>.Core.BL.EntityRepositories 
+{
+    public partial class <#=        T4Helper.CleanClassName(EntityType.Name)#>Repository : BaseRepository<<#=        EntityType.Name#>> 
+    {
+        public <#=        T4Helper.CleanClassName(EntityType.Name)#>Repository(IUnitOfWork unitOfWork, ILoggerService loggerService, ISessionService sessionService) : base(unitOfWork, loggerService, sessionService)
+        {
+        }
+
+        public override IQueryable<<#=        EntityType.Name#>> List()
+        {                       
+            return base.List()
+<#    foreach(var property in this.EntityType.NavigationProperties)                      #>
+<#    {#>
+                    .Include(ent=>ent.<#=            property.Name#>) 
+<#    }#>
+                    .OrderBy(ent=>ent.<#=        T4Helper.GetKeys(this.EntityType).FirstOrDefault()#>);
+        }
+
+        public override void Insert(<#=        EntityType.Name#> entity) 
+        {<#=        GetComputedCodeForInsert()#>
+            
+            if (ValidateEntity(entity).Count > 0) 
+            {
+                throw new EntityValidationException { Errors = ValidateEntity(entity) };
+            }
+
+            base.Insert(entity);
+        }
+        
+        public override void Update(<#=        EntityType.Name#> entity, bool refresh = true) 
+        {<#=        GetComputedCodeForUpdate()#>
+            
+            if (ValidateEntity(entity).Count > 0) 
+            {
+                throw new EntityValidationException { Errors = ValidateEntity(entity) };
+            }
+
+            base.Update(entity, refresh);
+        }
+
+        <#    if(T4Helper.HasSingleKeyNumber(this.EntityType)){  #>
+
+       
+        <#    }  #>
+
+
+        public IQueryable<<#=        EntityType.Name#>> Filter<#=        EntityType.Name#>s(IQueryable<<#=        EntityType.Name#>> <#=        T4Helper.GetLocalVariableName(EntityType)#>s, SearchArg searchArg)
+        {
+            var searchWord = searchArg.Search.ToLower();
+            var filtered<#=        EntityType.Name#> = <#=        T4Helper.GetLocalVariableName(EntityType)#>s.Where(ent => 
+<#    var useOr = false;#>
+<#    foreach(var pm in T4Helper.ListPropertiesWithFkInfo(EntityType))#>
+<#    {#>
+<#       
+ if(pm.FK && !ToBeIgnored(pm.PareEntityType.Properties.First()))        #>
+<#        {#>
+<#            if(useOr) {#>                    || <#            }else{#>                    <#            }#>
+(!string.IsNullOrEmpty(ent.<#=                pm.PareEntityType.Name#>.<#=                T4Helper.PropertyOperations.GetDispayPropertyName(pm.PareEntityType)#>) && ent.<#=                pm.PareEntityType.Name#>.<#=                T4Helper.PropertyOperations.GetDispayPropertyName(pm.PareEntityType)#>.ToLower().Contains(searchWord))
+<#            useOr=true;#>
+<#            continue;#>
+<#        }#>
+<#        
+
+if(T4Helper.PropertyOperations.IsBinary(pm.Property) || T4Helper.PropertyOperations.IsTimeSpan(pm.Property) || T4Helper.PropertyOperations.IsNullableTimeSpan(pm.Property) ){
+	continue;
+}
+
+if(!ToBeIgnored(pm.Property))#>
+<#        {#>
+<#            if(T4Helper.PropertyOperations.IsInteger(pm.Property))#>
+<#            {#>
+<#                if(useOr) {#>                    || <#                }else{#>                    <#                }#>
+ent.<#=                    pm.Property.Name#>.ToString().Contains(searchWord)
+<#                useOr=true;#>
+<#                continue;#>
+<#            }#>
+<#            if(T4Helper.PropertyOperations.IsNumber(pm.Property))#>
+<#            {#>
+<#                if(useOr) {#>                    || <#                }else{#>                    <#                }#>
+ent.<#=                    pm.Property.Name#>.ToString().Contains(searchWord)
+<#                useOr=true;#>
+<#                continue;#>
+<#            }#>
+<#            if(useOr) {#>                    || <#            }else{#>                    <#            }#>
+(!string.IsNullOrEmpty(ent.<#=                pm.Property.Name #>) && ent.<#=                pm.Property.Name #>.ToLower().Contains(searchWord))
+<#            useOr=true;#>
+<#            continue;#>
+<#        }#>
+<#    }#>);
+
+            return filtered<#=        EntityType.Name#>.OrderBy(e => e.<#=        T4Helper.GetKeys(this.EntityType).FirstOrDefault()#>);
+        }
+    }
+}
+
+
+
+<#+    
+    string GetComputedCodeForInsert(){
+
+        return T4Helper.GetComputedCodeForInsert(this.EntityType,this.EntityContext);
+    }
+
+#>
+
+
+<#+    
+    string GetComputedCodeForUpdate(){
+
+        return T4Helper.GetComputedCodeForUpdate(this.EntityType,this.EntityContext);
+    }
+
+#>
+
+<#+
+    bool ToBeIgnored(EdmProperty property){
+        if (T4Helper.PropertyOperations.IsCheckbox(property))return true;
+        if(T4Helper.PropertyOperations.IsDate(property)) return true;
+        if(T4Helper.PropertyOperations.IsDateTime(property)) return true;
+        if(property.Name.ToLower().Contains("lastmodified")) return true;
+        if(property.Name.ToLower().Contains("statusid")) return true;
+
+        return false;
+    }
+#>
+

@@ -1,0 +1,17 @@
+﻿Action plan
+
+1-Latest version from TFS (Finished)
+2-Update the version (Finished)
+
+3-Deply latest version in DEV (Finished)
+4-Test it in DEV (Finished)
+
+5-Compare UAT db 
+6-Deply the asso type and asso db at UAT as in dev
+7-Deply latest version in UAT
+7.1-Update the Ids
+8- TEST it
+
+9-Deply the asso type and asso db as PRE Prodas in dev
+10-Deply latest version in UAT
+11- TEST it

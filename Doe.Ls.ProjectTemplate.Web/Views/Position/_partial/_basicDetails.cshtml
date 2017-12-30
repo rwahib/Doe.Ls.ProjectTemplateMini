@@ -1,0 +1,194 @@
+@model Position
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+
+    var divisionItems = ViewBagWrapper.ListBag.GetList("divisionItems", ViewData);
+    var directorateItems= ViewBagWrapper.ListBag.GetList("directorateItems", ViewData);
+    var positionLevelItems = ViewBagWrapper.ListBag.GetList("positionLevelItems", ViewData);
+
+    var locationItems = ViewBagWrapper.ListBag.GetList("locationItems", ViewData);
+    var unitItems = ViewBagWrapper.ListBag.GetList("unitItems", ViewData);
+    var businessUnitItems = ViewBagWrapper.ListBag.GetList("businessUnitItems", ViewData);
+    //  var unitChiefItems = ViewBagWrapper.ListBag.GetList("unitChiefItems", ViewData);
+
+}
+<div id="formTab" class="card.card-body">
+<form class="" data-tracking-enabled="true" role="form" method="POST" action="@Url.Action("CreateOrEdit")" id="form-position-basicDetails">
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.PositionId)
+    @Html.HiddenFor(model => model.RolePositionDescriptionId)
+    
+    <div class="form-group ">
+        <label for="Title" class="col-form-label col-lg-2"></label>
+        <div class="col-lg-10">
+            <span>Fields marked with an asterisk (*) are compulsory</span>
+        </div>
+    </div>
+
+    <div class="form-group @GetFormGroupClass("PositionNumber")">
+        <label for="PositionNumber" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.PositionNumber) <span class="mandatory">*</span>
+            <span class="hint small-fonts pull-up-2px">(Must be unique) </span></label>
+
+        <div class="col-lg-10">
+            <div class="input-group">
+                
+                <input type="text" name="PositionNumber" id="PositionNumber"  maxlength="10" class="form-control" placeholder="Please enter a Position number" value="@Model.PositionNumber" @ReadOnly("PositionNumber") required data-fv-notempty-message='The Position number is required'/>
+                
+            </div>
+        </div>
+    </div>
+    <div class="form-group @GetFormGroupClass("PositionTitle")">
+        <label for="PositionTitle" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.PositionTitle) <span class="mandatory">*</span></label>
+
+        <div class="col-lg-10">
+            <div class="input-group">
+                
+                <label> @Model.PositionTitle</label>
+                
+            </div>
+        </div>
+    </div>
+   
+    @{
+        var displaytxt = "";
+        if (Model.ParentPosition != null)
+        {
+
+            displaytxt = Model.ParentPosition.PositionNumber + " |" + Model.ParentPosition.PositionTitle;
+        }
+    }
+    
+    <div class="form-group ">
+        <label for="DivisionId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Unit.BusinessUnit.Directorate.Executive)  <span class="mandatory">*</span></label>
+
+        <div class="col-lg-10">
+            @Html.DropDownList("DivisionId", divisionItems, "Select division ...", new { id = "DivisionId", @class = "form-control select2picker", Required = "Required", data_fv_greaterthan_message = "Select valid division" })
+        </div>
+    </div>
+    <div class="form-group ">
+        <label for="DirectorateId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Unit.BusinessUnit.Directorate) <span class="mandatory">*</span></label>
+
+        <div class="col-lg-10">
+            @Html.DropDownList("DirectorateId", directorateItems, "Select directorate ...", new {id = "DirectorateId", @class = "form-control select2picker", Required = "Required", min = 1, data_fv_greaterthan_value = "1", data_fv_greaterthan_message = "Select valid directorate" })
+        </div>
+    </div>
+    <div class="form-group ">
+        <label for="BusinessUnitId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Unit.BusinessUnit) <span class="mandatory">*</span></label>
+
+        <div class="col-lg-10">
+            @Html.DropDownList("BusinessUnitId", businessUnitItems, "Select business unit ...", new { id = "BusinessUnitId", @class = "form-control select2picker", Required = "Required", min = 1, data_fv_greaterthan_value = "1", data_fv_greaterthan_message = "Select valid business unit" })
+        </div>
+    </div>
+    <div class="form-group @GetFormGroupClass("UnitId")">
+        <label for="UnitId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Unit) <span class="mandatory">*</span></label>
+
+        <div class="col-lg-10">
+            @Html.DropDownList("UnitId", unitItems, "Select team ...", new {id = "UnitId", @class = "form-control select2picker", Required = "Required", min = 1, data_fv_greaterthan_value = "1", data_fv_greaterthan_message = "Select valid team"})
+        </div>
+    </div>
+    <div class="form-group @GetFormGroupClass("ReportToPositionId")">
+        <label for="ReportToPositionId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.ReportToPositionId) <span class="mandatory">*</span></label>
+
+        <div class="col-lg-10">
+            <input type="hidden" name="OldReportToPositionId" id="OldReportToPositionId" value="@Model.ReportToPositionId">
+            <input type="hidden" required id="OldReportToPositionText" name="OldReportToPositionText" value="@displaytxt" />
+            <input type="text" required class="form-control select2pickerAjax" data-fv-notempty-message='Report to position id required' id="ReportToPositionId"
+          data-context="@Model.PositionId"         name="ReportToPositionId" data-ajax='@ProjectTemplateSettings.Site.AppUrl/Position/GetPositionsAjax' placeholder="Select Report to position" 
+                   value="" data-ref-elmid="ReportToPositionId">
+
+        </div>
+    </div>
+    <div class="form-group @GetFormGroupClass("LocationId")">
+        <label for="LocationId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Location) <span class="mandatory">*</span></label>
+
+        <div class="col-lg-10">
+            @Html.DropDownList("LocationId", locationItems, "Select location ...", new {id = "LocationId", @class = "form-control select2picker", Required = "Required", min = 1, data_fv_greaterthan_value = "1", data_fv_greaterthan_message = "Select valid location" })
+        </div>
+    </div>
+    @* <div class="form-group @GetFormGroupClass("UnitChiefPositionId")">
+        <label for="UnitId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.UnitChiefPositionId) <span class="mandatory">*</span></label>
+
+        <div class="col-lg-10">
+            @Html.DropDownList("UnitChiefPositionId", unitChiefItems, "Select Unit chief ...", new { id = "UnitChiefPositionId", @class = "form-control select2picker", Required = "Required" })
+        </div>
+    </div>*@
+    
+
+    <div class="form-group @GetFormGroupClass("PositionLevelId")">
+        <label for="PositionLevelId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.PositionLevel) <span class="mandatory">*</span>
+        <span class="hint small-fonts pull-up-2px">(only for the chart)</span></label>
+
+        <div class="col-lg-10">
+            @Html.DropDownList("PositionLevelId", positionLevelItems, "Select position level ...", new {id = "PositionLevelId", @class = "form-control select2picker", Required = "Required"})
+        </div>
+    </div>
+    
+    <div class="col-lg-offset-2">
+        <p>
+            <button type="submit" class="btn btn-primary">Save & Next</button>
+        </p>
+    </div>
+    
+</form>
+    </div>
+
+    @functions
+{
+        bool IsKey(string propertyName)
+        {
+            var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+            return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+        }
+
+        string ReadOnly(string propertyName)
+        {
+            var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+            if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+            var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+
+            var prop = T4Helper.GetProperty(propertyName, entityType);
+            var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+            if (computedAttribute == null) return string.Empty;
+
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+
+            return string.Empty;
+        }
+
+        string GetFormGroupClass(string propertyName)
+        {
+            var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+            var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+            var prop = T4Helper.GetProperty(propertyName, entityType);
+            var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+            if (computedAttribute == null) return string.Empty;
+
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+            if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+            switch (formType)
+            {
+                case FormType.Create:
+                    {
+                        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                        break;
+                    }
+            }
+            return string.Empty;
+        }
+    }

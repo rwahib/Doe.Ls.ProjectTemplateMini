@@ -1,0 +1,45 @@
+@model IEnumerable<Location>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Location list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive ajaxDataTable" data-service="locationService" data-url="@HttpHelper.GetActionUrl("ListJson","Location")">
+                @*<caption>Location list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.LocationId)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Name)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Directorate.Executive)
+                        </th>
+
+                        <th>
+                            @Html.DisplayNameFor(model => model.Directorate)
+                        </th>
+                                 
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedBy)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+              
+            </table>
+        </div>
+

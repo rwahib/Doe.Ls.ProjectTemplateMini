@@ -1,0 +1,33 @@
+@model IEnumerable<SysRole>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Role list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var privilege = task.GetSysRolePrivilege();
+}
+
+@*
+@section SysRoleActive
+{
+active 
+}
+*@
+
+<div class="wrapper" id="wrapper-SysRole">
+
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+
+    @if(privilege.CanCreate)
+        {
+        <p>
+            <a href="@Url.Action("Create",new {ajax=true})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">
+                Create new role
+            </a>
+        </p>
+        }
+
+    @Html.Partial("_partial/_list")
+
+</div>

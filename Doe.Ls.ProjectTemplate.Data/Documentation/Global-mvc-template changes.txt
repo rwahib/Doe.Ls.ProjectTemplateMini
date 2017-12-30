@@ -1,0 +1,4 @@
+﻿// This docuument will record all changes that we suggest to be updated in the Template as we changed her in this peoject
+
+1-All the code of ajax=True in actions, URLS need to be replaced by 'Request.IsAjaxRequest()'
+2-Redirect actions after Create and Edit actions should be the View action not to List (low priority)

@@ -1,0 +1,53 @@
+﻿@model Doe.Ls.ProjectTemplate.Data.PositionDescription
+@{
+    var focusSelectionCriteria = Model.PositionFocusCriterias.OrderBy(m => m.LookupFocusGradeCriteria.Focus.OrderList);
+    }
+
+<div>
+    <a href="@Url.Action("ManageSelectionCriteria", new {id = Model.PositionDescriptionId})" class="btn btn-primary ">
+        Add / update  selection criteria and focus
+    </a>
+</div>
+<div class="table-responsive">
+    <table  class="table-striped table-sm @*dt-responsive ajaxDataTable*@" @*data-service="PositionFocusCriteriaService" data-url="@HttpHelper.GetActionUrl("ListJson","PositionDescription")"*@>
+        @*<caption>Position focus criteria list</caption>*@
+        <thead>
+        <tr>
+
+            <th>Focus</th>
+
+            <th>Selection criteria </th>
+            
+        </tr>
+        </thead>
+        <tbody>
+        @* For ajax dataTable empty the tbody *@
+        @foreach (var item in focusSelectionCriteria)
+        {
+            <tr>
+                <td>
+                    @Html.Raw(item.LookupFocusGradeCriteria.Focus.FocusName.StripHtml().Minimise(50))
+                </td>
+
+                <td>
+                    @if (!string.IsNullOrEmpty(item.LookupCustomContent))
+                    {
+                        @Html.Raw(item.LookupCustomContent)
+                    }
+                    else
+                    {
+                        @Html.Raw(item.LookupFocusGradeCriteria.SelectionCriteria.Criteria)
+                    }
+                </td>
+              
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+<div class="col-lg-offset-2">
+    <p>
+        <a href="@Url.Action("ManageSummary", "PositionDescription",new {id=Model.PositionDescriptionId})" class="btn btn-primary"> Next</a>
+    </p>
+</div>
+

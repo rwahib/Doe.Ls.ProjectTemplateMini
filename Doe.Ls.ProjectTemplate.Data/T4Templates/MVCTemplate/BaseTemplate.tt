@@ -1,0 +1,113 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="Doe.Ls.EntityBase.MVCExtensions" #>
+<#@ import namespace="System.Data.Entity.Core.Metadata.Edm" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<# T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); #>
+
+<#@ parameter name="AppNamespace" type="System.String"#>
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+
+<#@ parameter name="EntityType" type="System.Data.Entity.Core.Metadata.Edm.EntityType"#>
+
+
+
+
+<#+
+
+    protected string  SetDate(PropMeta pm)
+    {
+        return T4Helper.PropertyOperations.IsDate(pm.Property) || T4Helper.PropertyOperations.IsDateTime(pm.Property)
+            ? "data-fv-date-format=\"DD/MM/YYYY\""
+            : "";
+            }
+
+#>
+
+
+
+
+<#+
+
+    protected string  IsRequired(PropMeta pm)
+    {
+        return T4Helper.PropertyOperations.IsRequired(pm.Property, EntityType, EntityContext)
+            ? "required data-fv-notempty-message='The " + T4Helper.Wordify(pm.Property.Name) + " is required'"
+            : "";
+
+
+    }
+
+#>
+
+<#+
+
+    protected string  GetRequiredPropertyValue(PropMeta pm)
+    {
+        return T4Helper.PropertyOperations.IsRequired(pm.Property, EntityType, EntityContext)
+            ? ", Required=\"Required\"": "";
+            
+    }
+
+#>
+
+<#+
+	protected string GetAsteriskForRequiredField(PropMeta pm)
+	{
+		return T4Helper.PropertyOperations.IsRequired(pm.Property, EntityType, EntityContext) ? "<span class=\"mandatory\">*</span>" : "";
+	}
+#>
+
+<#+
+
+    protected string  SetRichText(PropMeta pm)
+    {
+        return T4Helper.PropertyOperations.IsRichText(pm.Property, EntityType)
+            ? "data-role-rich='rich-text'"
+            : string.Empty;
+
+
+    }
+
+#>
+
+<#+
+
+    protected string  SetEmail(PropMeta pm)
+    {
+        return T4Helper.PropertyOperations.IsEmail(pm.Property)
+            ? "data-fv-emailaddress-message='The " + T4Helper.Wordify(pm.Property.Name) + " is not correct email format'"
+            : "";
+
+
+    }
+
+#>
+
+
+
+<#+
+
+    protected string GetInputType(PropMeta pm)
+    {
+        return T4Helper.GetInputType(pm.Property, EntityType, EntityContext);
+    }
+
+#>
+
+
+
+<#+
+
+    protected string SetInteger(PropMeta pm)
+    {
+        return T4Helper.PropertyOperations.IsInteger(pm.Property)
+            ? "data-fv-integer-message='The " + T4Helper.Wordify(pm.Property.Name) + " is not an integer'"
+            : "";
+    }
+
+#>

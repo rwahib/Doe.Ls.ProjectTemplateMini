@@ -1,0 +1,12 @@
+﻿@model System.String
+
+@if (!string.IsNullOrWhiteSpace(Model))
+{
+    var chars = Model.ToArray();
+    var spacedString = String.Join(" ", chars);
+    <span class="display" tabindex="0" aria-label="@spacedString">@Model</span>
+}
+else
+{
+    <span class="display" tabindex="0" aria-label="@Enums.Cnt.NotProvided">@Enums.Cnt.NotProvided</span>
+}

@@ -1,0 +1,62 @@
+ 
+
+
+
+@model IEnumerable<HierarchyLevel>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Hierarchy level List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive @*ajaxDataTable*@" @*data-service="hierarchyLevelService" data-url="@HttpHelper.GetActionUrl("ListJson","HierarchyLevel")"*@>
+                @*<caption>Hierarchy level list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.HierarchyId)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.HierarchyName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.HierarchyDescription)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.HierarchyId)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.HierarchyName)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.HierarchyDescription)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.HierarchyId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.HierarchyId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.HierarchyId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

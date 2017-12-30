@@ -1,0 +1,112 @@
+
+
+
+@using Doe.Ls.EntityBase.MVCExtensions
+@model PositionLevel
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+
+}
+
+@Html.AntiForgeryToken()
+
+<div class="form-group @GetFormGroupClass("PositionLevelId")">
+    <label for="PositionLevelId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.PositionLevelId) <span class="mandatory">*</span></label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="number" name="PositionLevelId" id="PositionLevelId" class="form-control"
+                   placeholder="Please enter Position level Id" value="@Model.PositionLevelId" @ReadOnly("PositionLevelId")
+                   required data-fv-notempty-message='The Position level id is required'
+                   data-fv-integer-message='The Position level id is not an integer' />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("PositionLevelName")">
+    <label for="PositionLevelName" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.PositionLevelName) <span class="mandatory">*</span></label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="PositionLevelName" id="PositionLevelName" class="form-control" placeholder="Please enter Position level name"
+                   value="@Model.PositionLevelName" @ReadOnly("PositionLevelName") required data-fv-notempty-message='The Position level name is required' />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("CustomClass")">
+    <label for="CustomClass" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.CustomClass) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="CustomClass" id="CustomClass" class="form-control" placeholder="Please enter Custom Class" 
+                   value="@Model.CustomClass" @ReadOnly("CustomClass") />
+            
+        </div>
+    </div>
+</div>
+
+
+@functions
+{
+    bool IsKey(string propertyName)
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName)
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName)
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+                {
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                    break;
+                }
+        }
+        return string.Empty;
+    }
+}

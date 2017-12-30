@@ -1,0 +1,42 @@
+﻿<#@ template language="C#"inherits="BaseTemplate" #> 
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ parameter name="AppNamespace" type="System.String"#>
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+<#@ parameter name="EntityType" type="System.Data.Entity.Core.Metadata.Edm.EntityType"#>
+
+<# T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); #>
+
+<# var helper=new EdmMetadataHelper(EntityContext);#>
+
+@model <#=EntityType.Name#>
+@{ 
+    
+    ViewBagWrapper.InfoBag.SetTitle("Delete <#=T4Helper.Wordify(T4Helper.CleanClassName(EntityType.Name))#>",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+<div class="page-header">
+    <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+</div>
+
+<h3>Are you sure you want to delete this <#=T4Helper.Wordify(T4Helper.CleanClassName(EntityType.Name)).ToLower()#> ?</h3>
+
+<div id="formTab" class="card.card-body">
+    <form class="" role="form" method="POST" id=<#=T4Helper.GetFormId(EntityType,FormType.Delete)#>>
+        @Html.AntiForgeryToken()
+        
+        @Html.Partial("_partial/_details")
+        
+        <p>
+            <button type="submit" class="btn btn-primary">Delete</button> 
+            &nbsp;|&nbsp; 
+            <a href="@Url.Action("Index")" class="btn btn-primary">Cancel <span class="glyphicon glyphicon-th-list"></span></a>
+        </p>
+    </form>
+</div>
+

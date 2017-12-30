@@ -1,0 +1,78 @@
+@model IEnumerable<BusinessUnit>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Business unit list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var privilege = task.GetExecutivePrivilege();
+        
+    var divisionItems = ViewBagWrapper.ListBag.GetList("divisionItems", ViewData);
+    var directorateItems = ViewBagWrapper.ListBag.GetList("directorateItems", ViewData);
+
+}
+
+@*
+@section BusinessUnitActive
+{
+active 
+}
+*@
+
+<div class="wrapper" id="wrapper-BusinessUnit">
+
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+@if (privilege.CanCreate)
+{
+    <p>
+        <a id="create-business-unit" href="@Url.Action("Create", new {ajax = true})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">
+            Create new business unit
+        </a>
+        
+    </p>
+}
+
+    <div class="row ">
+        <div class="col-lg-12">
+            <div class="">
+
+                <div class=" dashboard" id="show-hide-filter-0">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                <a href="#collapse-filter-0" class="collapsed" data-toggle="collapse">Filter by division and directorate</a>
+                            </h4>
+                        </div>
+                        <div id="collapse-filter-0" class="panel-collapse collapse">
+                            <div class="card-body">
+
+
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label  class="col-form-label col-lg-4" tabindex="0">Division</label>
+                                        <div class="col-lg-8">
+                                            @Html.DropDownList("filterDivisionCode", divisionItems, "All divisions", new {id = "filterDivisionCode", @class = "form-control select2picker", data_placeholder = "Select division ...", data_allow_Clear = "true"})
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="form-group">
+                                        <label  class="col-form-label col-lg-4" tabindex="0">Directorate</label>
+                                        <div class="col-lg-8">
+                                            @Html.DropDownList("filterDirectorateId", directorateItems, "All directorates", new {id = "filterDirectorateId", @class = "form-control select2picker", data_placeholder = "Select division ...", data_allow_Clear = "true"})
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @Html.Partial("_partial/_list")
+
+</div>

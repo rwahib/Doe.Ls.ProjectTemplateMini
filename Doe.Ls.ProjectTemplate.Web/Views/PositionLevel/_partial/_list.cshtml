@@ -1,0 +1,66 @@
+@model IEnumerable<PositionLevel>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Position level list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var priv = task.GetPositionLevelPrivilege();
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive @*ajaxDataTable*@" @*data-service="positionLevelService" data-url="@HttpHelper.GetActionUrl("ListJson","PositionLevel")"*@>
+                @*<caption>Position level list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.PositionLevelId)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.PositionLevelName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CustomClass)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.PositionLevelId)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.PositionLevelName)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.CustomClass)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                   @{ var itemPriv = task.GetPositionLevelPrivilege(item.PositionLevelId);  }
+                                     @if (itemPriv.CanEdit)
+                                    {
+                                        <a href="@Url.Action("Edit", new {id = item.PositionLevelId})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    }
+                                    <a href="@Url.Action("Details", new { id = item.PositionLevelId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    @if (itemPriv.CanDelete)
+                                    {
+                                        <a href="@Url.Action("Delete", new {id = item.PositionLevelId})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                    }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

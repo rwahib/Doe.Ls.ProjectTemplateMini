@@ -1,0 +1,10 @@
+﻿@model Msg
+@{
+    var msgSrv = ViewBagWrapper.MessageListBag.GetMessageService(ViewData);
+    var message = "System message could not be generated";
+    if(msgSrv != null && !string.IsNullOrWhiteSpace(Model.Code))
+        {
+        var msg = msgSrv.GetMessageByCode(Model.Code);
+        if(msg != null) { message = string.Format(msg.MessageFormat, Model.Param); }
+        }
+}@Html.Raw(message)

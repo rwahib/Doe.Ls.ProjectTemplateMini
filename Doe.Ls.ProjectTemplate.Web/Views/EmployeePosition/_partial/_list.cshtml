@@ -1,0 +1,126 @@
+ 
+
+
+
+@model IEnumerable<EmployeePosition>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Employee position list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive @*ajaxDataTable*@" @*data-service="employeePositionService" data-url="@HttpHelper.GetActionUrl("ListJson","EmployeePosition")"*@>
+                @*<caption>Employee position list</caption>*@
+                <thead>
+                    <tr>
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.Employee)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.Position)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.StatusId)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.DisplayInOrgChart)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Reason)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.FromDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.ToDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+    
+                                @Html.Raw(item.Employee.FirstName.StripHtml().Minimise(50))
+                            <td>
+    
+                                @Html.Raw(item.Position.PositionTitle.StripHtml().Minimise(50))
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.StatusId)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.DisplayInOrgChart)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Reason)
+                            </td>                       
+                            <td>
+   
+                                @item.FromDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @item.ToDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LastModifiedBy)
+                            </td>                       
+                            <td>
+   
+                                @item.CreatedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @item.LastModifiedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.EmployeeId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.EmployeeId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.EmployeeId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

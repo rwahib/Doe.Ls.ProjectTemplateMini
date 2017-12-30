@@ -1,0 +1,86 @@
+﻿<#@ template language="C#"inherits="MVCTemplate.BaseTemplate" #> 
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="Doe.Ls.EntityBase.MVCExtensions" #>
+<#@ import namespace="System.Data.Entity.Core.Metadata.Edm" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+ 
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+
+<#    
+    var helper=new EdmMetadataHelper(EntityContext);
+#>
+
+/// <reference path="_references.js" />
+
+define(['jquery', 'cnt', 'helper', 'interactive', 'api', 'fValidator'], function ($, cnt, helper, interactive, api) {
+
+    return {
+        initialise: function(dataTable){            
+
+            dataTable.each(function () {
+                var ajaxTable = $(this);
+                var serviceType = ajaxTable.attr('data-service');
+                
+                var ajaxUrl = ajaxTable.attr('data-url');
+                
+                if (!helper.hasValue(ajaxUrl)) {
+                    ajaxUrl = '';
+                }
+
+                applyDataTableSettings(serviceType, function (dataTableSettings) {
+                    var generalSettings = getGeneralDataTableSettings(ajaxTable, ajaxUrl);
+                    var newSettings = $.extend(generalSettings, dataTableSettings);
+                    interactive.applyNewDataTableSettings(newSettings, ajaxTable);
+                });
+
+            });
+        }
+    }
+
+    function applyDataTableSettings(serviceType, callBack){
+        switch(serviceType){
+<#    foreach(var entityType in helper.GetEntityList())#>
+<#    { #>
+<#        if(entityType.Name.ToLower().Contains("sysdia"))continue; #>
+
+            case '<#=            T4Helper.GetLocalVariableName(entityType)#>Service':
+                require(['<#=            T4Helper.GetLocalVariableName(entityType)#>Service'], function(service){
+                    if(helper.hasValue(callBack)){
+                        callBack(service.dtSettings);
+                    }
+                });
+                break;
+<#    }#>
+            default: 
+                    break;
+        }
+    }
+
+    function getGeneralDataTableSettings(dataTable, ajaxUrl){
+        return {
+            'language': {
+                'lengthMenu': ' _MENU_ records per page',
+                'loadingRecords': 'Please wait - loading...'
+            },
+            'bProcessing': true,
+            'bServerSide': true,
+            'bPaginate': true,
+            'aLengthMenu': [[5, 10, 25, 50, -1], [5, 10, 25, 50, 'All']],
+            'nPaginationType': 'fullNumbers',
+            'sAjaxSource': ajaxUrl,
+            'initComplete': function () {
+                //only exec below for IE as search functionality not working in IE9
+                if (navigator.userAgent.indexOf("MSIE") > 0) {
+                    var datatableApi = this.api();
+                    $('.dataTables_filter input').unbind('keyup').bind('keyup', function (e) {
+                        datatableApi.search($(this).val()).draw();
+                    });
+                }
+                $(dataTable).show();
+            }
+        };
+    }
+});

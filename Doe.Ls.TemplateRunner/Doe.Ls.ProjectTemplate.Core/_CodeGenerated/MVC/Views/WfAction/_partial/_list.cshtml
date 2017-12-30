@@ -1,0 +1,70 @@
+ 
+
+
+
+@model IEnumerable<WfAction>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Wf action List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="wfActionService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>Wf action list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.WfActionId)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.WfActionName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.WfActionStatus)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.WfActionDescription)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.WfActionId)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.WfActionName)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.WfActionStatus)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.WfActionDescription)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.WfActionId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.WfActionId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.WfActionId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

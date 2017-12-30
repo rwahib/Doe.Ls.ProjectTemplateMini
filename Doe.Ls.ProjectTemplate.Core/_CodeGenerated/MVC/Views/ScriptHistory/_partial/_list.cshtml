@@ -1,0 +1,78 @@
+ 
+
+
+
+@model IEnumerable<ScriptHistory>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Script history List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="scriptHistoryService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>Script history list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.ScriptNumber)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.ScriptName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.RunDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.RunBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Comments)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.ScriptNumber)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.ScriptName)
+                            </td>                       
+                            <td>
+   
+                                @item.RunDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.RunBy)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Comments)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { scriptNumber = item.ScriptNumber })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { scriptNumber = item.ScriptNumber })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { scriptNumber = item.ScriptNumber })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

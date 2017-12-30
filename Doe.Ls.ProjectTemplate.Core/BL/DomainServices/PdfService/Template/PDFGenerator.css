@@ -1,0 +1,267 @@
+﻿html {
+    font-family: arial;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+div {
+    margin: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+
+
+img {
+    border: 0;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 10px 0;
+    font-size: 14px;
+}
+
+td, th {
+    padding: 0;
+    
+}
+
+b, strong {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 32px;
+}
+h2 {
+    font-size: 22px;
+}
+
+h4 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+
+ul {
+    list-style: disc;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+/*--Position Description table--*/
+.PDTableHeader, .PDTableFooter {
+  width: 100%;
+}
+
+
+.PDTableHeader tr, td {
+  vertical-align: middle;
+}
+
+
+.PDTable {
+    border: 1px solid #ccc;
+    width: 100%;
+}
+
+.PDTable th, .PDTable td {
+    border: 1px solid #ccc;
+    background-color: #fff;
+    vertical-align: top;
+   padding: 3px 6px;
+}
+
+.PDTable th + .PDTable th, .PDTable td + .PDTable td
+{
+  border-top: 0 ;
+}
+
+.PDTable th {
+    font-weight: bold;
+    text-align: right;
+    width: 150px;
+}
+
+.inline {
+    float: left; /*Add float left*/
+}
+.floatRight {
+    float: right;
+}
+/*---------End of Position Desc-----------------------*/
+
+
+/*------Role description-------*/
+.section {
+    padding: 10px 0;
+}
+/*----RD header-----*/
+.RDHeaderTable, .RDFooter {
+    width: 100%;
+}
+
+.RDHeaderTable h1 {
+    color: #BCBEC0;
+}
+
+.RDHeaderTable tr, td {
+  vertical-align: middle;
+}
+
+.RDHeaderTable th, .RDHeaderTable td {
+    vertical-align: top;
+    padding: 3px 6px;
+}
+.RDHeaderTable th {
+    font-weight: bold;
+    text-align: right;
+    width: 150px;
+}
+/*----RD top summary------*/
+
+.RoleDescTable {
+    border-collapse: collapse;
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    width: 100%;
+    background-color:#01A88F;
+}
+
+
+
+.RoleDescTable th {
+    font-weight: bold;
+    text-align: right;
+    width: 20%;
+}
+
+
+.RoleDescTable th, .RoleDescTable td {
+    border-bottom: 1px solid #fff;
+    vertical-align: top;
+    padding: 3px 6px;
+    
+}
+
+/*----Key relationships, Framework tables-----*/
+.KeyRl, .FrameWork {
+    border-bottom: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    width: 100%;
+}
+
+.FocusTable {
+    width: 100%;
+	border-collapse: collapse;
+}
+
+.FocusTable td {
+    border: 1px solid #6D6E71; 
+	padding: 5px;
+    vertical-align: top;
+}
+
+.KeyRl tr, .FrameWork tr, .FocusTable tr {
+     height: 34px;
+}
+.KeyRl td, .FrameWork td {
+    border-bottom: 1px solid #ccc;
+    min-height: 34px;
+    padding: 5px;
+}
+
+
+.KeyRl .heading,  .FrameWork .heading, .FocusTable .heading{
+    background-color: #6D276A;
+    color: white;
+    font-weight: bold;
+}
+
+.KeyRl .subheading, .FrameWork .subheading, .FocusTable .subheading {
+    background-color: #BCBEC0;
+    font-weight: bold;
+}
+.KeyRl .body{
+  border-bottom: 1px solid #ccc;
+}
+
+.KeyRl ul {
+    padding-left: -10px;
+}
+
+.FocusTable .col1{
+	width: 24%;
+}
+.FocusTable .col2{
+	width: 18%;
+}
+.FocusTable .col3{
+	width: 58%;
+}
+
+
+.space {
+    height: 20px;
+}
+
+
+#keyAccountability ul, #keyChallenge ul,
+#essentialReq ul
+{
+	margin-top:-14px;
+}
+#keyAccountability ul li, #keyChallenge ul li,
+#essentialReq ul li, #directReports ul li, 
+.indicator ul li, .KeyRl ul li
+{
+	margin: 4px 0;
+}
+#directReports ul
+{
+	margin-top:-1px;
+}
+
+
+.indicator ul{
+margin-top:0;
+}
+
+
+.level {
+	padding-top:6px !important;
+
+}
+
+/*------RD footer-----------*/
+.RDFooter {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/*----Bullet points spacing----*/
+.section ul,
+.FocusTable ul{
+    line-height: 100%;
+}
+
+/*--grey font--*/
+.greyfont {
+    color: #6D6E71;
+}
+
+
+
+
+
+

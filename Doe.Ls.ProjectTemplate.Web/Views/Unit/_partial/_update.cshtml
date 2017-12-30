@@ -1,0 +1,166 @@
+@model Unit
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+    var businessUnitItems = ViewBagWrapper.ListBag.GetList("businessUnitItems", ViewData);
+    var functionalAreaItems = ViewBagWrapper.ListBag.GetList("functionalAreaItems", ViewData);
+    var divisionItems = ViewBagWrapper.ListBag.GetList("divisionItems", ViewData);
+    var directorateItems = ViewBagWrapper.ListBag.GetList("directorateItems", ViewData);
+
+    var hierarchyLevelItems = ViewBagWrapper.ListBag.GetList("hierarchyLevelItems", ViewData);
+    var teamTypeItems = ViewBagWrapper.ListBag.GetList("teamTypeItems", ViewData);
+    var statusValueItems = ViewBagWrapper.ListBag.GetList("statusValueItems", ViewData);
+
+}
+
+@Html.AntiForgeryToken()
+
+@if (formType == FormType.Edit) {
+    @Html.Hidden("divId", Model.BusinessUnit.Directorate.ExecutiveCod)
+    @Html.Hidden("dirId", Model.BusinessUnit.DirectorateId)
+
+
+}
+
+<div class="form-group @GetFormGroupClass("UnitId")">
+    <label for="UnitId" class="col-lg-4">@Html.DisplayNameFor(model => model.UnitId) <span class="mandatory">*</span></label>
+
+    <input type="number" name="UnitId" id="UnitId" class="form-control col-lg-8" placeholder="e.g. Unit id" value="@Model.UnitId" @ReadOnly("UnitId") required data-fv-notempty-message='The Unit id is required' data-fv-integer-message='The Unit id is not an integer' />
+
+
+</div>
+
+
+<div class="form-group @GetFormGroupClass("UnitName")">
+    <label for="UnitName" class="col-lg-4">@Html.DisplayNameFor(model => model.UnitName) <span class="mandatory">*</span></label>
+
+    <input type="text" name="UnitName" id="UnitName" class="form-control col-lg-8" placeholder="e.g. Unit name" value="@Model.UnitName" @ReadOnly("UnitName") required data-fv-notempty-message='The Unit name is required' />
+
+</div>
+
+<div class="form-group @GetFormGroupClass("UnitDescription")">
+    <label for="UnitDescription" class="col-lg-4">@Html.DisplayNameFor(model => model.UnitDescription) </label>
+    <textarea name="UnitDescription" id="UnitDescription" class="form-control col-lg-8 " placeholder="e.g. Unit description">@Model.UnitDescription</textarea>
+
+</div>
+
+<div class="form-group">
+    <label for="DivisionCode" class=" col-lg-4">@Html.DisplayNameFor(model => model.BusinessUnit.Directorate.Executive) <span class="mandatory">*</span></label>
+
+
+    @Html.DropDownList("DivisionCode", divisionItems, "Select Division ...", new { id = "DivisionCode", @class = "form-control select2picker col-lg-8", Required = "Required" })
+
+</div>
+
+<div class="form-group">
+    <label for="DirectorateId" class=" col-lg-4">@Html.DisplayNameFor(model => model.BusinessUnit.Directorate) <span class="mandatory">*</span></label>
+
+    @Html.DropDownList("DirectorateId", directorateItems, "Select Directorate ...", new { id = "DirectorateId", @class = "form-control select2picker col-lg-8", Required = "Required", min = 1, data_fv_greaterthan_value = 1, data_fv_greaterthan_message = "Select valid directorate" })
+
+</div>
+
+<div class="form-group @GetFormGroupClass("BUnitId")">
+    <label for="BUnitId" class=" col-lg-4">@Html.DisplayNameFor(model => model.BusinessUnit) <span class="mandatory">*</span></label>
+
+
+    @Html.DropDownList("BUnitId", businessUnitItems, "Select Business unit ...", new { id = "BUnitId", @class = "form-control select2picker col-lg-8", Required = "Required", min = 1, data_fv_greaterthan_value = 1, data_fv_greaterthan_message = "Select valid business unit" })
+
+</div>
+<div class="form-group @GetFormGroupClass("FunctionalAreaId")">
+    <label for="FunctionalAreaId" class=" col-lg-4">@Html.DisplayNameFor(model => model.FunctionalArea) <span class="mandatory">*</span></label>
+
+
+    @Html.DropDownList("FunctionalAreaId", functionalAreaItems, "Select Functional area ...", new { id = "FunctionalAreaId", @class = "form-control select2picker col-lg-8", Required = "Required", min = 1, data_fv_greaterthan_value = 1, data_fv_greaterthan_message = "Select valid functional area" })
+
+</div>
+
+<div class="form-group @GetFormGroupClass("HierarchyId")">
+    <label for="HierarchyId" class=" col-lg-4">@Html.DisplayNameFor(model => model.HierarchyLevel) <span class="mandatory">*</span></label>
+
+
+    @Html.DropDownList("HierarchyId", hierarchyLevelItems, "Select Hierarchy level ...", new { id = "HierarchyId", @class = "form-control select2picker col-lg-8", Required = "Required" })
+    >
+</div>
+
+<div class="form-group @GetFormGroupClass("TeamTypeId")">
+    <label for="TeamTypeId" class=" col-lg-4">@Html.DisplayNameFor(model => model.TeamType) <span class="mandatory">*</span></label>
+
+
+    @Html.DropDownList("TeamTypeId", teamTypeItems, "Select Team type ...", new { id = "TeamTypeId", @class = "form-control select2picker col-lg-8", Required = "Required" })
+
+</div>
+
+<div class="form-group @GetFormGroupClass("UnitCustomClass")">
+    <label for="UnitCustomClass" class="col-lg-4">@Html.DisplayNameFor(model => model.UnitCustomClass) </label>
+
+    <input type="text" name="UnitCustomClass" id="UnitCustomClass" class="form-control col-lg-8" placeholder="e.g. Unit custom class" value="@Model.UnitCustomClass" @ReadOnly("UnitCustomClass") />
+
+</div>
+
+
+<div class="form-group @GetFormGroupClass("StatusId")">
+    <label for="StatusId" class=" col-lg-4">@Html.DisplayNameFor(model => model.StatusValue) <span class="mandatory">*</span></label>
+
+
+    @Html.DropDownList("StatusId", statusValueItems, "Select Status value ...", new { id = "StatusId", @class = "form-control select2picker col-lg-8", Required = "Required" })
+</div>
+
+
+
+
+
+
+@functions
+{
+    bool IsKey(string propertyName) {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType) {
+            case FormType.Create: {
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                    break;
+                }
+        }
+        return string.Empty;
+    }
+}

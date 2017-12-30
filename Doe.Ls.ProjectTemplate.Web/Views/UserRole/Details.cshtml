@@ -1,0 +1,19 @@
+@model UserRoleModel
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    ViewBagWrapper.InfoBag.SetTitle(Model.UserRole.GetDescription() + " user details", ViewData);
+}
+
+<div class="page-header">
+    <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+</div>
+
+<div id="formTab" class="card.card-body">
+    <form class="" role="form" method="POST" id="form-sysUserRole-details">        
+       
+        @Html.Partial("_partial/_details")
+        <a href="@Url.Content(UserRoleController.GetListActionName(Model.UserRole))" class="btn btn-primary">@Model.UserRole.GetDescription() List <span class="glyphicon glyphicon-th-list"></span></a>
+    </form>
+</div>

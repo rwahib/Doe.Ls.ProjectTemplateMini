@@ -1,0 +1,1756 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2D7AFC33-0FC4-448B-A623-B05F462CFEFD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Doe.Ls.ProjectTemplate.Web</RootNamespace>
+    <AssemblyName>Doe.Ls.ProjectTemplate.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Prod|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <MvcBuildViews>true</MvcBuildViews>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisIgnoreGeneratedCode>true</CodeAnalysisIgnoreGeneratedCode>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="Doe.Ls.TrimBase, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Doe.Ls.ProjectTemplate.Core\lib\Doe.Ls.TrimBase.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="HP.HPTRIM.ServiceAPI.Client, Version=9.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Doe.Ls.ProjectTemplate.Core\lib\HP.HPTRIM.ServiceAPI.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="HP.HPTRIM.ServiceAPI.Model, Version=9.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Doe.Ls.ProjectTemplate.Core\lib\HP.HPTRIM.ServiceAPI.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Data.Edm.5.7.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ServiceStack.Text, Version=4.5.0.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Doe.Ls.ProjectTemplate.Core\lib\ServiceStack.Text.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=4.2.29.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\net45\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Unity.Abstractions, Version=3.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.1.2.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.5.0.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.2.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.3.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.0.10.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.5.0\lib\net45\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\AuthConfig.cs" />
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AppEntityTypeController.cs" />
+    <Compile Include="Controllers\AppObjectInfoController.cs" />
+    <Compile Include="Controllers\BusinessUnitController.cs" />
+    <Compile Include="Controllers\CapabilityBehaviourIndicatorController.cs" />
+    <Compile Include="Controllers\CapabilityGroupController.cs" />
+    <Compile Include="Controllers\CapabilityLevelController.cs" />
+    <Compile Include="Controllers\CapabilityNameController.cs" />
+    <Compile Include="Controllers\CostCentreDetailController.cs" />
+    <Compile Include="Controllers\DirectorateController.cs" />
+    <Compile Include="Controllers\Domain\AccountController.cs" />
+    <Compile Include="Controllers\Domain\AppControllerBase.cs" />
+    <Compile Include="Controllers\Domain\AppApiController.cs" />
+    <Compile Include="Controllers\Domain\ErrorController.cs" />
+    <Compile Include="Controllers\Domain\SysController.cs" />
+    <Compile Include="Controllers\FocusController.cs" />
+    <Compile Include="Controllers\Domain\Test.cs" />
+    <Compile Include="Controllers\Domain\HomeController.cs" />
+    <Compile Include="Controllers\Domain\NotificationController.cs" />
+    <Compile Include="Controllers\Domain\PublicController.cs" />
+    <Compile Include="Controllers\Domain\UserGuideController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
+    <Compile Include="Controllers\EmployeePositionController.cs" />
+    <Compile Include="Controllers\EmployeeTypeController.cs" />
+    <Compile Include="Controllers\ExecutiveController.cs" />
+    <Compile Include="Controllers\SysMessageController.cs" />
+    <Compile Include="Controllers\SysMsgCategoryController.cs" />
+    <Compile Include="Controllers\UserRoleController.cs" />
+    <Compile Include="Controllers\FunctionalAreaController.cs" />
+    <Compile Include="Controllers\GeneralLogController.cs" />
+    <Compile Include="Controllers\GlobalItemController.cs" />
+    <Compile Include="Controllers\GradeController.cs" />
+    <Compile Include="Controllers\HierarchyLevelController.cs" />
+    <Compile Include="Controllers\KeyRelationshipController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\LookupFocusGradeCriteriaController.cs" />
+    <Compile Include="Controllers\OccupationTypeController.cs" />
+    <Compile Include="Controllers\OrgLevelController.cs" />
+    <Compile Include="Controllers\PositionController.cs" />
+    <Compile Include="Controllers\PositionDescriptionController.cs" />
+    <Compile Include="Controllers\PositionFocusCriteriaController.cs" />
+    <Compile Include="Controllers\PositionHistoryController.cs" />
+    <Compile Include="Controllers\PositionInformationController.cs" />
+    <Compile Include="Controllers\PositionLevelController.cs" />
+    <Compile Include="Controllers\PositionNoteController.cs" />
+    <Compile Include="Controllers\PositionStatusValueController.cs" />
+    <Compile Include="Controllers\PositionTypeController.cs" />
+    <Compile Include="Controllers\RelationshipScopeController.cs" />
+    <Compile Include="Controllers\RoleCapabilityController.cs" />
+    <Compile Include="Controllers\RoleDescCapabilityMatrixController.cs" />
+    <Compile Include="Controllers\RoleDescriptionController.cs" />
+    <Compile Include="Controllers\RolePositionDescriptionController.cs" />
+    <Compile Include="Controllers\RolePositionDescriptionHistoryController.cs" />
+    <Compile Include="Controllers\SelectionCriteriaController.cs" />
+    <Compile Include="Controllers\StatusValueController.cs" />
+    <Compile Include="Controllers\SysRoleController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\TeamTypeController.cs" />
+    <Compile Include="Controllers\UnitController.cs" />
+    <Compile Include="Controllers\WfActionController.cs" />
+    <Compile Include="Controllers\_partials\BusinessUnitController_partial.cs" />
+    <Compile Include="Controllers\_partials\DirectorateController.cs" />
+    <Compile Include="Controllers\_partials\GeneralLogController.cs" />
+    <Compile Include="Controllers\_partials\GradeController.cs" />
+    <Compile Include="Controllers\_partials\PositionController-workflow-partial.cs" />
+    <Compile Include="Controllers\_partials\PositionController_partial.cs" />
+    <Compile Include="Controllers\_partials\RoleDescriptionController_partial.cs" />
+    <Compile Include="Controllers\_partials\SysUserController_partial.cs" />
+    <Compile Include="Controllers\_partials\PositionDescriptionController_partial.cs" />
+    <Compile Include="Controllers\_partials\UnitController_partial.cs" />
+    <Compile Include="Controllers\_partials\WorkflowController.cs" />
+    <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\OrgLevel\OrgLevelUpdateViewModel.cs" />
+    <Compile Include="ViewModels\OrgLevel\OrgLevelListViewModel.cs" />
+    <Compile Include="ViewModels\OrgLevel\OrgLevelDetailsViewModel.cs" />
+    <Compile Include="ViewModels\OrgLevel\OrgLevelViewModelBase.cs" />
+    <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\ViewModelExtension.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
+    <Content Include="App_Data\MessageList.xml" />
+    <Content Include="Content\font-awesome\4.1.0\css\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\fonts\montserrat-black-webfont.svg" />
+    <Content Include="Content\fonts\montserrat-bold.svg" />
+    <Content Include="Content\fonts\montserrat-light.svg" />
+    <Content Include="Content\fonts\montserrat-light.woff2" />
+    <Content Include="Content\fonts\montserrat-regular.svg" />
+    <Content Include="Content\fonts\montserrat-regular.woff2" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\404.png" />
+    <Content Include="Images\about-bg.jpg" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\chart.svg" />
+    <Content Include="Images\dec-pdf.png" />
+    <Content Include="Images\dec.png" />
+    <Content Include="Images\decSchools_logo.png" />
+    <Content Include="Images\DoE_Public_Schools_Logo.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\home-bg.jpg" />
+    <Content Include="Images\icon-business-enablers.PNG" />
+    <Content Include="Images\icon-occupation-specific.PNG" />
+    <Content Include="Images\icon-people-management.PNG" />
+    <Content Include="Images\icon-personal-attr.PNG" />
+    <Content Include="Images\icon-relationships.PNG" />
+    <Content Include="Images\icon-results.PNG" />
+    <Content Include="Images\icons\audio.png" />
+    <Content Include="Images\icons\download.png" />
+    <Content Include="Images\icons\excel.png" />
+    <Content Include="Images\icons\imgre.png" />
+    <Content Include="Images\icons\online.jpg" />
+    <Content Include="Images\icons\pdf.png" />
+    <Content Include="Images\icons\powerpoint.png" />
+    <Content Include="Images\icons\txt.jpg" />
+    <Content Include="Images\icons\video.png" />
+    <Content Include="Images\icons\word.png" />
+    <Content Include="Images\icons\zip.jpg" />
+    <Content Include="Images\jobDes.svg" />
+    <Content Include="Images\jobEdit.svg" />
+    <Content Include="Images\loading.gif" />
+    <Content Include="Images\logo.jpg" />
+    <Content Include="Images\logos\DoE_Public_Schools_Logo.png" />
+    <Content Include="Images\logos\neals.png" />
+    <Content Include="Images\logos\Thumbs.db" />
+    <Content Include="Images\Neals_RGB.jpg" />
+    <Content Include="Images\no-image-available.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Images\organization-chart.jpg" />
+    <Content Include="Images\organization-chart.svg" />
+    <Content Include="Images\prog.gif" />
+    <Content Include="Images\q.gif" />
+    <Content Include="Images\sample\random-image-portrait.jpg" />
+    <Content Include="Images\sample\random-image.jpg" />
+    <Content Include="Images\twitter.svg" />
+    <Content Include="Images\yammer.svg" />
+    <Content Include="Scripts\app-b3.js" />
+    <Content Include="Scripts\appEntityTypeService.js" />
+    <Content Include="Scripts\appMessageService.js" />
+    <Content Include="Scripts\appObjectInfoService.js" />
+    <Content Include="Scripts\appSettings.js" />
+    <Content Include="Scripts\businessUnitService.js" />
+    <Content Include="Scripts\capabilityBehaviourIndicatorService.js" />
+    <Content Include="Scripts\capabilityGroupService.js" />
+    <Content Include="Scripts\capabilityLevelService.js" />
+    <Content Include="Scripts\capabilityNameService.js" />
+    <Content Include="Scripts\costCentreDetailService.js" />
+    <Content Include="Scripts\dataTableService.js" />
+    <Content Include="Scripts\directorateService.js" />
+    <Content Include="Scripts\employeePositionService.js" />
+    <Content Include="Scripts\employeeService.js" />
+    <Content Include="Scripts\employeeTypeService.js" />
+    <Content Include="Scripts\executiveService.js" />
+    <Content Include="Scripts\focusService.js" />
+    <Content Include="app_offline.htm.off" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\montserrat-bold.eot" />
+    <Content Include="Content\fonts\montserrat-bold.ttf" />
+    <Content Include="Content\fonts\montserrat-bold.woff" />
+    <Content Include="Content\fonts\montserrat-light.eot" />
+    <Content Include="Content\fonts\montserrat-light.ttf" />
+    <Content Include="Content\fonts\montserrat-light.woff" />
+    <Content Include="Content\fonts\montserrat-regular.eot" />
+    <Content Include="Content\fonts\montserrat-regular.ttf" />
+    <Content Include="Content\fonts\montserrat-regular.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Content\fonts\montserrat-black-webfont.eot" />
+    <Content Include="Content\fonts\montserrat-black-webfont.ttf" />
+    <Content Include="Content\fonts\montserrat-black-webfont.woff" />
+    <Content Include="Content\fonts\montserrat-black-webfont.woff2" />
+    <Content Include="Content\fonts\montserrat-bold.woff2" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <None Include="Properties\PublishProfiles\DEV.pubxml" />
+    <None Include="Properties\PublishProfiles\PreProd.pubxml" />
+    <None Include="Properties\PublishProfiles\Prod.pubxml" />
+    <None Include="Properties\PublishProfiles\Template-Dev.pubxml" />
+    <None Include="Properties\PublishProfiles\UAT.pubxml" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Scripts\Framework\bootstrap-4\css\bootstrap-grid.css" />
+    <Content Include="Scripts\Framework\bootstrap-4\css\bootstrap-grid.min.css" />
+    <Content Include="Scripts\Framework\bootstrap-4\css\bootstrap-reboot.css" />
+    <Content Include="Scripts\Framework\bootstrap-4\css\bootstrap-reboot.min.css" />
+    <Content Include="Scripts\Framework\bootstrap-4\css\bootstrap.css" />
+    <Content Include="Scripts\Framework\bootstrap-4\css\bootstrap.min.css" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\css\bootstrap-grid.css.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\css\bootstrap-reboot.css.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\css\bootstrap.css.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\css\bootstrap.min.css.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\alert.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\bootstrap.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\bootstrap.min.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\alert.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\button.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\carousel.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\collapse.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\dropdown.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\index.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\modal.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\popover.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\scrollspy.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\tab.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\tooltip.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\util.js.map" />
+    <Content Include="Scripts\api.js" />
+    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\cnt.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\css\bootstrap-grid.css" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\css\bootstrap-grid.min.css" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\css\bootstrap-reboot.css" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\css\bootstrap-reboot.min.css" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\css\bootstrap.css" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\css\bootstrap.min.css" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\bootstrap.bundle.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\bootstrap.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\bootstrap.min.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\button.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\carousel.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\collapse.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\dropdown.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\index.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\modal.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\popover.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\scrollspy.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\tab.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\tooltip.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\dist\js\util.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\js\bootstrap.bundle.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\js\bootstrap.bundle.min.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\js\bootstrap.js" />
+    <Content Include="Scripts\Framework\bootstrap-4\js\bootstrap.min.js" />
+    <Content Include="Scripts\Framework\jquery-3.2.1.min.js" />
+    <Content Include="Scripts\Framework\require.js" />
+    <Content Include="Scripts\functionalAreaService.js" />
+    <Content Include="Scripts\generalLogService.js" />
+    <Content Include="Scripts\globalItemService.js" />
+    <Content Include="Scripts\globalStatusValueService.js" />
+    <Content Include="Scripts\gradeService.js" />
+    <Content Include="Scripts\helper.js" />
+    <Content Include="Scripts\interactive.js" />
+    <Content Include="Scripts\itemService.js" />
+    <Content Include="Scripts\js-templates\data-table-header-row.html" />
+    <Content Include="Scripts\js-templates\data-table.html" />
+    <Content Include="Scripts\js-templates\tabs2.html" />
+    <Content Include="Scripts\js-templates\tabs3.html" />
+    <Content Include="Scripts\js-templates\tabs4.html" />
+    <Content Include="Scripts\js-templates\banner-image.html" />
+    <Content Include="Scripts\js-templates\data-table-header-column.html" />
+    <Content Include="Scripts\js-templates\call-out-box.html" />
+    <Content Include="Scripts\js-templates\collapsed.html" />
+    <Content Include="Scripts\js-templates\blockquote.html" />
+    <Content Include="Scripts\js-templates\highlights.html" />
+    <Content Include="Scripts\js-templates\anchor-box.html" />
+    <Content Include="Scripts\js-templates\links-1group-3columns.html" />
+    <Content Include="Scripts\js-templates\links-1group-2columns.html" />
+    <Content Include="Scripts\keyRelationshipService.js" />
+    <Content Include="Scripts\locationService.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\css\formValidation.css" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\css\formValidation.min.css" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\formValidation.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\formValidation.min.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\formValidation.popular.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\formValidation.popular.min.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\bootstrap.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\bootstrap.min.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\bootstrap4.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\bootstrap4.min.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\foundation.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\foundation.min.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\foundation5.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\foundation5.min.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\pure.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\pure.min.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\semantic.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\semantic.min.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\uikit.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\framework\uikit.min.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\ar_MA.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\bg_BG.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\ca_ES.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\cs_CZ.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\da_DK.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\de_DE.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\el_GR.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\en_US.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\es_CL.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\es_ES.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\eu_ES.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\fa_IR.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\fi_FI.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\fr_BE.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\fr_FR.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\he_IL.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\hi_IN.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\hu_HU.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\id_ID.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\it_IT.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\ja_JP.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\nl_BE.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\nl_NL.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\no_NO.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\pl_PL.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\pt_BR.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\pt_PT.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\ro_RO.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\ru_RU.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\sk_SK.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\sq_AL.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\sr_RS.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\sv_SE.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\th_TH.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\tr_TR.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\ua_UA.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\vi_VN.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\zh_CN.js" />
+    <Content Include="Scripts\Plugins\bsFormvalidation\js\language\zh_TW.js" />
+    <Content Include="Scripts\positionHistoryService.js" />
+    <Content Include="Scripts\rolePositionDescriptionHistoryService.js" />
+    <Content Include="Scripts\sysMessageService.js" />
+    <Content Include="Scripts\sysMsgCategoryService.js" />
+    <Content Include="Scripts\userGuide.js" />
+    <Content Include="Scripts\logService.js" />
+    <Content Include="Scripts\lookupFocusGradeCriteriaService.js" />
+    <Content Include="Scripts\mainService.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\occupationTypeService.js" />
+    <Content Include="Scripts\orgLevelService.js" />
+    <Content Include="Scripts\Plugins\bootbox\bootbox.js" />
+    <Content Include="Scripts\Plugins\bootbox\bootbox.min.js" />
+    <Content Include="Scripts\Plugins\bootstrap-accessibility\css\bootstrap-accessibility.css" />
+    <Content Include="Scripts\Plugins\bootstrap-accessibility\css\bootstrap-accessibility_1.0.3.css" />
+    <Content Include="Scripts\Plugins\bootstrap-accessibility\js\bootstrap-accessibility.js" />
+    <Content Include="Scripts\Plugins\bootstrap-accessibility\js\bootstrap-accessibility.min.js" />
+    <Content Include="Scripts\Plugins\bootstrap-accessibility\js\bootstrap-accessibility_1.0.3.js" />
+    <Content Include="Scripts\Plugins\bootstrap-accessibility\js\bootstrap-accessibility_1.0.3.min.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\css\formValidation.css" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\css\formValidation.min.css" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\formValidation.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\formValidation.min.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\formValidation.popular.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\formValidation.popular.min.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\framework\bootstrap.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\framework\bootstrap.min.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\framework\foundation.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\framework\foundation.min.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\framework\pure.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\framework\pure.min.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\framework\semantic.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\framework\semantic.min.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\framework\uikit.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\framework\uikit.min.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\ar_MA.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\be_FR.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\be_NL.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\bg_BG.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\ca_ES.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\cs_CZ.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\da_DK.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\de_DE.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\en_US.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\es_CL.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\es_ES.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\eu_ES.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\fa_IR.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\fi_FI.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\fr_FR.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\gr_EL.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\he_IL.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\hi_IN.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\hu_HU.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\id_ID.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\it_IT.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\ja_JP.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\nl_NL.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\no_NO.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\pl_PL.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\pt_BR.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\pt_PT.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\ro_RO.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\ru_RU.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\sk_SK.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\sq_AL.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\sr_RS.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\sv_SE.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\th_TH.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\tr_TR.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\ua_UA.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\vi_VN.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\zh_CN.js" />
+    <Content Include="Scripts\Plugins\bootstrap-FormValidation\js\language\zh_TW.js" />
+    <Content Include="Scripts\Plugins\bootstrap-multiselect\css\bootstrap-multiselect.css" />
+    <Content Include="Scripts\Plugins\bootstrap-multiselect\css\prettify.css" />
+    <Content Include="Scripts\Plugins\bootstrap-multiselect\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\Plugins\bootstrap-multiselect\js\bootstrap-multiselect.js" />
+    <Content Include="Scripts\Plugins\bootstrap-multiselect\js\prettify.js" />
+    <Content Include="Scripts\Plugins\bootstrap-switch\css\bootstrap2\bootstrap-switch.css" />
+    <Content Include="Scripts\Plugins\bootstrap-switch\css\bootstrap2\bootstrap-switch.min.css" />
+    <Content Include="Scripts\Plugins\bootstrap-switch\css\bootstrap3\bootstrap-switch.css" />
+    <Content Include="Scripts\Plugins\bootstrap-switch\css\bootstrap3\bootstrap-switch.min.css" />
+    <Content Include="Scripts\Plugins\bootstrap-switch\js\bootstrap-switch.js" />
+    <Content Include="Scripts\Plugins\bootstrap-switch\js\bootstrap-switch.min.js" />
+    <Content Include="Scripts\Plugins\bootstrap-timepicker\bootstrap-responsive.css" />
+    <Content Include="Scripts\Plugins\bootstrap-timepicker\bootstrap-timepicker.css" />
+    <Content Include="Scripts\Plugins\bootstrap-timepicker\bootstrap-timepicker.js" />
+    <Content Include="Scripts\Plugins\bootstrap-timepicker\bootstrap-timepicker.min.css" />
+    <Content Include="Scripts\Plugins\bootstrap-timepicker\bootstrap-timepicker.min.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\css\dataTables.bootstrap.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\css\dataTables.bootstrap.min.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\css\dataTables.foundation.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\css\dataTables.foundation.min.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\css\dataTables.jqueryui.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\css\dataTables.jqueryui.min.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\css\jquery.dataTables.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\css\jquery.dataTables.min.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\images\sort_asc.png" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\images\sort_both.png" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\images\sort_desc.png" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\js\dataTables.foundation.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\js\dataTables.foundation.min.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\js\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\js\jquery.dataTables.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\DataTables-1.10.11\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\dataTables.bootstrap.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\dataTables.bootstrap.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\datatables.min.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\images\sort_asc.png" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\images\sort_both.png" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\images\sort_desc.png" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\css\responsive.bootstrap.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\css\responsive.bootstrap.min.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\css\responsive.dataTables.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\css\responsive.dataTables.min.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\css\responsive.foundation.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\css\responsive.foundation.min.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\css\responsive.jqueryui.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\css\responsive.jqueryui.min.css" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\js\dataTables.responsive.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\js\dataTables.responsive.min.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\js\responsive.bootstrap.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\js\responsive.bootstrap.min.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\js\responsive.foundation.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\js\responsive.foundation.min.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\js\responsive.jqueryui.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatatable\Responsive-2.0.2\js\responsive.jqueryui.min.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatepicker\bootstrap-datepicker.js" />
+    <Content Include="Scripts\Plugins\bootstrapDatepicker\datepicker.css" />
+    <Content Include="Scripts\Plugins\bootstrapProgressBar\bootstrap-progressbar-3.1.1.css" />
+    <Content Include="Scripts\Plugins\bootstrapProgressBar\bootstrap-progressbar.min.js" />
+    <Content Include="Scripts\Plugins\bootstrapSelect2\select2-bootstrap.css" />
+    <Content Include="Scripts\Plugins\bootstrapSelect2\select2-spinner.gif" />
+    <Content Include="Scripts\Plugins\bootstrapSelect2\select2.css" />
+    <Content Include="Scripts\Plugins\bootstrapSelect2\select2.js" />
+    <Content Include="Scripts\Plugins\bootstrapSelect2\select2.min.js" />
+    <Content Include="Scripts\Plugins\bootstrapSelect2\select2.png" />
+    <Content Include="Scripts\Plugins\bootstrapSelect2\select2x2.png" />
+    <Content Include="Scripts\Plugins\bootstrapSelect2\_select2-bootstrap.css" />
+    <Content Include="Scripts\Plugins\bootstrapTypeahead\bootstrap3-typeahead.js" />
+    <Content Include="Scripts\Plugins\bootstrapTypeahead\typeahead.js" />
+    <Content Include="Scripts\Plugins\jquery-dateFormat.js" />
+    <Content Include="Scripts\Plugins\jquery-dateFormat.min.js" />
+    <Content Include="Scripts\Plugins\jQueryCalendar\fullcalendar.css" />
+    <Content Include="Scripts\Plugins\jQueryCalendar\fullcalendar.print.css" />
+    <Content Include="Scripts\Plugins\jQueryCalendar\jquery-fullcalendar.min.js" />
+    <Content Include="Scripts\Plugins\jQueryCalendar\moment.min.js" />
+    <Content Include="Scripts\Plugins\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Plugins\PDFKit\blob-stream.js" />
+    <Content Include="Scripts\Plugins\PDFKit\FileSaver.min.js" />
+    <Content Include="Scripts\Plugins\PDFKit\pdfkit.js" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\jquery-ui-1.10.2.custom.min.css" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\jquery-ui-1.10.2.custom.min.js" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\jquery.layout-latest.min.js" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\animated-overlay.gif" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\ui-lightness\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\ui-lightness\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\ui-lightness\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\ui-lightness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\ui-lightness\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\ui-lightness\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\ui-lightness\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\ui-lightness\jquery-ui-1.10.2.custom.css" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\ui-lightness\jquery-ui-1.10.2.custom.min.css" />
+    <Content Include="Scripts\Plugins\Primitives\jquery.printElement.min.js" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\bporgeditor.latest.css" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\bporgeditor.latest.js" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\bporgeditor.min.js" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\glyphicons-halflings-white.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\glyphicons-halflings.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Scripts\Plugins\Primitives\jquery-ui-1.10.0.custom\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\animated-overlay.gif" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\glyphicons-halflings-white.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\glyphicons-halflings.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-icons_222222_256x240.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\layout-default-latest.css" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\primitives.latest.css" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\primitives.latest.js" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\primitives.min.js" />
+    <Content Include="Scripts\Plugins\Primitives\primitives\UserTemplates.js" />
+    <Content Include="Scripts\Plugins\tinymce\changelog.txt" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\jquery.tinymce.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\license.txt" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\codesample\css\prism.css" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\embed\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\example\dialog.html" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\example\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\example_dependency\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\layer\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\media\moxieplayer.swf" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\skin.ie7.min.css" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\config\bolt\atomic.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\config\bolt\bootstrap-atomic.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\config\bolt\bootstrap-browser.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\config\bolt\bootstrap-demo.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\config\bolt\bootstrap-prod.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\config\bolt\browser.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\config\bolt\demo.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\config\bolt\prod.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\config\dent\depend.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\scratch\compile\bootstrap.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\scratch\compile\theme.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\scratch\inline\theme.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\scratch\inline\theme.raw.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\demo\css\demo.css" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\demo\html\demo.html" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\demo\js\tinymce\inlite\Demo.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\alien\Arr.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\alien\Bookmark.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\alien\Unlink.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\alien\Uuid.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\Actions.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\Convert.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\ElementMatcher.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\Layout.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\Matcher.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\Measure.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\PredicateId.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\SelectionMatcher.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\SkinLoader.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\core\UrlType.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\file\Conversions.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\file\Picker.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\Theme.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\ui\Buttons.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\ui\Forms.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\ui\Panel.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\main\js\tinymce\inlite\ui\Toolbar.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\atomic\alien\ArrTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\atomic\alien\UuidTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\atomic\core\ConvertTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\atomic\core\MatcherTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\atomic\core\UrlTypeTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\browser\alien\BookmarkTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\browser\alien\UnlinkTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\browser\core\ActionsTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\browser\core\ElementMatcher.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\browser\core\LayoutTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\browser\core\MeasureTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\browser\core\PredicateIdTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\browser\core\SelectionMatcherTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\browser\file\ConversionsTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\browser\file\SelectionMatcher.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\js\browser\ThemeTest.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\theme.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\modern\theme.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\tinymce.min.js" />
+    <Content Include="Scripts\Plugins\tinymce\LICENSE.TXT" />
+    <Content Include="Scripts\Plugins\vle\vle.dataTable.js" />
+    <Content Include="Scripts\Plugins\vle\vle.layout.js" />
+    <Content Include="Scripts\Plugins\vle\vle.tinymce.js" />
+    <Content Include="Scripts\positionChartServices.js" />
+    <Content Include="Scripts\positionDescriptionService.js" />
+    <Content Include="Scripts\positionFocusCriteriaService.js" />
+    <Content Include="Scripts\positionInformationService.js" />
+    <Content Include="Scripts\positionLevelService.js" />
+    <Content Include="Scripts\positionNoteService.js" />
+    <Content Include="Scripts\positionService.js" />
+    <Content Include="Scripts\positionStatusValueService.js" />
+    <Content Include="Scripts\positionTypeService.js" />
+    <Content Include="Scripts\relationshipScopeService.js" />
+    <Content Include="Scripts\roleCapabilityService.js" />
+    <Content Include="Scripts\roleDescCapabilityMatrixService.js" />
+    <Content Include="Scripts\roleDescriptionService.js" />
+    <Content Include="Scripts\rolePositionDescriptionService.js" />
+    <Content Include="Scripts\selectionCriteriaService.js" />
+    <Content Include="Scripts\statusValueService.js" />
+    <Content Include="Scripts\sysRoleService.js" />
+    <Content Include="Scripts\sysUserRoleService.js" />
+    <Content Include="Scripts\UserService.js" />
+    <Content Include="Scripts\unitService.js" />
+    <Content Include="Scripts\wfActionService.js" />
+    <Content Include="Version.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Version.txt</LastGenOutput>
+    </Content>
+    <Content Include="Version.txt">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Version.tt</DependentUpon>
+    </Content>
+    <Content Include="Views\Shared\Error\Detail.cshtml" />
+    <Content Include="Views\Shared\Error\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Scripts\Plugins\bootstrap-multiselect\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Scripts\Plugins\bootstrap-multiselect\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Scripts\Plugins\bootstrap-multiselect\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Views\Shared\_partial\_GlobalFooter.cshtml" />
+    <Content Include="Views\Shared\_partial\_plugins.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\BooleanTextOnly.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\BoolDropDown.cshtml" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\langs\readme.md" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Scripts\Plugins\tinymce\js\tinymce\themes\inlite\src\test\.eslintrc" />
+    <Content Include="Views\Shared\_partial\_GlobalHeader.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\BoolDropDown.cshtml" />
+    <Content Include="Scripts\Plugins\bootstrapSelect2\select2.min.js.map" />
+    <Content Include="Views\Shared\DisplayTemplates\AccessibleString.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AccessibleInt32.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AccessibleDateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AccessibleDate.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\AccessibleDateTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AccessibleTime.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AccessibleNumberSpacedDigits.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AccessibleEmailLink.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AccessiblePhoneNumberLink.cshtml" />
+    <Content Include="Views\Shared\Error\NotFound.cshtml" />
+    <Content Include="Views\Directorate\_partial\_details.cshtml" />
+    <Content Include="Views\Directorate\_partial\_list.cshtml" />
+    <Content Include="Views\Directorate\_partial\_update.cshtml" />
+    <Content Include="Views\Directorate\Create-modal.cshtml" />
+    <Content Include="Views\Directorate\Create.cshtml" />
+    <Content Include="Views\Directorate\Delete-modal.cshtml" />
+    <Content Include="Views\Directorate\Delete.cshtml" />
+    <Content Include="Views\Directorate\Details-modal.cshtml" />
+    <Content Include="Views\Directorate\Details.cshtml" />
+    <Content Include="Views\Directorate\Edit-modal.cshtml" />
+    <Content Include="Views\Directorate\Edit.cshtml" />
+    <Content Include="Views\Directorate\Index.cshtml" />
+    <Content Include="Views\Shared\_partial\_GA.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AccessibleBooleanTrueFalse.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AccessibleDecimal.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AccessibleDouble.cshtml" />
+    <Content Include="Views\Account\DoeSignIn.cshtml" />
+    <Content Include="Views\Account\_sampleUsers.cshtml" />
+    <Content Include="Views\Account\SignIn.cshtml" />
+    <Content Include="Views\Home\__About.cshtml" />
+    <Content Include="Views\Home\__Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\AppApi\Index.cshtml" />
+    <Content Include="Views\AppEntityType\Create-modal.cshtml" />
+    <Content Include="Views\AppEntityType\Create.cshtml" />
+    <Content Include="Views\AppEntityType\Delete-modal.cshtml" />
+    <Content Include="Views\AppEntityType\Delete.cshtml" />
+    <Content Include="Views\AppEntityType\Details-modal.cshtml" />
+    <Content Include="Views\AppEntityType\Details.cshtml" />
+    <Content Include="Views\AppEntityType\Edit-modal.cshtml" />
+    <Content Include="Views\AppEntityType\Edit.cshtml" />
+    <Content Include="Views\AppEntityType\Index.cshtml" />
+    <Content Include="Views\AppEntityType\_partial\_details.cshtml" />
+    <Content Include="Views\AppEntityType\_partial\_list.cshtml" />
+    <Content Include="Views\AppEntityType\_partial\_update.cshtml" />
+    <Content Include="Views\AppObjectInfo\Create-modal.cshtml" />
+    <Content Include="Views\AppObjectInfo\Create.cshtml" />
+    <Content Include="Views\AppObjectInfo\Delete-modal.cshtml" />
+    <Content Include="Views\AppObjectInfo\Delete.cshtml" />
+    <Content Include="Views\AppObjectInfo\Details-modal.cshtml" />
+    <Content Include="Views\AppObjectInfo\Details.cshtml" />
+    <Content Include="Views\AppObjectInfo\Edit-modal.cshtml" />
+    <Content Include="Views\AppObjectInfo\Edit.cshtml" />
+    <Content Include="Views\AppObjectInfo\Index.cshtml" />
+    <Content Include="Views\AppObjectInfo\_partial\_details.cshtml" />
+    <Content Include="Views\AppObjectInfo\_partial\_list.cshtml" />
+    <Content Include="Views\AppObjectInfo\_partial\_update.cshtml" />
+    <Content Include="Views\CapabilityBehaviourIndicator\Create-modal.cshtml" />
+    <Content Include="Views\CapabilityBehaviourIndicator\Create.cshtml" />
+    <Content Include="Views\CapabilityBehaviourIndicator\Delete-modal.cshtml" />
+    <Content Include="Views\CapabilityBehaviourIndicator\Delete.cshtml" />
+    <Content Include="Views\CapabilityBehaviourIndicator\Details-modal.cshtml" />
+    <Content Include="Views\CapabilityBehaviourIndicator\Details.cshtml" />
+    <Content Include="Views\CapabilityBehaviourIndicator\Edit-modal.cshtml" />
+    <Content Include="Views\CapabilityBehaviourIndicator\Edit.cshtml" />
+    <Content Include="Views\CapabilityBehaviourIndicator\Index.cshtml" />
+    <Content Include="Views\CapabilityBehaviourIndicator\_partial\_details.cshtml" />
+    <Content Include="Views\CapabilityBehaviourIndicator\_partial\_list.cshtml" />
+    <Content Include="Views\CapabilityBehaviourIndicator\_partial\_update.cshtml" />
+    <Content Include="Views\CapabilityGroup\Create-modal.cshtml" />
+    <Content Include="Views\CapabilityGroup\Create.cshtml" />
+    <Content Include="Views\CapabilityGroup\Delete-modal.cshtml" />
+    <Content Include="Views\CapabilityGroup\Delete.cshtml" />
+    <Content Include="Views\CapabilityGroup\Details-modal.cshtml" />
+    <Content Include="Views\CapabilityGroup\Details.cshtml" />
+    <Content Include="Views\CapabilityGroup\Edit-modal.cshtml" />
+    <Content Include="Views\CapabilityGroup\Edit.cshtml" />
+    <Content Include="Views\CapabilityGroup\Index.cshtml" />
+    <Content Include="Views\CapabilityGroup\_partial\_details.cshtml" />
+    <Content Include="Views\CapabilityGroup\_partial\_list.cshtml" />
+    <Content Include="Views\CapabilityGroup\_partial\_update.cshtml" />
+    <Content Include="Views\CapabilityLevel\Create-modal.cshtml" />
+    <Content Include="Views\CapabilityLevel\Create.cshtml" />
+    <Content Include="Views\CapabilityLevel\Delete-modal.cshtml" />
+    <Content Include="Views\CapabilityLevel\Delete.cshtml" />
+    <Content Include="Views\CapabilityLevel\Details-modal.cshtml" />
+    <Content Include="Views\CapabilityLevel\Details.cshtml" />
+    <Content Include="Views\CapabilityLevel\Edit-modal.cshtml" />
+    <Content Include="Views\CapabilityLevel\Edit.cshtml" />
+    <Content Include="Views\CapabilityLevel\Index.cshtml" />
+    <Content Include="Views\CapabilityLevel\_partial\_details.cshtml" />
+    <Content Include="Views\CapabilityLevel\_partial\_list.cshtml" />
+    <Content Include="Views\CapabilityLevel\_partial\_update.cshtml" />
+    <Content Include="Views\CapabilityName\Create-modal.cshtml" />
+    <Content Include="Views\CapabilityName\Create.cshtml" />
+    <Content Include="Views\CapabilityName\Delete-modal.cshtml" />
+    <Content Include="Views\CapabilityName\Delete.cshtml" />
+    <Content Include="Views\CapabilityName\Details-modal.cshtml" />
+    <Content Include="Views\CapabilityName\Details.cshtml" />
+    <Content Include="Views\CapabilityName\Edit-modal.cshtml" />
+    <Content Include="Views\CapabilityName\Edit.cshtml" />
+    <Content Include="Views\CapabilityName\Index.cshtml" />
+    <Content Include="Views\CapabilityName\_partial\_details.cshtml" />
+    <Content Include="Views\CapabilityName\_partial\_list.cshtml" />
+    <Content Include="Views\CapabilityName\_partial\_update.cshtml" />
+    <Content Include="Views\CostCentreDetail\Create-modal.cshtml" />
+    <Content Include="Views\CostCentreDetail\Create.cshtml" />
+    <Content Include="Views\CostCentreDetail\Delete-modal.cshtml" />
+    <Content Include="Views\CostCentreDetail\Delete.cshtml" />
+    <Content Include="Views\CostCentreDetail\Details-modal.cshtml" />
+    <Content Include="Views\CostCentreDetail\Details.cshtml" />
+    <Content Include="Views\CostCentreDetail\Edit-modal.cshtml" />
+    <Content Include="Views\CostCentreDetail\Edit.cshtml" />
+    <Content Include="Views\CostCentreDetail\Index.cshtml" />
+    <Content Include="Views\CostCentreDetail\_partial\_details.cshtml" />
+    <Content Include="Views\CostCentreDetail\_partial\_list.cshtml" />
+    <Content Include="Views\CostCentreDetail\_partial\_update.cshtml" />
+    <Content Include="Views\EmployeePosition\Create-modal.cshtml" />
+    <Content Include="Views\EmployeePosition\Create.cshtml" />
+    <Content Include="Views\EmployeePosition\Delete-modal.cshtml" />
+    <Content Include="Views\EmployeePosition\Delete.cshtml" />
+    <Content Include="Views\EmployeePosition\Details-modal.cshtml" />
+    <Content Include="Views\EmployeePosition\Details.cshtml" />
+    <Content Include="Views\EmployeePosition\Edit-modal.cshtml" />
+    <Content Include="Views\EmployeePosition\Edit.cshtml" />
+    <Content Include="Views\EmployeePosition\Index.cshtml" />
+    <Content Include="Views\EmployeePosition\_partial\_details.cshtml" />
+    <Content Include="Views\EmployeePosition\_partial\_list.cshtml" />
+    <Content Include="Views\EmployeePosition\_partial\_update.cshtml" />
+    <Content Include="Views\EmployeeType\Create-modal.cshtml" />
+    <Content Include="Views\EmployeeType\Create.cshtml" />
+    <Content Include="Views\EmployeeType\Delete-modal.cshtml" />
+    <Content Include="Views\EmployeeType\Delete.cshtml" />
+    <Content Include="Views\EmployeeType\Details-modal.cshtml" />
+    <Content Include="Views\EmployeeType\Details.cshtml" />
+    <Content Include="Views\EmployeeType\Edit-modal.cshtml" />
+    <Content Include="Views\EmployeeType\Edit.cshtml" />
+    <Content Include="Views\EmployeeType\Index.cshtml" />
+    <Content Include="Views\EmployeeType\_partial\_details.cshtml" />
+    <Content Include="Views\EmployeeType\_partial\_list.cshtml" />
+    <Content Include="Views\EmployeeType\_partial\_update.cshtml" />
+    <Content Include="Views\Employee\Create-modal.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Delete-modal.cshtml" />
+    <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\Employee\Details-modal.cshtml" />
+    <Content Include="Views\Employee\Details.cshtml" />
+    <Content Include="Views\Employee\Edit-modal.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
+    <Content Include="Views\Employee\_partial\_details.cshtml" />
+    <Content Include="Views\Employee\_partial\_list.cshtml" />
+    <Content Include="Views\Employee\_partial\_update.cshtml" />
+    <Content Include="Views\Executive\Create-modal.cshtml" />
+    <Content Include="Views\Executive\Create.cshtml" />
+    <Content Include="Views\Executive\Delete-modal.cshtml" />
+    <Content Include="Views\Executive\Delete.cshtml" />
+    <Content Include="Views\Executive\Details-modal.cshtml" />
+    <Content Include="Views\Executive\Details.cshtml" />
+    <Content Include="Views\Executive\Edit-modal.cshtml" />
+    <Content Include="Views\Executive\Edit.cshtml" />
+    <Content Include="Views\Executive\Index.cshtml" />
+    <Content Include="Views\Executive\_partial\_details.cshtml" />
+    <Content Include="Views\Executive\_partial\_list.cshtml" />
+    <Content Include="Views\Executive\_partial\_update.cshtml" />
+    <Content Include="Views\Focus\Create-modal.cshtml" />
+    <Content Include="Views\Focus\Create.cshtml" />
+    <Content Include="Views\Focus\Delete-modal.cshtml" />
+    <Content Include="Views\Focus\Delete.cshtml" />
+    <Content Include="Views\Focus\Details-modal.cshtml" />
+    <Content Include="Views\Focus\Details.cshtml" />
+    <Content Include="Views\Focus\Edit-modal.cshtml" />
+    <Content Include="Views\Focus\Edit.cshtml" />
+    <Content Include="Views\Focus\Index.cshtml" />
+    <Content Include="Views\Focus\_partial\_details.cshtml" />
+    <Content Include="Views\Focus\_partial\_list.cshtml" />
+    <Content Include="Views\Focus\_partial\_update.cshtml" />
+    <Content Include="Views\FunctionalArea\Create-modal.cshtml" />
+    <Content Include="Views\FunctionalArea\Create.cshtml" />
+    <Content Include="Views\FunctionalArea\Delete-modal.cshtml" />
+    <Content Include="Views\FunctionalArea\Delete.cshtml" />
+    <Content Include="Views\FunctionalArea\Details-modal.cshtml" />
+    <Content Include="Views\FunctionalArea\Details.cshtml" />
+    <Content Include="Views\FunctionalArea\Edit-modal.cshtml" />
+    <Content Include="Views\FunctionalArea\Edit.cshtml" />
+    <Content Include="Views\FunctionalArea\Index.cshtml" />
+    <Content Include="Views\FunctionalArea\_partial\_details.cshtml" />
+    <Content Include="Views\FunctionalArea\_partial\_list.cshtml" />
+    <Content Include="Views\FunctionalArea\_partial\_update.cshtml" />
+    <Content Include="Views\GeneralLog\Details-modal.cshtml" />
+    <Content Include="Views\GeneralLog\Details.cshtml" />
+    <Content Include="Views\GeneralLog\Index.cshtml" />
+    <Content Include="Views\GeneralLog\_partial\_details.cshtml" />
+    <Content Include="Views\GeneralLog\_partial\_list.cshtml" />
+    <Content Include="Views\GlobalItem\Create-modal.cshtml" />
+    <Content Include="Views\GlobalItem\Create.cshtml" />
+    <Content Include="Views\GlobalItem\Delete-modal.cshtml" />
+    <Content Include="Views\GlobalItem\Delete.cshtml" />
+    <Content Include="Views\GlobalItem\Details-modal.cshtml" />
+    <Content Include="Views\GlobalItem\Details.cshtml" />
+    <Content Include="Views\GlobalItem\Edit-modal.cshtml" />
+    <Content Include="Views\GlobalItem\Edit.cshtml" />
+    <Content Include="Views\GlobalItem\Index.cshtml" />
+    <Content Include="Views\GlobalItem\_partial\_details.cshtml" />
+    <Content Include="Views\GlobalItem\_partial\_list.cshtml" />
+    <Content Include="Views\GlobalItem\_partial\_update.cshtml" />
+    <Content Include="Views\Grade\Create-modal.cshtml" />
+    <Content Include="Views\Grade\Create.cshtml" />
+    <Content Include="Views\Grade\Delete-modal.cshtml" />
+    <Content Include="Views\Grade\Delete.cshtml" />
+    <Content Include="Views\Grade\Details-modal.cshtml" />
+    <Content Include="Views\Grade\Details.cshtml" />
+    <Content Include="Views\Grade\Edit-modal.cshtml" />
+    <Content Include="Views\Grade\Edit.cshtml" />
+    <Content Include="Views\Grade\Index.cshtml" />
+    <Content Include="Views\Grade\_partial\_details.cshtml" />
+    <Content Include="Views\Grade\_partial\_list.cshtml" />
+    <Content Include="Views\Grade\_partial\_update.cshtml" />
+    <Content Include="Views\KeyRelationship\Create-modal.cshtml" />
+    <Content Include="Views\KeyRelationship\Create.cshtml" />
+    <Content Include="Views\KeyRelationship\Delete-modal.cshtml" />
+    <Content Include="Views\KeyRelationship\Delete.cshtml" />
+    <Content Include="Views\KeyRelationship\Details-modal.cshtml" />
+    <Content Include="Views\KeyRelationship\Details.cshtml" />
+    <Content Include="Views\KeyRelationship\Edit-modal.cshtml" />
+    <Content Include="Views\KeyRelationship\Edit.cshtml" />
+    <Content Include="Views\KeyRelationship\Index.cshtml" />
+    <Content Include="Views\KeyRelationship\_partial\_details.cshtml" />
+    <Content Include="Views\KeyRelationship\_partial\_list.cshtml" />
+    <Content Include="Views\KeyRelationship\_partial\_update.cshtml" />
+    <Content Include="Views\Location\Create-modal.cshtml" />
+    <Content Include="Views\Location\Create.cshtml" />
+    <Content Include="Views\Location\Delete-modal.cshtml" />
+    <Content Include="Views\Location\Delete.cshtml" />
+    <Content Include="Views\Location\Details-modal.cshtml" />
+    <Content Include="Views\Location\Details.cshtml" />
+    <Content Include="Views\Location\Edit-modal.cshtml" />
+    <Content Include="Views\Location\Edit.cshtml" />
+    <Content Include="Views\Location\Index.cshtml" />
+    <Content Include="Views\Location\_partial\_details.cshtml" />
+    <Content Include="Views\Location\_partial\_list.cshtml" />
+    <Content Include="Views\Location\_partial\_update.cshtml" />
+    <Content Include="Views\LookupFocusGradeCriteria\Create-modal.cshtml" />
+    <Content Include="Views\LookupFocusGradeCriteria\Create.cshtml" />
+    <Content Include="Views\LookupFocusGradeCriteria\Delete-modal.cshtml" />
+    <Content Include="Views\LookupFocusGradeCriteria\Delete.cshtml" />
+    <Content Include="Views\LookupFocusGradeCriteria\Details-modal.cshtml" />
+    <Content Include="Views\LookupFocusGradeCriteria\Details.cshtml" />
+    <Content Include="Views\LookupFocusGradeCriteria\Edit-modal.cshtml" />
+    <Content Include="Views\LookupFocusGradeCriteria\Edit.cshtml" />
+    <Content Include="Views\LookupFocusGradeCriteria\Index.cshtml" />
+    <Content Include="Views\LookupFocusGradeCriteria\_partial\_details.cshtml" />
+    <Content Include="Views\LookupFocusGradeCriteria\_partial\_list.cshtml" />
+    <Content Include="Views\LookupFocusGradeCriteria\_partial\_update.cshtml" />
+    <Content Include="Views\OccupationType\Create-modal.cshtml" />
+    <Content Include="Views\OccupationType\Create.cshtml" />
+    <Content Include="Views\OccupationType\Delete-modal.cshtml" />
+    <Content Include="Views\OccupationType\Delete.cshtml" />
+    <Content Include="Views\OccupationType\Details-modal.cshtml" />
+    <Content Include="Views\OccupationType\Details.cshtml" />
+    <Content Include="Views\OccupationType\Edit-modal.cshtml" />
+    <Content Include="Views\OccupationType\Edit.cshtml" />
+    <Content Include="Views\OccupationType\Index.cshtml" />
+    <Content Include="Views\OccupationType\_partial\_details.cshtml" />
+    <Content Include="Views\OccupationType\_partial\_list.cshtml" />
+    <Content Include="Views\OccupationType\_partial\_update.cshtml" />
+    <Content Include="Views\PositionDescription\Create.cshtml" />
+    <Content Include="Views\PositionDescription\Delete.cshtml" />
+    <Content Include="Views\PositionDescription\Details.cshtml" />
+    <Content Include="Views\PositionDescription\Edit.cshtml" />
+    <Content Include="Views\PositionDescription\Index.cshtml" />
+    <Content Include="Views\PositionDescription\_partial\_manageSummary.cshtml" />
+    <Content Include="Views\PositionDescription\_partial\_list.cshtml" />
+    <Content Include="Views\PositionDescription\_partial\_update.cshtml" />
+    <Content Include="Views\PositionFocusCriteria\Index.cshtml" />
+    <Content Include="Views\PositionFocusCriteria\_partial\_details.cshtml" />
+    <Content Include="Views\PositionFocusCriteria\_partial\_list.cshtml" />
+    <Content Include="Views\PositionFocusCriteria\_partial\_update.cshtml" />
+    <Content Include="Views\PositionInformation\Create-modal.cshtml" />
+    <Content Include="Views\PositionInformation\Create.cshtml" />
+    <Content Include="Views\PositionInformation\Delete-modal.cshtml" />
+    <Content Include="Views\PositionInformation\Delete.cshtml" />
+    <Content Include="Views\PositionInformation\Details-modal.cshtml" />
+    <Content Include="Views\PositionInformation\Details.cshtml" />
+    <Content Include="Views\PositionInformation\Edit-modal.cshtml" />
+    <Content Include="Views\PositionInformation\Edit.cshtml" />
+    <Content Include="Views\PositionInformation\Index.cshtml" />
+    <Content Include="Views\PositionInformation\_partial\_details.cshtml" />
+    <Content Include="Views\PositionInformation\_partial\_list.cshtml" />
+    <Content Include="Views\PositionInformation\_partial\_update.cshtml" />
+    <Content Include="Views\PositionLevel\Create-modal.cshtml" />
+    <Content Include="Views\PositionLevel\Create.cshtml" />
+    <Content Include="Views\PositionLevel\Delete-modal.cshtml" />
+    <Content Include="Views\PositionLevel\Delete.cshtml" />
+    <Content Include="Views\PositionLevel\Details-modal.cshtml" />
+    <Content Include="Views\PositionLevel\Details.cshtml" />
+    <Content Include="Views\PositionLevel\Edit-modal.cshtml" />
+    <Content Include="Views\PositionLevel\Edit.cshtml" />
+    <Content Include="Views\PositionLevel\Index.cshtml" />
+    <Content Include="Views\PositionLevel\_partial\_details.cshtml" />
+    <Content Include="Views\PositionLevel\_partial\_list.cshtml" />
+    <Content Include="Views\PositionLevel\_partial\_update.cshtml" />
+    <Content Include="Views\PositionNote\Create-modal.cshtml" />
+    <Content Include="Views\PositionNote\Create.cshtml" />
+    <Content Include="Views\PositionNote\Delete-modal.cshtml" />
+    <Content Include="Views\PositionNote\Delete.cshtml" />
+    <Content Include="Views\PositionNote\Details-modal.cshtml" />
+    <Content Include="Views\PositionNote\Details.cshtml" />
+    <Content Include="Views\PositionNote\Edit-modal.cshtml" />
+    <Content Include="Views\PositionNote\Edit.cshtml" />
+    <Content Include="Views\PositionNote\Index.cshtml" />
+    <Content Include="Views\PositionNote\_partial\_details.cshtml" />
+    <Content Include="Views\PositionNote\_partial\_list.cshtml" />
+    <Content Include="Views\PositionNote\_partial\_update.cshtml" />
+    <Content Include="Views\PositionStatusValue\Create-modal.cshtml" />
+    <Content Include="Views\PositionStatusValue\Create.cshtml" />
+    <Content Include="Views\PositionStatusValue\Delete-modal.cshtml" />
+    <Content Include="Views\PositionStatusValue\Delete.cshtml" />
+    <Content Include="Views\PositionStatusValue\Details-modal.cshtml" />
+    <Content Include="Views\PositionStatusValue\Details.cshtml" />
+    <Content Include="Views\PositionStatusValue\Edit-modal.cshtml" />
+    <Content Include="Views\PositionStatusValue\Edit.cshtml" />
+    <Content Include="Views\PositionStatusValue\Index.cshtml" />
+    <Content Include="Views\PositionStatusValue\_partial\_details.cshtml" />
+    <Content Include="Views\PositionStatusValue\_partial\_list.cshtml" />
+    <Content Include="Views\PositionStatusValue\_partial\_update.cshtml" />
+    <Content Include="Views\PositionType\Create-modal.cshtml" />
+    <Content Include="Views\PositionType\Create.cshtml" />
+    <Content Include="Views\PositionType\Delete-modal.cshtml" />
+    <Content Include="Views\PositionType\Delete.cshtml" />
+    <Content Include="Views\PositionType\Details-modal.cshtml" />
+    <Content Include="Views\PositionType\Details.cshtml" />
+    <Content Include="Views\PositionType\Edit-modal.cshtml" />
+    <Content Include="Views\PositionType\Edit.cshtml" />
+    <Content Include="Views\PositionType\Index.cshtml" />
+    <Content Include="Views\PositionType\_partial\_details.cshtml" />
+    <Content Include="Views\PositionType\_partial\_list.cshtml" />
+    <Content Include="Views\PositionType\_partial\_update.cshtml" />
+    <Content Include="Views\Position\Delete-modal.cshtml" />
+    <Content Include="Views\Position\Delete.cshtml" />
+    <Content Include="Views\Position\Details.cshtml" />
+    <Content Include="Views\Position\Edit.cshtml" />
+    <Content Include="Views\Position\Index.cshtml" />
+    <Content Include="Views\Position\_partial\_details.cshtml" />
+    <Content Include="Views\Position\_partial\_list.cshtml" />
+    <Content Include="Views\Position\_partial\_basicDetails.cshtml" />
+    <Content Include="Views\RelationshipScope\Create-modal.cshtml" />
+    <Content Include="Views\RelationshipScope\Create.cshtml" />
+    <Content Include="Views\RelationshipScope\Delete-modal.cshtml" />
+    <Content Include="Views\RelationshipScope\Delete.cshtml" />
+    <Content Include="Views\RelationshipScope\Details-modal.cshtml" />
+    <Content Include="Views\RelationshipScope\Details.cshtml" />
+    <Content Include="Views\RelationshipScope\Edit-modal.cshtml" />
+    <Content Include="Views\RelationshipScope\Edit.cshtml" />
+    <Content Include="Views\RelationshipScope\Index.cshtml" />
+    <Content Include="Views\RelationshipScope\_partial\_details.cshtml" />
+    <Content Include="Views\RelationshipScope\_partial\_list.cshtml" />
+    <Content Include="Views\RelationshipScope\_partial\_update.cshtml" />
+    <Content Include="Views\RoleCapability\Create-modal.cshtml" />
+    <Content Include="Views\RoleCapability\Create.cshtml" />
+    <Content Include="Views\RoleCapability\Delete-modal.cshtml" />
+    <Content Include="Views\RoleCapability\Delete.cshtml" />
+    <Content Include="Views\RoleCapability\Details-modal.cshtml" />
+    <Content Include="Views\RoleCapability\Details.cshtml" />
+    <Content Include="Views\RoleCapability\Edit-modal.cshtml" />
+    <Content Include="Views\RoleCapability\Edit.cshtml" />
+    <Content Include="Views\RoleCapability\Index.cshtml" />
+    <Content Include="Views\RoleCapability\_partial\_details.cshtml" />
+    <Content Include="Views\RoleCapability\_partial\_list.cshtml" />
+    <Content Include="Views\RoleCapability\_partial\_update.cshtml" />
+    <Content Include="Views\RoleDescCapabilityMatrix\Create-modal.cshtml" />
+    <Content Include="Views\RoleDescCapabilityMatrix\Create.cshtml" />
+    <Content Include="Views\RoleDescCapabilityMatrix\Delete-modal.cshtml" />
+    <Content Include="Views\RoleDescCapabilityMatrix\Delete.cshtml" />
+    <Content Include="Views\RoleDescCapabilityMatrix\Details-modal.cshtml" />
+    <Content Include="Views\RoleDescCapabilityMatrix\Details.cshtml" />
+    <Content Include="Views\RoleDescCapabilityMatrix\Edit-modal.cshtml" />
+    <Content Include="Views\RoleDescCapabilityMatrix\Edit.cshtml" />
+    <Content Include="Views\RoleDescCapabilityMatrix\Index.cshtml" />
+    <Content Include="Views\RoleDescCapabilityMatrix\_partial\_details.cshtml" />
+    <Content Include="Views\RoleDescCapabilityMatrix\_partial\_list.cshtml" />
+    <Content Include="Views\RoleDescCapabilityMatrix\_partial\_update.cshtml" />
+    <Content Include="Views\RoleDescription\Create-modal.cshtml" />
+    <Content Include="Views\RoleDescription\Create.cshtml" />
+    <Content Include="Views\RoleDescription\Delete-modal.cshtml" />
+    <Content Include="Views\RoleDescription\Delete.cshtml" />
+    <Content Include="Views\RoleDescription\Details-modal.cshtml" />
+    <Content Include="Views\RoleDescription\Details.cshtml" />
+    <Content Include="Views\RoleDescription\Edit-modal.cshtml" />
+    <Content Include="Views\RoleDescription\Edit.cshtml" />
+    <Content Include="Views\RoleDescription\Index.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_details.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_list.cshtml" />
+    <Content Include="Views\RolePositionDescription\Create-modal.cshtml" />
+    <Content Include="Views\RolePositionDescription\Create.cshtml" />
+    <Content Include="Views\RolePositionDescription\Delete-modal.cshtml" />
+    <Content Include="Views\RolePositionDescription\Delete.cshtml" />
+    <Content Include="Views\RolePositionDescription\Details-modal.cshtml" />
+    <Content Include="Views\RolePositionDescription\Details.cshtml" />
+    <Content Include="Views\RolePositionDescription\Edit-modal.cshtml" />
+    <Content Include="Views\RolePositionDescription\Edit.cshtml" />
+    <Content Include="Views\RolePositionDescription\Index.cshtml" />
+    <Content Include="Views\RolePositionDescription\_partial\_details.cshtml" />
+    <Content Include="Views\RolePositionDescription\_partial\_list.cshtml" />
+    <Content Include="Views\RolePositionDescription\_partial\_update.cshtml" />
+    <Content Include="Views\SelectionCriteria\Create-modal.cshtml" />
+    <Content Include="Views\SelectionCriteria\Create.cshtml" />
+    <Content Include="Views\SelectionCriteria\Delete-modal.cshtml" />
+    <Content Include="Views\SelectionCriteria\Delete.cshtml" />
+    <Content Include="Views\SelectionCriteria\Details-modal.cshtml" />
+    <Content Include="Views\SelectionCriteria\Details.cshtml" />
+    <Content Include="Views\SelectionCriteria\Edit-modal.cshtml" />
+    <Content Include="Views\SelectionCriteria\Edit.cshtml" />
+    <Content Include="Views\SelectionCriteria\Index.cshtml" />
+    <Content Include="Views\SelectionCriteria\_partial\_details.cshtml" />
+    <Content Include="Views\SelectionCriteria\_partial\_list.cshtml" />
+    <Content Include="Views\SelectionCriteria\_partial\_update.cshtml" />
+    <Content Include="Views\SysRole\Create-modal.cshtml" />
+    <Content Include="Views\SysRole\Create.cshtml" />
+    <Content Include="Views\SysRole\Delete-modal.cshtml" />
+    <Content Include="Views\SysRole\Delete.cshtml" />
+    <Content Include="Views\SysRole\Details-modal.cshtml" />
+    <Content Include="Views\SysRole\Details.cshtml" />
+    <Content Include="Views\SysRole\Edit-modal.cshtml" />
+    <Content Include="Views\SysRole\Edit.cshtml" />
+    <Content Include="Views\SysRole\Index.cshtml" />
+    <Content Include="Views\SysRole\_partial\_details.cshtml" />
+    <Content Include="Views\SysRole\_partial\_list.cshtml" />
+    <Content Include="Views\SysRole\_partial\_update.cshtml" />
+    <Content Include="Views\User\Details-modal.cshtml" />
+    <Content Include="Views\User\Details.cshtml" />
+    <Content Include="Views\User\Index.cshtml" />
+    <Content Include="Views\User\MyProfile-modal.cshtml" />
+    <Content Include="Views\User\MyProfile.cshtml" />
+    <Content Include="Views\User\_partial\_details.cshtml" />
+    <Content Include="Views\User\_partial\_list.cshtml" />
+    <Content Include="Views\User\_partial\_myProfile.cshtml" />
+    <Content Include="Views\Unit\Create-modal.cshtml" />
+    <Content Include="Views\Unit\Create.cshtml" />
+    <Content Include="Views\Unit\Delete-modal.cshtml" />
+    <Content Include="Views\Unit\Delete.cshtml" />
+    <Content Include="Views\Unit\Details-modal.cshtml" />
+    <Content Include="Views\Unit\Details.cshtml" />
+    <Content Include="Views\Unit\Edit-modal.cshtml" />
+    <Content Include="Views\Unit\Edit.cshtml" />
+    <Content Include="Views\Unit\Index.cshtml" />
+    <Content Include="Views\Unit\_partial\_details.cshtml" />
+    <Content Include="Views\Unit\_partial\_list.cshtml" />
+    <Content Include="Views\Unit\_partial\_update.cshtml" />
+    <Content Include="Views\Position\_partial\_positionChart.cshtml" />
+    <Content Include="Views\Position\PositionChart.cshtml" />
+    <Content Include="Views\Position\PrintView.cshtml" />
+    <Content Include="Views\PositionDescription\Layout\PositionDescLayout.cshtml" />
+    <Content Include="Views\PositionDescription\Manage.cshtml" />
+    <Content Include="Views\PositionDescription\_partial\_manageOverview.cshtml" />
+    <Content Include="Views\PositionDescription\_partial\_listSelectionCriteria.cshtml" />
+    <Content Include="Views\Shared\_Layout-chart.cshtml" />
+    <Content Include="Views\PositionDescription\_partial\_listLinkedPositions.cshtml" />
+    <Content Include="Views\PositionFocusCriteria\Create.cshtml" />
+    <Content Include="Views\PositionDescription\_partial\_manageSelectionCriteria.cshtml" />
+    <Content Include="Views\User\Dashboard.cshtml" />
+    <Content Include="Views\Account\__SignIn.cshtml" />
+    <Content Include="Views\PositionDescription\_partial\_manageActions.cshtml" />
+    <Content Include="Views\RoleDescription\Layout\RoleDescLayout.cshtml" />
+    <Content Include="Views\RoleDescription\Manage.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_basicDetails.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_keyAccountabilities.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_essentialRequirement.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_budget.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_roleCapabilities.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_updateCapabilities.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_guideMatrix.cshtml" />
+    <Content Include="Views\BusinessUnit\Create-modal.cshtml" />
+    <Content Include="Views\BusinessUnit\Create.cshtml" />
+    <Content Include="Views\BusinessUnit\Delete-modal.cshtml" />
+    <Content Include="Views\BusinessUnit\Delete.cshtml" />
+    <Content Include="Views\BusinessUnit\Details-modal.cshtml" />
+    <Content Include="Views\BusinessUnit\Details.cshtml" />
+    <Content Include="Views\BusinessUnit\Edit-modal.cshtml" />
+    <Content Include="Views\BusinessUnit\Edit.cshtml" />
+    <Content Include="Views\BusinessUnit\Index.cshtml" />
+    <Content Include="Views\BusinessUnit\_partial\_details.cshtml" />
+    <Content Include="Views\BusinessUnit\_partial\_list.cshtml" />
+    <Content Include="Views\BusinessUnit\_partial\_update.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_basicDetailsSummary.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_keyRelationshipSummary.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_roleDimensionsSummary.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_capabilitiesSummary.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_update.cshtml" />
+    <Content Include="Views\RolePositionDescription\AttachPosition-modal.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_linkedPositions.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_manageActions.cshtml" />
+    <Content Include="Views\Position\CreateRolePositionDescription-modal.cshtml" />
+    <Content Include="Views\Position\Layout\PositionLayout.cshtml" />
+    <Content Include="Views\Position\Manage.cshtml" />
+    <Content Include="Views\Position\_partial\_morePositionInfo.cshtml" />
+    <Content Include="Views\Position\_partial\_costCentre.cshtml" />
+    <Content Include="Views\Position\_partial\_positionDescSummary.cshtml" />
+    <Content Include="Views\Position\_partial\_roleDescSummary.cshtml" />
+    <Content Include="Views\Position\ManageSummary.cshtml" />
+    <Content Include="Views\Position\_partial\_positionRoleDescBasicSummary.cshtml" />
+    <Content Include="Views\Position\_partial\_manageActions.cshtml" />
+    <Content Include="Views\StatusValue\Create-modal.cshtml" />
+    <Content Include="Views\StatusValue\Create.cshtml" />
+    <Content Include="Views\StatusValue\Delete-modal.cshtml" />
+    <Content Include="Views\StatusValue\Delete.cshtml" />
+    <Content Include="Views\StatusValue\Details-modal.cshtml" />
+    <Content Include="Views\StatusValue\Details.cshtml" />
+    <Content Include="Views\StatusValue\Edit-modal.cshtml" />
+    <Content Include="Views\StatusValue\Edit.cshtml" />
+    <Content Include="Views\StatusValue\Index.cshtml" />
+    <Content Include="Views\StatusValue\_partial\_details.cshtml" />
+    <Content Include="Views\StatusValue\_partial\_list.cshtml" />
+    <Content Include="Views\StatusValue\_partial\_update.cshtml" />
+    <Content Include="Views\UserGuide\Delete.cshtml" />
+    <Content Include="Views\UserGuide\Display.cshtml" />
+    <Content Include="Views\UserGuide\Edit.cshtml" />
+    <Content Include="Views\UserGuide\List.cshtml" />
+    <Content Include="Views\Position\Create-modal.cshtml" />
+    <Content Include="Views\Position\Create.cshtml" />
+    <Content Include="Views\Position\Details-modal.cshtml" />
+    <Content Include="Views\Position\Edit-modal.cshtml" />
+    <Content Include="Views\Position\_partial\_update.cshtml" />
+    <Content Include="Views\OrgLevel\Create-modal.cshtml" />
+    <Content Include="Views\OrgLevel\Create.cshtml" />
+    <Content Include="Views\OrgLevel\Delete-modal.cshtml" />
+    <Content Include="Views\OrgLevel\Delete.cshtml" />
+    <Content Include="Views\OrgLevel\Details-modal.cshtml" />
+    <Content Include="Views\OrgLevel\Details.cshtml" />
+    <Content Include="Views\OrgLevel\Edit-modal.cshtml" />
+    <Content Include="Views\OrgLevel\Edit.cshtml" />
+    <Content Include="Views\OrgLevel\Index.cshtml" />
+    <Content Include="Views\OrgLevel\_partial\_details.cshtml" />
+    <Content Include="Views\OrgLevel\_partial\_list.cshtml" />
+    <Content Include="Views\OrgLevel\_partial\_update.cshtml" />
+    <Content Include="Views\Position\_partial\_costCentreInfo.cshtml" />
+    <Content Include="Views\Position\_partial\_positionMoreInfo.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\AccessibleHtmlString.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_keyRelationships.cshtml" />
+    <Content Include="Views\UserRole\Create-modal.cshtml" />
+    <Content Include="Views\UserRole\Create.cshtml" />
+    <Content Include="Views\UserRole\Delete-modal.cshtml" />
+    <Content Include="Views\UserRole\Delete.cshtml" />
+    <Content Include="Views\UserRole\Details-modal.cshtml" />
+    <Content Include="Views\UserRole\Details.cshtml" />
+    <Content Include="Views\UserRole\Edit-modal.cshtml" />
+    <Content Include="Views\UserRole\Edit.cshtml" />
+    <Content Include="Views\UserRole\Index.cshtml" />
+    <Content Include="Views\UserRole\_partial\_details.cshtml" />
+    <Content Include="Views\UserRole\_partial\_list.cshtml" />
+    <Content Include="Views\UserRole\_partial\_update.cshtml" />
+    <Content Include="Views\WfAction\Create-modal.cshtml" />
+    <Content Include="Views\WfAction\Create.cshtml" />
+    <Content Include="Views\WfAction\Delete-modal.cshtml" />
+    <Content Include="Views\WfAction\Delete.cshtml" />
+    <Content Include="Views\WfAction\Details-modal.cshtml" />
+    <Content Include="Views\WfAction\Details.cshtml" />
+    <Content Include="Views\WfAction\Edit-modal.cshtml" />
+    <Content Include="Views\WfAction\Edit.cshtml" />
+    <Content Include="Views\WfAction\Index.cshtml" />
+    <Content Include="Views\WfAction\_partial\_details.cshtml" />
+    <Content Include="Views\WfAction\_partial\_list.cshtml" />
+    <Content Include="Views\WfAction\_partial\_update.cshtml" />
+    <Content Include="Views\PositionHistory\Create-modal.cshtml" />
+    <Content Include="Views\PositionHistory\Create.cshtml" />
+    <Content Include="Views\PositionHistory\Delete-modal.cshtml" />
+    <Content Include="Views\PositionHistory\Delete.cshtml" />
+    <Content Include="Views\PositionHistory\Details-modal.cshtml" />
+    <Content Include="Views\PositionHistory\Details.cshtml" />
+    <Content Include="Views\PositionHistory\Edit-modal.cshtml" />
+    <Content Include="Views\PositionHistory\Edit.cshtml" />
+    <Content Include="Views\PositionHistory\Index.cshtml" />
+    <Content Include="Views\PositionHistory\_partial\_details.cshtml" />
+    <Content Include="Views\PositionHistory\_partial\_list.cshtml" />
+    <Content Include="Views\PositionHistory\_partial\_update.cshtml" />
+    <Content Include="Views\RolePositionDescriptionHistory\Create-modal.cshtml" />
+    <Content Include="Views\RolePositionDescriptionHistory\Create.cshtml" />
+    <Content Include="Views\RolePositionDescriptionHistory\Delete-modal.cshtml" />
+    <Content Include="Views\RolePositionDescriptionHistory\Delete.cshtml" />
+    <Content Include="Views\RolePositionDescriptionHistory\Details-modal.cshtml" />
+    <Content Include="Views\RolePositionDescriptionHistory\Details.cshtml" />
+    <Content Include="Views\RolePositionDescriptionHistory\Edit-modal.cshtml" />
+    <Content Include="Views\RolePositionDescriptionHistory\Edit.cshtml" />
+    <Content Include="Views\RolePositionDescriptionHistory\Index.cshtml" />
+    <Content Include="Views\RolePositionDescriptionHistory\_partial\_details.cshtml" />
+    <Content Include="Views\RolePositionDescriptionHistory\_partial\_list.cshtml" />
+    <Content Include="Views\RolePositionDescriptionHistory\_partial\_update.cshtml" />
+    <Content Include="Views\RoleDescription\_partial\_history.cshtml" />
+    <Content Include="Views\HierarchyLevel\Create-modal.cshtml" />
+    <Content Include="Views\HierarchyLevel\Create.cshtml" />
+    <Content Include="Views\HierarchyLevel\Delete-modal.cshtml" />
+    <Content Include="Views\HierarchyLevel\Delete.cshtml" />
+    <Content Include="Views\HierarchyLevel\Details-modal.cshtml" />
+    <Content Include="Views\HierarchyLevel\Details.cshtml" />
+    <Content Include="Views\HierarchyLevel\Edit-modal.cshtml" />
+    <Content Include="Views\HierarchyLevel\Edit.cshtml" />
+    <Content Include="Views\HierarchyLevel\Index.cshtml" />
+    <Content Include="Views\HierarchyLevel\_partial\_details.cshtml" />
+    <Content Include="Views\HierarchyLevel\_partial\_list.cshtml" />
+    <Content Include="Views\HierarchyLevel\_partial\_update.cshtml" />
+    <Content Include="Views\PositionDescription\_partial\_history.cshtml" />
+    <Content Include="Views\Position\_partial\_history.cshtml" />
+    <Content Include="Views\Position\_partial\_list-approval.cshtml" />
+    <Content Include="Views\Shared\WorkflowAction-Modal.cshtml" />
+    <Content Include="Views\Position\ClonePosition.cshtml" />
+    <Content Include="Views\Position\WorkflowClone.cshtml" />
+    <Content Include="Views\SysMessage\Create-modal.cshtml" />
+    <Content Include="Views\SysMessage\Create.cshtml" />
+    <Content Include="Views\SysMessage\Delete-modal.cshtml" />
+    <Content Include="Views\SysMessage\Delete.cshtml" />
+    <Content Include="Views\SysMessage\Details-modal.cshtml" />
+    <Content Include="Views\SysMessage\Details.cshtml" />
+    <Content Include="Views\SysMessage\Edit-modal.cshtml" />
+    <Content Include="Views\SysMessage\Edit.cshtml" />
+    <Content Include="Views\SysMessage\Index.cshtml" />
+    <Content Include="Views\SysMessage\_partial\_details.cshtml" />
+    <Content Include="Views\SysMessage\_partial\_list.cshtml" />
+    <Content Include="Views\SysMessage\_partial\_update.cshtml" />
+    <Content Include="Views\SysMsgCategory\Create-modal.cshtml" />
+    <Content Include="Views\SysMsgCategory\Create.cshtml" />
+    <Content Include="Views\SysMsgCategory\Delete-modal.cshtml" />
+    <Content Include="Views\SysMsgCategory\Delete.cshtml" />
+    <Content Include="Views\SysMsgCategory\Details-modal.cshtml" />
+    <Content Include="Views\SysMsgCategory\Details.cshtml" />
+    <Content Include="Views\SysMsgCategory\Edit-modal.cshtml" />
+    <Content Include="Views\SysMsgCategory\Edit.cshtml" />
+    <Content Include="Views\SysMsgCategory\Index.cshtml" />
+    <Content Include="Views\SysMsgCategory\_partial\_details.cshtml" />
+    <Content Include="Views\SysMsgCategory\_partial\_list.cshtml" />
+    <Content Include="Views\SysMsgCategory\_partial\_update.cshtml" />
+    <Content Include="Views\Shared\_partial\_msg.cshtml" />
+    <Content Include="Views\Shared\_partial\_breadcrumb.cshtml" />
+    <Content Include="Views\Shared\_partial\_share.cshtml" />
+    <Content Include="Views\Position\_partial\_directReports.cshtml" />
+    <Content Include="Views\Shared\WorkflowAction-Rename-Modal.cshtml" />
+    <Content Include="Views\Shared\WorkflowAction-UpdatePosNumber-Modal.cshtml" />
+    <Content Include="Views\PositionDescription\ClonePositionDesc.cshtml" />
+    <Content Include="Views\Shared\WorkflowAction-MovePositions-Modal.cshtml" />
+    <Content Include="Views\Shared\_partial\_Trim.cshtml" />
+    <Content Include="Views\Shared\_partial\_GlobalCss.cshtml" />
+    <Content Include="Scripts\Framework\bootstrap-4\css\bootstrap-grid.css.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\css\bootstrap-grid.min.css.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\css\bootstrap-reboot.css.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\css\bootstrap.css.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\css\bootstrap.min.css.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\js\bootstrap.bundle.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\js\bootstrap.js.map" />
+    <Content Include="Scripts\Framework\bootstrap-4\js\bootstrap.min.js.map" />
+    <Content Include="ViewModels\OrgLevel\ViewModel.cd" />
+    <None Include="Web.Dev.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.PreProd.config">
+      <DependentUpon>Web.config</DependentUpon>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Web.Prod.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.TFS.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Uat.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Views\Sys\" />
+    <Folder Include="Views\TeamType\" />
+    <Folder Include="Views\UserGuide\Content\" />
+    <Folder Include="Views\WF\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Doe.Ls.EntityBase\Doe.Ls.EntityBase.csproj">
+      <Project>{50e9c1df-8335-40c1-afa6-c63f2fcc7614}</Project>
+      <Name>Doe.Ls.EntityBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Doe.Ls.ProjectTemplate.Core\Doe.Ls.ProjectTemplate.Core.csproj">
+      <Project>{9c17193e-0c57-423c-b10e-d85007b4a189}</Project>
+      <Name>Doe.Ls.ProjectTemplate.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Doe.Ls.ProjectTemplate.Data\Doe.Ls.ProjectTemplate.Data.csproj">
+      <Project>{abb2b7a5-219a-4258-8096-f7beb4c4c0b1}</Project>
+      <Name>Doe.Ls.ProjectTemplate.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Uat|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <PublishDatabaseSettings>
+      <Objects>
+        <ObjectGroup Name="SchoolSportsUnitEntities-Deployment" Order="1">
+          <Destination Path="" />
+          <Object Type="DbFullSql">
+            <PreSource Path="Data Source=172.31.67.245%3bInitial Catalog=SchoolSportsUnit%3bPersist Security Info=True%3bUser ID=su%3bPassword=ssu%40%40vle123%3bApplication Name=EntityFramework" ScriptSchema="True" ScriptData="False" CopyAllFullTextCatalogs="False" DriDefaults="True" />
+            <Source Path="obj\Uat\AutoScripts\SchoolSportsUnitEntities-Deployment_SchemaOnly.sql" Transacted="True" />
+          </Object>
+        </ObjectGroup>
+      </Objects>
+    </PublishDatabaseSettings>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PreProd|AnyCPU'">
+    <MvcBuildViews>true</MvcBuildViews>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Dev|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'TFS|AnyCPU'">
+    <MvcBuildViews>true</MvcBuildViews>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Localhost|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53656</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost/ProjectTemplate/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+  <UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Web\Microsoft.Web.Publishing.Tasks.dll" />
+  <Target Name="AfterBuild" Condition="Exists('Web.$(Configuration).config')">
+    <!--Generate transformed config in the output directory-->
+    <TransformXml Source="Web.config" Destination="$(OutputPath)Web.config" Transform="Web.$(Configuration).config" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.4.0\build\Microsoft.Net.Compilers.props'))" />
+  </Target>
+</Project>

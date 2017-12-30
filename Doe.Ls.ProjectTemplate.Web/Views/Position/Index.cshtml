@@ -1,0 +1,167 @@
+@using System.Diagnostics
+@model IEnumerable<Position>
+@{
+
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var directorateItems = ViewBagWrapper.ListBag.GetList("directorateItems", ViewData);
+    var divisionItems = ViewBagWrapper.ListBag.GetList("divisionItems", ViewData);
+
+    var unitItems = ViewBagWrapper.ListBag.GetList("unitItems", ViewData);
+
+    var businessUnitItems = ViewBagWrapper.ListBag.GetList("businessUnitItems", ViewData);
+
+    var posStatusCodeItems = ViewBagWrapper.ListBag.GetList("posStatusCodeItems", ViewData);
+    var statusItems = ViewBagWrapper.ListBag.GetList("statusCodeItems", ViewData);
+
+    var hasSession = ViewBagWrapper.VariableBag.GetBoolVariable("hasSession", ViewData);
+    var collapse = "collapse";
+    var priv = Enums.Privilege.ReadOnlyPrivilege;
+    if (task != null)
+        {
+         priv = task.GetWorkflowObjectPrivilege(WorkflowObjectType.Position);
+        }
+
+    var positionListType = ViewBagWrapper.GetGeneralObject<PositionListType>("PositionListType",ViewData);
+
+    var listTitle = "";
+    if (positionListType == PositionListType.ApprovalList)
+        {
+        listTitle = "Positions waiting for action";
+        }
+    else
+        {
+        listTitle = "Position list";
+        }
+    ViewBagWrapper.InfoBag.SetTitle(listTitle, ViewData);
+
+
+    if(hasSession)
+        {
+        collapse = "";
+        }
+}
+
+@*
+    @section PositionActive
+    {
+    active
+    }
+*@
+
+<div class="wrapper" id="wrapper-Position">
+    @Html.Hidden("PositionListType", positionListType,new {id= "positionListType"})
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+    @if(priv.CanCreate & positionListType!=PositionListType.ApprovalList)
+        {
+        <div class="row ">
+            <div class="col-lg-12">
+                <p>
+                    <a href="@Url.Action("CreateRolePositionDesc")" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">
+                        Create new position
+                    </a>
+                </p>
+            </div>
+        </div>
+        }
+    <div class="row ">
+        <div class="col-lg-12">
+            <div class="">
+                <div class=" dashboard" id="show-hide-filter-0">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="card-title">
+                                <a href="#collapse-filter-0" class="collapsed" data-toggle="collapse">Filter position list by division, directorate, business unit, team and status</a>
+                            </h4>
+                        </div>
+                        <div id="collapse-filter-0" class="panel-collapse @collapse">
+                            <div class="card-body">
+                                <div class="col-lg-12">
+                                    <label for="FilterDivisionCode" class="col-form-label col-lg-2">Division</label>
+                                    <div class="col-lg-4">
+                                        @Html.DropDownList("DivisionCode", divisionItems, "All", new {id = "FilterDivisionCode", @class = "form-control select2picker"})
+                                    </div>
+
+                                    <label for="FilterDirectorateId" class="col-form-label col-lg-2">Directorate</label>
+
+                                    <div class="col-lg-4">
+                                        @Html.DropDownList("DirectorateId", directorateItems, "All", new {id = "FilterDirectorateId", @class = "form-control select2picker"})
+                                    </div>
+                                </div>
+                                <div class="clearfix"></div>
+                                <hr />
+                                <div class="col-lg-12">
+                                    <label for="FilterBusinessUnitId" class="col-form-label col-lg-2">Business unit</label>
+
+                                    <div class="col-lg-4">
+                                        @Html.DropDownList("BusinessUnitId", businessUnitItems, "All", new {id = "FilterBusinessUnitId", @class = "form-control select2picker"})
+
+                                    </div>
+                                   
+                                     <label for="FilterUnitId" class="col-form-label col-lg-2">Team</label>
+                                    <div id="unit-filter" class="col-lg-4">
+                                        @Html.DropDownList("UnitId", unitItems, "All", new { id = "FilterUnitId", @class = "form-control select2picker" })
+                                    </div>
+                                </div>
+
+                                <div class="clearfix"></div>
+                                <hr />
+
+
+                                <div class="col-lg-12">
+                                    <label for="FilterPosStatusCode" class="col-form-label col-lg-2">Position status</label>
+
+                                    <div class="col-lg-4 ">
+                                        @Html.DropDownList("PosStatusCode", posStatusCodeItems, new {id = "FilterPosStatusCode", @class = "form-control select2picker", Multiple = "multiple", data_placeholder = "All"})
+                                    </div>
+
+                                  
+                                    @if (task!=null&&task.CanViewStatus())
+                                    {
+                                        <label for="FilterStatusCode" class="col-form-label col-lg-2">Workflow status</label>
+
+                                        <div class="col-lg-4 ">
+                                            @Html.DropDownList("StatusCode", statusItems, new {id = "FilterStatusCode", @class = "form-control select2picker", Multiple = "multiple", data_placeholder = "All"})
+                                        </div>
+                                    }
+                                </div>
+                                <div class="clearfix"></div>
+                                <hr />
+                                <div class="col-lg-12 ">
+                                    <div class="col-lg-1 col-lg-offset-10">
+                                        <button id="btnReset" class="btn btn-primary">Clear all</button>
+                                    </div>
+                                </div>
+                                    <br />
+
+                                </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row spacer"></div>
+    <div class="row ">
+        <div class="col-lg-12">
+          @switch(positionListType)
+              {
+              case PositionListType.List:
+              case PositionListType.AdvancedSearch:
+                @Html.Partial("_partial/_list")
+                      break;
+              case PositionListType.ApprovalList:
+                @Html.Partial("_partial/_list-approval")
+                  break;
+              default:
+                  throw new InvalidOperationException("There is no partial view to rended the request");
+              }
+              
+        </div>
+    </div>
+</div>
+

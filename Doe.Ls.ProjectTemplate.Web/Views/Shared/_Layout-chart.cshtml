@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html lang="en-au">
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var isTestSite = ProjectTemplateSettings.Site.IsTestSite;
+    var useShareToolbar = ProjectTemplateSettings.Site.UseShareToolbar;
+    ViewBagWrapper.SetGeneralObject("PageName", "Index", ViewData);
+
+    var hasFooter = ViewBagWrapper.LayoutBag.HasFooter(ViewData);
+    
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</title>
+
+    @Html.Partial("_partial/_GlobalCss")
+    <link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/Primitives/jquery-ui-1.10.0.custom/jquery-ui-1.10.2.custom.min.css")" />
+    <link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/primitives/primitives/layout-default-latest.css")" />
+    <link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/Primitives/primitives/bporgeditor.latest.css")" />
+    <link rel="stylesheet" href="@GetUrlWithToken("Scripts/Plugins/Primitives/primitives/primitives.latest.css" )" />
+</head>
+<body class='standard @RenderSection("CustomClass",false)'>
+
+
+    @Html.Partial("_partial/_GlobalHeader")
+
+    <div class="container-fluid" id="main-container">
+
+        @RenderBody()
+
+    </div>
+    <div class="clearfix"></div>
+    @if(hasFooter)
+        {
+        @Html.Partial("_partial/_GlobalFooter")
+        }
+
+    <script type="text/javascript">
+
+        @RenderSection("scripts", required: false)
+    </script>
+
+    @Html.Partial("_partial/_plugins")
+    @if(ProjectTemplateSettings.Site.UseShareToolbar)
+        {
+    @Html.Partial("_partial/_share")
+        }
+
+</body>
+</html>
+
+@functions
+{
+
+
+    private string GetUrlWithToken(string url, bool absolute = false)
+    {
+        if (!absolute)
+        {
+            url = ProjectTemplateSettings.Site.AppUrl + url;
+        }
+
+        return string.Format("{0}?token={1}", url, AppCacheHelper.Token);
+    }
+}

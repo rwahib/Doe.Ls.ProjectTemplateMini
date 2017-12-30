@@ -1,0 +1,37 @@
+
+
+@model IEnumerable<Executive>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Division list", ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var privilege = task.GetExecutivePrivilege();
+
+}
+
+@*
+    @section ExecutiveActive
+    {
+    active
+    }
+*@
+
+<div class="wrapper" id="wrapper-Executive">
+
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+    @if(privilege.CanCreate)
+        {
+        <p>
+
+            <a href="@Url.Action("Create", new {ajax = true})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">
+                Create new Division
+
+            </a>
+
+        </p>
+        }
+    @Html.Partial("_partial/_list")
+
+</div>

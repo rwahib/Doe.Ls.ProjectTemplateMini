@@ -1,0 +1,19 @@
+﻿@model System.Boolean?
+
+@if (Model.HasValue)
+{
+
+    if (Model.Value)
+    {
+        <select disabled><option checked>True</option><option>False</option></select>
+    }
+
+    else
+    {
+        <select disabled><option>True</option><option checked>False</option></select>
+    }
+}
+else
+{
+    <select disabled><option checked>True</option><option checked>False</option></select>
+}

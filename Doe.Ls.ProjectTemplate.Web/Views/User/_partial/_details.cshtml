@@ -1,0 +1,90 @@
+@model UserInfoExtension
+@{
+    ViewBagWrapper.InfoBag.SetTitle("User Details", ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+
+@Html.HiddenFor(model => model.UserName)
+
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.UserName)
+    </label>
+
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.UserName)</p>
+    </div>
+</div>
+
+
+
+
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.FirstName)
+    </label>
+
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.FirstName)</p>
+    </div>
+</div>
+
+
+
+
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.SurName)
+    </label>
+
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.SurName)</p>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.Email)
+    </label>
+
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Email)</p>
+    </div>
+</div>
+
+
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.Phone)
+    </label>
+
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Phone)</p>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.CurrentRole)
+    </label>
+
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.CurrentRole)</p>
+    </div>
+</div>
+
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.Roles)
+    </label>
+
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Model.DisplayRoles()</p>
+    </div>
+
+
+</div>

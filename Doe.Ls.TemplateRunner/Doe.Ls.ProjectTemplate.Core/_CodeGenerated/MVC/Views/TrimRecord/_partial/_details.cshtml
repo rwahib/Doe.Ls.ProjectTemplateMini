@@ -1,0 +1,34 @@
+@model TrimRecord 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Trim record Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);	
+}
+ 
+@Html.HiddenFor(model => model.RolePositionDescId)
+<div class="form-group">
+    	    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.RolePositionDescription)</span>
+   
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.RolePositionDescription.Title)</p>
+    </div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Uri)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.Uri)</p></div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.Token)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.Token)</p></div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.LastPublishedDate)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.LastPublishedDate)</p></div>
+        </div>
+<div class="form-group">
+        <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.LastRevisionNumber)</span>
+       
+        <div class="col-lg-8"><p class="form-control-plaintext">@Html.DisplayFor(model => model.LastRevisionNumber)</p></div>
+        </div>

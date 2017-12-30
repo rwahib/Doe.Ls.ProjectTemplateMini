@@ -1,0 +1,38 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ Assembly Name="System.Data" #>
+<#@ Assembly Name="System.Xml" #>
+<#@ Assembly Name="System.Xml.Linq" #>
+<#@ Assembly Name="System.Windows.Forms" #>
+<#@ assembly name="$(ProjectDir)\bin\Doe.Ls.EntityBase.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Reflection" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ output extension=".txt" #>
+<# string version = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();#>
+<#var    solPath=T4Helper.Extension.GetSolutionFolderPath(this.Host);
+    var webFolderPath=Path.GetDirectoryName(this.Host.TemplateFile);
+    var webProjecFile=T4Helper.Extension.GetCurrentProjectFileName(this.Host);
+    var assemblyFileInfo=T4Helper.Extension.GetCurrentProjectAssembly(this.Host);
+    
+    
+     #>
+Latest build version: <#=assemblyFileInfo.FileVersionInfo.FileVersion#>
+
+Full assembly: <#=assemblyFileInfo.TheAssembly#>
+
+Company name: <#=assemblyFileInfo.FileVersionInfo.CompanyName#>
+
+Product name: <#=assemblyFileInfo.FileVersionInfo.ProductName#>
+
+Release Notes: 
+
+<#=assemblyFileInfo.FileVersionInfo.Comments#>

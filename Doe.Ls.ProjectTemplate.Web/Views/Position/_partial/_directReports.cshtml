@@ -1,0 +1,45 @@
+﻿@model Position
+@{
+    var positionList = Model.Positions;
+}
+
+
+@if (positionList != null && positionList.Count>0)
+    {
+    <!--Positon more info-->
+    <div class="card card.bg-primary.text-white descriptionPanel" id="pnlDirectReports">
+        <div class="card-header accordion-toggle" data-toggle="collapse"  data-target="#DirectReports">
+            <h4 class="accordion-title">
+                <a href="#DirectReports" class="collapsed" data-toggle="collapse">Direct reports<i class="indicator glyphicon glyphicon-chevron-right  float-right"></i></a>
+            </h4>
+        </div>
+        <div id="DirectReports" class="card-body collapse">
+            <div class="table-responsive">
+                <table @*data-order ="[]"*@ id="roleDescPositionsTable" class="table table-striped table-sm dt-responsive">
+                    <thead>
+                        <tr>
+                            <th>Position number</th>
+                            <th>Position title</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @* For ajax dataTable empty the tbody *@
+
+                        @foreach(var p in positionList)
+                            {
+                            <tr>
+                                <td><a href="@Url.Action("ManageSummary", "Position", new {id = p.PositionId})">@p.PositionNumber</a></td>
+                                <td><a href="@Url.Action("ManageSummary", "Position", new {id = p.PositionId})">@p.PositionTitle</a></td>
+                                <td><a href="@Url.Action("ManageSummary", "Position", new {id = p.PositionId})">@p.StatusValue.StatusName</a></td>
+
+                            </tr>
+                            }
+
+                    </tbody>
+                </table>
+            </div>
+           
+        </div>
+    </div>
+}

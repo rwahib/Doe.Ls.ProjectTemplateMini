@@ -1,0 +1,86 @@
+ 
+
+
+
+@model IEnumerable<PositionNote>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Position note List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="positionNoteService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>Position note list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.PositionNoteId)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.PositionInformation)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Notes)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedDate)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.PositionNoteId)
+                            </td>                       
+                            <td>
+    
+                                @Html.Raw(item.PositionInformation.OlderPositionNumber3.StripHtml().Minimise(50))
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Notes)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>                       
+                            <td>
+   
+                                @item.CreatedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @item.LastModifiedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.PositionNoteId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.PositionNoteId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.PositionNoteId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

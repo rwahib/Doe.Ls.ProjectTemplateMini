@@ -1,0 +1,383 @@
+@model RoleDescription
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+    var rolePositionDescriptionItems = ViewBagWrapper.ListBag.GetList("rolePositionDescriptionItems", ViewData);
+
+}
+
+@Html.AntiForgeryToken()
+
+<div class="form-group @GetFormGroupClass("RoleDescriptionId")">
+    <label for="RoleDescriptionId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.RolePositionDescription) <span class="mandatory">*</span></label>
+
+    <div class="col-lg-10">
+        @Html.DropDownList("RoleDescriptionId", rolePositionDescriptionItems, "Select Role position description ...", new { id = "RoleDescriptionId", @class = "form-control select2picker", Required = "Required" })
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("Cluster")">
+    <label for="Cluster" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Cluster) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="Cluster" id="Cluster" class="form-control" placeholder="Please enter Cluster" value="@Model.Cluster" @ReadOnly("Cluster") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("SeniorExecutiveWorkLevelStandards")">
+    <label for="SeniorExecutiveWorkLevelStandards" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.SeniorExecutiveWorkLevelStandards) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="SeniorExecutiveWorkLevelStandards" id="SeniorExecutiveWorkLevelStandards" class="form-control " 
+                      placeholder="Please enter Senior Executive Work Level Standards">
+                @Model.SeniorExecutiveWorkLevelStandards
+        </textarea>
+        
+    </div>
+</div>
+</div>
+<div class="form-group @GetFormGroupClass("ANZSCOCode")">
+    <label for="ANZSCOCode" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.ANZSCOCode) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="ANZSCOCode" id="ANZSCOCode" class="form-control" placeholder="Please enter ANZSCO code" value="@Model.ANZSCOCode" @ReadOnly("ANZSCOCode") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("PCATCode")">
+    <label for="PCATCode" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.PCATCode) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="PCATCode" id="PCATCode" class="form-control" placeholder="Please enter PCAT code" value="@Model.PCATCode" @ReadOnly("PCATCode") />
+            
+        </div>
+    </div>
+</div>
+
+<div class="form-group @GetFormGroupClass("AgencyOverview")">
+    <label for="AgencyOverview" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.AgencyOverview) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="AgencyOverview" id="AgencyOverview" class="form-control " placeholder="Please enter agency overview">
+                @Model.AgencyOverview
+        </textarea>
+        
+    </div>
+</div>
+</div>
+<div class="form-group @GetFormGroupClass("Agency")">
+    <label for="Agency" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.Agency) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="Agency" id="Agency" class="form-control" placeholder="Please enter agency name" value="@Model.Agency" @ReadOnly("Agency") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("AgencyWebsite")">
+    <label for="AgencyWebsite" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.AgencyWebsite) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="AgencyWebsite" id="AgencyWebsite" class="form-control" placeholder="Please enter angency website" value="@Model.AgencyWebsite" @ReadOnly("AgencyWebsite") />
+            
+        </div>
+    </div>
+</div>
+
+<div class="form-group @GetFormGroupClass("RolePrimaryPurpose")">
+    <label for="RolePrimaryPurpose" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.RolePrimaryPurpose) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="RolePrimaryPurpose" id="RolePrimaryPurpose" class="form-control " placeholder="e.g. RolePrimaryPurpose">
+                @Model.RolePrimaryPurpose
+        </textarea>
+        
+    </div>
+</div>
+</div>
+<div class="form-group @GetFormGroupClass("KeyAccountabilities")">
+    <label for="KeyAccountabilities" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.KeyAccountabilities) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="KeyAccountabilities" id="KeyAccountabilities" class="form-control " 
+                      placeholder="Please enter Key Accountabilities">@Model.KeyAccountabilities</textarea>
+        
+    </div>
+</div>
+</div>
+<div class="form-group @GetFormGroupClass("KeyChallenges")">
+    <label for="KeyChallenges" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.KeyChallenges) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="KeyChallenges" id="KeyChallenges" class="form-control " 
+                      placeholder="Please enter Key Challenges">@Model.KeyChallenges</textarea>
+        
+    </div>
+</div>
+</div>
+<div class="form-group @GetFormGroupClass("DecisionMaking")">
+    <label for="DecisionMaking" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.DecisionMaking) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="DecisionMaking" id="DecisionMaking" class="form-control " 
+                      placeholder="Please enter Decision Making">@Model.DecisionMaking</textarea>
+        
+    </div>
+</div>
+</div>
+<div class="form-group @GetFormGroupClass("ReportingLine")">
+    <label for="ReportingLine" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.ReportingLine) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="ReportingLine" id="ReportingLine" class="form-control " 
+                      placeholder="Please enter Reporting Line">@Model.ReportingLine</textarea>
+        
+    </div>
+</div>
+</div>
+<div class="form-group @GetFormGroupClass("DirectReports")">
+    <label for="DirectReports" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.DirectReports) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="DirectReports" id="DirectReports" class="form-control " 
+                      placeholder="Please enter Direct Reports">@Model.DirectReports</textarea>
+        
+    </div>
+</div>
+</div>
+<div class="form-group @GetFormGroupClass("BudgetExpenditure")">
+    <label for="BudgetExpenditure" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.BudgetExpenditure) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="BudgetExpenditure" id="BudgetExpenditure" class="form-control" 
+                   placeholder="Please enter Budget Expenditure" value="@Model.BudgetExpenditure" @ReadOnly("BudgetExpenditure") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("BudgetExpenditureValue")">
+    <label for="BudgetExpenditureValue" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.BudgetExpenditureValue) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="BudgetExpenditureValue" id="BudgetExpenditureValue" class="form-control" placeholder="e.g. BudgetExpenditureValue" value="@Model.BudgetExpenditureValue" @ReadOnly("BudgetExpenditureValue") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("EssentialRequirements")">
+    <label for="EssentialRequirements" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.EssentialRequirements) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="EssentialRequirements" id="EssentialRequirements" class="form-control " 
+                      placeholder="Please enter Essential Requirements">@Model.EssentialRequirements</textarea>
+        
+    </div>
+</div>
+</div>
+<div class="form-group @GetFormGroupClass("RoleCapabilities")">
+    <label for="RoleCapabilities" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.RoleCapabilities) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="RoleCapabilities" id="RoleCapabilities" class="form-control " 
+                      placeholder="Please enter Role Capabilities">@Model.RoleCapabilities</textarea>
+        
+    </div>
+</div>
+</div>
+<div class="form-group @GetFormGroupClass("CapabilitySummary")">
+    <label for="CapabilitySummary" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.CapabilitySummary) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="CapabilitySummary" id="CapabilitySummary" class="form-control " 
+                      placeholder="Please enter Capability Summary">@Model.CapabilitySummary</textarea>
+        
+    </div>
+</div>
+</div>
+<div class="form-group @GetFormGroupClass("FocusCapabilities")">
+    <label for="FocusCapabilities" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.FocusCapabilities) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <textarea name="FocusCapabilities" id="FocusCapabilities" class="form-control " 
+                      placeholder="Please enter Focus Capabilities">@Model.FocusCapabilities</textarea>
+        
+    </div>
+</div>
+</div>
+<div class="form-group @GetFormGroupClass("LastModifiedBy")">
+    <label for="LastModifiedBy" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.LastModifiedBy) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="LastModifiedBy" id="LastModifiedBy" class="form-control" placeholder="e.g. LastModifiedBy" value="@Model.LastModifiedBy" @ReadOnly("LastModifiedBy") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("CreatedDate")">
+    <label for="CreatedDate" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.CreatedDate) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="date" name="CreatedDate" id="CreatedDate" class="form-control" placeholder="e.g. CreatedDate" value="@Model.CreatedDate" @ReadOnly("CreatedDate") data-fv-date-format="DD/MM/YYYY" />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("LastModifiedDate")">
+    <label for="LastModifiedDate" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.LastModifiedDate) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="date" name="LastModifiedDate" id="LastModifiedDate" class="form-control" placeholder="e.g. LastModifiedDate" value="@Model.LastModifiedDate" @ReadOnly("LastModifiedDate") data-fv-date-format="DD/MM/YYYY" />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("CreatedBy")">
+    <label for="CreatedBy" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.CreatedBy) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="CreatedBy" id="CreatedBy" class="form-control" placeholder="e.g. CreatedBy" value="@Model.CreatedBy" @ReadOnly("CreatedBy") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("VersionStatus")">
+    <label for="VersionStatus" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.VersionStatus) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="VersionStatus" id="VersionStatus" class="form-control" placeholder="e.g. VersionStatus" value="@Model.VersionStatus" @ReadOnly("VersionStatus") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("OldPDFileName")">
+    <label for="OldPDFileName" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.OldPDFileName) </label>
+
+    <div class="col-lg-10">
+        <div class="input-group">
+            
+            <input type="text" name="OldPDFileName" id="OldPDFileName" class="form-control" placeholder="e.g. OldPDFileName" value="@Model.OldPDFileName" @ReadOnly("OldPDFileName") />
+            
+        </div>
+    </div>
+</div>
+<div class="form-group @GetFormGroupClass("ManagerRole")">
+    <label for="ManagerRole" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.ManagerRole) </label>
+
+    <div class="col-lg-4">
+        <div class="checkbox">
+            <label>
+                <input type="checkbox" name="ManagerRole" id="ManagerRole" checked="@Model.ManagerRole" @ReadOnly("ManagerRole") />
+            </label>
+        </div>
+    </div>
+</div>
+
+
+@functions
+{
+    bool IsKey(string propertyName)
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName)
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName)
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+                {
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                    break;
+                }
+        }
+        return string.Empty;
+    }
+}

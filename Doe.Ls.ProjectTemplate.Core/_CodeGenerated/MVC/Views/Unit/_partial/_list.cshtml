@@ -1,0 +1,150 @@
+ 
+
+
+
+@model IEnumerable<Unit>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Unit List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="unitService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>Unit list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.UnitId)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.UnitName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.UnitDescription)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.BusinessUnit)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.FunctionalArea)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.Unit)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.HierarchyLevel)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.TeamType)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.UnitCustomClass)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.StatusValue)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedBy)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.UnitId)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.UnitName)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.UnitDescription)
+                            </td>                       
+                            <td>
+    
+                                @Html.Raw(item.BusinessUnit.BUnitName.StripHtml().Minimise(50))
+                            <td>
+    
+                                @Html.Raw(item.FunctionalArea.AreanName.StripHtml().Minimise(50))
+                            <td>
+    
+                                @Html.Raw(item.Unit.UnitName.StripHtml().Minimise(50))
+                            <td>
+    
+                                @Html.Raw(item.HierarchyLevel.HierarchyName.StripHtml().Minimise(50))
+                            <td>
+    
+                                @Html.Raw(item.TeamType.TeamTypeName.StripHtml().Minimise(50))
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.UnitCustomClass)
+                            </td>                       
+                            <td>
+    
+                                @Html.Raw(item.StatusValue.StatusName.StripHtml().Minimise(50))
+                            <td>
+   
+                                @item.CreatedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>                       
+                            <td>
+   
+                                @item.LastModifiedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LastModifiedBy)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.UnitId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.UnitId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.UnitId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

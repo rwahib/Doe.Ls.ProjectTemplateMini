@@ -1,0 +1,32 @@
+@model IEnumerable<WfAction>
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Workflow action list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+@*
+@section WfActionActive
+{
+active 
+}
+*@
+
+<div class="wrapper" id="wrapper-WfAction">
+
+    <div class="page-header">
+        <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+    </div>
+
+    <p>
+        @if (task != null && task.User.IsSystemAdmin)
+            {
+            <a href="@Url.Action("Create", new {ajax = true})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">
+                Create new workflow action
+            </a>
+        }
+    </p>
+
+    @Html.Partial("_partial/_list")
+
+</div>

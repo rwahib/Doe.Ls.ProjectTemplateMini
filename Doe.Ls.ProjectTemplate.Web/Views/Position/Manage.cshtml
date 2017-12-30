@@ -1,0 +1,93 @@
+@model Position
+@{
+    // ViewBag.Title = "Manage";
+
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);
+    var wizardStep = ViewBagWrapper.PositionBag.GetPositionWizardBag(ViewData);
+    var pageName = wizardStep.ToString().Wordify();
+    Layout = "~/Views/Position/Layout/PositionLayout.cshtml";
+
+    var title = Model == null ? pageName : pageName + " for " + Model.PositionNumber + "-" + Model.PositionTitle + "-" + Model.RolePositionDescription.GradeCode;
+    ViewBagWrapper.InfoBag.SetTitle(title, ViewData);
+
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var workflowEngine = ViewBagWrapper.WorkflowBag.GetWorkflowEngine(ViewData);
+    var positionPrivilege = Enums.Privilege.AccessDeniedPrivilege;
+    if(Model.PositionId > 0 || Model.PositionId == -1)
+        {
+        if(workflowEngine != null)
+            {
+            positionPrivilege = workflowEngine.GetWorkflowObjectPrivilege();
+            }
+        }
+    else
+        {
+        positionPrivilege = task.GetWorkflowObjectPrivilege(WorkflowObjectType.Position);
+        }
+    var isAnyAdmin = false;
+    if (task != null)
+        {
+        isAnyAdmin = task.User.HasAnyAdminRoleExceptHr();
+        }
+
+
+}
+
+@Html.Hidden("WizardStep", wizardStep)
+
+<div class="error">
+    <ul class="list-group">
+        @if(errors != null && errors.Count() > 0)
+            {
+            foreach(var error in errors)
+                {
+                <li class="list-group-item ">
+                    <label class="validation-error">@string.Format("{0} has error:", error.PropertyName.Wordify())</label>
+                    <label class="validation-error">@string.Format("{0}", error.ErrorMessage)</label>
+                </li>
+                }
+            }
+    </ul>
+</div>
+
+@{
+    switch(wizardStep)
+        {
+        case Enums.PositionWizardStep.BasicDetails:
+            @Html.Partial("_partial/_basicDetails")
+            @section BasicDetailsActive {active}
+            break;
+
+        case Enums.PositionWizardStep.MoreInfo:
+
+            @Html.Partial("_partial/_morePositionInfo", Model.PositionInformation)
+            @section MoreInfoActive{active}
+            break;
+
+        case Enums.PositionWizardStep.CostCentre:
+            @Html.Partial("_partial/_costCentre")
+            @section CostCentreActive{active}
+            break;
+        case Enums.PositionWizardStep.Summary:
+            @Html.Partial("ManageSummary")
+            if(isAnyAdmin || (positionPrivilege.CanRead && positionPrivilege != Enums.Privilege.ReadOnlyPrivilege))
+                {
+                @section SummaryActive{}
+                }
+            break;
+        case Enums.PositionWizardStep.Actions:
+            @Html.Partial("_partial/_manageActions")
+            @section ActionsActive{active}
+            break;
+
+        case Enums.PositionWizardStep.History:
+            @Html.Partial("_partial/_history")
+            @section History{}
+            break;
+        }
+}
+
+@functions
+{
+
+}

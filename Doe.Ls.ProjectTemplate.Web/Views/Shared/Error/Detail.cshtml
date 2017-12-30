@@ -1,0 +1,42 @@
+﻿@using Doe.Ls.EntityBase.Http
+@model HandleErrorInfo
+@{
+    Layout = null;
+    var errorMessage = "";
+    if(Model != null)
+        {
+
+        errorMessage = Model.Exception.Message;
+        if(Model != null && Model.Exception.InnerException != null)
+            {
+            errorMessage += "</br>" + Model.Exception.InnerException.Message;
+            }
+        }
+    Layout = null;
+    var newSession = Session != null && Session.IsNewSession;
+}
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">x</button>
+    <h4 class="modal-title">Oops, sorry there has an error while processing this request.</h4>
+</div>
+<div class="modal-body">
+    <p class="text-capitalize text-danger">
+        <b>@Html.Raw(errorMessage)</b>
+    </p>
+    
+    @if(newSession)
+        {
+            <div>
+                Session might have timed out. You may need to <a href="@HttpHelper.GetActionUrl(Model.ActionName,Model.ControllerName)">Log in</a> again.
+            </div>
+
+        }
+    <p class="text-info">
+        For more feed back contact the administrator: <a href="mailto:@ProjectTemplateSettings.Notification.GetContactEmailAddresses()?subject=@ProjectTemplateSettings.Notification.Subject">@ProjectTemplateSettings.Notification.GetDisplayContactEmailAddresses()</a>
+    </p>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+</div>
+

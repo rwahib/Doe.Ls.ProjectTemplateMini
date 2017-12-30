@@ -1,0 +1,83 @@
+﻿<#@ template debug="true" hostSpecific="true" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Data.dll" #>
+<#@ Assembly Name="System.Xml.dll" #>
+<#@ Assembly Name="System.Xml.Linq.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ assembly name="$(SolutionDir)\Doe.Ls.EntityBase\bin\Doe.Ls.EntityBase.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ output extension=".sql" #>
+ 
+<#
+ 
+ var appConfigPath=T4Helper.Extension.GetSolutionFolderPath(this.Host)+@"\Doe.Ls.ProjectTemplate.Data\app.config";
+    var connectionString=T4Helper.Extension.GetConnectionStringFromAppConfig(appConfigPath);
+
+ var sql="select name from sys.tables where name <> 'sysdiagrams' and name <> 'DataChange'" ;
+ var statusValueTabl=T4Helper.Extension.GetSqlDataTable(sql,connectionString);
+#>
+
+IF EXISTS (SELECT * FROM sys.procedures WHERE object_id = OBJECT_ID('dbo.udp_logXmlChange'))
+DROP PROCEDURE dbo.udp_logXmlChange
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE dbo.udp_logXmlChange
+	@TableName VARCHAR(255) =null,
+	@InsertXML XML =null,
+	@DeleteXML XML =null
+	
+AS
+BEGIN
+	if(@TableName is null) return -1;
+	if(@InsertXML is null and @DeleteXML is null) return -1;
+		SET NOCOUNT ON;
+	INSERT INTO dbo.DataChange (TableName, DataInserted, DataDeleted, DateCreated) 
+	SELECT @TableName, @InsertXML, @DeleteXML, GETDATE()
+    
+END
+GO
+
+
+<#    foreach(DataRow row in statusValueTabl.Rows){
+        var tableName=row["name"].ToString();
+#>
+
+IF EXISTS (SELECT * FROM sys.triggers WHERE object_id = OBJECT_ID(N'[dbo].[tr_<#= tableName#>_InsertUpdateDelete]'))
+DROP TRIGGER [dbo].[tr_<#= tableName#>_InsertUpdateDelete]
+
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TRIGGER [dbo].[tr_<#=tableName#>_InsertUpdateDelete] 
+ON [dbo].[<#=tableName#>]
+FOR INSERT, UPDATE, DELETE
+AS
+BEGIN
+		SET NOCOUNT ON;
+	
+    DECLARE @TableName VARCHAR(255) = '[dbo].[<#=tableName#>]';
+	DECLARE @InsertXML XML = (SELECT * FROM inserted FOR XML AUTO);
+	DECLARE @DeleteXML XML = (SELECT * FROM deleted FOR XML AUTO);
+	execute dbo.udp_logXmlChange @TableName,@InsertXML,@DeleteXML;
+END
+
+GO
+
+<#        };#>

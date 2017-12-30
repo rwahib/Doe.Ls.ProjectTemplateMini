@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.DomainServices.PdfService.PdfService">
+    <Position X="3.5" Y="2.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>ABAABAAAgAgAAgACQAAYAAABACIAAAAAAAAgQEAACBA=</HashCode>
+      <FileName>BL\DomainServices\PdfService\PdfService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.BL.DomainServices.PdfService.PdfXsltTransformer">
+    <Position X="4.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAgAAAAQAAAAAAAgAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>BL\DomainServices\PdfService\PdfXsltTransformer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Doe.Ls.PosEstablishment.Core.BL.DomainServices.PdfService.IPdfService" Collapsed="true">
+    <Position X="6" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BL\DomainServices\PdfService\IPdfService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

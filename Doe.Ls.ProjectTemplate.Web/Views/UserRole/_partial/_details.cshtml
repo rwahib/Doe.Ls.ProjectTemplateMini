@@ -1,0 +1,158 @@
+@model UserRoleModel
+
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var propList=task.GetPropertySettings(Model.UserRole, formType).ToList();
+
+}
+@Html.HiddenFor(model => model.UserId)
+@Html.HiddenFor(model => model.RoleId)
+@Html.HiddenFor(model => model.OrgLevelId)
+@Html.HiddenFor(model => model.StructureId)
+
+<div class="form-group @GetContainerClasses(propList,"UserId")">
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.UserId)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.UserId)</p>
+    </div>
+</div>
+
+<div class="form-group @GetContainerClasses(propList,"Email")">
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.Email)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Email)</p>
+    </div>
+</div>
+
+<div class="form-group @GetContainerClasses(propList,"DisplayedName")">
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.DisplayedName)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.DisplayedName)</p>
+    </div>
+</div>
+
+<div class="form-group @GetContainerClasses(propList,"RoleName")">
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.RoleName)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.RoleName)</p>
+    </div>
+</div>
+
+<div class="form-group @GetContainerClasses(propList,"OrgLevelName")">
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.OrgLevelName)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.OrgLevelName)</p>
+    </div>
+</div>
+
+<div class="form-group @GetContainerClasses(propList,"StructureId")">
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.StructureId)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.StructureId)</p>
+    </div>
+</div>
+
+<div class="form-group @GetContainerClasses(propList,"OrgObjetcName")">
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.OrgObjetcName)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.OrgObjetcName)</p>
+    </div>
+</div>
+
+<div class="form-group @GetContainerClasses(propList,"IsActive")">
+
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.IsActive)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.IsActive)</p>
+    </div>
+</div>
+
+<div class="form-group @GetContainerClasses(propList,"ActiveFrom")">
+
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.ActiveFrom)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext">@Model.ActiveFrom.ToEasyDateFormat()</p>
+    </div>
+</div>
+
+<div class="form-group @GetContainerClasses(propList,"ActiveTo")">
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.ActiveTo)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext" >@Model.ActiveTo.ToEasyDateFormat()</p>
+    </div>
+</div>
+
+<div class="form-group @GetContainerClasses(propList,"LastModifiedDate")">
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.LastModifiedDate)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.LastModifiedDate)</p>
+    </div>
+</div>
+
+<div class="form-group @GetContainerClasses(propList,"LastModifiedBy")">
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.LastModifiedBy)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.LastModifiedBy)</p>
+    </div>
+</div>
+
+<div class="form-group @GetContainerClasses(propList,"Note")">
+
+    <label class="col-lg-3 col-form-label">
+        @Html.DisplayNameFor(model => model.Note)
+    </label>
+
+    <div class="col-lg-9">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Note)</p>
+    </div>
+</div>
+
+
+@functions {
+
+    private string GetContainerClasses(IEnumerable<UiPropertyItem> propList, string propName)
+    {
+        var item = UiPropertyItem.GetProperty(propList, propName);
+        if (item == null) return "hidden";
+        return item.ContainerClasses;
+        }
+
+}

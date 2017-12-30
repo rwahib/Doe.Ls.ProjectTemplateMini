@@ -1,0 +1,102 @@
+ 
+
+
+
+@model IEnumerable<CostCentreDetail>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Cost centre detail List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="costCentreDetailService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>Cost centre detail list</caption>*@
+                <thead>
+                    <tr>
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.Position)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CostCentre)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.Fund)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.PayrollWBS)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.RCCJDEPayrollCode)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.GLAccount)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastUpdatedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastUpdatedBy)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+    
+                                @Html.Raw(item.Position.PositionTitle.StripHtml().Minimise(50))
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.CostCentre)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.Fund)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.PayrollWBS)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.RCCJDEPayrollCode)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.GLAccount)
+                            </td>                       
+                            <td>
+   
+                                @item.LastUpdatedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LastUpdatedBy)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.PositionId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.PositionId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.PositionId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

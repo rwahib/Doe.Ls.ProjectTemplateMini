@@ -1,0 +1,115 @@
+  
+@using Doe.Ls.EntityBase.MVCExtensions
+@model ScriptHistory
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData); 
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+    
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+        
+}
+@Html.AntiForgeryToken()
+      
+
+
+
+ <div class="form-group @GetFormGroupClass("ScriptNumber")">
+  <label for="ScriptNumber" class="col-lg-4">@Html.DisplayNameFor(model => model.ScriptNumber) <span class="mandatory">*</span></label>
+  <input type="text" name="ScriptNumber" id="ScriptNumber" class="form-control col-lg-8" placeholder="e.g. Script number" value="@Model.ScriptNumber"@ReadOnly("ScriptNumber")  required data-fv-notempty-message='The Script number is required'     /> 
+</div>
+      
+
+
+
+ <div class="form-group @GetFormGroupClass("ScriptName")">
+  <label for="ScriptName" class="col-lg-4">@Html.DisplayNameFor(model => model.ScriptName) <span class="mandatory">*</span></label>
+  <input type="text" name="ScriptName" id="ScriptName" class="form-control col-lg-8" placeholder="e.g. Script name" value="@Model.ScriptName"@ReadOnly("ScriptName")  required data-fv-notempty-message='The Script name is required'     /> 
+</div>
+      
+
+
+
+ <div class="form-group @GetFormGroupClass("RunDate")">
+  <label for="RunDate" class="col-lg-4">@Html.DisplayNameFor(model => model.RunDate) <span class="mandatory">*</span></label>
+  <input type="date" name="RunDate" id="RunDate" class="form-control col-lg-8" placeholder="e.g. Run date" value="@Model.RunDate"@ReadOnly("RunDate")  required data-fv-notempty-message='The Run date is required'  data-fv-date-format="DD/MM/YYYY"   /> 
+</div>
+      
+
+
+
+ <div class="form-group @GetFormGroupClass("RunBy")">
+  <label for="RunBy" class="col-lg-4">@Html.DisplayNameFor(model => model.RunBy) <span class="mandatory">*</span></label>
+  <input type="text" name="RunBy" id="RunBy" class="form-control col-lg-8" placeholder="e.g. Run by" value="@Model.RunBy"@ReadOnly("RunBy")  required data-fv-notempty-message='The Run by is required'     /> 
+</div>
+      
+
+
+
+
+ <div class="form-group @GetFormGroupClass("Comments")">
+  <label for="Comments" class="col-lg-4">@Html.DisplayNameFor(model => model.Comments) </label>
+  <textarea name="Comments" id="Comments" class="form-control col-lg-8 " placeholder="e.g. Comments"     >@Model.Comments</textarea>
+</div>
+ 
+  
+@functions
+{
+    bool IsKey(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) 
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+        
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+            {
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                break;
+            }
+        }
+        return string.Empty;        
+    }    
+}
+
+
+
+

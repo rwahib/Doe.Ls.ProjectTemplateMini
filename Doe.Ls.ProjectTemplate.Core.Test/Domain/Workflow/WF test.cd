@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.WorkflowBaseTest">
+    <Position X="17.25" Y="3.5" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAICQAAAAAAgAAAAAEAAAAAAAAAAgAAAAAEEA=</HashCode>
+      <FileName>Domain\Workflow\WorkflowBaseTest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.WorkflowEngineTests" Collapsed="true">
+    <Position X="33.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAQAAAgAogACAAQAAAAAAAAEAAEAAAAQ=</HashCode>
+      <FileName>Domain\Workflow\WorkflowEngineTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.PositionWF.WorkflowForDivisionApproverTests" Collapsed="true">
+    <Position X="7" Y="7.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAICQAAQAAAgAAACAEAAAAAAAAAAgAAEAAEEA=</HashCode>
+      <FileName>Domain\Workflow\PositionWF\WorkflowForDivisionApproverTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.WorkflowGenericTests" Collapsed="true">
+    <Position X="36" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAhAQAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Domain\Workflow\WorkflowGenericTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.EntityBaseHelperTests" Collapsed="true">
+    <Position X="40.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Domain\EntityBaseHelperTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.FileServiceTest" Collapsed="true">
+    <Position X="42.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAQAAAAAAAAAAAIAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Domain\FileServiceTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.PositionEstablishmentSettingsTest" Collapsed="true">
+    <Position X="38.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Domain\PosEstablishmentSettingsTest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.PositionWF.WorkflowForAdminTests" Collapsed="true">
+    <Position X="4.25" Y="7.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAICQAAQAAAgAAAAAEAAAAAAAAAAgAAEAAEEA=</HashCode>
+      <FileName>Domain\Workflow\PositionWF\WorkflowForAdminTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.PositionWF.WorkflowForBusinessUnitAuthorTests" Collapsed="true">
+    <Position X="16.75" Y="7.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAICQAAQAAAgAAACAEAAAAAAAAAAgAAEAAEEA=</HashCode>
+      <FileName>Domain\Workflow\PositionWF\WorkflowForBusinessUnitAuthorTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.PositionWF.WorkflowForBusinessUnitDataEntryTests" Collapsed="true">
+    <Position X="26.75" Y="7.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAICQAAQAAAgAAACAEAAAAAAAAAAgAAEAAEEA=</HashCode>
+      <FileName>Domain\Workflow\PositionWF\WorkflowForBusinessUnitDataEntryTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.PositionWF.WorkflowForDirectorateDataEntryTests" Collapsed="true">
+    <Position X="10.5" Y="7.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAICQAAQAAAgAAACAEAAAAAAAAAAgAAEAAEEA=</HashCode>
+      <FileName>Domain\Workflow\PositionWF\WorkflowForDirectorateDataEntryTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.PositionWF.WorkflowForDirectorateEndorserTests" Collapsed="true">
+    <Position X="20.25" Y="7.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAICQAAQAAAgAAACAEAAAAAAAAAAgAAEAAEEA=</HashCode>
+      <FileName>Domain\Workflow\PositionWF\WorkflowForDirectorateEndorserTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.PositionWF.WorkflowForDivisionEditorTests" Collapsed="true">
+    <Position X="30.5" Y="7.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAICQAAQAAAgAAACAEAAAAAAAAAAgAAEAAEEA=</HashCode>
+      <FileName>Domain\Workflow\PositionWF\WorkflowForDivisionEditorTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.PositionWF.WorkflowForDoETests" Collapsed="true">
+    <Position X="14.25" Y="7.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAICQAAQAAAgAAAAAEAAAAAAAAAAgAAEAAEEA=</HashCode>
+      <FileName>Domain\Workflow\PositionWF\WorkflowForDoETests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.PositionWF.WorkflowForSysAdminTests" Collapsed="true">
+    <Position X="23.75" Y="7.25" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAICQAAQAAAgAAAAAEAAAAAAAAAAgAAEAAEEA=</HashCode>
+      <FileName>Domain\Workflow\PositionWF\WorkflowForSysAdminTests.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.Domain.SecurityModule.SecurityBase" Collapsed="true">
+    <Position X="20.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAEAAIAAAAAAAAAIAgAAAiAAAAACAAAAABAAAiA=</HashCode>
+      <FileName>Domain\SecurityModule\SecurityBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Doe.Ls.PosEstablishment.Core.Test.TestBase" Collapsed="true">
+    <Position X="23.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAgBBgAAgBADEQRBACwAAAAAwgCYACCAAAIAAEFEAI=</HashCode>
+      <FileName>TestBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Doe.Ls.PosEstablishment.Core.Test.Domain.Workflow.IWorkflowTest">
+    <Position X="42.75" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACEAICQAAAAAAgAAAAAEAAAAAAAAAAgAAAAAEEA=</HashCode>
+      <FileName>Domain\Workflow\IWorkflowTest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

@@ -1,0 +1,118 @@
+ 
+
+
+
+@model IEnumerable<Executive>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Executive List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="executiveService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>Executive list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.ExecutiveCod)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.ExecutiveTitle)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.ExecutiveDescription)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CustomClass)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.StatusValue)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.DefaultExecutiveOverview)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.ExecutiveCod)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.ExecutiveTitle)
+                            </td>                       
+                            <td>
+   
+                                @Html.Raw(item.ExecutiveDescription.StripHtml().Minimise(50))
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.CustomClass)
+                            </td>                       
+                            <td>
+    
+                                @Html.Raw(item.StatusValue.StatusName.StripHtml().Minimise(50))
+                            <td>
+   
+                                @item.CreatedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>                       
+                            <td>
+   
+                                @item.LastModifiedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LastModifiedBy)
+                            </td>                       
+                            <td>
+   
+                                @Html.Raw(item.DefaultExecutiveOverview.StripHtml().Minimise(50))
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { executiveCod = item.ExecutiveCod })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { executiveCod = item.ExecutiveCod })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { executiveCod = item.ExecutiveCod })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

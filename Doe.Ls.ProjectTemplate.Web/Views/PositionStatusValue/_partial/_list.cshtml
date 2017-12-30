@@ -1,0 +1,54 @@
+ 
+
+
+
+@model IEnumerable<PositionStatusValue>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Position status value list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive @*ajaxDataTable*@" @*data-service="positionStatusValueService" data-url="@HttpHelper.GetActionUrl("ListJson","PositionStatusValue")"*@>
+                @*<caption>Position status value list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.PosStatusCode)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.PosStatusTitle)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.PosStatusCode)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.PosStatusTitle)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { posStatusCode = item.PosStatusCode })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { posStatusCode = item.PosStatusCode })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { posStatusCode = item.PosStatusCode })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

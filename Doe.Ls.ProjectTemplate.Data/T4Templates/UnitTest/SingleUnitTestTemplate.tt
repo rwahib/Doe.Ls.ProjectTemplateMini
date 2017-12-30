@@ -1,0 +1,114 @@
+﻿<#@ template language="C#"inherits="MVCTemplate.BaseTemplate" #> 
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ parameter name="EntityType" type="System.Data.Entity.Core.Metadata.Edm.EntityType"#>
+<#@ parameter name="AppNamespace" type="System.String"#>
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+
+<# T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); #>
+
+<#    
+
+var helper=new EdmMetadataHelper(EntityContext);    
+#>
+using System;
+using System.Linq; 
+using <#=AppNamespace#>.Data;
+using <#=AppNamespace#>.Core.BL;
+using <#=AppNamespace#>.Core.Test.Mockups;
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+
+namespace <#=AppNamespace#>.Core.Test.EntityRepositories 
+{
+[TestClass]
+    public class <#=T4Helper.CleanClassName(EntityType.Name)#>RepositoryTests : TestBase {
+
+	
+        [ClassInitialize]
+        public static void Initialise(TestContext testContext)
+        {
+        }
+
+      [TestMethod]
+        public void List()
+        {
+            var factory = new MockRepositoryFactory();
+            factory.RegisterAllDependencies();
+
+            var globalServiceRepository = new ServiceRepository(factory);
+            var rep = globalServiceRepository.<#=T4Helper.CleanClassName(EntityType.Name)#>Repository();
+            if (!rep.List().Any())Assert.Inconclusive("Insufficient data to run this test");
+
+            foreach (var model in rep.List().Take(10)) {
+                Console.WriteLine("{0}", model.ToString());
+            }
+        }
+        [TestMethod]
+        public void Create()
+        {
+            var factory = new MockRepositoryFactory();
+            factory.RegisterAllDependencies();
+
+            var globalServiceRepository = new ServiceRepository(factory);
+            var rep = globalServiceRepository.<#=T4Helper.CleanClassName(EntityType.Name)#>Repository();
+            if (!rep.List().Any())Assert.Inconclusive("Insufficient data to run this test");
+        }
+        [TestMethod]
+        public void Edit()
+        {
+             var factory = new MockRepositoryFactory();
+            factory.RegisterAllDependencies();
+
+            var globalServiceRepository = new ServiceRepository(factory);
+            var rep = globalServiceRepository.<#=T4Helper.CleanClassName(EntityType.Name)#>Repository();
+            if (!rep.List().Any())Assert.Inconclusive("Insufficient data to run this test");
+        }
+        [TestMethod]
+        public void Delete()
+        {
+             var factory = new MockRepositoryFactory();
+            factory.RegisterAllDependencies();
+
+            var globalServiceRepository = new ServiceRepository(factory);
+            var rep = globalServiceRepository.<#=T4Helper.CleanClassName(EntityType.Name)#>Repository();
+            if (!rep.List().Any())Assert.Inconclusive("Insufficient data to run this test");
+        }
+
+        [TestMethod]
+        public void Detail()
+        {
+            var factory = new MockRepositoryFactory();
+            factory.RegisterAllDependencies();
+
+            var globalServiceRepository = new ServiceRepository(factory);
+            var rep = globalServiceRepository.<#=T4Helper.CleanClassName(EntityType.Name)#>Repository();
+            if (!rep.List().Any())Assert.Inconclusive("Insufficient data to run this test");
+        }
+
+        [TestMethod]
+        public void Search()
+        {
+            var factory = new MockRepositoryFactory();
+            factory.RegisterAllDependencies();
+
+            var globalServiceRepository = new ServiceRepository(factory);
+            var rep = globalServiceRepository.<#=T4Helper.CleanClassName(EntityType.Name)#>Repository();
+            if (!rep.List().Any())Assert.Inconclusive("Insufficient data to run this test");
+        }
+
+      [TestCleanup]
+        public void CleanUp()
+        {
+            TestBase.CleanUnitTestData();
+        }
+
+       
+    }   
+
+   }
+

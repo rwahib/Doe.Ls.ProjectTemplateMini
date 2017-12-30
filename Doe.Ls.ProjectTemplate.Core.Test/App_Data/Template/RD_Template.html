@@ -1,0 +1,173 @@
+﻿<html>
+<head>
+    <link href="PDFGenerator.css" rel="stylesheet" />
+</head>
+<body>
+
+    <table class="RDHeaderTable">
+        <tr>
+            <td><h1>Role Description</h1><h2>[PosTitle]</h2></td>
+            <td align="right"><img src="[Logo]" width="170" height="54" /></td>
+        </tr>
+
+    </table>
+
+    <table class="RoleDescTable">
+        <tr>
+            <th width="44%">Agency</th>
+            <td width="56%">[Agency]</td>
+        </tr>
+        <tr>
+            <th width="44%">Division/Branch/Unit</th>
+            <td width="56%">[Division]/ [Directorate] / [BusinessUnit]</td>
+        </tr>
+
+        <tr>
+            <th width="44%">Location</th>
+            <td width="56%">[Location]</td>
+        </tr>
+        <tr>
+            <th width="44%">Classification/Grade/Band</th>
+            <td width="56%">[GradeCode]</td>
+        </tr>
+        [SeniorExecutiveWorkLevelStandards]
+
+        <tr>
+            <th width="44%">ANZSCO Code</th>
+            <td width="56%">[ANZSCO]</td>
+        </tr>
+        <tr>
+            <th width="44%">Role Number</th>
+            <td width="56%">[PositionNumber]</td>
+        </tr>
+        <tr>
+            <th width="44%">PCAT Code</th>
+            <td width="56%">[PCAT]</td>
+        </tr>
+        <tr>
+            <th width="44%">Date of Approval</th>
+            <td width="56%">[DateApproved]</td>
+        </tr>
+        <tr>
+            <th width="44%">Agency Website</th>
+            <td width="56%">[AgencyWebsite]</td>
+        </tr>
+    </table>
+
+    <div class="section">
+        <h4>Agency overview</h4>
+        [AgencyOverview]
+    </div>
+
+    <div class="section">
+        <h4>[Executive]</h4>
+        [DivisionOverview]
+    </div>
+
+    <div class="section">
+        [Additional Overview]
+    </div>
+
+    [DirectorateOverview]
+
+    <div class="section">
+        <h4>Primary purpose of the role</h4>
+        [PrimaryPurposse]
+    </div>
+
+    <div class="section" id="keyAccountability">
+        <h4>Key accountabilities</h4>
+        [KeyAccountabilities]
+    </div>
+
+    <div class="section" id="keyChallenge">
+        <h4>Key challenges</h4>
+        [KeyChallenges]
+    </div>
+
+    <div class="section" id="keyRelationships">
+        <h4>Key relationships</h4>
+    </div>
+    <table class="KeyRl">
+        <tr class="heading">
+            <td width="25%">Who</td>
+            <td width="75%">Why</td>
+        </tr>
+        [MinisterialTitleBody]
+        [InternalBody]
+        [ExternalBody]
+
+    </table>
+
+    <h4>Role dimensions</h4>
+    [RoleDimensionsIntro]
+
+    <div class="section">
+        <h4 class="greyfont">Decision making</h4>
+        [DecisionMaking]
+    </div>
+
+    <div class="section">
+        <h4 class="greyfont">Reporting line</h4>
+        [ReportLineContent]
+        [ReportingLine]
+    </div>
+
+    <div class="section" id="directReports">
+        <h4 class="greyfont">Direct reports</h4>
+        [DirectReportContent]
+        [DirectReports]
+    </div>
+    <div class="section">
+        <h4 class="greyfont">Budget/Expenditure</h4>
+        [BudgetExp]
+        [BudgetExpValue]
+    </div>
+
+    <div class="section" id="essentialReq">
+        <h4>Essential requirements</h4>
+        [EssentialReqs]
+    </div>
+    <div class="section">
+        <h4>Capabilities for the role</h4>
+        [CapIntro]
+    </div>
+
+    <div class="section">
+        <h4 class="greyfont">Capabilities summary</h4>
+        [CapSummary]
+    </div>
+    <table class="FrameWork">
+        <tr class="heading">
+            <td colspan="3">NSW Public Sector Capability Framework</td>
+        </tr>
+        <tr class="subheading">
+            <td>Capability Group</td>
+            <td>Capability Name</td>
+            <td>Level</td>
+        </tr>
+        [CapFrameTable]
+    </table>
+
+    <div class="section">
+        <h4 class="greyfont">Focus capabilities for the role</h4>
+        [FocusCapabilities]
+    </div>
+
+
+    <table class="FocusTable">
+        <tr class="heading">
+            <td colspan="3">Focus capabilities</td>
+        </tr>
+		  
+        [FocusIndicators]
+
+    </table>
+	    <table class="RDFooter" border="0">
+        <tr>
+            <td>[DOCNumber]</td>
+            <td align="right">Updated: [lastUpdated]</td>
+        </tr>
+    </table>
+</body>
+</html>

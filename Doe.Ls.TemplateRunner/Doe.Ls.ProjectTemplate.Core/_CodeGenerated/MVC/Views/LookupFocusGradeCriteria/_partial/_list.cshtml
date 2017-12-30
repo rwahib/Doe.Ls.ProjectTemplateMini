@@ -1,0 +1,94 @@
+ 
+
+
+
+@model IEnumerable<LookupFocusGradeCriteria>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Lookup focus grade criteria List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="lookupFocusGradeCriteriaService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>Lookup focus grade criteria list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.LookupId)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.Focus)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.Grade)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.SelectionCriteria)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastUpdatedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastUpdatedBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.IsMandatory)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LookupId)
+                            </td>                       
+                            <td>
+    
+                                @Html.Raw(item.Focus.FocusName.StripHtml().Minimise(50))
+                            <td>
+    
+                                @Html.Raw(item.Grade.GradeTitle.StripHtml().Minimise(50))
+                            <td>
+    
+                                @Html.Raw(item.SelectionCriteria.Criteria.StripHtml().Minimise(50))
+                            <td>
+   
+                                @item.LastUpdatedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LastUpdatedBy)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.IsMandatory)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.LookupId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.LookupId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.LookupId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

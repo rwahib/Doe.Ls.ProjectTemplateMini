@@ -1,0 +1,145 @@
+﻿@model Position
+
+@{
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);
+  
+    ViewBagWrapper.InfoBag.SetTitle("Create Role/Position description", ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    Layout = null;
+}
+
+<div class="modal-header">
+    <h5 class="modal-title" id="tempModalLabel">@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&#215;</span>
+    </button>
+</div>
+
+<div class="error-popup">
+    <ul class="list-group">
+        @foreach (var error in errors)
+        {
+            <li class="list-group-item ">
+                <label class="validation-error">@string.Format("{0} has error:", error.PropertyName.Wordify())</label>
+                <label class="validation-error">@string.Format("{0}", error.ErrorMessage)</label>
+            </li>
+        }
+    </ul>
+</div>
+<div class="success-popup">
+    <ul class="list-group">
+        <li class="list-group-item ">
+            <label class="text-success" id="lbl-success"></label>
+        </li>
+    </ul>
+</div>
+
+<div id="formTab">
+    <form class="" role="form" action="@Url.Action("CreateRolePositionDescConfirmed")" @*"~/Position/Create"*@ method="POST"
+          id="form-rolepositiondesc-create" data-fv-feedbackicons-validating="glyphicon glyphicon-refresh">
+        @Html.AntiForgeryToken()
+        <div class="modal-body">
+            @* <div class="row">
+                <div class="col-lg-6"></div><div class="col-lg-6"></div>
+            </div>*@
+            <span>Please choose a Role / Position description for this new position: </span><br/>
+            <span id="msg" class="errorText"></span>
+            <div class="form-group">
+
+                <div class="col-lg-12">
+                    <input type="radio" name="select" value="1" id="existingRP"> <label for="existingRP" class="col-form-label">Existing Role/Position description</label>
+                </div>
+                <div class="col-lg-12">
+                    <input type="radio" name="select" value="2" id="newRP"><label for="newRP" class="col-form-label">&nbsp;New Role/Position description</label>
+                </div>
+            </div>
+            
+            <div id="existingRD">
+                <div class="form-group ">
+                    <label for="RolePositionDescId" class="col-form-label col-lg-3">DOC Number<span class="mandatory">*</span></label>
+                    <div class="col-lg-9">
+                        <div class="input-group">
+                            <input type="text" required class="form-control select2pickerAjax" data-fv-notempty-message='The DOC number is required' id="RolePositionDescId" name="RolePositionDescId"
+                                   data-ajax='@ProjectTemplateSettings.Site.AppUrl/RolePositionDescription/LoadDocNumbers' placeholder="Select DOCNumber" value="" data-ref-elmid="RolePositionDescId">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="newRD">
+
+                <div class="form-group ">
+                    <label for="DocNumberPart1" class="col-form-label col-lg-3">DOC Number <span class="mandatory">*</span></label>
+                    <div class="col-lg-9">
+                        <div class="input-group">
+                            <label>DOC</label>
+
+                            <input type="number" name="DocNumberPart1" allowclear="true" id="DocNumberPart1" class="docNum1cls" placeholder="e.g. 17" required
+                                    data-fv-regexp="true" pattern="^([0-9]{1,2})$"
+                                    data-fv-regexp-message="Document number part1 should be less than or equal 2 digits" data-fv-notempty-message='The Document number part 1 is required' value="@GetDefaultDocPart1()"/>
+                            
+                            <label>/</label>
+                            <input type="number" name="DocNumberPart2" id="DocNumberPart2"  class="docNum2cls" placeholder="e.g. 12345" required
+                                     data-fv-regexp="true" pattern="^([0-9]{1,8})$"
+                                  data-fv-regexp-message="Document number part2 should be less than or equal 8 digits"       data-fv-notempty-message='The Document number part 2 is required' value="" @*@ReadOnly("DOCNumber")*@/>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="Type" class="col-form-label col-lg-3">Please select <span class="mandatory">*</span></label>
+                    <div class="col-lg-9">
+                        <input type="radio" name="DescType" value="@Enums.DescriptionType.Position" required data-fv-notempty-message="Please select a type"> Position description <input type="radio" name="DescType" value="@Enums.DescriptionType.Role"> Role description
+                    </div>
+                </div>
+                <div class="spacer-small"></div>
+                <div class="spacer-small"></div>
+                <div class="spacer-small"></div>
+                <span class="col-lg-offset-3 alert alert-warning font-black">Note: once saved, the grade is NOT editable</span>
+                <div class="spacer-small"></div>
+                <div class="spacer-small"></div>
+                <div class="form-group" @*style="height: 50px;"*@>
+                    <label for="GradeCode" class="col-form-label col-lg-3">Grade <span class="mandatory">*</span></label>
+                    <div class="col-lg-9">
+                        <select id="GradeCode" name="GradeCode" required data-fv-notempty-message="Grade is required"></select>
+                        @*@Html.DropDownList("GradeCode", Enumerable.Empty<SelectListItem>(), "Select a Grade ...", new
+                            {
+                                id = "GradeCode", @class = "form-control select2picker", name = "GradeCode", 
+                                Required = "Required", data_fv_greaterthan_message = "Grade is required"
+
+                            })*@
+
+                    </div>
+
+                </div>
+                <div class="spacer-small"></div>
+                <div class="spacer-small"></div>
+                <div class="spacer-small"></div>
+                <span class="col-lg-offset-3 alert alert-warning font-black">Note: once saved, the title is NOT editable</span>
+                <div class="spacer-small"></div>
+                <div class="spacer-small"></div>
+                <div class="form-group">
+                    <label for="Title" class="col-form-label col-lg-3">Title <span class="mandatory">*</span></label>
+                    <div class="col-lg-9">
+                        <input type="text" name="Title" id="Title" data-fv-notempty-message='Title is required' required class="form-control" value=""/>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button type="submit" id="btn-submit" class="btn btn-primary">Add</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+
+    </form>
+</div>
+
+@functions {
+    private int GetDefaultDocPart1()
+    {
+        return int.Parse(DateTime.Now.Year.ToString().Substring(2, 2));
+    }
+
+}

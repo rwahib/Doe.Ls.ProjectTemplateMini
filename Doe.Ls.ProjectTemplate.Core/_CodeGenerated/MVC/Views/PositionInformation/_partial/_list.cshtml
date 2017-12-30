@@ -1,0 +1,150 @@
+ 
+
+
+
+@model IEnumerable<PositionInformation>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Position information List",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-condensed dt-responsive @*ajaxDataTable*@" @*data-service="positionInformationService" data-url="@Url.Action("ListJson")"*@>
+                @*<caption>Position information list</caption>*@
+                <thead>
+                    <tr>
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.Position)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.OlderPositionNumber3)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.OlderPositionNumber1)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.OlderPositionNumber2)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.SchNumber)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.PositionType)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.EmployeeType)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.PositionNoteId)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.TrimLink)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.PositionEndDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.PositionFTE)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.PositionStatusValue)
+                        </th>
+                                 
+                        
+                        <th>
+                            @Html.DisplayNameFor(model => model.OccupationType)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.OtherOverview)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+    
+                                @Html.Raw(item.Position.PositionTitle.StripHtml().Minimise(50))
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.OlderPositionNumber3)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.OlderPositionNumber1)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.OlderPositionNumber2)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.SchNumber)
+                            </td>                       
+                            <td>
+    
+                                @Html.Raw(item.PositionType.PositionTypeName.StripHtml().Minimise(50))
+                            <td>
+    
+                                @Html.Raw(item.EmployeeType.EmployeeTypeName.StripHtml().Minimise(50))
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.PositionNoteId)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.TrimLink)
+                            </td>                       
+                            <td>
+   
+                                @item.PositionEndDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.PositionFTE)
+                            </td>                       
+                            <td>
+    
+                                @Html.Raw(item.PositionStatusValue.PosStatusTitle.StripHtml().Minimise(50))
+                            <td>
+    
+                                @Html.Raw(item.OccupationType.OccupationTypeName.StripHtml().Minimise(50))
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.OtherOverview)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    <a href="@Url.Action("Edit", new { id = item.PositionId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                    <a href="@Url.Action("Details", new { id = item.PositionId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    <a href="@Url.Action("Delete", new { id = item.PositionId })" class="btn btn-primary pop-up"  data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

@@ -1,0 +1,197 @@
+@using Doe.Ls.EntityBase.Http
+@using Doe.Ls.ProjectTemplate.Core.BL.UI.UserTasks
+@model IEnumerable<UserRoleModel>
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var frmType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var roleId = ViewBagWrapper.GetGeneralObject<int>("RoleId", ViewData);
+    var propList = task.GetPropertySettings((Enums.UserRole)roleId, frmType).ToArray();
+}
+@Html.Hidden("filterRoleId", roleId, new { id = "filterRoleId" })
+<div class="table-responsive">
+    <table class="table table-striped table-sm dt-responsive @*ajaxDataTable*@" @*data-service="sysUserRoleService" data-url="@HttpHelper.GetActionUrl("ListJson","UserRole")"*@>
+        @*<caption>Sys user role list</caption>*@
+        <thead>
+            <tr>
+                @if(UiPropertyItem.GetProperty(propList, UserRoleModel.EmailProp).IsVisible())
+
+                    {
+                    <th>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </th>
+                    }
+                @if(UiPropertyItem.GetProperty(propList, UserRoleModel.DisplayedNameProp).IsVisible())
+                    {
+                    <th>
+                        @Html.DisplayNameFor(model => model.DisplayedName)
+                    </th>
+                    }
+                @if(UiPropertyItem.GetProperty(propList, UserRoleModel.RoleNameProp).IsVisible())
+                    {
+                    <th>
+                        @Html.DisplayNameFor(model => model.RoleName)
+                    </th>
+                    }
+
+                @if(UiPropertyItem.GetProperty(propList, UserRoleModel.OrgLevelNameProp).IsVisible())
+                    {
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrgLevelName)
+                    </th>
+                    }
+                @if(UiPropertyItem.GetProperty(propList, UserRoleModel.StructureIdProp).IsVisible())
+                    {
+                    <th>
+                        @Html.DisplayNameFor(model => model.StructureId)
+                    </th>
+                    }
+                @if(UiPropertyItem.GetProperty(propList, UserRoleModel.OrgObjetcNameProp).IsVisible())
+                    {
+                    <th>
+                        @Html.DisplayNameFor(model => model.OrgObjetcName)
+                    </th>
+                    }
+                @if(UiPropertyItem.GetProperty(propList, UserRoleModel.IsActiveProp).IsVisible())
+                    {
+                    <th>
+                        @Html.DisplayNameFor(model => model.IsActive)
+                    </th>
+                    }
+                @if(UiPropertyItem.GetProperty(propList, UserRoleModel.ActiveFromProp).IsVisible())
+                    {
+                    <th>
+                        @Html.DisplayNameFor(model => model.ActiveFrom)
+                    </th>
+                    }
+                @if(UiPropertyItem.GetProperty(propList, UserRoleModel.ActiveToProp).IsVisible())
+                    {
+                    <th>
+                        @Html.DisplayNameFor(model => model.ActiveTo)
+                    </th>
+                    }
+                @if(UiPropertyItem.GetProperty(propList, UserRoleModel.LastModifiedDateProp).IsVisible())
+                    {
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastModifiedDate)
+                    </th>
+                    }
+                @if(UiPropertyItem.GetProperty(propList, UserRoleModel.LastModifiedByProp).IsVisible())
+                    {
+                    <th>
+                        @Html.DisplayNameFor(model => model.LastModifiedBy)
+                    </th>
+                    }
+                <th class="all"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @* For ajax dataTable empty the tbody *@
+            @foreach(var item in Model)
+                {
+                <tr>
+                    @if(UiPropertyItem.GetProperty(propList, UserRoleModel.EmailProp).IsVisible())
+                        {
+                        <td>
+                            <a href='@Html.Encode(Html.Raw(string.Format("mailto:{0}?subject=\"as {1} for {2} - {3} for {4} \"",item.Email,item.RoleName,item.OrgObjetcName,item.OrgLevelName, HttpHelper.GetAppUrl())))' title="@item">@item.Email</a>
+                            
+                        </td>
+                        }
+                    @if(UiPropertyItem.GetProperty(propList, UserRoleModel.DisplayedNameProp).IsVisible())
+                        {
+                        <td title="@item.Email">
+                            @item.DisplayedName
+                        </td>
+                        }
+                    @if(UiPropertyItem.GetProperty(propList, UserRoleModel.RoleNameProp).IsVisible())
+                        {
+                        <td>
+
+                            @item.RoleName
+                        </td>
+                        }
+
+                    @if(UiPropertyItem.GetProperty(propList, UserRoleModel.OrgLevelNameProp).IsVisible())
+                        {
+                        <td>
+                            @item.OrgLevelName
+                        </td>
+                        }
+                    @if(UiPropertyItem.GetProperty(propList, UserRoleModel.StructureIdProp).IsVisible())
+                        {
+                        <td>
+                            @item.StructureId
+                        </td>
+                        }
+                    @if(UiPropertyItem.GetProperty(propList, UserRoleModel.OrgObjetcNameProp).IsVisible())
+                        {
+                        <td>
+                            @item.OrgObjetcName
+                        </td>
+                        }
+                    @if(UiPropertyItem.GetProperty(propList, UserRoleModel.IsActiveProp).IsVisible())
+                        {
+                        <td>
+                            @item.IsActive
+                        </td>
+                        }
+                    @if(UiPropertyItem.GetProperty(propList, UserRoleModel.ActiveFromProp).IsVisible())
+                        {
+                        <td>
+
+                            @item.ActiveFrom.ToEasyDateFormat()
+                        </td>
+                        }
+                    @if(UiPropertyItem.GetProperty(propList, UserRoleModel.ActiveToProp).IsVisible())
+                        {
+                        <td>
+
+                            @item.ActiveTo.ToEasyDateFormat()
+                        </td>
+                        }
+                    @if(UiPropertyItem.GetProperty(propList, UserRoleModel.LastModifiedDateProp).IsVisible())
+                        {
+                        <td>
+                            @item.LastModifiedDate.ToEasyDateTimeFormat()
+                        </td>
+                        }
+                    @if(UiPropertyItem.GetProperty(propList, UserRoleModel.LastModifiedByProp).IsVisible())
+
+                        {
+                        <td>
+
+                            @item.LastModifiedBy
+                        </td>
+                        }
+                    <td>
+
+                        <div class="btn-group-vertical">
+                            @{
+                                var itemPriv = task.GetUserRolePrivilege(new UserRoleModel
+                                    {
+                                    UserId = item.UserId,
+                                    RoleId = item.RoleId,
+                                    OrgLevelId = item.OrgLevelId,
+                                    StructureId = item.StructureId
+                                    });
+                            }
+                            @if(itemPriv.CanEdit)
+                                {
+                                <a href="@Url.Action("Edit", new {userName = item.UserId, roleId = item.RoleId, orgLevelId = item.OrgLevelId, structureId = item.StructureId})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                }
+                            @if(itemPriv.CanRead)
+                                {
+                                <a href="@Url.Action("Details", new {userName = item.UserId, roleId = item.RoleId, orgLevelId = item.OrgLevelId, structureId = item.StructureId})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                }
+                            @if(itemPriv.CanDelete)
+                                {
+                                <a href="@Url.Action("Delete", new {userName = item.UserId, roleId = item.RoleId, orgLevelId = item.OrgLevelId, structureId = item.StructureId})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                }
+                        </div>
+
+                    </td>
+                </tr>
+                                    }
+        </tbody>
+    </table>
+</div>

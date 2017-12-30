@@ -1,0 +1,50 @@
+@model Location
+@{
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);    
+    ViewBagWrapper.InfoBag.SetTitle("Location Detail",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    Layout = null;
+} 
+
+<div class="modal-header">
+    <h5 class="modal-title" id="tempModalLabel">Are you sure you want to delete this location ?</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">x</span>
+    </button>
+</div>
+
+<div class="error-popup">
+    <ul class="list-group">
+        @foreach (var error in errors)
+        {
+            <li class="list-group-item ">
+                <label class="validation-error">@string.Format("{0} has error:", error.PropertyName.Wordify())</label>
+                <label class="validation-error">@string.Format("{0}", error.ErrorMessage)</label>            
+            </li>
+        }
+    </ul>
+</div>
+<div class="success-popup">
+    <ul class="list-group">
+        <li class="list-group-item ">
+            <label class="text-success" id="lbl-success"></label>
+        </li>
+    </ul>
+</div>
+
+<div id="formTab">
+    <form class="" role="form" action="@Url.Action("Delete")" @*"~/Location/Delete"*@   method="POST" id="form-location-delete" data-fv-feedbackicons-validating="glyphicon glyphicon-refresh">
+    
+        @Html.AntiForgeryToken()
+    
+        <div class="modal-body">
+            @Html.Partial("_partial/_details")         
+        </div>
+        
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-primary">Delete</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,173 @@
+@model PositionDescription
+@{
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var workflowEngine = ViewBagWrapper.WorkflowBag.GetWorkflowEngine(ViewData);
+    var positionDescriptionPrivilege = Enums.Privilege.AccessDeniedPrivilege;
+    if(Model != null && Model.RolePositionDescription != null && (Model.RolePositionDescription.RolePositionDescId >= -1)) {
+        if(workflowEngine != null) {
+            positionDescriptionPrivilege = workflowEngine.GetWorkflowObjectPrivilege();
+            }
+        }
+    else {
+        positionDescriptionPrivilege = task.GetWorkflowObjectPrivilege(WorkflowObjectType.PositionDescription);
+        }
+
+    var count = ViewBagWrapper.VariableBag.GetIntVariable("LinkedPositionsCount", ViewData);
+
+    var wizardStep = ViewBagWrapper.PositionDescBag.GetPositionDescWizardBag(ViewData);
+}
+
+<div class="wrapper" id="wrapper-PositionDescription">
+    @*<div class="spacer"></div>*@
+    <div class="row">
+        <div class="col-lg-12">
+            <nav id="event-menu" class="navbar navbar-gef navbar-default">
+                <div class="navbar-header">
+                    <button class="btn btn-success navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" id="ui-collapse-298">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="col-lg-12">
+                    @Html.Partial("_partial/_breadcrumb", new Breadcrumb { Display = "Back to position description list", ServerLink = "~/PositionDescription/" })
+
+                </div>
+                <!--buttons-->
+
+                <div class="navbar-collapse collapse">
+                    <ul id="position_nav" class="nav navbar-nav navbar-left">
+                        @if(formType == FormType.Create || positionDescriptionPrivilege.CanEdit) {
+                            <li class="@RenderSection("OverviewActive", false)">
+                                <a href="@Url.Action("ManageOverview", new {id = Model.PositionDescriptionId})">Overview</a>
+                            </li>
+                            }
+                        @if(Model != null && Model.PositionDescriptionId > 0) {
+
+
+                            if(Model.PositionDescriptionId > 0) {
+                                if(positionDescriptionPrivilege.CanEdit) {
+                                    <li class="@RenderSection("SelectionCriteriaActive", false)">
+                                        <a href="@Url.Action("ListSelectionCriteria", new {id = Model.PositionDescriptionId})">Selection criteria</a>
+                                    </li>
+                                    }
+
+                                if(positionDescriptionPrivilege.CanPerformActions) {
+                                    <li class="@RenderSection("LinkedPositionsActive", false)">
+                                        @if(count > 0) {
+                                            <a href="@Url.Action("ManageLinkedPositions", new {id = Model.PositionDescriptionId})">Linked positions(@count)</a>
+                                            }
+                                        else {
+                                            <a href="#">Linked positions(@count)</a>
+
+                                            }
+                                    </li>
+
+                                    <li class="@RenderSection("ActionsActive", false)">
+                                        <a href="@Url.Action("ManageActions", new {id = Model.PositionDescriptionId})">Actions</a>
+                                    </li>
+                                    }
+
+                                if(positionDescriptionPrivilege == Enums.Privilege.ReadOnlyPrivilege) {
+
+                                    @RenderSection("LinkedPositionsActive", false)
+                                    if(wizardStep != Enums.PositionDescWizardStep.LinkedPositions) {
+                                        <li class="@RenderSection("LinkedPositionsActive", false)">
+                                            @if(count > 0) {
+                                                <a href="@Url.Action("ManageLinkedPositions", new {id = Model.PositionDescriptionId})">Linked positions(@count)</a>
+                                                }
+                                            else {
+                                                <a href="#">Linked positions(@count)</a>
+
+                                                }
+                                        </li>
+                                        }
+                                    }
+
+
+                                @RenderSection("SummaryActive", false)
+                                if(wizardStep != Enums.PositionDescWizardStep.Summary) {
+                                    <li class="@RenderSection("SummaryActive", false)" id="position_summary">
+                                        <a href="@Url.Action("ManageSummary", new {id = Model.PositionDescriptionId})">Summary</a>
+                                    </li>
+                                    }
+
+
+
+                                if(positionDescriptionPrivilege.CanPerformActions) {
+                                    @RenderSection("History", false)
+                                    if(wizardStep != Enums.PositionDescWizardStep.History) {
+                                        <li class="@RenderSection("History", false)" id="position_history">
+                                            <a href="@Url.Action("WfHistory", new {id = Model.PositionDescriptionId})">History</a>
+                                        </li>
+                                        }
+
+                                    if(ProjectTemplateSettings.Site.TrimIntegration && task.User.HasAdminOrPowerRole()) {
+                                        <li class="@RenderSection("Trim", false)" id="position-description-TRIM">
+                                            <a href="@Url.Action("Trim", new {id = Model.PositionDescriptionId})" title="Trim">HP RM</a>
+                                        </li>
+                                        }
+                                    }
+
+                                }
+
+                            }
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <div class="row page-header">
+        <div class="col-lg-6">
+
+            @if(wizardStep == Enums.PositionDescWizardStep.Summary) {
+                <h2 class="pageHeading">Summary</h2>
+                }
+            @if(ProjectTemplateSettings.Site.TrimIntegration&& task.User.HasAdminOrPowerRole()) {
+                if(wizardStep == Enums.PositionDescWizardStep.Trim) {
+                    <h2 class="pageHeading">HPE Content Manager</h2>
+                    }
+                }
+            @if(wizardStep == Enums.PositionDescWizardStep.History) {
+                <h2 class="pageHeading">History</h2>
+                }
+            @if(!positionDescriptionPrivilege.CanEdit) {
+                if(wizardStep == Enums.PositionDescWizardStep.LinkedPositions) {
+                    <h2 class="pageHeading">Linked positions</h2>
+                    }
+                }
+
+        </div>
+        <div class="col-lg-6 badge badge-pill">
+
+            @if(Model != null && Model.RolePositionDescription.Grade != null) {
+
+
+                <div class="col-lg-2 col-lg-offset-6 col-form-label font-bold noPadding" tabindex="0">Title:</div>
+                <div class="col-lg-4 text-left" tabindex="0">@Model.RolePositionDescription.Title</div>
+
+
+                <div class="col-lg-2 col-lg-offset-6 col-form-label font-bold noPadding" tabindex="0">DOC#:</div>
+                        <div class="col-lg-4 text-left" tabindex="0">@Model.RolePositionDescription.DocNumber</div>
+
+                        <div class="col-lg-2 col-lg-offset-6 col-form-label font-bold noPadding" tabindex="0">Grade:</div>
+                        <div class="col-lg-4 text-left" tabindex="0">@Model.RolePositionDescription.Grade.GradeTitle (@Model.RolePositionDescription.GradeCode)</div>
+
+                        <div class="row-fluid bottomSpacer">
+                            <div class="col-lg-2 col-lg-offset-6 col-form-label font-bold noPadding" tabindex="0">Status:</div>
+                            <div class="col-lg-4 text-left @Model.RolePositionDescription.StatusValue" tabindex="0">@Model.RolePositionDescription.StatusValue</div>
+                        </div>
+
+                }
+        </div>
+
+    </div>
+
+
+
+
+
+    @RenderBody()
+</div>

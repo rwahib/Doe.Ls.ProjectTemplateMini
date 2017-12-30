@@ -1,0 +1,36 @@
+@model IEnumerable<Grade>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Grade list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive ajaxDataTable" data-service="gradeService" data-url="@HttpHelper.GetActionUrl("ListJson","Grade")">
+                    @*<caption>Grade list</caption>*@
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GradeCode)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.GradeTitle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GradeType)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Award)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.StatusValue)
+                            </th>                            
+
+                            <th class="all"></th>
+                        </tr>
+                    </thead>
+                </table>
+        </div>
+

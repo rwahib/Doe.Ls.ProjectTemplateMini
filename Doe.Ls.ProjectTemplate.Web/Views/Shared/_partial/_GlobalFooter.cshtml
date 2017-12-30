@@ -1,0 +1,59 @@
+﻿ <footer class="gef-footer-local">
+    <div class="container">
+        <div class="row">
+            <nav class="col-lg-6 gef-local-nav">
+                <ul>
+                    <li><a href="https://education.nsw.gov.au/human-resources/recruitment" data-name="admin-user-guide" target="_blank">HR forms</a></li>
+                    <li><a href="http://www.psc.nsw.gov.au/workforce-management" data-name="PSC website" target="_blank">PSC website</a></li>
+                </ul>
+            </nav>          
+        </div>
+    </div>
+</footer> 
+<div class="gef-footer-global container">
+    
+        <div class="row">
+            <div class="col-lg-3 col-sm-12 col-xs-12 col-lg-push-6">
+                <ul role="menu">
+                    <li role="menuitem"><a href="https://education.nsw.gov.au/about-us/rights-and-accountability/accessibility" >Accessibility</a></li>
+                    <li role="menuitem"><a href="https://education.nsw.gov.au/about-us/rights-and-accountability/information-access" >Information access</a></li>
+                    <li role="menuitem"><a href="https://education.nsw.gov.au/about-us/rights-and-accountability/privacy" >Privacy</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-12 col-xs-12 col-lg-push-6">
+                <ul role="menu">
+                    <li role="menuitem"><a href="https://education.nsw.gov.au/about-us/rights-and-accountability/copyright" >Copyright</a></li>
+                    <li role="menuitem"><a href="https://education.nsw.gov.au/about-us/department-contacts" >Department contacts</a></li>
+                    <li role="menuitem"><a href="https://www.nsw.gov.au/" >NSW Government</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-12 col-xs-12 col-lg-pull-3">
+                <a class="gef-feedback-trigger"
+                   href="@SendMailTo()">Provide Feedback</a>
+            </div>
+            <div class="col-lg-3 col-sm-12 col-xs-12  col-lg-pull-9">
+                <a href="https://education.nsw.gov.au">
+                    <span class="sr-only">NSW Department of Education</span>
+                    <img src="https://app.education.nsw.gov.au/psnsw-divisions-establishment-system/images/dec.png" alt="NSW Department of Education" class="logo" id="declogo" width="200" />
+                </a>
+
+            </div>
+        </div>
+    
+</div>
+@functions{
+    string SendMailTo()
+    {
+        var configUri = new Uri(ProjectTemplateSettings.Site.AppUrl);
+        var resolvedUrl = string.Format("{0}{1}{2}",
+            configUri.AbsoluteUri,
+            Request.Url.AbsolutePath.Substring(1),
+            Request.Url.Query)
+            .Replace("/sport/sport", "/sport");
+        var mailTo = string.Format("mailto:{0}?subject={1}&body={2}",
+            Url.Encode(ProjectTemplateSettings.Notification.GetContactEmailAddresses()),
+            Url.Encode(ProjectTemplateSettings.Notification.ContactSubject),
+            Url.Encode(string.Format("Requested page : {0}", resolvedUrl)));
+        return mailTo;
+    }
+}

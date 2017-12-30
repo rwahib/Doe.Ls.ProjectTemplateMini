@@ -1,0 +1,106 @@
+@model IEnumerable<SysRole>
+@{    
+    ViewBagWrapper.InfoBag.SetTitle("Sys role list",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var priv = task.GetPositionLevelPrivilege();
+}
+
+
+        <div class="table-responsive">
+            <table class="table table-striped table-sm dt-responsive @*ajaxDataTable*@" @*data-service="sysRoleService" data-url="@HttpHelper.GetActionUrl("ListJson","SysRole")"*@>
+                @*<caption>Sys role list</caption>*@
+                <thead>
+                    <tr>
+                     <th>
+                            @Html.DisplayNameFor(model => model.RoleId)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.RoleTitle)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.RoleApiName)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.RoleDescription)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.CreatedBy)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedDate)
+                        </th>
+                                 
+                     <th>
+                            @Html.DisplayNameFor(model => model.LastModifiedBy)
+                        </th>
+                                 
+                        <th class="all"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @* For ajax dataTable empty the tbody *@
+                    @foreach (var item in Model) 
+                    {
+                       <tr>
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.RoleId)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.RoleTitle)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.RoleApiName)
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.RoleDescription)
+                            </td>                       
+                            <td>
+   
+                                @item.CreatedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.CreatedBy)
+                            </td>                       
+                            <td>
+   
+                                @item.LastModifiedDate.ToEasyDateTimeFormat()
+                            </td>                       
+                            <td>
+   
+                                @Html.DisplayFor(modelItem => item.LastModifiedBy)
+                            </td>                       
+                            <td>
+                                <div class="btn-group-vertical">
+                                    @{ var itemPriv = task.GetSysRolePrivilege(item.RoleId);  }
+                                    @if(itemPriv.CanEdit)
+                                        {
+                                        <a href="@Url.Action("Edit", new {id = item.RoleId})" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">Edit</a>
+                                        }
+                                    <a href="@Url.Action("Details", new { id = item.RoleId })" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">Details</a>
+                                    @if(itemPriv.CanDelete)
+                                        {
+                                        <a href="@Url.Action("Delete", new {id = item.RoleId })" class="btn btn-primary pop-up" data-toggle="modal" data-target="#vlePluginModal">Delete</a>
+                                        }
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+

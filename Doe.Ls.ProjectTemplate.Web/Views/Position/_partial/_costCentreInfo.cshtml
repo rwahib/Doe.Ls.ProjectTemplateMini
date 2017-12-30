@@ -1,0 +1,49 @@
+﻿@model Position
+@{
+   
+}
+<!--Cost centre-->
+@if (Model.CostCentreDetail != null)
+{
+    <div class="card card.bg-primary.text-white descriptionPanel" id="pnlCostCentreInfo">
+        <div class="card-header accordion-toggle" data-toggle="collapse"  data-target="#CostCentreInfo">
+            <h4 class="accordion-title">
+                <a href="#CostCentreInfo" class="collapsed" data-toggle="collapse">Cost centre<i class="indicator glyphicon glyphicon-chevron-right  float-right"></i></a>
+            </h4>
+        </div>
+        <div id="CostCentreInfo" class="card-body collapse">
+            <div class="form-group">
+                <label class="col-form-label  text-right col-lg-3">@Html.DisplayNameFor(model => model.CostCentreDetail.CostCentre)</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.CostCentreDetail.CostCentre</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-form-label  text-right col-lg-3">@Html.DisplayNameFor(model => model.CostCentreDetail.Fund)</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.CostCentreDetail.Fund</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">@Html.DisplayNameFor(model => model.CostCentreDetail.PayrollWBS)</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.CostCentreDetail.PayrollWBS</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">@Html.DisplayNameFor(model => model.CostCentreDetail.RCCJDEPayrollCode)</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.CostCentreDetail.RCCJDEPayrollCode</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-lg-3 col-form-label  text-right">@Html.DisplayNameFor(model => model.CostCentreDetail.GLAccount)</label>
+                <div class="col-lg-9">
+                    <p class="form-control-plaintext">@Model.CostCentreDetail.GLAccount</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

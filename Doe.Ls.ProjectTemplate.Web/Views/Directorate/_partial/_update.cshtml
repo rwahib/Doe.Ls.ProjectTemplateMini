@@ -1,0 +1,153 @@
+@model Directorate
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+    var executiveItems = ViewBagWrapper.ListBag.GetList("divisionItems", ViewData);
+    var statusValueItems = ViewBagWrapper.ListBag.GetList("statusValueItems", ViewData);
+
+    var locationItems = ViewBagWrapper.ListBag.GetList("locationItems", ViewData);
+}
+@Html.AntiForgeryToken()
+
+<div class="form-group @GetFormGroupClass("DirectorateId")">
+    <label for="DirectorateId" class="col-lg-4">@Html.DisplayNameFor(model => model.DirectorateId) <span class="mandatory">*</span></label>
+
+
+    <input type="number" name="DirectorateId" id="DirectorateId" class="form-control col-lg-8" placeholder="e.g. DirectorateId" value="@Model.DirectorateId" @ReadOnly("DirectorateId") required data-fv-notempty-message='The Directorate id is required' data-fv-integer-message='The Directorate id is not an integer' />
+
+
+
+</div>
+<div class="form-group @GetFormGroupClass("ExecutiveCod")">
+    <label for="ExecutiveCod" class="col-lg-4">@Html.DisplayNameFor(model => model.Executive) <span class="mandatory">*</span></label>
+
+    @Html.DropDownList("ExecutiveCod", executiveItems, "Select Executive ...", new { id = "ExecutiveCod", @class = "form-control col-lg-8 select2picker", Required = "Required" })
+
+</div>
+<div class="form-group @GetFormGroupClass("DirectorateName")">
+    <label for="DirectorateName" class="col-lg-4">@Html.DisplayNameFor(model => model.DirectorateName) <span class="mandatory">*</span></label>
+
+
+    <textarea name="DirectorateName" id="DirectorateName" class="form-control col-lg-8 " placeholder="e.g. DirectorateName" required data-fv-notempty-message='The Directorate name is required'>@Model.DirectorateName  </textarea>
+
+
+
+</div>
+<div class="form-group @GetFormGroupClass("DirectorateDescription")">
+    <label for="DirectorateDescription" class="col-lg-4">@Html.DisplayNameFor(model => model.DirectorateDescription) </label>
+
+
+    <textarea name="DirectorateDescription" id="DirectorateDescription" class="form-control col-lg-8 " placeholder="e.g. DirectorateDescription">@Model.DirectorateDescription  </textarea>
+
+
+
+</div>
+<div class="form-group @GetFormGroupClass("DirectorateOverview")">
+    <label for="DirectorateOverview" class="col-lg-4">@Html.DisplayNameFor(model => model.DirectorateOverview) </label>
+    
+    <textarea name="DirectorateOverview" id="DirectorateOverview" class="form-control col-lg-8 " placeholder="e.g. DirectorateOverview">@Model.DirectorateOverview  </textarea>
+   
+</div>
+
+<div class="form-group @GetFormGroupClass("ExecutiveCod")">
+    <label for="ExecutiveCod" class="col-lg-4">@Html.DisplayNameFor(model => model.Executive) <span class="mandatory">*</span></label>
+    
+        @Html.DropDownList("ExecutiveCod", executiveItems, "Select Division ...", new {id = "ExecutiveCod", @class = "form-control col-lg-8 select2picker", Required = "Required"})
+    
+</div>
+
+<div class="form-group">
+    <label for="LocationId" class="col-lg-2">Location<span class="mandatory">*</span></label>
+    
+        @Html.DropDownList("LocationId", locationItems, "Select Location ...", new { id = "LocationId", @class = "form-control col-lg-8 select2picker", Required = "Required", Multiple = "multiple", placeholder="Please select locations" })    
+</div>
+
+
+
+<div class="form-group @GetFormGroupClass("DirectorateCustomClass")">
+    <label for="DirectorateCustomClass" class="col-lg-4">@Html.DisplayNameFor(model => model.DirectorateCustomClass) </label>
+
+
+    <input type="text" name="DirectorateCustomClass" id="DirectorateCustomClass" class="form-control col-lg-8" placeholder="e.g. DirectorateCustomClass" value="@Model.DirectorateCustomClass" @ReadOnly("DirectorateCustomClass") />
+
+
+
+</div>
+
+<div class="form-group @GetFormGroupClass("StatusId")">
+    <label for="StatusId" class="col-lg-4">@Html.DisplayNameFor(model => model.StatusValue) <span class="mandatory">*</span></label>
+
+    @Html.DropDownList("StatusId", statusValueItems, "Select Status value ...", new { id = "StatusId", @class = "form-control col-lg-8 select2picker", Required = "Required" })
+
+</div>
+<div class="form-group @GetFormGroupClass("DirectorateOrder")">
+    <label for="DirectorateOrder" class="col-lg-4">@Html.DisplayNameFor(model => model.DirectorateOrder) <span class="mandatory">*</span></label>
+
+
+    <input type="number" name="DirectorateOrder" id="DirectorateOrder" class="form-control col-lg-8" placeholder="e.g. DirectorateOrder" value="@Model.DirectorateOrder" @ReadOnly("DirectorateOrder") required data-fv-notempty-message='The Directorate order is required' data-fv-integer-message='The Directorate order is not an integer' />
+
+
+
+</div>
+
+
+@Html.HiddenFor(m => m.CreatedBy)
+@Html.HiddenFor(m => m.CreatedDate)
+@Html.HiddenFor(m => m.LastModifiedBy)
+@Html.HiddenFor(m => m.LastModifiedDate)
+
+
+@functions
+{
+    bool IsKey(string propertyName) {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType) {
+            case FormType.Create: {
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                    if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                    break;
+                }
+        }
+        return string.Empty;
+    }
+}

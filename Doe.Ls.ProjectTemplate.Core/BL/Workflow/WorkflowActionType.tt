@@ -1,0 +1,71 @@
+﻿<#@ template language="C#" debug="true" hostSpecific="true" #>
+<#@ output extension=".cs" #>
+<#@ Assembly Name="System.Core.dll" #>
+<#@ Assembly Name="System.Data.dll" #>
+<#@ Assembly Name="System.Xml.dll" #>
+<#@ Assembly Name="System.Xml.Linq.dll" #>
+<#@ Assembly Name="System.Windows.Forms.dll" #>
+<#@ assembly name="$(SolutionDir)\Doe.Ls.ProjectTemplate.Core\lib\Doe.Ls.EntityBase.dll" #>
+<#@ import namespace="System" #>
+<#@ import namespace="System.Data" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Diagnostics" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Xml.Linq" #>
+<#@ import namespace="System.Collections" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Data.SqlClient" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+
+<# 
+ var appConfigPath=T4Helper.Extension.GetSolutionFolderPath(this.Host)+@"\Doe.Ls.ProjectTemplate.Data\app.config";
+ var connectionString=T4Helper.Extension.GetConnectionStringFromAppConfig(appConfigPath);
+	 var tableName="WfAction" ;
+ var applicationActiontable=T4Helper.Extension.GetDataTable(tableName,connectionString);
+#>
+using System.Collections.Generic;
+using System.Linq;
+using System.ComponentModel;
+using Doe.Ls.ProjectTemplate.Core.BL.Models;
+
+namespace Doe.Ls.ProjectTemplate.Core.BL.Workflow
+{              
+	 public partial  class WorkflowAction  
+    {
+        public List<WorkflowAction> GetAllActions()
+	     {
+            var actions=new List<WorkflowAction>
+    {
+	    <#    foreach(DataRow row in applicationActiontable.Rows){#>
+		<#=row["WfActionName"].ToString().CleanPropertyName().Trim()#>,<#}#> 
+		};
+	         return actions.OrderBy(a => a.ActionId).ToList();
+	     }
+
+		#region all static values
+
+	<#    foreach(DataRow row in applicationActiontable.Rows){#>
+	public static WorkflowAction <#=row["WfActionName"].ToString().CleanPropertyName()#> = new WorkflowAction
+	{
+		ActionId=(int)Enums.WorkflowActions.<#=row["WfActionName"].ToString().CleanPropertyName()#>,
+		};
+				
+
+	<#}#> 
+	#endregion
+				
+	} 
+}
+
+namespace Doe.Ls.ProjectTemplate.Core.BL.Models{
+public partial class Enums 
+	{
+		public enum WorkflowActions 
+		{
+	<#    foreach(DataRow row in applicationActiontable.Rows){#>
+		[Description("<#=row["WfActionName"].ToString().StripHtml()#>")]
+			<#=row["WfActionName"].ToString().CleanPropertyName() #> = <#=row["WfActionId"].ToString() #>,
+	<#}#> 
+		}
+	}
+}

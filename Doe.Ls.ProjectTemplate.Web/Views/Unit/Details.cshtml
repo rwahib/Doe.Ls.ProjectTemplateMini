@@ -1,0 +1,35 @@
+@model Unit
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Detail team", ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+<div class="page-header">
+    <h2>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</h2>
+</div>
+
+<div id="formTab" class="card.card-body">
+    <form class="" role="form" method="POST" id="form-unit-details">
+        @Html.AntiForgeryToken()
+        <p>
+            @if(task != null && task.GetTeamPrivilege(Model).CanEdit)
+                {
+                <a href="@Url.Action("Edit", new {id = Model.UnitId})" class="btn btn-primary">Edit</a>
+                <a href="@Url.Action("Index")" class="btn btn-primary">Team List <span class="glyphicon glyphicon-th-list"></span></a>
+
+                }
+
+        </p>
+
+        @Html.Partial("_partial/_details")
+        <p>
+            @if(task != null && task.GetTeamPrivilege(Model).CanEdit)
+                {
+                <a href="@Url.Action("Edit", new {id = Model.UnitId})" class="btn btn-primary">Edit</a>
+                <a href="@Url.Action("Index")" class="btn btn-primary">Team List <span class="glyphicon glyphicon-th-list"></span></a>
+                }
+
+        </p>
+    </form>
+</div>

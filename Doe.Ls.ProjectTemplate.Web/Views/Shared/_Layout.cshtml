@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html lang="en-au">
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var isTestSite = ProjectTemplateSettings.Site.IsTestSite;
+    var useShareToolbar = ProjectTemplateSettings.Site.UseShareToolbar;
+    ViewBagWrapper.SetGeneralObject("PageName", "Index", ViewData);
+
+    var doeClass = user.IsDoEUser ? "doe-user" : "";
+
+}
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="This system provides a platform for the PSNSW divisions to manage the establishment, organisational charts and position/role descriptions." />
+    <meta name="author" content="State of New South Wales, Department of Education, Australia" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>@ViewBagWrapper.InfoBag.GetTitle(ViewData)</title>
+
+    @Html.Partial("_partial/_GlobalCss")
+
+</head>
+<body class='standard @RenderSection("CustomClass",false)  @doeClass'>
+
+    <div class="container-fluid">
+
+        @Html.Partial("_partial/_GlobalHeader")
+
+        <div class="container" id="main-container">
+
+            @RenderBody()
+
+        </div>
+        <div class="clearfix"></div>
+
+
+        @Html.Partial("_partial/_GlobalFooter")
+    </div>
+    <script type="text/javascript">
+
+        @RenderSection("scripts", required: false)
+    </script>
+
+    @Html.Partial("_partial/_plugins")
+
+    @if (ProjectTemplateSettings.Site.UseShareToolbar)
+    {
+        @Html.Partial("_partial/_share")
+    }
+
+</body>
+</html>
+

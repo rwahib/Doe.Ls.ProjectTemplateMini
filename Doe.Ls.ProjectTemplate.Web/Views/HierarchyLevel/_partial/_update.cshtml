@@ -1,0 +1,107 @@
+
+
+
+@using Doe.Ls.EntityBase.MVCExtensions
+@model HierarchyLevel
+@{
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData); 
+    var formMethod = ViewBagWrapper.FormOperations.GetFormMethod(ViewData);
+    
+    var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+    var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
+        
+}
+
+@Html.AntiForgeryToken()
+
+<div class="form-group @GetFormGroupClass("HierarchyId")">
+    <label for="HierarchyId" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.HierarchyId) <span class="mandatory">*</span></label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="number" name="HierarchyId" id="HierarchyId" class="form-control" placeholder="e.g. HierarchyId" value="@Model.HierarchyId"  @ReadOnly("HierarchyId")  required data-fv-notempty-message='The Hierarchy id is required'    data-fv-integer-message='The Hierarchy id is not an integer'/>
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("HierarchyName")">
+    <label for="HierarchyName" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.HierarchyName) <span class="mandatory">*</span></label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="text" name="HierarchyName" id="HierarchyName" class="form-control" placeholder="e.g. HierarchyName" value="@Model.HierarchyName"  @ReadOnly("HierarchyName")  required data-fv-notempty-message='The Hierarchy name is required'    />
+                  
+                        </div>
+    </div>
+</div>                       
+<div class="form-group @GetFormGroupClass("HierarchyDescription")">
+    <label for="HierarchyDescription" class="col-form-label col-lg-2">@Html.DisplayNameFor(model => model.HierarchyDescription) </label>
+    
+<div class="col-lg-10">
+    <div class="input-group">
+                  
+                <input type="text" name="HierarchyDescription" id="HierarchyDescription" class="form-control" placeholder="e.g. HierarchyDescription" value="@Model.HierarchyDescription"  @ReadOnly("HierarchyDescription")      />
+                  
+                        </div>
+    </div>
+</div>                       
+
+
+@functions
+{
+    bool IsKey(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        return T4Helper.GetKeys(entityType).Any(p => p.Name == propertyName);
+    }
+
+    string ReadOnly(string propertyName) 
+    {
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        if (formType == FormType.Edit && IsKey(propertyName)) return "readonly";
+
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "readonly";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "readonly";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "readonly";
+        
+        return string.Empty;
+    }
+
+    string GetFormGroupClass(string propertyName) 
+    {
+        var entityType = ViewBagWrapper.EntityInfo.GetEntityType(ViewData);
+        var formType = ViewBagWrapper.FormOperations.GetFormType(ViewData);
+        var prop = T4Helper.GetProperty(propertyName, entityType);
+        var computedAttribute = T4Helper.MetadataOperations.GetMetadataPropertyCustomAttribute<ComputedPropertyAttribute>(prop, entityType);
+        if (computedAttribute == null) return string.Empty;
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.LastModifiedUser) return "hidden";
+
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreationDate) return "hidden";
+        if (computedAttribute.ComputedPropertyType == ComputedPropertyType.CreatedUser) return "hidden";
+
+        switch (formType)
+        {
+            case FormType.Create:
+            {
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Status) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.AutoIncrement) return "hidden";
+                if (computedAttribute.ComputedPropertyType == ComputedPropertyType.Computed) return "hidden";
+                break;
+            }
+        }
+        return string.Empty;        
+    }    
+}

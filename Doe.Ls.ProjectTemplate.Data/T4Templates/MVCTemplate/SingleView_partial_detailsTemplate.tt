@@ -1,0 +1,102 @@
+﻿<#@ template language="C#"inherits="BaseTemplate" #> 
+<#@ assembly name="System.Core" #>
+<#@ import namespace="Doe.Ls.EntityBase.Helper" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ parameter name="AppNamespace" type="System.String"#>
+<#@ parameter name="EntityContext" type="System.Data.Entity.DbContext"#>
+<# T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); #>
+<#@ parameter name="EntityType" type="System.Data.Entity.Core.Metadata.Edm.EntityType"#>
+<#    var helper=new EdmMetadataHelper(EntityContext);
+
+#>
+@model <#=EntityType.Name#> 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("<#=        T4Helper.Wordify(T4Helper.CleanClassName(EntityType.Name))#> Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);	
+}
+<# foreach (var pm in T4Helper.ListPropertiesWithFkInfo(EntityType))  {   
+if (pm == null) continue;
+ClearIndent();
+
+GenerateKeyTemplate(pm);
+
+if(GenerateSimpletextTemplate(pm)){continue;} 
+if(GenerateRichTextTemplate(pm)){continue;}
+ }// foreach list of properties
+#>  
+
+
+    
+
+
+
+<#+ 
+    //GenerateKeyTemplate
+    private void GenerateKeyTemplate(PropMeta pm){    
+
+        if(T4Helper.PropertyOperations.IsKey(pm.Property,EntityType)) {
+ #>
+            @Html.HiddenFor(model => model.<#=            pm.Property.Name#>)
+<#+         
+        }
+        return;
+    }
+#>
+
+
+
+
+<#+ 
+    //GenerateSimpletextTemplate
+private bool GenerateSimpletextTemplate(PropMeta pm)
+    {  var propName=pm.FK?pm.PareEntityType.Name:pm.Property.Name;  
+if(!T4Helper.PropertyOperations.IsRichText(pm.Property, this.EntityType)) {
+ #>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.<#= propName#>)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext"><#+ if(pm.FK){ #>@Html.DisplayFor(model => model.<#=propName #>.<#= T4Helper.MetadataOperations.GetDispayPropertyName(pm.PareEntityType) #>)
+                        <#+    }else{ #>@Html.DisplayFor(model => model.<#=propName #>)
+                        <#+    } #></p>
+       </div>
+</div>
+<#+         
+            return true;
+
+}
+#>
+<#+     
+    return false;
+}  
+// GenerateSimpletextTemplate   
+#>
+
+
+
+<#+ 
+    //GenerateRichTemplate
+private bool GenerateRichTextTemplate(PropMeta pm)
+    {  var propName=pm.FK?pm.PareEntityType.Name:pm.Property.Name;  
+if(T4Helper.PropertyOperations.IsRichText(pm.Property, this.EntityType)) {
+ #>
+<div class="form-group">
+    <span class="col-lg-4 col-form-label">@Html.DisplayNameFor(model => model.<#= propName#>)</span>
+        <div class="col-lg-8">
+        <p class="form-control-plaintext"><#+ if(pm.FK){ #>@Html.Raw(Model.<#=propName #>.<#= T4Helper.MetadataOperations.GetDispayPropertyName(pm.PareEntityType) #>)
+                        <#+    }else{ #>@Html.Raw(Model.<#=propName #>)
+                        <#+    } #></p>
+       </div>
+</div>
+<#+         
+            return true;
+
+}
+#>
+<#+     
+    return false;
+}  
+// GenerateRichTemplate   
+#>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MessageList xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Message>
+		<Code>PD-TASKS-CONFIRMATION-1</Code>
+		<MessageFormat>The position description {0} all required tasks has been completed!</MessageFormat>
+		<MessageCategory>Confirmation</MessageCategory>
+	</Message>
+	<Message>
+		<Code>RD-TASKS-CONFIRMATION-1</Code>
+		<MessageFormat>The role description {0} all required tasks has been completed!</MessageFormat>
+		<MessageCategory>Confirmation</MessageCategory>
+	</Message>
+	<Message>
+		<Code>PS-TASKS-CONFIRMATION-1</Code>
+		<MessageFormat>The position {0} all required tasks has been completed!</MessageFormat>
+		<MessageCategory>Confirmation</MessageCategory>
+	</Message>
+	<Message>
+		<Code>PRDPD-TASKS-WARNING-1</Code>
+		<MessageFormat>This {0} tasks is not completed, please complete the missing tasks:</MessageFormat>
+		<MessageCategory>Warning</MessageCategory>
+	</Message>
+</MessageList>

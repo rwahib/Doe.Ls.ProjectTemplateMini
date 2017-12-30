@@ -1,0 +1,86 @@
+
+
+@model RoleDescCapabilityMatrix
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Role desc capability matrix Details", ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+@Html.HiddenFor(model => model.GradeCode)
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.GradeCode)
+    </label>
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.GradeCode)</p>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        Foundational
+    </label>
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Foundational_Min)-@Html.DisplayFor(model => model.Foundational_Max)</p>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        Intermediate
+    </label>
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Intermediate_Min)-@Html.DisplayFor(model => model.Intermediate_Max)</p>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        Adept
+    </label>
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Adept_Min)-@Html.DisplayFor(model => model.Adept_Max)</p>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        Advanced
+    </label>
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Advanced_Min)-@Html.DisplayFor(model => model.Advanced_Max)</p>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.Advanced_Max)
+    </label>
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Advanced_Max)</p>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        Highly Advanced
+    </label>
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.HighlyAdvanced_Min)-@Html.DisplayFor(model => model.HighlyAdvanced_Max)</p>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        Focus Capabilities
+    </label>
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.FocusCapabilities_Min)-@Html.DisplayFor(model => model.FocusCapabilities_Max)</p>
+    </div>
+</div>
+<div class="form-group">
+    <label class="col-lg-2 col-form-label">
+        @Html.DisplayNameFor(model => model.Notes)
+    </label>
+
+    <div class="col-lg-10">
+        <p class="form-control-plaintext">@Html.DisplayFor(model => model.Notes)</p>
+    </div>
+</div>
+
+
+
+

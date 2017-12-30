@@ -1,0 +1,52 @@
+
+
+@model TeamType 
+@{
+    ViewBagWrapper.InfoBag.SetTitle("Team type Details",ViewData);
+    var user = ViewBagWrapper.UserInfoExtensionBag.GetCurrentUser(ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+}
+
+
+ 
+@Html.HiddenFor(model => model.TeamTypeId)
+
+<div class="form-group">
+        <label class="col-md-2 control-label">
+        @Html.DisplayNameFor(model => model.TeamTypeId)
+    </label>
+        
+        <div class="col-md-10">
+        <p class="form-control-static">@Html.DisplayFor(model => model.TeamTypeId)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-md-2 control-label">
+        @Html.DisplayNameFor(model => model.TeamTypeName)
+    </label>
+        
+        <div class="col-md-10">
+        <p class="form-control-static">@Html.DisplayFor(model => model.TeamTypeName)</p>
+    </div>
+            </div>
+    
+    
+
+
+<div class="form-group">
+        <label class="col-md-2 control-label">
+        @Html.DisplayNameFor(model => model.TeamTypeDescription)
+    </label>
+        
+        <div class="col-md-10">
+        <p class="form-control-static">@Html.DisplayFor(model => model.TeamTypeDescription)</p>
+    </div>
+            </div>
+    
+    
+
+

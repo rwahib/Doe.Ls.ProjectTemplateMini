@@ -1,0 +1,18 @@
+﻿@using Doe.Ls.EntityBase
+@model DateTime?
+@{
+    string format=string.Empty;
+    if (ViewData.ModelMetadata.AdditionalValues.ContainsKey(Cnt.DateTimeFormat))
+        {
+        format = ViewData.ModelMetadata.AdditionalValues[Cnt.DateTimeFormat].ToString();
+        }
+}
+@if (Model.HasValue)
+{
+    <span class="display" tabindex="0">@Model.Value.ToString(format)</span>
+    }
+else
+    {
+    <span class="display" tabindex="0">[Not Provided]</span>
+    }
+    

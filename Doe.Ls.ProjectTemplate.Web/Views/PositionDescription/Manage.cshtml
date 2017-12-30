@@ -1,0 +1,137 @@
+﻿@model PositionDescription
+@{
+    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);
+    var wizardStep = ViewBagWrapper.PositionDescBag.GetPositionDescWizardBag(ViewData);
+    var pageName = wizardStep.ToString().Wordify();
+    Layout = "~/Views/PositionDescription/Layout/PositionDescLayout.cshtml";
+    var isEditCriteria = ViewBagWrapper.VariableBag.GetBoolVariable("IsEditCriteria", ViewData);
+    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);
+    var workflowEngine = ViewBagWrapper.WorkflowBag.GetWorkflowEngine(ViewData);
+    var positionDescriptionPrivilege = Enums.Privilege.AccessDeniedPrivilege;
+    if(Model.RolePositionDescription != null && Model.RolePositionDescription.RolePositionDescId >= -1)
+        {
+        if(workflowEngine != null)
+            {
+            positionDescriptionPrivilege = workflowEngine.GetWorkflowObjectPrivilege();
+            }
+        }
+    else
+        {
+        positionDescriptionPrivilege = task.GetWorkflowObjectPrivilege(WorkflowObjectType.PositionDescription);
+        }
+
+
+    var title = (Model == null || Model.RolePositionDescription == null) ? pageName : pageName + " for " + Model.RolePositionDescription.DocNumber + "-" + Model.RolePositionDescription.Title + "-" + Model.RolePositionDescription.GradeCode;
+    ViewBagWrapper.InfoBag.SetTitle(title, ViewData);
+
+    var missingPd = Model.PositionDescriptionId == Enums.Cnt.Na;
+}
+
+@Html.Hidden("WizardStep", wizardStep)
+
+<div class="error">
+    <ul class="list-group">
+        @if(errors != null)
+            {
+            foreach(var error in errors)
+                {
+                <li class="list-group-item ">
+                    <label class="validation-error">@string.Format("{0}", error.PropertyName.Wordify())</label>
+                    <label class="validation-error">@string.Format("{0}", error.ErrorMessage)</label>
+                </li>
+                }
+            }
+    </ul>
+</div>
+
+@switch(wizardStep)
+    {
+    case Enums.PositionDescWizardStep.Overview:
+
+        @Html.Partial("_partial/_manageOverview")
+        if(Model.PositionDescriptionId > 0 || positionDescriptionPrivilege.CanEdit)
+            {
+            @section OverviewActive{active}
+            }
+        break;
+
+   
+
+    case Enums.PositionDescWizardStep.SelectionCriteria:
+        if(Model.PositionDescriptionId > 0 && positionDescriptionPrivilege.CanEdit) {
+            @(isEditCriteria ? Html.Partial("_partial/_manageSelectionCriteria") : Html.Partial("_partial/_listSelectionCriteria"))
+            @section SelectionCriteriaActive{active}
+            }
+        break;
+    case Enums.PositionDescWizardStep.LinkedPositions:
+        if(Model.PositionDescriptionId > 0)
+            {
+            @Html.Partial("_partial/_listLinkedPositions")
+            if (positionDescriptionPrivilege.CanPerformActions)
+            {
+                @section LinkedPositionsActive{ active}
+            }
+            else
+            {
+                @section LinkedPositionsActive{}
+            }
+        }
+        break;
+    case Enums.PositionDescWizardStep.Summary:
+        if (!missingPd)
+        {
+            @Html.Partial("_partial/_manageSummary")
+            @section SummaryActive{}
+            }
+
+        break;
+    case Enums.PositionDescWizardStep.Actions:
+        if(Model.PositionDescriptionId > 0 && (positionDescriptionPrivilege.CanPerformActions))
+            {
+            @Html.Partial("_partial/_manageActions")
+            @section ActionsActive{active}
+            }
+
+        break;
+    case Enums.PositionDescWizardStep.History:
+        @Html.Partial("_partial/_history")
+        @section History{}
+        break;
+
+    case Enums.PositionDescWizardStep.Trim:
+
+        
+        @Html.Partial("_partial/_Trim",@Model.RolePositionDescription)
+        if(Model.PositionDescriptionId > 0 || positionDescriptionPrivilege.CanPerformActions) {
+            @section Trim{active}
+            }
+
+        break;
+
+    }
+
+@if(missingPd)
+    {
+
+    var pdId = Request.Params["id"];
+    if(pdId == null)
+        {
+        pdId = Request.Url.Segments.Last();
+        }
+    <div class="row-fluid alert alert-warning">
+        <span class="font-black">Sorry, the position description was not found. </span>
+        @if(positionDescriptionPrivilege.CanPerformActions)
+            {
+            <p>
+                Please follow the link to create the position description. <a href="@Url.Action("ManageOverview", new {id = pdId})">Basic details</a>
+            </p>
+            }
+    </div>
+    }
+
+
+@functions
+{
+
+
+}

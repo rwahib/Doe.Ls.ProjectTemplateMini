@@ -20,7 +20,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class SingleView_partial_update_Template : BaseTemplate
     {
@@ -32,20 +32,20 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
         {
             this.Write("  \r\n");
             
-            #line 10 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 10 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
  T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); 
             
             #line default
             #line hidden
             
-            #line 12 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 12 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
     var helper=new EdmMetadataHelper(EntityContext);
             
             #line default
             #line hidden
             this.Write("@using Doe.Ls.EntityBase.MVCExtensions\r\n@model ");
             
-            #line 14 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 14 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
@@ -60,14 +60,14 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
     var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
     ");
             
-            #line 22 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 22 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
  var lookups=new List<string>();
     var suffix="";
             
             #line default
             #line hidden
             
-            #line 24 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 24 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 foreach (var mp in T4Helper.ListPropertiesWithFkInfo(EntityType)){
 if(!mp.FK) continue;
         var parentItemName=T4Helper.GetLocalVariableName(mp.PareEntityType);
@@ -81,76 +81,76 @@ if(!mp.FK) continue;
             #line hidden
             this.Write("    var ");
             
-            #line 32 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 32 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(localVariableName));
             
             #line default
             #line hidden
             this.Write(" = ViewBagWrapper.ListBag.GetList(\"");
             
-            #line 32 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 32 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(localVariableName));
             
             #line default
             #line hidden
             this.Write("\",ViewData);\r\n");
             
-            #line 33 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 33 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
     } 
             
             #line default
             #line hidden
             this.Write("    \r\n}\r\n@Html.AntiForgeryToken()\r\n");
             
-            #line 36 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 36 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
  foreach (var pm in T4Helper.ListPropertiesWithFkInfo(EntityType)) {  
             
             #line default
             #line hidden
             
-            #line 37 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 37 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
  ClearIndent(); 
             
             #line default
             #line hidden
             this.Write("      \r\n\r\n");
             
-            #line 39 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 39 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 if(GenerateStaticTemplateForPrimaryKey(pm)){continue;} 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 41 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 41 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 if(GenerateCheckBoxTemplate(pm)){continue;} 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 43 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 43 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 if(GenerateSimpleInputTemplate(pm)){continue;} 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 45 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 45 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 if(GenerateTextAreaTemplate(pm)){continue;} 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 47 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 47 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 if(GenerateLookupTemplate(pm)){continue;} 
             
             #line default
             #line hidden
             this.Write("\r\n ");
             
-            #line 49 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+            #line 49 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
  }// foreach list of properties 
             
             #line default
@@ -193,7 +193,7 @@ if(GenerateLookupTemplate(pm)){continue;}
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 110 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 110 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
  
     //GenerateStaticTemplateForPrimaryKey
 private bool GenerateStaticTemplateForPrimaryKey(PropMeta pm)
@@ -204,21 +204,21 @@ if(T4Helper.PropertyOperations.IsKey(pm.Property,EntityType) && T4Helper.Propert
         #line default
         #line hidden
         
-        #line 115 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 115 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("@Html.HiddenFor(model => model.");
 
         
         #line default
         #line hidden
         
-        #line 116 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 116 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 116 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 116 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(")\r\n@if(formType==FormType.Edit)  {\r\n    <div class=\"form-group @GetFormGroupClass" +
         "(\"");
 
@@ -226,28 +226,28 @@ this.Write(")\r\n@if(formType==FormType.Edit)  {\r\n    <div class=\"form-group 
         #line default
         #line hidden
         
-        #line 118 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 118 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 118 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 118 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\")\">\r\n        <label class=\"col-lg-4 \">@Html.DisplayNameFor(model => model.");
 
         
         #line default
         #line hidden
         
-        #line 119 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 119 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 119 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 119 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(") </label>\r\n        <div class=\"col-lg-8\">            <p class=\"form-control-plai" +
         "ntext\">@Html.DisplayFor(model => model.");
 
@@ -255,21 +255,21 @@ this.Write(") </label>\r\n        <div class=\"col-lg-8\">            <p class=\
         #line default
         #line hidden
         
-        #line 120 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 120 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 120 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 120 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(")</p>        </div>\r\n    </div>\r\n}                       \r\n");
 
         
         #line default
         #line hidden
         
-        #line 123 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 123 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
          
             return true;
 
@@ -279,7 +279,7 @@ this.Write(")</p>        </div>\r\n    </div>\r\n}                       \r\n");
         #line default
         #line hidden
         
-        #line 128 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 128 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
      
     return false;
 }  
@@ -289,7 +289,7 @@ this.Write(")</p>        </div>\r\n    </div>\r\n}                       \r\n");
         #line default
         #line hidden
         
-        #line 137 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 137 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
  
     //GenerateSimpleInputTemplate
 private bool GenerateSimpleInputTemplate(PropMeta pm)
@@ -300,210 +300,210 @@ if(!pm.FK&&T4Helper.IsFormInput(pm.Property,EntityType,EntityContext)) {
         #line default
         #line hidden
         
-        #line 142 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 142 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(" <div class=\"form-group @GetFormGroupClass(\"");
 
         
         #line default
         #line hidden
         
-        #line 143 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 143 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 143 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 143 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\")\">\r\n  <label for=\"");
 
         
         #line default
         #line hidden
         
-        #line 144 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 144 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 144 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 144 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" class=\"col-lg-4\">@Html.DisplayNameFor(model => model.");
 
         
         #line default
         #line hidden
         
-        #line 144 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 144 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 144 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 144 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(") ");
 
         
         #line default
         #line hidden
         
-        #line 144 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 144 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(GetAsteriskForRequiredField(pm)));
 
         
         #line default
         #line hidden
         
-        #line 144 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 144 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("</label>\r\n  <input type=\"");
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(GetInputType(pm)));
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" name=\"");
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" id=\"");
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" class=\"form-control col-lg-8\" placeholder=\"e.g. ");
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(pm.Property.Name)));
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" value=\"@Model.");
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\"@ReadOnly(\"");
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\")  ");
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(IsRequired(pm)));
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(SetEmail(pm)));
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(" ");
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(SetDate(pm)));
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("  ");
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(SetInteger(pm)));
 
         
         #line default
         #line hidden
         
-        #line 145 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 145 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(" /> \r\n</div>\r\n");
 
         
         #line default
         #line hidden
         
-        #line 147 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 147 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
          
             return true;
 
@@ -513,7 +513,7 @@ this.Write(" /> \r\n</div>\r\n");
         #line default
         #line hidden
         
-        #line 152 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 152 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
      
     return false;
 }  
@@ -523,7 +523,7 @@ this.Write(" /> \r\n</div>\r\n");
         #line default
         #line hidden
         
-        #line 158 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 158 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
  
     //GenerateTextAreaTemplate
 private bool GenerateTextAreaTemplate(PropMeta pm)
@@ -534,168 +534,168 @@ if(!pm.FK&&T4Helper.PropertyOperations.IsTextArea(pm.Property,EntityType,EntityC
         #line default
         #line hidden
         
-        #line 163 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 163 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(" <div class=\"form-group @GetFormGroupClass(\"");
 
         
         #line default
         #line hidden
         
-        #line 164 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 164 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 164 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 164 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\")\">\r\n  <label for=\"");
 
         
         #line default
         #line hidden
         
-        #line 165 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 165 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 165 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 165 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" class=\"col-lg-4\">@Html.DisplayNameFor(model => model.");
 
         
         #line default
         #line hidden
         
-        #line 165 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 165 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 165 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 165 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(") ");
 
         
         #line default
         #line hidden
         
-        #line 165 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 165 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(GetAsteriskForRequiredField(pm)));
 
         
         #line default
         #line hidden
         
-        #line 165 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 165 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("</label>\r\n  <textarea name=\"");
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" id=\"");
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" class=\"form-control col-lg-8 ");
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.PropertyOperations.IsRichText(pm.Property,EntityType)?"tinymce":string.Empty));
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" placeholder=\"e.g. ");
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(pm.Property.Name)));
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" ");
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(SetRichText(pm)));
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("  ");
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(IsRequired(pm)));
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("  >");
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.PropertyOperations.IsRichText(pm.Property,EntityType)?"@Html.Raw(Model."+pm.Property.Name+")":"@Model."+pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 166 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 166 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("</textarea>\r\n</div>\r\n");
 
         
         #line default
         #line hidden
         
-        #line 168 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 168 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
          
             return true;
 
@@ -705,7 +705,7 @@ this.Write("</textarea>\r\n</div>\r\n");
         #line default
         #line hidden
         
-        #line 173 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 173 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
      
     return false;
 }  
@@ -715,7 +715,7 @@ this.Write("</textarea>\r\n</div>\r\n");
         #line default
         #line hidden
         
-        #line 181 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 181 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
  
     //GenerateLookupTemplate
 private bool GenerateLookupTemplate(PropMeta pm)
@@ -726,140 +726,140 @@ if(pm.FK) {
         #line default
         #line hidden
         
-        #line 186 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 186 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(" <div class=\"form-group @GetFormGroupClass(\"");
 
         
         #line default
         #line hidden
         
-        #line 187 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 187 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 187 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 187 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\")\">\r\n  <label for=\"");
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 188 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 188 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" class=\"col-lg-4\">@Html.DisplayNameFor(model => model.");
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 188 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.PareEntityType.Name));
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 188 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(") ");
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 188 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(GetAsteriskForRequiredField(pm)));
 
         
         #line default
         #line hidden
         
-        #line 188 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 188 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("</label>\r\n  @Html.DropDownList(\"");
 
         
         #line default
         #line hidden
         
-        #line 189 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 189 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 189 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 189 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\", ");
 
         
         #line default
         #line hidden
         
-        #line 189 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 189 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(pm.PareEntityType)));
 
         
         #line default
         #line hidden
         
-        #line 189 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 189 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("Items , \"Select ");
 
         
         #line default
         #line hidden
         
-        #line 189 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 189 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.PareEntityType.Name.Wordify()));
 
         
         #line default
         #line hidden
         
-        #line 189 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 189 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(" ...\", new {id=\"");
 
         
         #line default
         #line hidden
         
-        #line 189 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 189 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 189 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 189 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\", @class = \"form-control col-lg-8 select2picker\"");
 
         
         #line default
         #line hidden
         
-        #line 189 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 189 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(GetRequiredPropertyValue(pm)));
 
         
         #line default
         #line hidden
         
-        #line 189 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 189 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(" })      \r\n</div>\r\n");
 
         
         #line default
         #line hidden
         
-        #line 191 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 191 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
          
             return true;
 
@@ -869,7 +869,7 @@ this.Write(" })      \r\n</div>\r\n");
         #line default
         #line hidden
         
-        #line 196 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 196 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
      
     return false;
 }  
@@ -879,7 +879,7 @@ this.Write(" })      \r\n</div>\r\n");
         #line default
         #line hidden
         
-        #line 204 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 204 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
  
     //method with text template
 private bool GenerateCheckBoxTemplate(PropMeta pm)
@@ -890,7 +890,7 @@ if(T4Helper.PropertyOperations.IsCheckbox(pm.Property)) {
         #line default
         #line hidden
         
-        #line 209 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 209 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("  <div class=\"form-check\">\r\n            <label class=\"form-check-label\">\r\n       " +
         "         <input class=\"form-check-input\"  type=\"checkbox\" name=\"");
 
@@ -898,63 +898,63 @@ this.Write("  <div class=\"form-check\">\r\n            <label class=\"form-chec
         #line default
         #line hidden
         
-        #line 212 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 212 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 212 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 212 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" id=\"");
 
         
         #line default
         #line hidden
         
-        #line 212 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 212 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 212 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 212 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" checked=\"@Model.");
 
         
         #line default
         #line hidden
         
-        #line 212 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 212 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 212 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 212 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\" @ReadOnly(\"");
 
         
         #line default
         #line hidden
         
-        #line 212 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 212 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 212 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 212 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\")/>\r\n            </label>\r\n        </div>    \r\n");
 
         
         #line default
         #line hidden
         
-        #line 215 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 215 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
          
             return true;
 
@@ -964,7 +964,7 @@ this.Write("\")/>\r\n            </label>\r\n        </div>    \r\n");
         #line default
         #line hidden
         
-        #line 220 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 220 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
      
     return false;
 }  
@@ -974,7 +974,7 @@ this.Write("\")/>\r\n            </label>\r\n        </div>    \r\n");
         #line default
         #line hidden
         
-        #line 230 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 230 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
  
     //method with text template
 private bool GenerateTemplate(PropMeta pm)
@@ -985,21 +985,21 @@ if(/*condition*/true) {
         #line default
         #line hidden
         
-        #line 235 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 235 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("@Html.HiddenFor(model => model.");
 
         
         #line default
         #line hidden
         
-        #line 236 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 236 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 236 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 236 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(")\r\n@if(formType==FormType.Edit)  {\r\n    <div class=\"form-group @GetFormGroupClass" +
         "(\"");
 
@@ -1007,28 +1007,28 @@ this.Write(")\r\n@if(formType==FormType.Edit)  {\r\n    <div class=\"form-group 
         #line default
         #line hidden
         
-        #line 238 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 238 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 238 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 238 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write("\")\">\r\n        <label class=\"col-lg-4 \">@Html.DisplayNameFor(model => model.");
 
         
         #line default
         #line hidden
         
-        #line 239 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 239 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 239 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 239 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(") </label>\r\n        <div class=\"col-lg-8\">            <p class=\"form-control-plai" +
         "ntext\">@Html.DisplayFor(model => model.");
 
@@ -1036,21 +1036,21 @@ this.Write(") </label>\r\n        <div class=\"col-lg-8\">            <p class=\
         #line default
         #line hidden
         
-        #line 240 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 240 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 240 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 240 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 this.Write(")</p>        </div>\r\n    </div>\r\n}                       \r\n");
 
         
         #line default
         #line hidden
         
-        #line 243 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 243 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
          
             return true;
 
@@ -1060,7 +1060,7 @@ this.Write(")</p>        </div>\r\n    </div>\r\n}                       \r\n");
         #line default
         #line hidden
         
-        #line 248 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 248 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
      
     return false;
 }  
@@ -1070,7 +1070,7 @@ this.Write(")</p>        </div>\r\n    </div>\r\n}                       \r\n");
         #line default
         #line hidden
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleView_partial_update_Template.tt"
 
 private string _AppNamespaceField;
 

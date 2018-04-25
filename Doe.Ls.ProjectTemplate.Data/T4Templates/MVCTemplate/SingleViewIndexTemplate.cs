@@ -19,7 +19,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class SingleViewIndexTemplate : BaseTemplate
     {
@@ -32,28 +32,28 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
             this.Write(" \r\n");
             this.Write("\r\n");
             
-            #line 11 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
+            #line 11 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
  T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 13 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
+            #line 13 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
  var helper=new EdmMetadataHelper(EntityContext);
             
             #line default
             #line hidden
             this.Write("@model IEnumerable<");
             
-            #line 14 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
+            #line 14 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write(">\r\n@{\r\n    ViewBagWrapper.InfoBag.SetTitle(\"");
             
-            #line 16 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
+            #line 16 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(T4Helper.CleanClassName(EntityType.Name))));
             
             #line default
@@ -62,14 +62,14 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
                     "ser(ViewData);\r\n    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData);\r" +
                     "\n}\r\n\r\n@*\r\n@section ");
             
-            #line 22 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
+            #line 22 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
             #line hidden
             this.Write("Active\r\n{\r\nactive \r\n}\r\n*@\r\n\r\n<div class=\"wrapper\" id=\"wrapper-");
             
-            #line 28 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
+            #line 28 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
@@ -84,7 +84,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
         <a href=""@Url.Action(""Create"",new {ajax=true})"" class=""btn btn-primary pop-up"" data-toggle=""modal"" data-target=""#vlePluginModal"">
             Create new ");
             
-            #line 36 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
+            #line 36 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(T4Helper.CleanClassName(EntityType.Name))));
             
             #line default
@@ -93,7 +93,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewIndexTemplate.tt"
 
 private string _AppNamespaceField;
 

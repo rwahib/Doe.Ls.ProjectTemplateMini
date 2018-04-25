@@ -19,7 +19,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.UnitTest
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class SingleUnitTestTemplate : MVCTemplate.BaseTemplate
     {
@@ -32,14 +32,14 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.UnitTest
             this.Write(" \r\n");
             this.Write("\r\n");
             
-            #line 11 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 11 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
  T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 13 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 13 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
     
 
 var helper=new EdmMetadataHelper(EntityContext);    
@@ -49,21 +49,21 @@ var helper=new EdmMetadataHelper(EntityContext);
             #line hidden
             this.Write("using System;\r\nusing System.Linq; \r\nusing ");
             
-            #line 19 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 19 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Data;\r\nusing ");
             
-            #line 20 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 20 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Core.BL;\r\nusing ");
             
-            #line 21 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 21 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
@@ -71,14 +71,14 @@ var helper=new EdmMetadataHelper(EntityContext);
             this.Write(".Core.Test.Mockups;\r\n\r\nusing Microsoft.VisualStudio.TestTools.UnitTesting;\r\n\r\n\r\nn" +
                     "amespace ");
             
-            #line 26 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 26 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Core.Test.EntityRepositories \r\n{\r\n[TestClass]\r\n    public class ");
             
-            #line 29 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 29 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
@@ -100,7 +100,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             var globalServiceRepository = new ServiceRepository(factory);
             var rep = globalServiceRepository.");
             
-            #line 44 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 44 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
@@ -121,7 +121,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             var globalServiceRepository = new ServiceRepository(factory);
             var rep = globalServiceRepository.");
             
-            #line 58 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 58 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
@@ -138,7 +138,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             var globalServiceRepository = new ServiceRepository(factory);
             var rep = globalServiceRepository.");
             
-            #line 68 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 68 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
@@ -155,7 +155,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             var globalServiceRepository = new ServiceRepository(factory);
             var rep = globalServiceRepository.");
             
-            #line 78 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 78 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
@@ -173,7 +173,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             var globalServiceRepository = new ServiceRepository(factory);
             var rep = globalServiceRepository.");
             
-            #line 89 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 89 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
@@ -191,7 +191,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             var globalServiceRepository = new ServiceRepository(factory);
             var rep = globalServiceRepository.");
             
-            #line 100 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+            #line 100 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
@@ -215,7 +215,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\UnitTest\SingleUnitTestTemplate.tt"
 
 private global::System.Data.Entity.Core.Metadata.Edm.EntityType _EntityTypeField;
 

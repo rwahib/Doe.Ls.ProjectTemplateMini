@@ -19,7 +19,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class SingleViewDetailsTemplate : BaseTemplate
     {
@@ -34,14 +34,14 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
             this.Write("\r\n");
             this.Write("\r\n");
             
-            #line 13 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+            #line 13 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
  T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 15 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+            #line 15 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
     
 
 var helper=new EdmMetadataHelper(EntityContext);
@@ -52,14 +52,14 @@ var helper=new EdmMetadataHelper(EntityContext);
             #line hidden
             this.Write(" \r\n\r\n@model ");
             
-            #line 21 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+            #line 21 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("\r\n@{\r\n    ViewBagWrapper.InfoBag.SetTitle(\"Detail ");
             
-            #line 23 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+            #line 23 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(T4Helper.CleanClassName(EntityType.Name))));
             
             #line default
@@ -76,7 +76,7 @@ var helper=new EdmMetadataHelper(EntityContext);
 <div id=""formTab"" class=""card.card-body"">
     <form class="""" role=""form"" method=""POST"" id=");
             
-            #line 33 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+            #line 33 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetFormId(EntityType,FormType.Details)));
             
             #line default
@@ -84,14 +84,14 @@ var helper=new EdmMetadataHelper(EntityContext);
             this.Write(">\r\n        @Html.AntiForgeryToken()\r\n        <p>\r\n            <a href=\"@Url.Actio" +
                     "n(\"Edit\", new { ");
             
-            #line 36 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+            #line 36 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
             #line hidden
             this.Write("  = Model.");
             
-            #line 36 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+            #line 36 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetSingleKeyProperty(EntityType).Name));
             
             #line default
@@ -99,7 +99,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             this.Write(" })\" class=\"btn btn-primary\">Edit</a>\r\n            <a href=\"@Url.Action(\"Index\")\"" +
                     " class=\"btn btn-primary\">");
             
-            #line 37 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+            #line 37 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
@@ -108,14 +108,14 @@ var helper=new EdmMetadataHelper(EntityContext);
                     "        @Html.Partial(\"_partial/_details\")\r\n        <p>\r\n            <a href=\"@U" +
                     "rl.Action(\"Edit\", new { ");
             
-            #line 42 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+            #line 42 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
             #line hidden
             this.Write("  = Model.");
             
-            #line 42 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+            #line 42 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetSingleKeyProperty(EntityType).Name));
             
             #line default
@@ -123,7 +123,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             this.Write(" })\" class=\"btn btn-primary\">Edit</a>\r\n            <a href=\"@Url.Action(\"Index\")\"" +
                     " class=\"btn btn-primary\">");
             
-            #line 43 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+            #line 43 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
@@ -133,7 +133,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 48 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+        #line 48 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
  string GetKeyName()
 {
     return T4Helper.PropertyOperations.GetKeyLocalVariableName(EntityType);
@@ -143,7 +143,7 @@ var helper=new EdmMetadataHelper(EntityContext);
         #line default
         #line hidden
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDetailsTemplate.tt"
 
 private string _AppNamespaceField;
 

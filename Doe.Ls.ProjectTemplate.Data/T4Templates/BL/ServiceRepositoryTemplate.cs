@@ -19,7 +19,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class ServiceRepositoryTemplate : MVCTemplate.BaseTemplate
     {
@@ -33,14 +33,14 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
             this.Write("\r\n");
             this.Write("\r\n");
             
-            #line 12 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+            #line 12 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
  T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 14 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+            #line 14 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
     
 
 var helper=new EdmMetadataHelper(EntityContext);    
@@ -51,28 +51,28 @@ var helper=new EdmMetadataHelper(EntityContext);
             this.Write("using Doe.Ls.EntityBase.BLLBase;\r\nusing Doe.Ls.EntityBase.Logging;\r\nusing Doe.Ls." +
                     "EntityBase.RepositoryBase;\r\nusing Doe.Ls.EntityBase.SessionService;\r\nusing ");
             
-            #line 22 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+            #line 22 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Core.BL.DomainServices;\r\nusing ");
             
-            #line 23 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+            #line 23 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Core.BL.EntityRepositories;\r\nusing ");
             
-            #line 24 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+            #line 24 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Data;\r\n\r\n\r\nnamespace ");
             
-            #line 27 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+            #line 27 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
@@ -103,7 +103,7 @@ var helper=new EdmMetadataHelper(EntityContext);
 
 ");
             
-            #line 51 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+            #line 51 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
       foreach(var entityType in helper.GetEntityList())
         { 
             if(entityType.Name.ToLower().Contains("sysdia"))continue; 
@@ -112,14 +112,14 @@ var helper=new EdmMetadataHelper(EntityContext);
             #line hidden
             this.Write("\r\n        public ");
             
-            #line 55 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+            #line 55 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(entityType.Name)));
             
             #line default
             #line hidden
             this.Write("Repository ");
             
-            #line 55 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+            #line 55 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(entityType.Name)));
             
             #line default
@@ -127,21 +127,21 @@ var helper=new EdmMetadataHelper(EntityContext);
             this.Write("Repository(params ResolverOverride[] overrides) \r\n        {\r\n            return _" +
                     "repositoryFactory.GetService<IRepository<");
             
-            #line 57 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+            #line 57 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(entityType.Name));
             
             #line default
             #line hidden
             this.Write(">>(overrides) as ");
             
-            #line 57 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+            #line 57 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(entityType.Name)));
             
             #line default
             #line hidden
             this.Write("Repository;\r\n        }\r\n        \r\n");
             
-            #line 60 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+            #line 60 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
     }//foreach 
             
             #line default
@@ -150,7 +150,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\ServiceRepositoryTemplate.tt"
 
 private global::System.Data.Entity.Core.Metadata.Edm.EntityType _EntityTypeField;
 

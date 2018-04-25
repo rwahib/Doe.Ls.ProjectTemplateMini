@@ -19,7 +19,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class SingleLightModelMetadataTemplate : MVCTemplate.BaseTemplate
     {
@@ -33,14 +33,14 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
             this.Write("\r\n");
             this.Write("\r\n");
             
-            #line 12 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
+            #line 12 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
  T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 14 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
+            #line 14 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
  var helper=new EdmMetadataHelper(EntityContext);
             
             #line default
@@ -48,42 +48,42 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
             this.Write("using System.ComponentModel.DataAnnotations;\r\nusing Doe.Ls.EntityBase.MVCExtensio" +
                     "ns;\r\nnamespace ");
             
-            #line 17 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
+            #line 17 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Core.BL.Models.Light {\r\n     public class ");
             
-            #line 18 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
+            #line 18 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name.CleanEntityName()));
             
             #line default
             #line hidden
             this.Write("Light {\r\n");
             
-            #line 19 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
+            #line 19 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
  foreach(var prop in EntityType.DeclaredProperties) {
             
             #line default
             #line hidden
             this.Write("        \r\n        public ");
             
-            #line 20 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
+            #line 20 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(prop.UnderlyingPrimitiveType.ClrEquivalentType.FullName));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 20 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
+            #line 20 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(prop.Name));
             
             #line default
             #line hidden
             this.Write(" {get;set;}\r\n");
             
-            #line 21 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
+            #line 21 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
  } 
             
             #line default
@@ -92,7 +92,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleLightModelMetadataTemplate.tt"
 
 private global::System.Data.Entity.Core.Metadata.Edm.EntityType _EntityTypeField;
 

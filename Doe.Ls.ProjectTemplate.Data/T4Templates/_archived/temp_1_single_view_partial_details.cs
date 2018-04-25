@@ -19,7 +19,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates._archived
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class temp_1_single_view_partial_details : MVCTemplate.BaseTemplate
     {
@@ -31,13 +31,13 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates._archived
         {
             this.Write(" \r\n");
             
-            #line 9 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 9 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
  T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); 
             
             #line default
             #line hidden
             
-            #line 11 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 11 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
     var helper=new EdmMetadataHelper(EntityContext);
 
 
@@ -46,14 +46,14 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates._archived
             #line hidden
             this.Write("@model ");
             
-            #line 14 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 14 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write(" \r\n@{\r\n    ViewBagWrapper.InfoBag.SetTitle(\"");
             
-            #line 16 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 16 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(T4Helper.CleanClassName(EntityType.Name))));
             
             #line default
@@ -62,13 +62,13 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates._archived
                     "ntUser(ViewData);\r\n    var task = ViewBagWrapper.TaskBag.GetCurrentTask(ViewData" +
                     ");\t\r\n}\r\n");
             
-            #line 20 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 20 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
     foreach (var property in T4Helper.ListPropertiesWithFkInfo(EntityType)) 
             
             #line default
             #line hidden
             
-            #line 21 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 21 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
     {
     if (property == null) continue;
  
@@ -76,76 +76,76 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates._archived
             #line default
             #line hidden
             
-            #line 24 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 24 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
         if(T4Helper.PropertyOperations.IsKey(property.Property,EntityType))
             
             #line default
             #line hidden
             
-            #line 25 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 25 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
         {
             
             #line default
             #line hidden
             this.Write(" \r\n@Html.HiddenFor(model => model.");
             
-            #line 26 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 26 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(property.Property.Name));
             
             #line default
             #line hidden
             this.Write(")\r\n");
             
-            #line 27 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 27 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
         }
             
             #line default
             #line hidden
             this.Write("<div class=\"form-group\">\r\n    ");
             
-            #line 29 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 29 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 if (property.FK){ 
             
             #line default
             #line hidden
             this.Write("\t    <span class=\"col-lg-4 col-form-label\">@Html.DisplayNameFor(model => model.");
             
-            #line 30 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 30 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(property.PareEntityType.Name));
             
             #line default
             #line hidden
             this.Write(")</span>\r\n");
             
-            #line 31 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 31 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
             }else{ 
             
             #line default
             #line hidden
             this.Write("    <span class=\"col-lg-4 col-form-label\">@Html.DisplayNameFor(model => model.");
             
-            #line 32 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 32 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(property.Property.Name));
             
             #line default
             #line hidden
             this.Write(")</span>\r\n    ");
             
-            #line 33 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 33 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 } 
             
             #line default
             #line hidden
             this.Write("   \r\n    ");
             
-            #line 34 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 34 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
     GenerateDisplayValueForProperty(property); 
             
             #line default
             #line hidden
             this.Write("</div>\r\n");
             
-            #line 36 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+            #line 36 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
  } 
             
             #line default
@@ -153,7 +153,7 @@ if (property.FK){
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 37 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 37 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 
     void GenerateDisplayValueForProperty(PropMeta property)
     {
@@ -164,7 +164,7 @@ if (property.FK){
         #line default
         #line hidden
         
-        #line 42 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 42 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write("    <div class=\"col-lg-8\"><p class=\"form-control-plaintext\">@Html.DisplayFor(mode" +
         "l => model.");
 
@@ -172,21 +172,21 @@ this.Write("    <div class=\"col-lg-8\"><p class=\"form-control-plaintext\">@Htm
         #line default
         #line hidden
         
-        #line 43 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 43 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(property.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 43 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 43 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write(")</p></div>\r\n        ");
 
         
         #line default
         #line hidden
         
-        #line 44 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 44 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
  
         }
 
@@ -197,28 +197,28 @@ this.Write(")</p></div>\r\n        ");
         #line default
         #line hidden
         
-        #line 49 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 49 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write("    <div class=\"col-lg-8\"><p class=\"form-control-plaintext\">@Html.Raw(Model.");
 
         
         #line default
         #line hidden
         
-        #line 50 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 50 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(property.Property.Name));
 
         
         #line default
         #line hidden
         
-        #line 50 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 50 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write(")</p></div>\r\n        ");
 
         
         #line default
         #line hidden
         
-        #line 51 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 51 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
  
         }
 
@@ -230,7 +230,7 @@ this.Write(")</p></div>\r\n        ");
         #line default
         #line hidden
         
-        #line 57 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 57 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write("    <div class=\"col-lg-8\"><p class=\"form-control-plaintext\">@Html.DisplayFor(mode" +
         "l => model.");
 
@@ -238,35 +238,35 @@ this.Write("    <div class=\"col-lg-8\"><p class=\"form-control-plaintext\">@Htm
         #line default
         #line hidden
         
-        #line 58 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 58 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(property.PareEntityType.Name));
 
         
         #line default
         #line hidden
         
-        #line 58 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 58 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write(".");
 
         
         #line default
         #line hidden
         
-        #line 58 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 58 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.MetadataOperations.GetDispayPropertyName(property.PareEntityType)));
 
         
         #line default
         #line hidden
         
-        #line 58 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 58 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write(")</p>\r\n    </div>\r\n        ");
 
         
         #line default
         #line hidden
         
-        #line 60 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 60 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
  
         }
 
@@ -278,42 +278,42 @@ this.Write(")</p>\r\n    </div>\r\n        ");
         #line default
         #line hidden
         
-        #line 66 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 66 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write("    <div class=\"col-lg-8\"><p class=\"form-control-plaintext\">@Html.Raw(Model.");
 
         
         #line default
         #line hidden
         
-        #line 67 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 67 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(property.PareEntityType.Name));
 
         
         #line default
         #line hidden
         
-        #line 67 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 67 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write(".");
 
         
         #line default
         #line hidden
         
-        #line 67 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 67 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.MetadataOperations.GetDispayPropertyName(property.PareEntityType)));
 
         
         #line default
         #line hidden
         
-        #line 67 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 67 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 this.Write(")</p></div>\r\n        ");
 
         
         #line default
         #line hidden
         
-        #line 68 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 68 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
  
         }
 
@@ -323,7 +323,7 @@ this.Write(")</p></div>\r\n        ");
         #line default
         #line hidden
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_details.tt"
 
 private string _AppNamespaceField;
 

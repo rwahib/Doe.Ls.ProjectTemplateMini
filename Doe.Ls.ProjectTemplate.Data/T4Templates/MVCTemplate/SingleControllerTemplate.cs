@@ -21,7 +21,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class SingleControllerTemplate : BaseTemplate
     {
@@ -36,7 +36,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
             this.Write("\r\n");
             this.Write("\r\n");
             
-            #line 15 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 15 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     
 
     var helper=new EdmMetadataHelper(EntityContext);
@@ -60,56 +60,56 @@ using Doe.Ls.EntityBase.Helper;
 using Doe.Ls.EntityBase.Logging;
 using ");
             
-            #line 33 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 33 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Core.BL;\r\nusing ");
             
-            #line 34 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 34 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Core.BL.EntityRepositories;\r\nusing ");
             
-            #line 35 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 35 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Core.BL.UI;\r\nusing ");
             
-            #line 36 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 36 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Core.BL.Models.Light;\r\nusing ");
             
-            #line 37 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 37 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Data;\r\nusing ");
             
-            #line 38 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 38 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Web.Controllers.Domain;\r\n\r\nnamespace ");
             
-            #line 40 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 40 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Web.Controllers\r\n{\r\n");
             
-            #line 42 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 42 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     if(T4Helper.MetadataOperations.HasAnyRichText(EntityType))
     {PushIndent(" "); 
             
@@ -117,14 +117,14 @@ using ");
             #line hidden
             this.Write("[ValidateInput(false)]");
             
-            #line 43 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 43 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     }
             
             #line default
             #line hidden
             this.Write("    \r\n    ");
             
-            #line 44 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 44 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     if(T4Helper.MetadataOperations.IsSecure(EntityType))
     {PushIndent(" "); 
             
@@ -132,35 +132,35 @@ using ");
             #line hidden
             this.Write("[System.Web.Mvc.Authorize(Roles=\"");
             
-            #line 45 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 45 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.MetadataOperations.AccessRoles(EntityType)));
             
             #line default
             #line hidden
             this.Write("\")]");
             
-            #line 45 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 45 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     }
             
             #line default
             #line hidden
             this.Write("    \r\n    public partial class ");
             
-            #line 46 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 46 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
             #line hidden
             this.Write("Controller : AppControllerBase\r\n    {\r\n     private ");
             
-            #line 48 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 48 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
             #line hidden
             this.Write("Repository _repository=null;\r\n     public ");
             
-            #line 49 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 49 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
@@ -168,7 +168,7 @@ using ");
             this.Write("Repository Repository\r\n         {\r\n         get\r\n         {\r\n\r\n             retur" +
                     "n _repository=_repository ?? ServiceRepository.");
             
-            #line 54 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 54 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
@@ -176,42 +176,42 @@ using ");
             this.Write("Repository();\r\n\r\n             }\r\n \r\n         }\r\n                \r\n\r\n        publi" +
                     "c ActionResult Index()\r\n        {\r\n            var ");
             
-            #line 63 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 63 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write("s = Repository.List();\r\n            return View(");
             
-            #line 64 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 64 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write("s.ToList());\r\n        }\r\n\r\n        //\r\n        // GET: /");
             
-            #line 68 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 68 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
             #line hidden
             this.Write("/Details/5\r\n        public ActionResult Details(");
             
-            #line 69 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 69 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyType()));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 69 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 69 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 69 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 69 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDefaultValue()));
             
             #line default
@@ -219,28 +219,28 @@ using ");
             this.Write(")\r\n        {\r\n            ViewBagWrapper.FormOperations.SetFormType(FormType.Deta" +
                     "ils, ViewData);\r\n            var ");
             
-            #line 72 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 72 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(" = Repository.GetEntityByKey(");
             
-            #line 72 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 72 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
             #line hidden
             this.Write(");\r\n            if (");
             
-            #line 73 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 73 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(" == null)\r\n            {\r\n                throw new HttpException(\"");
             
-            #line 75 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 75 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
@@ -248,14 +248,14 @@ using ");
             this.Write(" not found\");\r\n            }\r\n             if (Request.IsAjaxRequest()) {\r\n      " +
                     "            return View(\"Details-modal\", ");
             
-            #line 78 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 78 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(");\r\n              } else {\r\n            return View(");
             
-            #line 80 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 80 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
@@ -275,21 +275,21 @@ using ");
             {
                 var ");
             
-            #line 93 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 93 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write("s = Repository.List();\r\n                IQueryable<");
             
-            #line 94 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 94 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("> displayed");
             
-            #line 94 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 94 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
@@ -298,21 +298,21 @@ using ");
                     "               {\r\n                    var searchArgs = new SearchArg { Search = " +
                     "arg.sSearch };\r\n                    displayed");
             
-            #line 99 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 99 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("s = Repository.Filter");
             
-            #line 99 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 99 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("s(");
             
-            #line 99 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 99 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
@@ -320,28 +320,28 @@ using ");
             this.Write("s, searchArgs);\r\n                }\r\n                else\r\n                {\r\n    " +
                     "                displayed");
             
-            #line 103 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 103 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("s = CustomOrderBy.CustomSort(");
             
-            #line 103 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 103 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write("s, arg);\r\n                }\r\n\r\n                var totalRecord =  displayed");
             
-            #line 106 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 106 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("s.Count();\r\n                var totalDisplayRecord =  displayed");
             
-            #line 107 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 107 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
@@ -349,14 +349,14 @@ using ");
             this.Write("s.Count();\r\n\r\n                if (arg.iDisplayLength == -1)\r\n                    " +
                     "arg.iDisplayLength = totalRecord;\r\n\r\n                displayed");
             
-            #line 112 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 112 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("s =  displayed");
             
-            #line 112 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 112 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
@@ -364,14 +364,14 @@ using ");
             this.Write("s.Skip(arg.iDisplayStart).Take(arg.iDisplayLength);\r\n\r\n                var result" +
                     " = displayed");
             
-            #line 114 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 114 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("s.AsEnumerable().ToArray().Select(ent => ent.To(new ");
             
-            #line 114 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 114 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name.CleanEntityName()));
             
             #line default
@@ -400,28 +400,28 @@ using ");
 
          // GET: /");
             
-            #line 136 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 136 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
             #line hidden
             this.Write("/Details/5\r\n        public ActionResult DetailsJson(");
             
-            #line 137 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 137 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyType()));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 137 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 137 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 137 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 137 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDefaultValue()));
             
             #line default
@@ -429,21 +429,21 @@ using ");
             this.Write(")\r\n        {\r\n            var ajaxResult = new Result();\r\n            \r\n         " +
                     "   try {\r\n                var ");
             
-            #line 142 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 142 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write("Light = Repository.GetEntityByKey(");
             
-            #line 142 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 142 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
             #line hidden
             this.Write(").To(new ");
             
-            #line 142 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 142 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
@@ -452,7 +452,7 @@ using ");
                     ";\r\n                ajaxResult.Message = \"Success\";\r\n                ajaxResult.D" +
                     "ata = ");
             
-            #line 147 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 147 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
@@ -475,28 +475,28 @@ using ");
 
         // GET: /");
             
-            #line 163 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 163 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
             #line hidden
             this.Write("/Delete/5\r\n        public ActionResult Delete(");
             
-            #line 164 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 164 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyType()));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 164 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 164 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 164 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 164 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDefaultValue()));
             
             #line default
@@ -504,28 +504,28 @@ using ");
             this.Write(")\r\n        {\r\n            ViewBagWrapper.FormOperations.SetFormType(FormType.Dele" +
                     "te, ViewData);\r\n\r\n            var ");
             
-            #line 168 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 168 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(" = Repository.GetEntityByKey(");
             
-            #line 168 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 168 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
             #line hidden
             this.Write(");\r\n            if (");
             
-            #line 169 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 169 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(" == null)\r\n            {\r\n                throw new HttpException(\"");
             
-            #line 171 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 171 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
@@ -533,21 +533,21 @@ using ");
             this.Write(" not found\");\r\n            }\r\n             if (Request.IsAjaxRequest()) {\r\n      " +
                     "            return View(\"Delete-modal\", ");
             
-            #line 174 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 174 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(");\r\n              } else {\r\n            return View(");
             
-            #line 176 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 176 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(");\r\n              }\r\n\r\n            \r\n        }\r\n        //\r\n        // GET: /");
             
-            #line 182 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 182 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
@@ -561,21 +561,21 @@ using ");
             if (Request.IsAjaxRequest()) {
                 return View(""Create-modal"", new ");
             
-            #line 189 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 189 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("());\r\n            } else {\r\n            return View(new ");
             
-            #line 191 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 191 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("());\r\n            }\r\n        }\r\n\r\n        //\r\n        // POST: /");
             
-            #line 196 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 196 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
@@ -583,21 +583,21 @@ using ");
             this.Write("/Create\r\n\r\n        [System.Web.Mvc.HttpPost]\r\n        [ValidateAntiForgeryToken]\r" +
                     "\n        public ActionResult Create(");
             
-            #line 200 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 200 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 200 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 200 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(")\r\n        {\r\n            ");
             
-            #line 202 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 202 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ModelStateCode(FormType.Create)));
             
             #line default
@@ -611,7 +611,7 @@ using ");
                 try {
                     Repository.Insert(");
             
-            #line 209 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 209 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
@@ -638,7 +638,7 @@ using ");
                     "g.SetErrors(Repository.GetValidationErrors(ModelState), ViewData);\r\n            " +
                     "        CreateLookups();\r\n                    return View(");
             
-            #line 248 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 248 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
@@ -646,28 +646,28 @@ using ");
             this.Write(");\r\n                }\r\n                \r\n            }\r\n            \r\n        }\r\n" +
                     "\r\n              \r\n        //\r\n        // GET: /");
             
-            #line 257 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 257 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
             #line hidden
             this.Write("/Edit/5\r\n        public ActionResult Edit(");
             
-            #line 258 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 258 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyType()));
             
             #line default
             #line hidden
             this.Write("  ");
             
-            #line 258 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 258 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 258 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 258 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetDefaultValue()));
             
             #line default
@@ -675,28 +675,28 @@ using ");
             this.Write(")\r\n        {\r\n            ViewBagWrapper.FormOperations.SetFormType(FormType.Edit" +
                     ", ViewData);\r\n            var ");
             
-            #line 261 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 261 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(" = Repository.GetEntityByKey(");
             
-            #line 261 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 261 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
             #line hidden
             this.Write(");\r\n            if (");
             
-            #line 262 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 262 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(" == null)\r\n            {\r\n                throw new HttpException(\"");
             
-            #line 264 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 264 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
@@ -705,21 +705,21 @@ using ");
                     "       if (Request.IsAjaxRequest()) {\r\n                  return View(\"Edit-modal" +
                     "\", ");
             
-            #line 269 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 269 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(");\r\n              } else {\r\n                  return View(");
             
-            #line 271 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 271 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(");\r\n              }\r\n        }\r\n\r\n        //\r\n        // POST: /");
             
-            #line 276 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 276 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
@@ -727,21 +727,21 @@ using ");
             this.Write("/Edit/5\r\n        [System.Web.Mvc.HttpPost]\r\n        [ValidateAntiForgeryToken]\r\n " +
                     "       public ActionResult Edit(");
             
-            #line 279 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 279 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 279 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 279 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(")\r\n        {\r\n            ");
             
-            #line 281 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 281 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(ModelStateCode(FormType.Edit)));
             
             #line default
@@ -755,28 +755,28 @@ using ");
             {
                 var old");
             
-            #line 288 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 288 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
             #line hidden
             this.Write(" = Repository.GetEntityByEntityKey(");
             
-            #line 288 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 288 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(");\r\n                \r\n                Repository.SetPropertyValuesFrom(ref old");
             
-            #line 290 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 290 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
             #line hidden
             this.Write(",");
             
-            #line 290 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 290 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
@@ -784,7 +784,7 @@ using ");
             this.Write(");\r\n\r\n                try\r\n                {\r\n                    Repository.Upda" +
                     "te(old");
             
-            #line 294 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 294 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
@@ -813,7 +813,7 @@ using ");
                     "te), ViewData);\r\n                    CreateLookups();\r\n                    retur" +
                     "n View(");
             
-            #line 340 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 340 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
@@ -821,7 +821,7 @@ using ");
             this.Write(");\r\n                }                \r\n            }          \r\n        }\r\n\r\n    " +
                     "    //\r\n        // POST: /");
             
-            #line 346 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 346 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
@@ -830,14 +830,14 @@ using ");
                     ")]\r\n        [ValidateAntiForgeryToken]\r\n        public ActionResult DeleteConfir" +
                     "med(");
             
-            #line 350 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 350 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 350 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 350 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
@@ -846,21 +846,21 @@ using ");
                     "te, ViewData);\r\n            var ajaxResult = new Result();            \r\n        " +
                     "    var old");
             
-            #line 354 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 354 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
             #line hidden
             this.Write(" = Repository.GetEntityByEntityKey(");
             
-            #line 354 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 354 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write(");\r\n            try\r\n            {\r\n                Repository.Delete(old");
             
-            #line 357 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 357 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(cleanName));
             
             #line default
@@ -907,7 +907,7 @@ using ");
         
         var enity = T4Helper.GetEntityType(""");
             
-            #line 397 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 397 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.EntityType.Name));
             
             #line default
@@ -915,7 +915,7 @@ using ");
             this.Write("\", this.ServiceRepository.GetUnitOfWork().DbContext);\r\n        ViewBagWrapper.Ent" +
                     "ityInfo.SetEntityType(enity,ViewData);        \r\n  ");
             
-            #line 399 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 399 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     var lookups=new List<string>();
     var suffix="";
     
@@ -925,7 +925,7 @@ using ");
             #line hidden
             this.Write("            \r\n");
             
-            #line 404 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 404 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     foreach (var mp in T4Helper.ListPropertiesWithFkInfo(EntityType))
     {
         if(!mp.FK)continue;
@@ -941,14 +941,14 @@ using ");
             #line hidden
             this.Write("        var ");
             
-            #line 414 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 414 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(localVariableName));
             
             #line default
             #line hidden
             this.Write("=ServiceRepository.");
             
-            #line 414 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 414 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(mp.PareEntityType.Name)));
             
             #line default
@@ -956,14 +956,14 @@ using ");
             this.Write("Repository()\r\n                    .List().ToArray()\r\n                    .Select(" +
                     "pe => new SelectListItemExtension { Value = pe.");
             
-            #line 416 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 416 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(mp.FkProperty.Name));
             
             #line default
             #line hidden
             this.Write(".ToString(), Text =");
             
-            #line 416 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 416 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetLookupText(mp.PareEntityType,"pe")));
             
             #line default
@@ -971,21 +971,21 @@ using ");
             this.Write("})\r\n                    .ToArray();\r\n        \r\n        ViewBagWrapper.ListBag.Set" +
                     "List(\"");
             
-            #line 419 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 419 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(localVariableName));
             
             #line default
             #line hidden
             this.Write("\",");
             
-            #line 419 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 419 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(mp.PareEntityType)));
             
             #line default
             #line hidden
             this.Write("Items,ViewData);\r\n                \r\n\r\n  ");
             
-            #line 422 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+            #line 422 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     } 
             
             #line default
@@ -996,7 +996,7 @@ using ");
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 433 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+        #line 433 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     string GetKeyType()
     {
         if (T4Helper.PropertyOperations.IsKeyString(this.EntityType))
@@ -1009,7 +1009,7 @@ using ");
         #line default
         #line hidden
         
-        #line 442 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+        #line 442 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     string GetKeyName()
     {
         return T4Helper.PropertyOperations.GetKeyLocalVariableName(EntityType);
@@ -1019,7 +1019,7 @@ using ");
         #line default
         #line hidden
         
-        #line 449 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+        #line 449 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     string GetDefaultValue()
     {
         if (T4Helper.PropertyOperations.IsKeyString(this.EntityType))
@@ -1032,7 +1032,7 @@ using ");
         #line default
         #line hidden
         
-        #line 458 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+        #line 458 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     string ModelStateCode(FormType formType)
     {
         var sb = new StringBuilder();
@@ -1074,7 +1074,7 @@ using ");
         #line default
         #line hidden
         
-        #line 498 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+        #line 498 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     string RemovePropertyFromStateCode(EdmProperty property)
 {
 return String.Format("this.ModelState.Remove(\"{0}\"); \n\r",property.Name);
@@ -1084,7 +1084,7 @@ return String.Format("this.ModelState.Remove(\"{0}\"); \n\r",property.Name);
         #line default
         #line hidden
         
-        #line 506 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+        #line 506 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     string ReplaceOnFieldWithBooleanPropertyStateCode(EdmProperty property)
 {
   var localVar = T4Helper.GetLocalVariableName(this.EntityType);
@@ -1099,7 +1099,7 @@ return String.Format("this.ModelState.Remove(\"{0}\"); \n\r",property.Name);
         #line default
         #line hidden
         
-        #line 518 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+        #line 518 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
     string GetLookupText(System.Data.Entity.Core.Metadata.Edm.EntityType  entityType,string parameter)
     {
     if (entityType.Name=="DocumentType")
@@ -1133,7 +1133,7 @@ return String.Format("this.ModelState.Remove(\"{0}\"); \n\r",property.Name);
         #line default
         #line hidden
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleControllerTemplate.tt"
 
 private string _AppNamespaceField;
 

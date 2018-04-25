@@ -22,7 +22,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class SettingsTemplate : MVCTemplate.BaseTemplate
     {
@@ -35,26 +35,26 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates
             this.Write(" \r\n");
             this.Write("using System.Collections.Specialized;\r\nusing System.Configuration;\r\n\r\nnamespace ");
             
-            #line 18 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+            #line 18 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Core.Settings  \r\n{ \r\n    public class PositionEstablishmentSettings  \r\n    {\r\n");
             
-            #line 22 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+            #line 22 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
   XmlParser parser=XmlParser.Parse(XDocument.Load(this.ConfigFile)); 
             
             #line default
             #line hidden
             
-            #line 23 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+            #line 23 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
   string[] classesToSkip= {"appSettings","system.web", "system.webServer"}; 
             
             #line default
             #line hidden
             
-            #line 24 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+            #line 24 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
   foreach(var parserClass in parser.XmlParserClassList){
         if(classesToSkip.Contains(parserClass.ClassName)) continue; 
         GenerateClassCode(parserClass);
@@ -66,7 +66,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 31 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 31 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 private string CleanPropertyName(string name)
 {
     if(string.IsNullOrWhiteSpace(name))return "NULL";
@@ -95,7 +95,7 @@ private string CleanPropertyName(string name)
         #line default
         #line hidden
         
-        #line 58 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 58 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 private void GenerateClassCode(XmlParserClass classParser){
         PushIndent("\t");
 
@@ -103,28 +103,28 @@ private void GenerateClassCode(XmlParserClass classParser){
         #line default
         #line hidden
         
-        #line 60 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 60 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write("   \r\n    public static class ");
 
         
         #line default
         #line hidden
         
-        #line 61 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 61 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(CleanPropertyName(classParser.ClassName)));
 
         
         #line default
         #line hidden
         
-        #line 61 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 61 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write(" \r\n    {\r\n");
 
         
         #line default
         #line hidden
         
-        #line 63 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 63 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 
 if(classParser.XmlParserClassList!=null){
             foreach(XmlParserClass cp in classParser.XmlParserClassList){
@@ -142,49 +142,49 @@ if(classParser.XmlParserItemList!=null){
         #line default
         #line hidden
         
-        #line 76 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 76 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 	if(item.PropertyName.ToLower().StartsWith("is") || item.PropertyName.ToLower().StartsWith("use") || item.PropertyName.ToLower() == "debugautoauthentication"){
 
         
         #line default
         #line hidden
         
-        #line 77 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 77 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write("\t\tpublic static bool ");
 
         
         #line default
         #line hidden
         
-        #line 78 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 78 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(CleanPropertyName(item.PropertyName)));
 
         
         #line default
         #line hidden
         
-        #line 78 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 78 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write("\r\n        {\r\n\t\t\tget { return ");
 
         
         #line default
         #line hidden
         
-        #line 80 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 80 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(item.PropertyExpression));
 
         
         #line default
         #line hidden
         
-        #line 80 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 80 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write(".ToBoolean(); }\r\n        }\r\n");
 
         
         #line default
         #line hidden
         
-        #line 82 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 82 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 
 }
 	else if(item.PropertyName.ToLower() == "appurl"){
@@ -193,21 +193,21 @@ this.Write(".ToBoolean(); }\r\n        }\r\n");
         #line default
         #line hidden
         
-        #line 85 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 85 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write("\t\tpublic static string ");
 
         
         #line default
         #line hidden
         
-        #line 86 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 86 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(CleanPropertyName(item.PropertyName)));
 
         
         #line default
         #line hidden
         
-        #line 86 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 86 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write("\r\n        {\r\n            get { return  EntityBase.Http.HttpHelper.GetAppUrl();   " +
         "  }\r\n        }\r\n");
 
@@ -215,7 +215,7 @@ this.Write("\r\n        {\r\n            get { return  EntityBase.Http.HttpHelpe
         #line default
         #line hidden
         
-        #line 90 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 90 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 
 }else{
 
@@ -223,42 +223,42 @@ this.Write("\r\n        {\r\n            get { return  EntityBase.Http.HttpHelpe
         #line default
         #line hidden
         
-        #line 92 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 92 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write("\r\n        public static string ");
 
         
         #line default
         #line hidden
         
-        #line 94 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 94 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(CleanPropertyName(item.PropertyName)));
 
         
         #line default
         #line hidden
         
-        #line 94 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 94 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write("\r\n        {\r\n            get { return  ");
 
         
         #line default
         #line hidden
         
-        #line 96 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 96 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write(this.ToStringHelper.ToStringWithCulture(item.PropertyExpression));
 
         
         #line default
         #line hidden
         
-        #line 96 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 96 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write(";     }\r\n        }\r\n");
 
         
         #line default
         #line hidden
         
-        #line 98 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 98 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 
 }
 }}
@@ -268,21 +268,21 @@ this.Write(";     }\r\n        }\r\n");
         #line default
         #line hidden
         
-        #line 102 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 102 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 this.Write("        }\r\n");
 
         
         #line default
         #line hidden
         
-        #line 104 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 104 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 
 } 
         
         #line default
         #line hidden
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\SettingsTemplate.tt"
 
 private string _ConfigFileField;
 

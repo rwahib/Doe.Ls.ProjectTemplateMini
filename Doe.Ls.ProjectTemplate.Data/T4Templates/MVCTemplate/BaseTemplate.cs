@@ -21,7 +21,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class BaseTemplate : BaseTemplateBase
     {
@@ -33,7 +33,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
         {
             this.Write("\r\n");
             
-            #line 10 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
+            #line 10 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
  T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); 
             
             #line default
@@ -44,7 +44,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 20 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
+        #line 20 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
 
 
     protected string  SetDate(PropMeta pm)
@@ -59,7 +59,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
         #line default
         #line hidden
         
-        #line 34 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
+        #line 34 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
 
 
     protected string  IsRequired(PropMeta pm)
@@ -76,7 +76,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
         #line default
         #line hidden
         
-        #line 47 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
+        #line 47 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
 
 
     protected string  GetRequiredPropertyValue(PropMeta pm)
@@ -91,7 +91,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
         #line default
         #line hidden
         
-        #line 58 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
+        #line 58 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
 
 	protected string GetAsteriskForRequiredField(PropMeta pm)
 	{
@@ -102,7 +102,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
         #line default
         #line hidden
         
-        #line 65 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
+        #line 65 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
 
 
     protected string  SetRichText(PropMeta pm)
@@ -119,7 +119,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
         #line default
         #line hidden
         
-        #line 78 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
+        #line 78 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
 
 
     protected string  SetEmail(PropMeta pm)
@@ -136,7 +136,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
         #line default
         #line hidden
         
-        #line 93 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
+        #line 93 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
 
 
     protected string GetInputType(PropMeta pm)
@@ -149,7 +149,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
         #line default
         #line hidden
         
-        #line 104 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
+        #line 104 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
 
 
     protected string SetInteger(PropMeta pm)
@@ -164,7 +164,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
         #line default
         #line hidden
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\BaseTemplate.tt"
 
 private string _AppNamespaceField;
 

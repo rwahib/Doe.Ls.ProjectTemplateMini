@@ -19,7 +19,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class SingleViewDeleteTemplate_Modal : BaseTemplate
     {
@@ -31,20 +31,20 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.MVCTemplate
         {
             this.Write(" \r\n");
             
-            #line 10 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
+            #line 10 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
  T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); 
             
             #line default
             #line hidden
             
-            #line 11 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
+            #line 11 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
 var helper=new EdmMetadataHelper(EntityContext);
             
             #line default
             #line hidden
             this.Write("@model ");
             
-            #line 12 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
+            #line 12 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
@@ -52,7 +52,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             this.Write("\r\n@{\r\n    var errors = ViewBagWrapper.ErrorBag.GetErrors(ViewData);    \r\n    View" +
                     "BagWrapper.InfoBag.SetTitle(\"");
             
-            #line 15 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
+            #line 15 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(T4Helper.CleanClassName(EntityType.Name))));
             
             #line default
@@ -66,7 +66,7 @@ var helper=new EdmMetadataHelper(EntityContext);
 <div class=""modal-header"">
     <h5 class=""modal-title"" id=""tempModalLabel"">Are you sure you want to delete this ");
             
-            #line 22 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
+            #line 22 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(T4Helper.CleanClassName(EntityType.Name)).ToLower()));
             
             #line default
@@ -99,14 +99,14 @@ var helper=new EdmMetadataHelper(EntityContext);
 <div id=""formTab"">
     <form class="""" role=""form"" action=""@Url.Action(""Delete"")"" @*");
             
-            #line 48 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
+            #line 48 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetFormAction(EntityType,FormType.Delete)));
             
             #line default
             #line hidden
             this.Write("*@   method=\"POST\" id=");
             
-            #line 48 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
+            #line 48 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetFormId(EntityType,FormType.Delete)));
             
             #line default
@@ -128,7 +128,7 @@ var helper=new EdmMetadataHelper(EntityContext);
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\MVCTemplate\SingleViewDeleteTemplate_Modal.tt"
 
 private string _AppNamespaceField;
 

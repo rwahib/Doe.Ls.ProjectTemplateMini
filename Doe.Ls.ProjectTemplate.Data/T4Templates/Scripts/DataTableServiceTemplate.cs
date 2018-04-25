@@ -21,7 +21,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.Scripts
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class DataTableServiceTemplate : MVCTemplate.BaseTemplate
     {
@@ -35,7 +35,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.Scripts
             this.Write(" \r\n");
             this.Write("\r\n");
             
-            #line 12 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
+            #line 12 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
     
     var helper=new EdmMetadataHelper(EntityContext);
 
@@ -74,33 +74,33 @@ define(['jquery', 'cnt', 'helper', 'interactive', 'api', 'fValidator'], function
         switch(serviceType){
 ");
             
-            #line 45 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
+            #line 45 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
     foreach(var entityType in helper.GetEntityList())
             
             #line default
             #line hidden
             
-            #line 46 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
+            #line 46 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
     { 
             
             #line default
             #line hidden
             
-            #line 47 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
+            #line 47 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
         if(entityType.Name.ToLower().Contains("sysdia"))continue; 
             
             #line default
             #line hidden
             this.Write("\r\n            case \'");
             
-            #line 49 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
+            #line 49 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(entityType)));
             
             #line default
             #line hidden
             this.Write("Service\':\r\n                require([\'");
             
-            #line 50 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
+            #line 50 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(entityType)));
             
             #line default
@@ -109,7 +109,7 @@ define(['jquery', 'cnt', 'helper', 'interactive', 'api', 'fValidator'], function
                     "\r\n                        callBack(service.dtSettings);\r\n                    }\r\n" +
                     "                });\r\n                break;\r\n");
             
-            #line 56 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
+            #line 56 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
     }
             
             #line default
@@ -147,7 +147,7 @@ define(['jquery', 'cnt', 'helper', 'interactive', 'api', 'fValidator'], function
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\DataTableServiceTemplate.tt"
 
 private global::System.Data.Entity.DbContext _EntityContextField;
 

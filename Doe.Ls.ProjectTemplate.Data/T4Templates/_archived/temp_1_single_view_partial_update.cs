@@ -20,7 +20,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates._archived
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class temp_1_single_view_partial_update : MVCTemplate.BaseTemplate
     {
@@ -34,14 +34,14 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates._archived
             this.Write("\r\n");
             this.Write("\r\n");
             
-            #line 12 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 12 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
  T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 15 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 15 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
     var helper=new EdmMetadataHelper(EntityContext);
     if(this.EntityType.Name=="GeneralLog"){
     } 
@@ -51,7 +51,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates._archived
             #line hidden
             this.Write("@using Doe.Ls.EntityBase.MVCExtensions\r\n@model ");
             
-            #line 20 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 20 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
@@ -66,7 +66,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates._archived
     var requestType = ViewBagWrapper.FormOperations.GetRequestType(ViewData);
     ");
             
-            #line 28 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 28 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
  var lookups=new List<string>();
   var suffix="";
     
@@ -75,7 +75,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates._archived
             #line default
             #line hidden
             
-            #line 32 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 32 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 foreach (var mp in T4Helper.ListPropertiesWithFkInfo(EntityType)){
 if(!mp.FK)continue;
         var parentItemName=T4Helper.GetLocalVariableName(mp.PareEntityType);
@@ -89,53 +89,53 @@ if(!mp.FK)continue;
             #line hidden
             this.Write("    var ");
             
-            #line 40 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 40 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(localVariableName));
             
             #line default
             #line hidden
             this.Write(" = ViewBagWrapper.ListBag.GetList(\"");
             
-            #line 40 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 40 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(localVariableName));
             
             #line default
             #line hidden
             this.Write("\",ViewData);\r\n");
             
-            #line 41 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 41 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
     } 
             
             #line default
             #line hidden
             this.Write("    \r\n}\r\n\r\n@Html.AntiForgeryToken()\r\n\r\n");
             
-            #line 46 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 46 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
     foreach (var pm in T4Helper.ListPropertiesWithFkInfo(EntityType))    
             
             #line default
             #line hidden
             
-            #line 47 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 47 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
     { 
             
             #line default
             #line hidden
             
-            #line 48 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 48 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
         if(T4Helper.PropertyOperations.IsKey(pm.Property,EntityType) && T4Helper.PropertyOperations.IsKeyAutoIncrement(EntityType,EntityContext))
             
             #line default
             #line hidden
             
-            #line 49 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 49 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
         {
             
             #line default
             #line hidden
             this.Write(" \r\n@Html.HiddenFor(model => model.");
             
-            #line 50 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 50 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
@@ -143,14 +143,14 @@ if(!mp.FK)continue;
             this.Write(")\r\n@if(formType==FormType.Edit)  {\r\n    <div class=\"form-group @GetFormGroupClass" +
                     "(\"");
             
-            #line 52 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 52 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\")\">\r\n        <label class=\"col-lg-4 \">@Html.DisplayNameFor(model => model.");
             
-            #line 53 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 53 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
@@ -158,377 +158,377 @@ if(!mp.FK)continue;
             this.Write(") </label>\r\n        <div class=\"col-lg-8\">            <p class=\"form-control-plai" +
                     "ntext\">@Html.DisplayFor(model => model.");
             
-            #line 54 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 54 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write(")</p>        </div>\r\n    </div>                       \r\n}\r\n");
             
-            #line 57 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 57 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             continue;
             
             #line default
             #line hidden
             
-            #line 58 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 58 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
         }/*IsKey*/         
             
             #line default
             #line hidden
             
-            #line 59 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 59 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
         if (!T4Helper.PropertyOperations.IsCheckbox(pm.Property)) {
             
             #line default
             #line hidden
             this.Write("<div class=\"form-group @GetFormGroupClass(\"");
             
-            #line 60 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 60 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\")\">\r\n");
             
-            #line 61 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 61 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 if (pm.FK) 
             
             #line default
             #line hidden
             
-            #line 62 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 62 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             { 
             
             #line default
             #line hidden
             this.Write(" <label for=\"");
             
-            #line 63 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 63 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\" class=\"col-lg-4\">@Html.DisplayNameFor(model => model.");
             
-            #line 63 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 63 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.PareEntityType.Name));
             
             #line default
             #line hidden
             this.Write(") ");
             
-            #line 63 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 63 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetAsteriskForRequiredField(pm.Property)));
             
             #line default
             #line hidden
             this.Write("</label>\r\n");
             
-            #line 64 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 64 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             }/*is !FK*/else{ 
             
             #line default
             #line hidden
             this.Write("<label for=\"");
             
-            #line 64 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 64 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\" class=\"col-lg-4\">@Html.DisplayNameFor(model => model.");
             
-            #line 64 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 64 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write(") ");
             
-            #line 64 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 64 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetAsteriskForRequiredField(pm.Property)));
             
             #line default
             #line hidden
             this.Write("</label>\r\n    ");
             
-            #line 65 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 65 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 }/*not FK*/ 
             
             #line default
             #line hidden
             
-            #line 66 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 66 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             if (!pm.FK){ 
             
             #line default
             #line hidden
             
-            #line 67 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 67 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             } else {
             
             #line default
             #line hidden
             
-            #line 68 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 68 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             } 
             
             #line default
             #line hidden
             
-            #line 69 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 69 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             if (!pm.FK){ 
             
             #line default
             #line hidden
             this.Write("            \r\n");
             
-            #line 70 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 70 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             if (!pm.FK&&T4Helper.IsFormInput(pm.Property,EntityType,EntityContext)){ 
             
             #line default
             #line hidden
             this.Write(" <input type=\"");
             
-            #line 71 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 71 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetInputType(pm.Property)));
             
             #line default
             #line hidden
             this.Write("\" name=\"");
             
-            #line 71 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 71 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\" id=\"");
             
-            #line 71 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 71 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\" class=\"form-control col-lg-8\" placeholder=\"e.g. ");
             
-            #line 71 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 71 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(pm.Property.Name)));
             
             #line default
             #line hidden
             this.Write("\" value=\"@Model.");
             
-            #line 71 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 71 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\"@ReadOnly(\"");
             
-            #line 71 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 71 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\")  ");
             
-            #line 71 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 71 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(IsRequired(pm.Property)));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 71 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 71 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(SetEmail(pm.Property)));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 71 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 71 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(SetDate(pm.Property)));
             
             #line default
             #line hidden
             this.Write("  ");
             
-            #line 71 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 71 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(SetInteger(pm.Property)));
             
             #line default
             #line hidden
             this.Write(" />\r\n");
             
-            #line 72 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 72 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             } 
             
             #line default
             #line hidden
             
-            #line 73 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 73 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             if (!pm.FK&&T4Helper.PropertyOperations.IsTextArea(pm.Property,EntityType,EntityContext))
             
             #line default
             #line hidden
             
-            #line 74 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 74 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             { 
             
             #line default
             #line hidden
             this.Write(" <textarea name=\"");
             
-            #line 75 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 75 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\" id=\"");
             
-            #line 75 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 75 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\" class=\"form-control col-lg-8 ");
             
-            #line 75 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 75 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.PropertyOperations.IsRichText(pm.Property,EntityType)?"tinymce":string.Empty));
             
             #line default
             #line hidden
             this.Write("\" placeholder=\"e.g. ");
             
-            #line 75 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 75 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(pm.Property.Name)));
             
             #line default
             #line hidden
             this.Write("\" ");
             
-            #line 75 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 75 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(SetRichText(pm.Property)));
             
             #line default
             #line hidden
             this.Write("  ");
             
-            #line 75 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 75 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(IsRequired(pm.Property)));
             
             #line default
             #line hidden
             this.Write("  >@Model.");
             
-            #line 75 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 75 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("</textarea>\r\n");
             
-            #line 76 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 76 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             } 
             
             #line default
             #line hidden
             
-            #line 77 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 77 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             if (!pm.FK)
             
             #line default
             #line hidden
             
-            #line 78 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 78 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             { 
             
             #line default
             #line hidden
             this.Write("                       \r\n");
             
-            #line 79 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 79 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             } 
             
             #line default
             #line hidden
             
-            #line 80 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 80 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             if (pm.FK) 
             
             #line default
             #line hidden
             
-            #line 81 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 81 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             { 
             
             #line default
             #line hidden
             this.Write(" @Html.DropDownList(\"");
             
-            #line 82 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 82 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\", ");
             
-            #line 82 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 82 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(pm.PareEntityType)));
             
             #line default
             #line hidden
             this.Write("Items , \"Select ");
             
-            #line 82 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 82 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.PareEntityType.Name.Wordify()));
             
             #line default
             #line hidden
             this.Write(" ...\", new {id=\"");
             
-            #line 82 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 82 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\", @class = \"form-control col-lg-8 select2picker\"");
             
-            #line 82 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 82 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetRequiredPropertyValue(pm.Property)));
             
             #line default
             #line hidden
             this.Write(" })      \r\n");
             
-            #line 83 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 83 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             } 
             
             #line default
             #line hidden
             this.Write("    \r\n</div>  \r\n                     \r\n");
             
-            #line 86 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 86 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
         } 
             
             #line default
             #line hidden
             
-            #line 87 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 87 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
         } /*not checkbox*/ 
             
             #line default
             #line hidden
             this.Write("\r\n ");
             
-            #line 89 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 89 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
         if (T4Helper.PropertyOperations.IsCheckbox(pm.Property))
             
             #line default
             #line hidden
             
-            #line 90 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 90 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
         { 
             
             #line default
@@ -536,42 +536,42 @@ if (pm.FK)
             this.Write("        <div class=\"form-check\">\r\n            <label class=\"form-check-label\">\r\n " +
                     "               <input class=\"form-check-input\"  type=\"checkbox\" name=\"");
             
-            #line 93 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 93 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\" id=\"");
             
-            #line 93 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 93 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\" checked=\"@Model.");
             
-            #line 93 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 93 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\" @ReadOnly(\"");
             
-            #line 93 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 93 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\")/>\r\n            </label>\r\n        </div>    \r\n");
             
-            #line 96 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 96 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
         } 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 98 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+            #line 98 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
     }/*foreach*/ 
             
             #line default
@@ -614,7 +614,7 @@ if (pm.FK)
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 156 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+        #line 156 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 
     void GenerateAddonSpan(EdmProperty property)
     {
@@ -625,14 +625,14 @@ if (pm.FK)
         #line default
         #line hidden
         
-        #line 161 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+        #line 161 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 this.Write("          \r\n        ");
 
         
         #line default
         #line hidden
         
-        #line 162 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+        #line 162 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 
         }
     }
@@ -641,7 +641,7 @@ this.Write("          \r\n        ");
         #line default
         #line hidden
         
-        #line 167 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+        #line 167 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 
 
     private string  IsRequired(EdmProperty property)
@@ -658,7 +658,7 @@ this.Write("          \r\n        ");
         #line default
         #line hidden
         
-        #line 180 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+        #line 180 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 
 
     private string  GetRequiredPropertyValue(EdmProperty property)
@@ -673,7 +673,7 @@ this.Write("          \r\n        ");
         #line default
         #line hidden
         
-        #line 191 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+        #line 191 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 
 	private string GetAsteriskForRequiredField(EdmProperty property)
 	{
@@ -684,7 +684,7 @@ this.Write("          \r\n        ");
         #line default
         #line hidden
         
-        #line 198 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+        #line 198 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 
 
     private string  SetRichText(EdmProperty property)
@@ -701,7 +701,7 @@ this.Write("          \r\n        ");
         #line default
         #line hidden
         
-        #line 211 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+        #line 211 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 
 
     private string  SetEmail(EdmProperty property)
@@ -718,7 +718,7 @@ this.Write("          \r\n        ");
         #line default
         #line hidden
         
-        #line 224 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+        #line 224 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 
 
     private string  SetDate(EdmProperty property)
@@ -733,7 +733,7 @@ this.Write("          \r\n        ");
         #line default
         #line hidden
         
-        #line 235 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+        #line 235 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 
 
     private string GetInputType(EdmProperty property)
@@ -746,7 +746,7 @@ this.Write("          \r\n        ");
         #line default
         #line hidden
         
-        #line 246 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+        #line 246 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 
 
     private string SetInteger(EdmProperty property)
@@ -761,7 +761,7 @@ this.Write("          \r\n        ");
         #line default
         #line hidden
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\_archived\temp_1_single_view_partial_update.tt"
 
 private string _AppNamespaceField;
 

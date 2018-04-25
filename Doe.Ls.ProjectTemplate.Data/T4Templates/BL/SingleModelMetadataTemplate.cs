@@ -19,7 +19,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class SingleModelMetadataTemplate : MVCTemplate.BaseTemplate
     {
@@ -33,14 +33,14 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
             this.Write("\r\n");
             this.Write("\r\n");
             
-            #line 12 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 12 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
  T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 14 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 14 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
  var helper=new EdmMetadataHelper(EntityContext);
             
             #line default
@@ -48,21 +48,21 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
             this.Write("using System.ComponentModel.DataAnnotations;\r\nusing Doe.Ls.EntityBase.MVCExtensio" +
                     "ns;\r\nnamespace ");
             
-            #line 17 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 17 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Data\r\n{\r\n    [MetadataType(typeof(");
             
-            #line 19 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 19 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("Metadata))]\r\n    public partial class ");
             
-            #line 20 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 20 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
@@ -70,21 +70,21 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
             this.Write("\r\n    {\r\n        public override string ToString()\r\n        {\r\n            return" +
                     " string.Format(\"{0}\", this.");
             
-            #line 24 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 24 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.PropertyOperations.GetDispayPropertyName(EntityType)));
             
             #line default
             #line hidden
             this.Write(");\r\n        }\r\n    }\r\n\r\n    public class ");
             
-            #line 28 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 28 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("Metadata\r\n    {\r\n");
             
-            #line 30 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 30 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
  foreach(var prop in EntityType.DeclaredProperties) {
         T4Helper.Validate(prop,EntityType,EntityContext,null);   
 
@@ -93,113 +93,113 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
             #line hidden
             this.Write("        \r\n        [Display(Name =\"");
             
-            #line 33 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 33 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(prop.Name)));
             
             #line default
             #line hidden
             this.Write("\" )]\r\n");
             
-            #line 34 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 34 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 if(T4Helper.PropertyOperations.IsRequired(prop,EntityType,EntityContext)) {
             
             #line default
             #line hidden
             this.Write("        [Required(ErrorMessage = \"");
             
-            #line 35 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 35 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(prop.Name)));
             
             #line default
             #line hidden
             this.Write(" is required\")]\r\n");
             
-            #line 36 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 36 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 } 
             
             #line default
             #line hidden
             
-            #line 37 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 37 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 if(T4Helper.PropertyOperations.IsTextArea(prop,EntityType,EntityContext)) {
             
             #line default
             #line hidden
             this.Write("        [DataType(DataType.MultilineText)]\r\n");
             
-            #line 39 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 39 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 } 
             
             #line default
             #line hidden
             
-            #line 40 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 40 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 if(T4Helper.PropertyOperations.IsText(prop)){
             
             #line default
             #line hidden
             this.Write("        [MaxLength(");
             
-            #line 41 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 41 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.PropertyOperations.GetMaxLength(prop,EntityType,EntityContext)));
             
             #line default
             #line hidden
             this.Write(", ErrorMessage = \"Exceeding the max length, allowed only ");
             
-            #line 41 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 41 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.PropertyOperations.GetMaxLength(prop,EntityType,EntityContext)));
             
             #line default
             #line hidden
             this.Write(" character\")]\r\n");
             
-            #line 42 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 42 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 } 
             
             #line default
             #line hidden
             
-            #line 43 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 43 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 if(T4Helper.PropertyOperations.IsPhone(prop)){
             
             #line default
             #line hidden
             this.Write("        [DataType(DataType.PhoneNumber)]\r\n");
             
-            #line 45 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 45 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 } 
             
             #line default
             #line hidden
             
-            #line 46 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 46 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 if(T4Helper.PropertyOperations.IsEmail(prop)){
             
             #line default
             #line hidden
             this.Write("        [DataType(DataType.EmailAddress)]\r\n");
             
-            #line 48 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 48 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 } 
             
             #line default
             #line hidden
             
-            #line 49 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 49 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 if(T4Helper.PropertyOperations.IsPassword(prop)){
             
             #line default
             #line hidden
             this.Write("        [DataType(DataType.Password)]\r\n");
             
-            #line 51 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 51 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 } 
             
             #line default
             #line hidden
             
-            #line 52 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 52 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 if(T4Helper.PropertyOperations.IsDate(prop)){
             
             #line default
@@ -207,13 +207,13 @@ if(T4Helper.PropertyOperations.IsDate(prop)){
             this.Write("        [DisplayFormat(ApplyFormatInEditMode =true,DataFormatString = \"{0:d}\")]\r\n" +
                     "        [DataType(DataType.Date)]\r\n");
             
-            #line 55 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 55 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 } 
             
             #line default
             #line hidden
             
-            #line 56 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 56 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 if(T4Helper.PropertyOperations.IsDateTime(prop)){
             
             #line default
@@ -221,35 +221,35 @@ if(T4Helper.PropertyOperations.IsDateTime(prop)){
             this.Write("        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = \"{0:dd-MM" +
                     "M-yyyy HH:mm:ss}\")]\r\n        [DataType(DataType.DateTime)]\r\n");
             
-            #line 59 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 59 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 } 
             
             #line default
             #line hidden
             this.Write("        public ");
             
-            #line 60 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 60 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(prop.UnderlyingPrimitiveType.ClrEquivalentType.FullName));
             
             #line default
             #line hidden
             this.Write(" ");
             
-            #line 60 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 60 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(prop.Name));
             
             #line default
             #line hidden
             this.Write(" {get;set;}\r\n");
             
-            #line 61 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 61 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
  } 
             
             #line default
             #line hidden
             this.Write("  \r\n\r\n\r\n\r\n");
             
-            #line 65 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 65 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
  foreach(var prop in EntityType.NavigationProperties) {
         
 
@@ -258,21 +258,21 @@ if(T4Helper.PropertyOperations.IsDateTime(prop)){
             #line hidden
             this.Write("        \r\n        [Display(Name =\"");
             
-            #line 68 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 68 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.Wordify(prop.Name)));
             
             #line default
             #line hidden
             this.Write("\" )]\r\n        public object ");
             
-            #line 69 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 69 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(prop.Name));
             
             #line default
             #line hidden
             this.Write(" {get;set;}\r\n");
             
-            #line 70 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+            #line 70 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
  } 
             
             #line default
@@ -281,7 +281,7 @@ if(T4Helper.PropertyOperations.IsDateTime(prop)){
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleModelMetadataTemplate.tt"
 
 private global::System.Data.Entity.Core.Metadata.Edm.EntityType _EntityTypeField;
 

@@ -21,7 +21,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.Scripts
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class SingleServiceTemplate : MVCTemplate.BaseTemplate
     {
@@ -34,7 +34,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.Scripts
             this.Write(" \r\n");
             this.Write("\r\n");
             
-            #line 12 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 12 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
      
     var helper=new EdmMetadataHelper(EntityContext);
 
@@ -67,80 +67,80 @@ define(['jquery', 'cnt', 'helper', 'interactive', 'api', 'fValidator'], function
             'aoColumns': [
 ");
             
-            #line 39 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 39 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
     foreach(var pm in T4Helper.ListPropertiesWithFkInfo(EntityType))
             
             #line default
             #line hidden
             
-            #line 40 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 40 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
     {
             
             #line default
             #line hidden
             
-            #line 41 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 41 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
         if(!pm.FK){ 
             
             #line default
             #line hidden
             
-            #line 42 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 42 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             if(!T4Helper.PropertyOperations.IsDate(pm.Property) && !T4Helper.PropertyOperations.IsDateTime(pm.Property)){
             
             #line default
             #line hidden
             this.Write("                {\'sName\':\'");
             
-            #line 43 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 43 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\',\'mData\':\'");
             
-            #line 43 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 43 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\'");
             
-            #line 43 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 43 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
  if(!T4Helper.PropertyOperations.IsKey(pm.Property,EntityType)){
             
             #line default
             #line hidden
             this.Write(", \'defaultContent\': \'\' ");
             
-            #line 43 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 43 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
                 }
             
             #line default
             #line hidden
             this.Write(" },\r\n");
             
-            #line 44 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 44 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             } 
             
             #line default
             #line hidden
             
-            #line 45 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 45 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             else{
             
             #line default
             #line hidden
             this.Write("                {\r\n                    \'sName\':\'");
             
-            #line 47 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 47 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\',\r\n                    \'mData\': \'");
             
-            #line 48 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 48 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
@@ -149,53 +149,53 @@ define(['jquery', 'cnt', 'helper', 'interactive', 'api', 'fValidator'], function
                     "urn helper.getDateTimeFromJsonDate(value);\r\n                    }\r\n             " +
                     "   },\r\n");
             
-            #line 53 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 53 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             }
             
             #line default
             #line hidden
             
-            #line 54 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 54 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
         }
             
             #line default
             #line hidden
             
-            #line 55 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 55 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
         else{
             
             #line default
             #line hidden
             this.Write("                { \'sName\':\'");
             
-            #line 56 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 56 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\',\'mData\':\'");
             
-            #line 56 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 56 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write("\', \'defaultContent\': \'\'},\r\n");
             
-            #line 57 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 57 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
         }
             
             #line default
             #line hidden
             
-            #line 58 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 58 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
     }
             
             #line default
             #line hidden
             this.Write("                {\r\n                    \'mData\': \'");
             
-            #line 60 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 60 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.KeyProperties.First().Name));
             
             #line default
@@ -204,14 +204,14 @@ define(['jquery', 'cnt', 'helper', 'interactive', 'api', 'fValidator'], function
                     "n \'<div class=\"btn-group-vertical\">\' + \r\n                                    \'<a" +
                     " href=\"");
             
-            #line 63 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 63 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.EntityType.Name.CleanEntityName()));
             
             #line default
             #line hidden
             this.Write("/Edit?");
             
-            #line 63 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 63 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
@@ -219,14 +219,14 @@ define(['jquery', 'cnt', 'helper', 'interactive', 'api', 'fValidator'], function
             this.Write("=\' + code + \'\" class=\"btn btn-primary pop-up\"  data-toggle=\"modal\" data-target=\"#" +
                     "vlePluginModal\">Edit</a>\' + \r\n                                    \'<a href=\"");
             
-            #line 64 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 64 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.EntityType.Name.CleanEntityName()));
             
             #line default
             #line hidden
             this.Write("/Details?");
             
-            #line 64 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 64 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
@@ -234,14 +234,14 @@ define(['jquery', 'cnt', 'helper', 'interactive', 'api', 'fValidator'], function
             this.Write("=\' + code + \'\" class=\"btn btn-primary pop-up\"  data-toggle=\"modal\" data-target=\"#" +
                     "vlePluginModal\">Detail</a>\' + \r\n                                    \'<a href=\"");
             
-            #line 65 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 65 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(this.EntityType.Name.CleanEntityName()));
             
             #line default
             #line hidden
             this.Write("/Delete?");
             
-            #line 65 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+            #line 65 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetKeyName()));
             
             #line default
@@ -288,7 +288,7 @@ define(['jquery', 'cnt', 'helper', 'interactive', 'api', 'fValidator'], function
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 103 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+        #line 103 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
     string GetKeyName()
     {
         return T4Helper.PropertyOperations.GetKeyLocalVariableName(EntityType);
@@ -298,7 +298,7 @@ define(['jquery', 'cnt', 'helper', 'interactive', 'api', 'fValidator'], function
         #line default
         #line hidden
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\SingleServiceTemplate.tt"
 
 private global::System.Data.Entity.Core.Metadata.Edm.EntityType _EntityTypeField;
 

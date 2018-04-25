@@ -21,7 +21,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.Scripts
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class MainServiceTemplate : MVCTemplate.BaseTemplate
     {
@@ -35,7 +35,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.Scripts
             this.Write(" \r\n");
             this.Write("\r\n");
             
-            #line 12 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
+            #line 12 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
     
     var helper=new EdmMetadataHelper(EntityContext);
 
@@ -64,40 +64,40 @@ define(['interactive', 'helper'], function (interactive, helper) {
 
 ");
             
-            #line 35 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
+            #line 35 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
     foreach(var entityType in helper.GetEntityList())
             
             #line default
             #line hidden
             
-            #line 36 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
+            #line 36 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
     { 
             
             #line default
             #line hidden
             
-            #line 37 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
+            #line 37 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
         if(entityType.Name.ToLower().Contains("sysdia"))continue; 
             
             #line default
             #line hidden
             this.Write("                if (wrapperId.indexOf(\'wrapper-");
             
-            #line 38 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
+            #line 38 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(entityType.Name)));
             
             #line default
             #line hidden
             this.Write("\') > -1 || frmId.indexOf(\'form-");
             
-            #line 38 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
+            #line 38 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(entityType)));
             
             #line default
             #line hidden
             this.Write("\') > -1){\r\n                    require([\'");
             
-            #line 39 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
+            #line 39 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(entityType)));
             
             #line default
@@ -105,7 +105,7 @@ define(['interactive', 'helper'], function (interactive, helper) {
             this.Write("Service\'], function(service){\r\n                        service.initialise();\r\n   " +
                     "                 });\r\n                }\r\n\r\n");
             
-            #line 44 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
+            #line 44 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
     }
             
             #line default
@@ -115,7 +115,7 @@ define(['interactive', 'helper'], function (interactive, helper) {
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\Scripts\MainServiceTemplate.tt"
 
 private global::System.Data.Entity.DbContext _EntityContextField;
 

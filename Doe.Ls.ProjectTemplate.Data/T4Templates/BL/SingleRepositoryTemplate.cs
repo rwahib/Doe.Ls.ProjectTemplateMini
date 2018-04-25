@@ -21,7 +21,7 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
     /// Class to produce the template output
     /// </summary>
     
-    #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+    #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.TextTemplating", "15.0.0.0")]
     public partial class SingleRepositoryTemplate : MVCTemplate.BaseTemplate
     {
@@ -34,14 +34,14 @@ namespace Doe.Ls.ProjectTemplate.Data.T4Templates.BL
             this.Write(" \r\n");
             this.Write("\r\n");
             
-            #line 13 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 13 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
  T4Helper.SetAssemblyClassNameFormatFromContext(EntityContext); 
             
             #line default
             #line hidden
             this.Write("\r\n");
             
-            #line 15 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 15 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
   
     var helper=new EdmMetadataHelper(EntityContext);   
 
@@ -60,35 +60,35 @@ using Doe.Ls.EntityBase.RepositoryBase;
 using Doe.Ls.EntityBase.SessionService;
 using ");
             
-            #line 28 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 28 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Data;\r\n\r\nnamespace ");
             
-            #line 30 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 30 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(AppNamespace));
             
             #line default
             #line hidden
             this.Write(".Core.BL.EntityRepositories \r\n{\r\n    public partial class ");
             
-            #line 32 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 32 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
             #line hidden
             this.Write("Repository : BaseRepository<");
             
-            #line 32 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 32 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("> \r\n    {\r\n        public ");
             
-            #line 34 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 34 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.CleanClassName(EntityType.Name)));
             
             #line default
@@ -97,55 +97,55 @@ using ");
                     "sessionService) : base(unitOfWork, loggerService, sessionService)\r\n        {\r\n  " +
                     "      }\r\n\r\n        public override IQueryable<");
             
-            #line 38 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 38 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("> List()\r\n        {                       \r\n            return base.List()\r\n");
             
-            #line 41 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 41 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
     foreach(var property in this.EntityType.NavigationProperties)                      
             
             #line default
             #line hidden
             
-            #line 42 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 42 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
     {
             
             #line default
             #line hidden
             this.Write("                    .Include(ent=>ent.");
             
-            #line 43 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 43 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(property.Name));
             
             #line default
             #line hidden
             this.Write(") \r\n");
             
-            #line 44 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 44 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
     }
             
             #line default
             #line hidden
             this.Write("                    .OrderBy(ent=>ent.");
             
-            #line 45 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 45 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetKeys(this.EntityType).FirstOrDefault()));
             
             #line default
             #line hidden
             this.Write(");\r\n        }\r\n\r\n        public override void Insert(");
             
-            #line 48 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 48 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write(" entity) \r\n        {");
             
-            #line 49 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 49 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetComputedCodeForInsert()));
             
             #line default
@@ -162,14 +162,14 @@ using ");
         
         public override void Update(");
             
-            #line 59 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 59 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write(" entity, bool refresh = true) \r\n        {");
             
-            #line 60 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 60 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(GetComputedCodeForUpdate()));
             
             #line default
@@ -179,42 +179,42 @@ using ");
                     "entity) };\r\n            }\r\n\r\n            base.Update(entity, refresh);\r\n        " +
                     "}\r\n\r\n        ");
             
-            #line 70 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 70 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
     if(T4Helper.HasSingleKeyNumber(this.EntityType)){  
             
             #line default
             #line hidden
             this.Write("\r\n       \r\n        ");
             
-            #line 73 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 73 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
     }  
             
             #line default
             #line hidden
             this.Write("\r\n\r\n        public IQueryable<");
             
-            #line 76 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 76 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("> Filter");
             
-            #line 76 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 76 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("s(IQueryable<");
             
-            #line 76 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 76 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write("> ");
             
-            #line 76 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 76 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
@@ -222,119 +222,119 @@ using ");
             this.Write("s, SearchArg searchArg)\r\n        {\r\n            var searchWord = searchArg.Search" +
                     ".ToLower();\r\n            var filtered");
             
-            #line 79 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 79 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write(" = ");
             
-            #line 79 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 79 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetLocalVariableName(EntityType)));
             
             #line default
             #line hidden
             this.Write("s.Where(ent => \r\n");
             
-            #line 80 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 80 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
     var useOr = false;
             
             #line default
             #line hidden
             
-            #line 81 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 81 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
     foreach(var pm in T4Helper.ListPropertiesWithFkInfo(EntityType))
             
             #line default
             #line hidden
             
-            #line 82 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 82 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
     {
             
             #line default
             #line hidden
             
-            #line 83 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 83 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
        
  if(pm.FK && !ToBeIgnored(pm.PareEntityType.Properties.First()))        
             
             #line default
             #line hidden
             
-            #line 85 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 85 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
         {
             
             #line default
             #line hidden
             
-            #line 86 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 86 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             if(useOr) {
             
             #line default
             #line hidden
             this.Write("                    || ");
             
-            #line 86 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 86 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             }else{
             
             #line default
             #line hidden
             this.Write("                    ");
             
-            #line 86 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 86 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             }
             
             #line default
             #line hidden
             this.Write("(!string.IsNullOrEmpty(ent.");
             
-            #line 87 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 87 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.PareEntityType.Name));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 87 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 87 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.PropertyOperations.GetDispayPropertyName(pm.PareEntityType)));
             
             #line default
             #line hidden
             this.Write(") && ent.");
             
-            #line 87 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 87 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.PareEntityType.Name));
             
             #line default
             #line hidden
             this.Write(".");
             
-            #line 87 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 87 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.PropertyOperations.GetDispayPropertyName(pm.PareEntityType)));
             
             #line default
             #line hidden
             this.Write(".ToLower().Contains(searchWord))\r\n");
             
-            #line 88 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 88 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             useOr=true;
             
             #line default
             #line hidden
             
-            #line 89 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 89 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             continue;
             
             #line default
             #line hidden
             
-            #line 90 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 90 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
         }
             
             #line default
             #line hidden
             
-            #line 91 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 91 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
         
 
 if(T4Helper.PropertyOperations.IsBinary(pm.Property) || T4Helper.PropertyOperations.IsTimeSpan(pm.Property) || T4Helper.PropertyOperations.IsNullableTimeSpan(pm.Property) ){
@@ -346,196 +346,196 @@ if(!ToBeIgnored(pm.Property))
             #line default
             #line hidden
             
-            #line 98 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 98 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
         {
             
             #line default
             #line hidden
             
-            #line 99 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 99 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             if(T4Helper.PropertyOperations.IsInteger(pm.Property))
             
             #line default
             #line hidden
             
-            #line 100 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 100 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             {
             
             #line default
             #line hidden
             
-            #line 101 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 101 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
                 if(useOr) {
             
             #line default
             #line hidden
             this.Write("                    || ");
             
-            #line 101 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 101 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
                 }else{
             
             #line default
             #line hidden
             this.Write("                    ");
             
-            #line 101 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 101 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
                 }
             
             #line default
             #line hidden
             this.Write("ent.");
             
-            #line 102 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 102 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write(".ToString().Contains(searchWord)\r\n");
             
-            #line 103 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 103 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
                 useOr=true;
             
             #line default
             #line hidden
             
-            #line 104 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 104 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
                 continue;
             
             #line default
             #line hidden
             
-            #line 105 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 105 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             }
             
             #line default
             #line hidden
             
-            #line 106 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 106 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             if(T4Helper.PropertyOperations.IsNumber(pm.Property))
             
             #line default
             #line hidden
             
-            #line 107 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 107 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             {
             
             #line default
             #line hidden
             
-            #line 108 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 108 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
                 if(useOr) {
             
             #line default
             #line hidden
             this.Write("                    || ");
             
-            #line 108 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 108 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
                 }else{
             
             #line default
             #line hidden
             this.Write("                    ");
             
-            #line 108 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 108 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
                 }
             
             #line default
             #line hidden
             this.Write("ent.");
             
-            #line 109 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 109 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write(".ToString().Contains(searchWord)\r\n");
             
-            #line 110 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 110 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
                 useOr=true;
             
             #line default
             #line hidden
             
-            #line 111 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 111 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
                 continue;
             
             #line default
             #line hidden
             
-            #line 112 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 112 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             }
             
             #line default
             #line hidden
             
-            #line 113 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 113 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             if(useOr) {
             
             #line default
             #line hidden
             this.Write("                    || ");
             
-            #line 113 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 113 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             }else{
             
             #line default
             #line hidden
             this.Write("                    ");
             
-            #line 113 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 113 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             }
             
             #line default
             #line hidden
             this.Write("(!string.IsNullOrEmpty(ent.");
             
-            #line 114 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 114 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write(") && ent.");
             
-            #line 114 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 114 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(pm.Property.Name));
             
             #line default
             #line hidden
             this.Write(".ToLower().Contains(searchWord))\r\n");
             
-            #line 115 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 115 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             useOr=true;
             
             #line default
             #line hidden
             
-            #line 116 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 116 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             continue;
             
             #line default
             #line hidden
             
-            #line 117 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 117 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
         }
             
             #line default
             #line hidden
             
-            #line 118 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 118 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
     }
             
             #line default
             #line hidden
             this.Write(");\r\n\r\n            return filtered");
             
-            #line 120 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 120 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(EntityType.Name));
             
             #line default
             #line hidden
             this.Write(".OrderBy(e => e.");
             
-            #line 120 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+            #line 120 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
             this.Write(this.ToStringHelper.ToStringWithCulture(T4Helper.GetKeys(this.EntityType).FirstOrDefault()));
             
             #line default
@@ -544,7 +544,7 @@ if(!ToBeIgnored(pm.Property))
             return this.GenerationEnvironment.ToString();
         }
         
-        #line 127 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+        #line 127 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
     
     string GetComputedCodeForInsert(){
 
@@ -556,7 +556,7 @@ if(!ToBeIgnored(pm.Property))
         #line default
         #line hidden
         
-        #line 136 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+        #line 136 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
     
     string GetComputedCodeForUpdate(){
 
@@ -568,7 +568,7 @@ if(!ToBeIgnored(pm.Property))
         #line default
         #line hidden
         
-        #line 144 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+        #line 144 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
 
     bool ToBeIgnored(EdmProperty property){
         if (T4Helper.PropertyOperations.IsCheckbox(property))return true;
@@ -584,7 +584,7 @@ if(!ToBeIgnored(pm.Property))
         #line default
         #line hidden
         
-        #line 1 "C:\Projects\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
+        #line 1 "C:\Users\det\Source\Repos\Doe.Ls.ProjectTemplateMini\Doe.Ls.ProjectTemplate.Data\T4Templates\BL\SingleRepositoryTemplate.tt"
 
 private global::System.Data.Entity.Core.Metadata.Edm.EntityType _EntityTypeField;
 

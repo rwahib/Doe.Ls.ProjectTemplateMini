@@ -914,6 +914,7 @@
     <Content Include="Scripts\UserService.js" />
     <Content Include="Scripts\unitService.js" />
     <Content Include="Scripts\wfActionService.js" />
+    <Content Include="TEST_AAA.html" />
     <Content Include="Version.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Version.txt</LastGenOutput>
